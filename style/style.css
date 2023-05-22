@@ -1,0 +1,321 @@
+*,
+*::before,
+*::after {
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  scroll-behavior: smooth;
+}
+
+ul {
+  list-style: none;
+}
+
+a, a:visited {
+  text-decoration: none;
+}
+
+body {
+  font-family: 'Montserrat', sans-serif;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+main {
+  overflow-x: hidden;
+}
+
+picture img {
+  width: 100%;
+}
+
+.container {
+  margin: 0 auto;
+  padding: 0 40px;
+  max-width: 1320px;
+}
+
+.section {
+  width: 100%;
+}
+
+.btn {
+  -webkit-appearance: none;
+     -moz-appearance: none;
+          appearance: none;
+  border: none;
+  display: block;
+  cursor: pointer;
+  z-index: 1;
+}
+
+.d-none {
+  display: none !important;
+}
+
+.no-events {
+  pointer-events: none;
+}
+
+.overflow-hidden {
+  overflow: hidden;
+}
+
+.header {
+  width: 100%;
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+}
+
+.header__callback {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.footer {
+  width: 100%;
+}
+
+.modal-display {
+  display: -webkit-box !important;
+  display: -ms-flexbox !important;
+  display: flex !important;
+}
+
+.modal-visible {
+  opacity: 1 !important;
+}
+
+.modal {
+  width: 100%;
+  min-height: 100vh;
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(0, 0, 0, 0.81);
+  z-index: 100;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  display: none;
+  opacity: 0;
+  -webkit-transition: opacity 0.3s ease;
+  transition: opacity 0.3s ease;
+}
+
+.modal__hero {
+  background: #000;
+  border-radius: 20px;
+  padding: 0;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+}
+
+.modal__video {
+  border-radius: 20px;
+  overflow: hidden;
+  width: calc(100vw - 100px);
+}
+
+@media screen and (max-width: 768px) {
+  .modal__container {
+    padding: 0;
+  }
+  .modal__video {
+    width: calc(100vw - 40px);
+  }
+}
+
+.contact-modal__hero {
+  position: relative;
+  padding: 32px;
+  background: -webkit-gradient(linear, left bottom, left top, color-stop(5.93%, #1e3e45), color-stop(97.24%, #352550));
+  background: linear-gradient(0deg, #1e3e45 5.93%, #352550 97.24%);
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+}
+
+.contact-modal__message-box {
+  content: '';
+  position: absolute;
+  top: 50%;
+  height: 200px;
+  left: 10px;
+  right: 10px;
+  background: #000000E6;
+  z-index: 10;
+  -webkit-transform: translateY(-50%);
+          transform: translateY(-50%);
+  border-radius: 20px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  color: #fff;
+  padding: 24px;
+  font-size: 18px;
+  pointer-events: none;
+  opacity: 0;
+  -webkit-transition: opacity .4s ease-in-out;
+  transition: opacity .4s ease-in-out;
+  background-image: '';
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: 10%;
+}
+
+.contact-modal__message-box.visible {
+  opacity: 1;
+}
+
+.contact-modal__message-box.loading {
+  background-image: url(../assets/gif/loading.gif);
+}
+
+.contact-modal__close {
+  position: absolute;
+  top: 20px;
+  right: 20px;
+  cursor: pointer;
+}
+
+.contact-modal__close svg {
+  width: 18px;
+  height: 18px;
+}
+
+.contact-modal__input-wrapper {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  margin-bottom: 16px;
+}
+
+.contact-modal__input-wrapper label {
+  color: #fff;
+  margin-bottom: 6px;
+}
+
+.contact-modal__input-wrapper input {
+  outline: none;
+  border-radius: 10px;
+  border: 1px solid #fff;
+  background: transparent;
+  padding: 6px 12px;
+  color: #fff;
+  font-size: 16px;
+}
+
+.contact-modal__input-wrapper input::-webkit-input-placeholder {
+  color: #fff;
+  font-family: 'Montserrat';
+}
+
+.contact-modal__input-wrapper input:-ms-input-placeholder {
+  color: #fff;
+  font-family: 'Montserrat';
+}
+
+.contact-modal__input-wrapper input::-ms-input-placeholder {
+  color: #fff;
+  font-family: 'Montserrat';
+}
+
+.contact-modal__input-wrapper input::placeholder {
+  color: #fff;
+  font-family: 'Montserrat';
+}
+
+.contact-modal__input-wrapper textarea {
+  outline: none;
+  border-radius: 10px;
+  border: 1px solid #fff;
+  background: transparent;
+  padding: 6px 12px;
+  color: #fff;
+  font-size: 16px;
+}
+
+.contact-modal__input-wrapper textarea::-webkit-input-placeholder {
+  color: #fff;
+  font-family: 'Montserrat';
+}
+
+.contact-modal__input-wrapper textarea:-ms-input-placeholder {
+  color: #fff;
+  font-family: 'Montserrat';
+}
+
+.contact-modal__input-wrapper textarea::-ms-input-placeholder {
+  color: #fff;
+  font-family: 'Montserrat';
+}
+
+.contact-modal__input-wrapper textarea::placeholder {
+  color: #fff;
+  font-family: 'Montserrat';
+}
+
+.contact-modal__btn {
+  min-height: 60px;
+  margin-top: 16px;
+  cursor: default;
+  color: #fff;
+}
+
+.contact-modal__btn::before {
+  background: none;
+  cursor: default;
+}
+
+.contact-modal__btn.active {
+  cursor: pointer;
+}
+
+.contact-modal__btn.active::before {
+  background: linear-gradient(264.04deg, #8AEDFF 5.93%, #6100FF 97.24%);
+  cursor: pointer;
+}
+
+@media screen and (max-width: 425px) {
+  .contact-modal .modal__container {
+    width: 100%;
+  }
+}
