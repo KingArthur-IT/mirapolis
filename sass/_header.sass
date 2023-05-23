@@ -7,6 +7,53 @@
     display: flex
     align-items: center
     justify-content: space-between
+    &__nav
+        display: flex
+        align-items: center
+    &__burger
+        display: flex
+        height: 48px
+        width: 64px
+        padding: 0px
+        background: #4A4A4A
+        cursor: pointer
+        border-radius: 34px
+        z-index: 20
+        transition: background .3s ease-out
+        &:before
+            content: ''
+            position: absolute
+            width: 24px
+            height: 2px
+            top: 22px
+            left: 20px
+            background: #fff
+            transition: transform .3s ease-out, background .3s ease-out
+            will-change: transform
+            transform: translateY(-3px)
+        &:after
+            content: ''
+            position: absolute
+            width: 24px
+            height: 2px
+            top: 26px
+            left: 20px
+            background: #fff
+            transition: transform .3s ease-out, background .3s ease-out
+            will-change: transform
+            transform: translateY(3px)
+        &.active
+            background: #fff
+            &:before
+                background: #4A4A4A
+                transform: translateY(2px) rotate(45deg)
+            &:after
+                background: #4A4A4A
+                transform: translateY(-2px) rotate(-45deg)
     &__callback
         display: flex
         align-items: center
+        text-decoration: underline
+    &__button
+        background: transparent
+        border: 1px solid
