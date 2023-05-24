@@ -34,6 +34,36 @@ picture img
     outline: none
     display: block
     cursor: pointer
+.primary-btn
+    position: relative
+    background: transparent
+    display: flex
+    justify-content: center
+    align-items: center
+    border: 2px solid #404040
+    border-radius: 300px
+    color: #404040
+    &::before
+        position: absolute
+        content: ''
+        top: -2px
+        bottom: -2px
+        left: -2px
+        right: -2px
+        background: linear-gradient(108.36deg, #7C84F3 15.1%, #949AE9 34.9%, #90BFE8 48.96%, #8CD9E7 66.67%, #88FBE6 77.6%)
+        border-radius: 300px
+        z-index: -1
+        opacity: 0
+        transition: opacity .3s ease-out, background .3s ease-out
+    &:hover::before
+        opacity: 1
+    &:active::before
+        background: transparent
+        border: 2px dashed #88FBE6
+        top: -4px
+        bottom: -4px
+        left: -4px
+        right: -4px
 
 .d-none
   display: none !important
