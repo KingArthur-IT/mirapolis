@@ -12,7 +12,7 @@
     font-weight: 500
     font-size: 20px
     letter-spacing: -0.025em
-    color: #404040
+    color: $primary-color
     &__nav
         display: flex
         align-items: center
@@ -22,7 +22,7 @@
         height: 48px
         width: 64px
         padding: 0px
-        background: #404040
+        background: $primary-color
         cursor: pointer
         border-radius: 300px
         z-index: 20
@@ -53,10 +53,10 @@
         &.active
             background: #fff
             &:before
-                background: #404040
+                background: $primary-color
                 transform: translateY(2px) rotate(45deg)
             &:after
-                background: #404040
+                background: $primary-color
                 transform: translateY(-2px) rotate(-45deg)
     &__select
         padding: 14px 22px
@@ -71,11 +71,20 @@
         display: flex
         align-items: center
     &__phone
-        text-decoration-line: underline
+        display: block
+        position: relative
         font-size: 20px
         letter-spacing: -0.025em
-        color: #404040
+        color: $primary-color
         margin-right: 20px
+        &::before
+            content: ''
+            position: absolute
+            bottom: 2px
+            left: 0
+            right: 0
+            background: $primary-color
+            height: 1px
     &__button
         min-width: 196px
         min-height: 48px
@@ -99,7 +108,7 @@
 
 @media screen and (max-width: 768px)
     .header
-        &__select
+        &__button
             display: none
 
 @media screen and (max-width: 600px)
@@ -117,4 +126,6 @@
                 top: 22px
                 left: 14px
         &__button
+            display: none
+        &__select
             display: none

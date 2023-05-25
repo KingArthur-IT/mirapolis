@@ -11,7 +11,7 @@
     <link href="https://fonts.googleapis.com/css2?family=Roboto+Condensed:wght@400;700&display=swap" rel="stylesheet">
 </head>
 <body>
-    <div class="menu active" style="transform: translateY(-100%);">
+    <div class="menu" style="opacity: 0;">
         <div class="container">
             <div class="menu__content">
                 <div class="menu__hero">
@@ -35,7 +35,7 @@
                             </div>
                             <div class="col">
                                 <a class="menu__tel" href="tel:+74954894149">+7 (495) 489-41-49</a>
-                                <button class="btn primary-btn menu__btn">Перезвоните мне</button>
+                                <button class="btn primary-btn call-me-btn menu__btn">Перезвоните мне</button>
                             </div>
                         </div>
                         <div class="menu__socials">
@@ -72,9 +72,63 @@
             </div>
         </div>
     </div>
+    <div class="call-modal active">
+        <div class="container">
+            <div class="call-modal__hero">
+                <div class="call-modal__title">Получить буклет</div>
+                <div class="call-modal__socials">
+                    <div class="call-modal__social">
+                        <a href="#" target="_blank" class="primary-btn">
+                            <svg width="23" height="23" viewBox="0 0 23 23" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <path fill-rule="evenodd" clip-rule="evenodd" d="M19.66 3.21863C18.6434 2.19533 17.4338 1.38394 16.1014 0.831452C14.769 0.278965 13.3402 -0.00363083 11.8977 3.52164e-05C5.84927 3.52164e-05 0.925424 4.92266 0.922979 10.9736C0.922979 12.9074 1.42783 14.7948 2.38742 16.4597L0.831299 22.1451L6.64872 20.6183C8.25789 21.4943 10.0607 21.9536 11.8928 21.9544H11.8977C17.945 21.9544 22.8688 17.0318 22.8713 10.9809C22.8754 9.53905 22.5938 8.11068 22.0426 6.77834C21.4914 5.446 20.6816 4.23612 19.66 3.21863ZM11.8977 20.1025H11.8941C10.2603 20.1026 8.65668 19.6631 7.25137 18.83L6.91887 18.6319L3.4668 19.5377L4.38727 16.1724L4.17091 15.8277C3.25751 14.3736 2.77398 12.6908 2.77614 10.9736C2.77859 5.94459 6.86998 1.8532 11.9014 1.8532C13.0997 1.85054 14.2866 2.08556 15.3934 2.54466C16.5002 3.00375 17.505 3.67781 18.3496 4.52782C19.1987 5.37378 19.8717 6.37964 20.3297 7.48726C20.7878 8.59489 21.0217 9.78231 21.0181 10.9809C21.0156 16.0099 16.9243 20.1025 11.8977 20.1025ZM16.901 13.2705C16.626 13.1323 15.2789 12.4698 15.0271 12.3781C14.7765 12.2864 14.5944 12.2412 14.411 12.515C14.2276 12.7888 13.702 13.4061 13.5419 13.5895C13.3817 13.7729 13.2216 13.7949 12.9478 13.658C12.674 13.5211 11.7902 13.2313 10.7426 12.2974C9.92721 11.5701 9.37713 10.6728 9.21699 10.3978C9.05686 10.1228 9.19988 9.97486 9.33801 9.83795C9.46147 9.71571 9.61183 9.51768 9.74874 9.35754C9.88565 9.19741 9.93088 9.08372 10.0226 8.90036C10.1142 8.717 10.069 8.55687 9.99933 8.41996C9.93088 8.28183 9.38202 6.93229 9.15343 6.38343C8.93217 5.85169 8.70603 5.92259 8.53734 5.91525C8.36263 5.9081 8.18778 5.90484 8.01293 5.90547C7.87388 5.90901 7.73707 5.94125 7.61107 6.00014C7.48507 6.05904 7.3726 6.14334 7.28071 6.24775C7.02889 6.52279 6.32112 7.18533 6.32112 8.53486C6.32112 9.8844 7.30393 11.1887 7.44084 11.3721C7.57775 11.5554 9.37469 14.3242 12.1251 15.5123C12.7803 15.7947 13.2913 15.9634 13.6885 16.0905C14.345 16.2996 14.9427 16.269 15.4158 16.1993C15.9427 16.1211 17.0379 15.5368 17.2665 14.8963C17.4951 14.2557 17.4951 13.7069 17.4267 13.592C17.3582 13.477 17.1736 13.4074 16.901 13.2705Z" fill="white"/>
+                            </svg>                                
+                        </a>
+                    </div>
+                    <div class="call-modal__social">
+                        <a href="#" target="_blank" class="primary-btn">
+                            <svg width="26" height="21" viewBox="0 0 26 21" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <path d="M23.8548 0.136151L1.98417 8.56984C0.491591 9.16933 0.500226 10.002 1.71032 10.3733L7.32538 12.1249L20.317 3.92804C20.9313 3.55428 21.4925 3.75535 21.0312 4.16488L10.5054 13.6643H10.503L10.5054 13.6656L10.1181 19.4533C10.6855 19.4533 10.9359 19.193 11.2542 18.8859L13.9815 16.2338L19.6546 20.4241C20.7006 21.0002 21.4518 20.7041 21.7121 19.4558L25.4362 1.90504C25.8173 0.376691 24.8527 -0.315323 23.8548 0.136151Z" fill="white"/>
+                            </svg>                                
+                        </a>
+                    </div>
+                </div>
+                <form class="call-modal__form">
+                    <div id="call-name" class="input-wrapper">
+                        <label for="name">*Ваше имя</label>
+                        <input name="name" type="text">
+                        <div class="active-style"></div>
+                    </div>
+                    <div id="call-phone" class="input-wrapper">
+                        <label for="phone">+7 (___) ___ - __ - __</label>
+                        <input name="phone" type="text" value="+7 (">
+                        <div class="active-style"></div>
+                    </div>
+                    <button type="submit" class="btn primary-btn submit"><span>Перезвоните мне</span></button>
+                </form>
+                <div class="call-modal__success">
+                    <div class="svg-wrap">
+                        <svg width="22" height="21" viewBox="0 0 22 21" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M10.6663 0C4.96758 0 0.331299 4.63628 0.331299 10.335C0.331299 16.0337 4.96758 20.67 10.6663 20.67C16.365 20.67 21.0013 16.0337 21.0013 10.335C21.0013 4.63628 16.365 0 10.6663 0ZM10.6663 18.603C6.10753 18.603 2.3983 14.8938 2.3983 10.335C2.3983 5.77623 6.10753 2.067 10.6663 2.067C15.2251 2.067 18.9343 5.77623 18.9343 10.335C18.9343 14.8938 15.2251 18.603 10.6663 18.603Z" fill="#404040"/>
+                            <path d="M8.59826 11.9751L6.22224 9.60325L4.76294 11.0667L8.60033 14.8958L15.531 7.96515L14.0696 6.50378L8.59826 11.9751Z" fill="#404040"/>
+                        </svg>
+                    </div>
+                    <span>Отправлено</span>                            
+                </div>
+                <div class="agreement">
+                    Нажимая кнопку «Перезвоните мне», <br> Вы соглашаетесь с политикой обработки <a href="#" target="_blank">Персональных данных</a>
+                </div>
+                <div class="primary-btn call-modal__close">
+                    <svg width="32" height="32" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <line x1="6.63908" y1="24.7781" x2="23.6096" y2="7.80756" stroke="white" stroke-width="2"/>
+                        <line x1="24.0947" y1="24.6777" x2="7.12409" y2="7.70713" stroke="white" stroke-width="2"/>
+                    </svg>                        
+                </div>
+            </div>
+        </div>
+    </div>
     <header class="header">
         <nav class="header__nav">
-            <button class="btn header__burger active"></button>
+            <button class="btn header__burger"></button>
             <div class="header__select">
                 <div class="header__svg">
                     <svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -86,7 +140,7 @@
         </nav>
         <div class="header__callback">
             <a class="header__phone" href="tel:+74954894149">+7 (495) 489-41-49</a>
-            <button class="btn primary-btn header__button">Перезвоните мне</button>
+            <button class="btn primary-btn call-me-btn header__button">Перезвоните мне</button>
         </div>
     </header>
     <main>
