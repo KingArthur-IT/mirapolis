@@ -1,7 +1,6 @@
 .menu
-    font-family: 'Coil'
-    background: #EFA7E8
-    color: #404040
+    background: $primary-color
+    color: #fff
     position: fixed
     top: 0
     left: 0
@@ -18,24 +17,34 @@
         padding-top: 148px
         display: flex
         flex-direction: column
+        min-height: 100vh
     &__hero
         display: flex
         justify-content: space-between
-    // &__nav
-    //     flex-basis: 33.33%
     &__item
         display: block
         font-weight: 500
         font-size: 33px
         line-height: 125%
-        color: #404040
+        color: #fff
         margin-bottom: 5px
     &__center
         flex-basis: 33.33%
         max-width: 460px
         & .text
             font-size: 20px
-            line-height: 158%
+            margin-bottom: 12px
+            display: block
+            position: relative
+            width: fit-content
+            &::after
+                content: ''
+                position: absolute
+                bottom: 2px
+                left: 0
+                right: 0
+                background: #fff
+                height: 1px
     &__name
         font-family: 'Roboto Condensed'
         font-weight: 400
@@ -43,6 +52,8 @@
         line-height: 120%
         margin-bottom: 15px
     &__address-text
+        letter-spacing: -0.025em
+        font-weight: 400
         font-size: 40px
         line-height: 105%
         margin-bottom: 30px
@@ -62,17 +73,31 @@
         & .day
             font-size: 14px
             margin-right: 15px
-            padding-top: 2px
+            padding-top: 4px
     &__tel
+        position: relative
         font-weight: 500
         font-size: 20px
         margin-bottom: 15px
         display: block
-        color: #404040
-        text-decoration: underline
+        color: #fff
+        width: fit-content
+        &::after
+            content: ''
+            position: absolute
+            bottom: 2px
+            left: 0
+            right: 0
+            background: #fff
+            height: 1px
     &__btn
         font-size: 20px
         padding: 8px 16px
+        border-color: #fff
+        color: #fff
+        transition: color .3s ease-out, border .3s ease
+        &:active
+            color: #fff
     &__socials
         display: flex
         align-items: center
@@ -80,18 +105,31 @@
         margin-bottom: 40px
     &__social
         font-size: 20px
-        line-height: 158%
-        color: #404040
+        color: #fff
+        position: relative
+        display: block
+        width: fit-content
+        &::after
+            content: ''
+            position: absolute
+            bottom: 2px
+            left: 0
+            right: 0
+            background: #fff
+            height: 1px
+    &__cooperate
+        color: #fff
     &__adress
         flex-basis: 33.33%
         max-width: 360px
     &__live
+        cursor: pointer
         position: relative
         width: 320px
         height: 210px
         border-radius: 20px
         overflow: hidden
-        border: 2px solid #404040
+        border: 2px solid #fff
         margin-top: 40px
         & img
             width: 100%
@@ -104,9 +142,66 @@
         left: 20px
         display: flex
         align-items: center
-        padding: 10px 16px
+        padding: 9px 16px
         & .live
             margin-right: 14px
         & span
             font-size: 18px
+    &__footer
+        margin-top: auto
+        padding: 20px 0
+        & a
+            color: #fff
+            font-size: 14px
+    &__copyright
+        margin-right: 150px
+    &__agreement
+        & span
+            position: relative
+            &::after
+                content: ''
+                position: absolute
+                bottom: 1px
+                left: 0
+                right: 0
+                background: #fff
+                height: 1px
 
+@media screen and (max-width: 1600px)
+    .menu
+        &__copyright
+            margin-right: 80px
+
+@media screen and (max-width: 1500px)
+    .menu
+        &__copyright
+            margin-right: 60px
+
+@media screen and (max-width: 1440px)
+    .menu
+        &__footer
+            & a
+                font-size: 12px
+
+@media screen and (max-width: 1240px)
+    .menu
+        &__adress
+            display: none
+        &__center
+            min-width: 460px
+        &__footer
+            & a
+                display: block
+                margin-bottom: 5px
+
+@media screen and (max-width: 880px)
+    .menu
+        &__content
+            padding-top: 98px
+        &__center
+            display: none
+        &__footer
+            display: none
+        &__item
+            margin-bottom: 15px
+        

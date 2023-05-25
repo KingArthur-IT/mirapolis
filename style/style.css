@@ -1,23 +1,33 @@
 @font-face {
-  font-family: 'GT Pressura Mono Trial';
-  src: url("../fonts/pressura/GT-Pressura-Mono-Bold.eot");
-  src: url("../fonts/pressura/GT-Pressura-Mono-Bold.eot?#iefix") format("embedded-opentype");
-  src: url("../fonts/pressura/GT-Pressura-Mono-Bold.woff") format("woff");
-  src: url("../fonts/pressura/GT-Pressura-Mono-Bold.ttf") format("truetype");
-  src: url("../fonts/pressura/GT-Pressura-Mono-Bold.svg") format("svg");
+  font-family: 'GT Pressura Mono';
+  src: url("../fonts/Pressura/GT-Pressura-Mono-Regular.otf") format("opentype");
+  src: url("../fonts/Pressura/GT-Pressura-Mono-Regular.woff") format("woff");
+  src: url("../fonts/Pressura/GT-Pressura-Mono-Regular.woff2") format("woff2");
+  src: url("../fonts/Pressura/GT-Pressura-Mono-Regular.ttf") format("truetype");
   font-style: normal;
-  font-weight: 700;
+  font-weight: 400;
 }
 
 @font-face {
-  font-family: 'GT Pressura Mono Trial';
-  src: url("../fonts/pressura/GT-Pressura-Mono-Regular.eot");
-  src: url("../fonts/pressura/GT-Pressura-Mono-Regular.eot?#iefix") format("embedded-opentype");
-  src: url("../fonts/pressura/GT-Pressura-Mono-Regular.woff") format("woff");
-  src: url("../fonts/pressura/GT-Pressura-Mono-Regular.ttf") format("truetype");
-  src: url("../fonts/pressura/GT-Pressura-Mono-Regular.svg") format("svg");
+  font-family: 'Coil';
+  src: url("../fonts/Coil/Coil-Regular.eot") format("eot");
+  src: url("../fonts/Coil/Coil-Regular.otf") format("opentype");
+  src: url("../fonts/Coil/Coil-Regular.woff") format("woff");
+  src: url("../fonts/Coil/Coil-Regular.woff2") format("woff2");
+  src: url("../fonts/Coil/Coil-Regular.ttf") format("truetype");
   font-style: normal;
   font-weight: 400;
+}
+
+@font-face {
+  font-family: 'Coil';
+  src: url("../fonts/Coil/Coil-Medium.eot") format("eot");
+  src: url("../fonts/Coil/Coil-Medium.otf") format("opentype");
+  src: url("../fonts/Coil/Coil-Medium.woff") format("woff");
+  src: url("../fonts/Coil/Coil-Medium.woff2") format("woff2");
+  src: url("../fonts/Coil/Coil-Medium.ttf") format("truetype");
+  font-style: normal;
+  font-weight: 500;
 }
 
 *,
@@ -39,7 +49,7 @@ a, a:visited {
 }
 
 body {
-  font-family: 'GT Pressura Mono Trial';
+  font-family: 'Coil';
   text-rendering: optimizeLegibility;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
@@ -92,16 +102,21 @@ picture img {
 .primary-btn::before {
   position: absolute;
   content: '';
-  top: -2px;
-  bottom: -2px;
-  left: -2px;
-  right: -2px;
+  top: -1px;
+  bottom: -1px;
+  left: -1px;
+  right: -1px;
   background: linear-gradient(108.36deg, #7C84F3 15.1%, #949AE9 34.9%, #90BFE8 48.96%, #8CD9E7 66.67%, #88FBE6 77.6%);
   border-radius: 300px;
   z-index: -1;
   opacity: 0;
   -webkit-transition: opacity .3s ease-out, background .3s ease-out;
   transition: opacity .3s ease-out, background .3s ease-out;
+}
+
+.primary-btn:hover {
+  color: #404040;
+  border-color: #404040;
 }
 
 .primary-btn:hover::before {
@@ -127,6 +142,18 @@ picture img {
 
 .overflow-hidden {
   overflow: hidden;
+}
+
+@media screen and (max-width: 1280px) {
+  .container {
+    padding: 0 20px;
+  }
+}
+
+@media screen and (max-width: 375px) {
+  .container {
+    padding: 0 10px;
+  }
 }
 
 .header {
@@ -324,9 +351,8 @@ picture img {
 }
 
 .menu {
-  font-family: 'Coil';
-  background: #EFA7E8;
-  color: #404040;
+  background: #404040;
+  color: #fff;
   position: fixed;
   top: 0;
   left: 0;
@@ -357,6 +383,7 @@ picture img {
   -webkit-box-direction: normal;
       -ms-flex-direction: column;
           flex-direction: column;
+  min-height: 100vh;
 }
 
 .menu__hero {
@@ -373,7 +400,7 @@ picture img {
   font-weight: 500;
   font-size: 33px;
   line-height: 125%;
-  color: #404040;
+  color: #fff;
   margin-bottom: 5px;
 }
 
@@ -385,7 +412,22 @@ picture img {
 
 .menu__center .text {
   font-size: 20px;
-  line-height: 158%;
+  margin-bottom: 12px;
+  display: block;
+  position: relative;
+  width: -webkit-fit-content;
+  width: -moz-fit-content;
+  width: fit-content;
+}
+
+.menu__center .text::after {
+  content: '';
+  position: absolute;
+  bottom: 2px;
+  left: 0;
+  right: 0;
+  background: #fff;
+  height: 1px;
 }
 
 .menu__name {
@@ -397,6 +439,8 @@ picture img {
 }
 
 .menu__address-text {
+  letter-spacing: -0.025em;
+  font-weight: 400;
   font-size: 40px;
   line-height: 105%;
   margin-bottom: 30px;
@@ -434,21 +478,42 @@ picture img {
 .menu__schedule .day {
   font-size: 14px;
   margin-right: 15px;
-  padding-top: 2px;
+  padding-top: 4px;
 }
 
 .menu__tel {
+  position: relative;
   font-weight: 500;
   font-size: 20px;
   margin-bottom: 15px;
   display: block;
-  color: #404040;
-  text-decoration: underline;
+  color: #fff;
+  width: -webkit-fit-content;
+  width: -moz-fit-content;
+  width: fit-content;
+}
+
+.menu__tel::after {
+  content: '';
+  position: absolute;
+  bottom: 2px;
+  left: 0;
+  right: 0;
+  background: #fff;
+  height: 1px;
 }
 
 .menu__btn {
   font-size: 20px;
   padding: 8px 16px;
+  border-color: #fff;
+  color: #fff;
+  -webkit-transition: color .3s ease-out, border .3s ease;
+  transition: color .3s ease-out, border .3s ease;
+}
+
+.menu__btn:active {
+  color: #fff;
 }
 
 .menu__socials {
@@ -466,8 +531,26 @@ picture img {
 
 .menu__social {
   font-size: 20px;
-  line-height: 158%;
-  color: #404040;
+  color: #fff;
+  position: relative;
+  display: block;
+  width: -webkit-fit-content;
+  width: -moz-fit-content;
+  width: fit-content;
+}
+
+.menu__social::after {
+  content: '';
+  position: absolute;
+  bottom: 2px;
+  left: 0;
+  right: 0;
+  background: #fff;
+  height: 1px;
+}
+
+.menu__cooperate {
+  color: #fff;
 }
 
 .menu__adress {
@@ -477,12 +560,13 @@ picture img {
 }
 
 .menu__live {
+  cursor: pointer;
   position: relative;
   width: 320px;
   height: 210px;
   border-radius: 20px;
   overflow: hidden;
-  border: 2px solid #404040;
+  border: 2px solid #fff;
   margin-top: 40px;
 }
 
@@ -504,7 +588,7 @@ picture img {
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
-  padding: 10px 16px;
+  padding: 9px 16px;
 }
 
 .menu__label .live {
@@ -513,6 +597,80 @@ picture img {
 
 .menu__label span {
   font-size: 18px;
+}
+
+.menu__footer {
+  margin-top: auto;
+  padding: 20px 0;
+}
+
+.menu__footer a {
+  color: #fff;
+  font-size: 14px;
+}
+
+.menu__copyright {
+  margin-right: 150px;
+}
+
+.menu__agreement span {
+  position: relative;
+}
+
+.menu__agreement span::after {
+  content: '';
+  position: absolute;
+  bottom: 1px;
+  left: 0;
+  right: 0;
+  background: #fff;
+  height: 1px;
+}
+
+@media screen and (max-width: 1600px) {
+  .menu__copyright {
+    margin-right: 80px;
+  }
+}
+
+@media screen and (max-width: 1500px) {
+  .menu__copyright {
+    margin-right: 60px;
+  }
+}
+
+@media screen and (max-width: 1440px) {
+  .menu__footer a {
+    font-size: 12px;
+  }
+}
+
+@media screen and (max-width: 1240px) {
+  .menu__adress {
+    display: none;
+  }
+  .menu__center {
+    min-width: 460px;
+  }
+  .menu__footer a {
+    display: block;
+    margin-bottom: 5px;
+  }
+}
+
+@media screen and (max-width: 880px) {
+  .menu__content {
+    padding-top: 98px;
+  }
+  .menu__center {
+    display: none;
+  }
+  .menu__footer {
+    display: none;
+  }
+  .menu__item {
+    margin-bottom: 15px;
+  }
 }
 
 .baner {

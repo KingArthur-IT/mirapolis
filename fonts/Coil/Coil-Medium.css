@@ -1,0 +1,11 @@
+/* Copyright (c) 2020 by Gayane Bagdasaryan, Vyacheslav Kirilenko. All rights reserved. */
+@font-face {
+	font-family: 'CoilMedium';
+	src: url('Coil-Medium.eot');
+	src:
+	     url('Coil-Medium.eot?#iefix') format('embedded-opentype'),
+	     url('Coil-Medium.woff2') format('woff2'),
+	     url('Coil-Medium.woff') format('woff');
+	font-weight: normal;
+	font-style: normal;
+}
