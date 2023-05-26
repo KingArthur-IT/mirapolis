@@ -1,5 +1,4 @@
 .baner
-    min-height: 100vh
     width: 100%
     padding-top: 132px
     &__label
@@ -18,6 +17,35 @@
     &__title
         text-align: center
         text-transform: uppercase
+    &__hero
+        width: 100%
+        display: flex
+        justify-content: space-between
+        margin-top: 170px
+        margin-bottom: 40px
+    &__text
+        font-family: 'GT Pressura Mono'
+        font-weight: 400
+        font-size: 20px
+        line-height: 125%
+        letter-spacing: -0.025em
+        color: $primary-color
+    &__first-text
+        max-width: 320px
+    &__second-text
+        max-width: 525px
+    &__mobile
+        display: none
+
+@media screen and (max-width: 1640px)
+    .baner
+        &__second-text
+            max-width: 405px
+
+@media screen and (max-width: 1240px)
+    .baner
+        &__hero
+            margin-top: 80px
 
 @media screen and (max-width: 1060px)
     .baner
@@ -26,6 +54,40 @@
             & svg
                 width: 100%
                 height: fit-content
+
+@media screen and (max-width: 1024px)
+    .baner
+        &__hero
+            margin-top: 80px
+        &__text
+            font-size: 16px
+        &__second-text
+            max-width: 380px
+
+@media screen and (max-width: 768px)
+    .baner
+        &__wrapper
+            display: flex
+            flex-direction: column-reverse
+            margin-top: 40px
+        &__hero
+            margin-top: 20px
+            margin-bottom: 60px
+            flex-direction: column
+        &__first-text
+            max-width: 100%
+            width: 100%
+            margin-bottom: 40px
+        &__second-text
+            max-width: 100%
+            width: 100%
+
+@media screen and (max-width: 600px)
+    .baner    
+        &__desctop
+            display: none
+        &__mobile
+            display: block
 
 @media screen and (max-width: 375px)
     .baner

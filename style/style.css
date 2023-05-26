@@ -779,7 +779,7 @@ picture img {
 }
 
 .call-modal.active {
-  opacity: 1;
+  opacity: 1 !important;
   pointer-events: all;
 }
 
@@ -1061,7 +1061,6 @@ picture img {
 }
 
 .baner {
-  min-height: 100vh;
   width: 100%;
   padding-top: 132px;
 }
@@ -1088,6 +1087,51 @@ picture img {
   text-transform: uppercase;
 }
 
+.baner__hero {
+  width: 100%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  margin-top: 170px;
+  margin-bottom: 40px;
+}
+
+.baner__text {
+  font-family: 'GT Pressura Mono';
+  font-weight: 400;
+  font-size: 20px;
+  line-height: 125%;
+  letter-spacing: -0.025em;
+  color: #404040;
+}
+
+.baner__first-text {
+  max-width: 320px;
+}
+
+.baner__second-text {
+  max-width: 525px;
+}
+
+.baner__mobile {
+  display: none;
+}
+
+@media screen and (max-width: 1640px) {
+  .baner__second-text {
+    max-width: 405px;
+  }
+}
+
+@media screen and (max-width: 1240px) {
+  .baner__hero {
+    margin-top: 80px;
+  }
+}
+
 @media screen and (max-width: 1060px) {
   .baner__title {
     width: 100%;
@@ -1100,6 +1144,57 @@ picture img {
   }
 }
 
+@media screen and (max-width: 1024px) {
+  .baner__hero {
+    margin-top: 80px;
+  }
+  .baner__text {
+    font-size: 16px;
+  }
+  .baner__second-text {
+    max-width: 380px;
+  }
+}
+
+@media screen and (max-width: 768px) {
+  .baner__wrapper {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: reverse;
+        -ms-flex-direction: column-reverse;
+            flex-direction: column-reverse;
+    margin-top: 40px;
+  }
+  .baner__hero {
+    margin-top: 20px;
+    margin-bottom: 60px;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
+  }
+  .baner__first-text {
+    max-width: 100%;
+    width: 100%;
+    margin-bottom: 40px;
+  }
+  .baner__second-text {
+    max-width: 100%;
+    width: 100%;
+  }
+}
+
+@media screen and (max-width: 600px) {
+  .baner__desctop {
+    display: none;
+  }
+  .baner__mobile {
+    display: block;
+  }
+}
+
 @media screen and (max-width: 375px) {
   .baner {
     padding-top: 100px;
@@ -1107,6 +1202,57 @@ picture img {
   .baner__label {
     font-size: 20px;
     padding: 6px 12px;
+  }
+}
+
+.parallax__img-wrapper {
+  width: 100%;
+  position: relative;
+}
+
+.parallax__img {
+  width: 100%;
+  height: 100%;
+  border-radius: 20px;
+  overflow: hidden;
+}
+
+.parallax__img img {
+  width: 150%;
+  -webkit-transform: translate(-20%, -10%);
+          transform: translate(-20%, -10%);
+}
+
+.parallax__building {
+  position: absolute;
+  top: 0;
+  left: 50%;
+  -webkit-transform: translate(-55%, -17%);
+          transform: translate(-55%, -17%);
+  width: 58.7vw;
+}
+
+@media screen and (max-width: 1240px) {
+  .parallax__building {
+    display: none;
+  }
+  .parallax__img img {
+    -webkit-transform: translate(-20%, 0%);
+            transform: translate(-20%, 0%);
+  }
+}
+
+@media screen and (max-width: 600px) {
+  .parallax__img {
+    width: 100%;
+    height: 100%;
+    border-radius: 20px;
+    overflow: hidden;
+  }
+  .parallax__img img {
+    width: 100%;
+    -webkit-transform: translate(0%, 0%);
+            transform: translate(0%, 0%);
   }
 }
 
