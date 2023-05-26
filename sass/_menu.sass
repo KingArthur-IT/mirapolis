@@ -15,7 +15,7 @@
     &.active
         opacity: 1 !important
         pointer-events: all
-    &__content
+    &__container
         padding-top: 148px
         display: flex
         flex-direction: column
@@ -30,9 +30,17 @@
         line-height: 125%
         color: #fff
         margin-bottom: 5px
+    &__nav
+        flex-grow: 1
+    &__content
+        display: flex
+        width: auto
+        flex-grow: 1
+        justify-content: space-between
     &__center
         flex-basis: 33.33%
         max-width: 460px
+        min-width: 460px
         & .text
             font-size: 20px
             margin-bottom: 12px
@@ -124,6 +132,7 @@
     &__adress
         flex-basis: 33.33%
         max-width: 360px
+        min-width: 360px
     &__live
         cursor: pointer
         position: relative
@@ -179,31 +188,56 @@
         &__copyright
             margin-right: 60px
 
-@media screen and (max-width: 1440px)
-    .menu
-        &__footer
-            & a
-                font-size: 12px
-
 @media screen and (max-width: 1240px)
     .menu
-        &__adress
-            display: none
+        &__content
+            flex-direction: column-reverse
+            flex-grow: 0
+            max-height: 400px
+            overflow-y: scroll
+            padding-right: 56px
+            &::-webkit-scrollbar
+                width: 10px
+            &::-webkit-scrollbar-track
+                background-color: #ffffff4d
+                border-radius: 10px
+            &::-webkit-scrollbar-thumb
+                background-color: #fff
+                border-radius: 10px
         &__center
             min-width: 460px
+        &__adress
+            margin-bottom: 40px
+        &__contacts
+            flex-direction: column
         &__footer
-            & a
+            display: flex
+            flex-direction: column-reverse
+            & a:last-child
+                margin-bottom: 10px
+            & a span
                 display: block
-                margin-bottom: 5px
+                width: fit-content
+                margin-top: 4px
+
+@media screen and (max-width: 960px)
+    .menu
+        &__center
+            min-width: 360px
+            max-width: 360px
+            & .text:first-child
+                width: calc(100% + 20px)
+        &__address-text
+            width: calc(100% + 20px)
 
 @media screen and (max-width: 880px)
     .menu
-        &__content
+        &__container
             padding-top: 98px
-        &__center
-            display: none
-        &__footer
-            display: none
         &__item
             margin-bottom: 15px
-        
+
+@media screen and (max-width: 768px)
+    .menu
+        &__content
+            display: none

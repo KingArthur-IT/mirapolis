@@ -61,7 +61,12 @@ document.addEventListener("DOMContentLoaded", () => {
   callModal.addEventListener('click', () => callModal.classList.remove('active'))
   document.querySelector('.call-modal__hero').addEventListener('click', (e) => e.stopPropagation())
 
-  document.querySelectorAll('.call-me-btn').forEach(el => el.addEventListener('click', () => callModal.classList.add('active')))
+  //open
+  document.querySelectorAll('.call-me-btn').forEach(el => el.addEventListener('click', () => {
+    callModal.querySelector('.call-modal__form').classList.remove('sended')
+    callModal.querySelector('.call-modal__success').classList.remove('active')
+    callModal.classList.add('active')
+  }))
 
   //submit call form
   callModal.querySelector('button.submit').addEventListener('click', (e) => {

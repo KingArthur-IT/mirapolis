@@ -51,14 +51,11 @@
     &__form
         height: 175px
         opacity: 1
-        transition: height .3s ease-out, opacity .2s ease-out, transform .2s ease-out
         &.sended
+            transition: height .5s ease-out, opacity .2s ease-out
             height: 0
             opacity: 0
             pointer-events: none
-            transform: scaleY(0)
-            transform-origin: 0 0
-            z-index: -1
         .input-wrapper
             width: 100%
             position: relative
@@ -172,6 +169,8 @@
         justify-content: center
         border-radius: 300px
         display: none
+        z-index: 1
+        position: relative
         &.active
             display: flex
         & .svg-wrap
@@ -181,3 +180,7 @@
             font-size: 20px
             color: $primary-color
 
+@media screen and (max-width: 340px)
+    .call-modal
+        &__title
+            font-size: 32px
