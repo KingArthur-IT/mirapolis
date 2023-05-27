@@ -9,7 +9,8 @@ window.addEventListener("load", () => {
     const parallaxSection = document.querySelector('.parallax');
     const parallaxWrapper = parallaxSection.querySelector('.parallax__img-wrapper');
     window.addEventListener('scroll', (e) => {
-        e.preventDefault()
+        if (window.innerWidth < 768) return
+  
         const animItemHeight = parallaxSection.offsetHeight;
         const animItemOffsetTop = offset(parallaxSection).top;
         const animStart = 2;
@@ -20,6 +21,7 @@ window.addEventListener("load", () => {
         if ((window.pageYOffset > animItemOffsetTop - animItemPoint) && (window.pageYOffset < animItemOffsetTop + animItemHeight)) {
             if (!hasFullClass) {
                 parallaxWrapper.classList.add('full')
+                parallaxSection.querySelector('.parallax__building').classList.add('hide')
                 parallaxWrapper.style.transform = `translateY(-${animItemOffsetTop}px)`
                 document.querySelector('body').classList.add('overflow-hidden')
                 setTimeout(() => {
@@ -29,6 +31,7 @@ window.addEventListener("load", () => {
         }
         else if (hasFullClass) {
             parallaxWrapper.classList.remove('full')
+            parallaxSection.querySelector('.parallax__building').classList.remove('hide')
             parallaxWrapper.style.transform = `translateY(0px)`
         }
     })
