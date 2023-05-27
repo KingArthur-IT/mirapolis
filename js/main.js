@@ -10,14 +10,14 @@ document.addEventListener("DOMContentLoaded", () => {
     document.querySelector('body').classList.toggle('overflow-hidden')
   })
 
-  //call me name
+  //call me name input focus
   callUserNameWrapper.querySelector('input').addEventListener('focus', () => callUserNameWrapper.classList.add('focus'))
   callUserNameWrapper.querySelector('input').addEventListener('blur', (e) => {
     if (!e.target.value)
       callUserNameWrapper.classList.remove('focus')
   })
 
-  //call me phone
+  //call me phone input focus
   callUserPhoneWrapper.querySelector('input').addEventListener('focus', () => {
     callUserPhoneWrapper.querySelector('label').innerHTML = 'Ваш телефон'
     callUserPhoneWrapper.classList.add('focus')
@@ -28,6 +28,7 @@ document.addEventListener("DOMContentLoaded", () => {
       callUserPhoneWrapper.classList.remove('focus')
     }
   })
+  //call me phone validation
   callUserPhoneWrapper.querySelector('input').addEventListener('input', () => {
     const value = callUserPhoneWrapper.querySelector('input').value.replace(/\D+/g, "");
     const numberLength = 11;
@@ -56,20 +57,25 @@ document.addEventListener("DOMContentLoaded", () => {
     callUserPhoneWrapper.querySelector('input').value = result;
   })
 
-  //close form
+  //close call me form
   const callModal = document.querySelector('.call-modal')
-  document.querySelector('.call-modal__close').addEventListener('click', () => callModal.classList.remove('active'))
-  callModal.addEventListener('click', () => callModal.classList.remove('active'))
+  const closeCallForm = () => {
+    document.querySelector('body').classList.remove('overflow-hidden')
+    callModal.classList.remove('active')
+  }
+  document.querySelector('.call-modal__close').addEventListener('click', closeCallForm )
+  callModal.addEventListener('click', closeCallForm)
   document.querySelector('.call-modal__hero').addEventListener('click', (e) => e.stopPropagation())
 
-  //open
+  //open call me form
   document.querySelectorAll('.call-me-btn').forEach(el => el.addEventListener('click', () => {
     callModal.querySelector('.call-modal__form').classList.remove('sended')
     callModal.querySelector('.call-modal__success').classList.remove('active')
     callModal.classList.add('active')
+    document.querySelector('body').classList.add('overflow-hidden')
   }))
 
-  //submit call form
+  //submit call me form
   callModal.querySelector('button.submit').addEventListener('click', (e) => {
     e.preventDefault()
     callModal.querySelector('.call-modal__success').classList.add('active')
