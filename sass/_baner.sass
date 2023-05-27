@@ -1,6 +1,7 @@
 .baner
     width: 100%
     padding-top: 132px
+    overflow: hidden
     &__label
         margin: 0 auto
         display: block
@@ -14,15 +15,33 @@
         background: $secondary-color
         border-radius: 300px
         margin-bottom: 40px
+        opacity: 0
+        transform: translateY(-100%)
+        transition: opacity .5s ease-out, transform .5s ease-out
+        &.shown
+            opacity: 1
+            transform: translateY(0%)
+    &__title-wrapper
+        overflow: hidden
     &__title
         text-align: center
         text-transform: uppercase
+        transform: translateY(100%)
+        transition: transform .5s ease-out
+        &.shown
+            transform: translateY(0)
+    &__hero-wrapper
+        overflow: hidden
     &__hero
         width: 100%
         display: flex
         justify-content: space-between
         margin-top: 170px
         margin-bottom: 40px
+        transform: translateY(150%)
+        transition: transform .5s linear 0.25s
+        &.shown
+            transform: translateY(0)
     &__text
         font-family: 'GT Pressura Mono'
         font-weight: 400

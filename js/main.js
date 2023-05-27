@@ -7,6 +7,7 @@ document.addEventListener("DOMContentLoaded", () => {
   document.querySelector('.header__burger').addEventListener('click', (e) => {
     e.target.classList.toggle('active')
     menu.classList.toggle('active')
+    document.querySelector('body').classList.toggle('overflow-hidden')
   })
 
   //call me name

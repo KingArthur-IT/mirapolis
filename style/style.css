@@ -177,6 +177,19 @@ picture img {
   font-size: 20px;
   letter-spacing: -0.025em;
   color: #404040;
+  opacity: 0;
+  -webkit-transform: translateY(-100%);
+          transform: translateY(-100%);
+  -webkit-transition: opacity .5s linear 0.25s, -webkit-transform .5s linear 0.25s;
+  transition: opacity .5s linear 0.25s, -webkit-transform .5s linear 0.25s;
+  transition: opacity .5s linear 0.25s, transform .5s linear 0.25s;
+  transition: opacity .5s linear 0.25s, transform .5s linear 0.25s, -webkit-transform .5s linear 0.25s;
+}
+
+.header.shown {
+  opacity: 1;
+  -webkit-transform: translateY(0%);
+          transform: translateY(0%);
 }
 
 .header__nav {
@@ -1063,6 +1076,7 @@ picture img {
 .baner {
   width: 100%;
   padding-top: 132px;
+  overflow: hidden;
 }
 
 .baner__label {
@@ -1080,11 +1094,43 @@ picture img {
   background: #EFA7E8;
   border-radius: 300px;
   margin-bottom: 40px;
+  opacity: 0;
+  -webkit-transform: translateY(-100%);
+          transform: translateY(-100%);
+  -webkit-transition: opacity .5s ease-out, -webkit-transform .5s ease-out;
+  transition: opacity .5s ease-out, -webkit-transform .5s ease-out;
+  transition: opacity .5s ease-out, transform .5s ease-out;
+  transition: opacity .5s ease-out, transform .5s ease-out, -webkit-transform .5s ease-out;
+}
+
+.baner__label.shown {
+  opacity: 1;
+  -webkit-transform: translateY(0%);
+          transform: translateY(0%);
+}
+
+.baner__title-wrapper {
+  overflow: hidden;
 }
 
 .baner__title {
   text-align: center;
   text-transform: uppercase;
+  -webkit-transform: translateY(100%);
+          transform: translateY(100%);
+  -webkit-transition: -webkit-transform .5s ease-out;
+  transition: -webkit-transform .5s ease-out;
+  transition: transform .5s ease-out;
+  transition: transform .5s ease-out, -webkit-transform .5s ease-out;
+}
+
+.baner__title.shown {
+  -webkit-transform: translateY(0);
+          transform: translateY(0);
+}
+
+.baner__hero-wrapper {
+  overflow: hidden;
 }
 
 .baner__hero {
@@ -1097,6 +1143,17 @@ picture img {
           justify-content: space-between;
   margin-top: 170px;
   margin-bottom: 40px;
+  -webkit-transform: translateY(150%);
+          transform: translateY(150%);
+  -webkit-transition: -webkit-transform .5s linear 0.25s;
+  transition: -webkit-transform .5s linear 0.25s;
+  transition: transform .5s linear 0.25s;
+  transition: transform .5s linear 0.25s, -webkit-transform .5s linear 0.25s;
+}
+
+.baner__hero.shown {
+  -webkit-transform: translateY(0);
+          transform: translateY(0);
 }
 
 .baner__text {
@@ -1205,54 +1262,82 @@ picture img {
   }
 }
 
-.parallax__img-wrapper {
+.parallax {
   width: 100%;
   position: relative;
 }
 
-.parallax__img {
-  width: 100%;
-  height: 100%;
-  border-radius: 20px;
-  overflow: hidden;
+.parallax.shown .parallax__img-wrapper {
+  -webkit-transform: translateY(0);
+          transform: translateY(0);
+  opacity: 1;
 }
 
-.parallax__img img {
-  width: 150%;
-  -webkit-transform: translate(-20%, -10%);
-          transform: translate(-20%, -10%);
+.parallax.shown .parallax__building {
+  -webkit-transform: translate(-55%, -17%);
+          transform: translate(-55%, -17%);
+  opacity: 1;
+}
+
+.parallax__img-wrapper {
+  -webkit-transition: opacity .5s ease-out .25s, -webkit-transform .5s ease-out .25s;
+  transition: opacity .5s ease-out .25s, -webkit-transform .5s ease-out .25s;
+  transition: transform .5s ease-out .25s, opacity .5s ease-out .25s;
+  transition: transform .5s ease-out .25s, opacity .5s ease-out .25s, -webkit-transform .5s ease-out .25s;
+  width: 100%;
+  height: 100vh;
+  -webkit-transform: translateY(200px);
+          transform: translateY(200px);
+  opacity: 0;
+  overflow: hidden;
+  border-radius: 20px;
+}
+
+.parallax__img-wrapper.full {
+  -webkit-transition: -webkit-transform .5s ease-out;
+  transition: -webkit-transform .5s ease-out;
+  transition: transform .5s ease-out;
+  transition: transform .5s ease-out, -webkit-transform .5s ease-out;
+}
+
+.parallax__img-wrapper.full .parallax__img {
+  -webkit-transform: scale(1) translateX(0);
+          transform: scale(1) translateX(0);
+}
+
+.parallax__img {
+  -webkit-transition: -webkit-transform .5s ease-out;
+  transition: -webkit-transform .5s ease-out;
+  transition: transform .5s ease-out;
+  transition: transform .5s ease-out, -webkit-transform .5s ease-out;
+  width: 100%;
+  height: 100vh;
+  background: url("../assets/baner.jpg") no-repeat;
+  border-radius: 20px;
+  background-size: cover;
+  background-position-x: center;
+  background-position-y: top;
+  -webkit-transform: scale(1.25) translateX(-5%);
+          transform: scale(1.25) translateX(-5%);
 }
 
 .parallax__building {
   position: absolute;
   top: 0;
   left: 50%;
-  -webkit-transform: translate(-55%, -17%);
-          transform: translate(-55%, -17%);
+  -webkit-transform: translate(-55%, 200px);
+          transform: translate(-55%, 200px);
   width: 58.7vw;
+  opacity: 0;
+  -webkit-transition: opacity .5s ease-out .25s, -webkit-transform .5s ease-out .25s;
+  transition: opacity .5s ease-out .25s, -webkit-transform .5s ease-out .25s;
+  transition: transform .5s ease-out .25s, opacity .5s ease-out .25s;
+  transition: transform .5s ease-out .25s, opacity .5s ease-out .25s, -webkit-transform .5s ease-out .25s;
 }
 
 @media screen and (max-width: 1240px) {
   .parallax__building {
     display: none;
-  }
-  .parallax__img img {
-    -webkit-transform: translate(-20%, 0%);
-            transform: translate(-20%, 0%);
-  }
-}
-
-@media screen and (max-width: 600px) {
-  .parallax__img {
-    width: 100%;
-    height: 100%;
-    border-radius: 20px;
-    overflow: hidden;
-  }
-  .parallax__img img {
-    width: 100%;
-    -webkit-transform: translate(0%, 0%);
-            transform: translate(0%, 0%);
   }
 }
 

@@ -13,6 +13,12 @@
     font-size: 20px
     letter-spacing: -0.025em
     color: $primary-color
+    opacity: 0
+    transform: translateY(-100%)
+    transition: opacity .5s linear 0.25s, transform .5s linear 0.25s
+    &.shown
+        opacity: 1
+        transform: translateY(0%)
     &__nav
         display: flex
         align-items: center
