@@ -1668,6 +1668,18 @@ picture img {
   cursor: pointer;
 }
 
+.places .controls__item::before {
+  z-index: 0;
+}
+
+.places .controls__item:hover svg path {
+  fill: #404040;
+}
+
+.places .controls__item:active {
+  background: transparent;
+}
+
 .places .controls__item.left svg {
   -webkit-transform: translateX(-2px);
           transform: translateX(-2px);
@@ -1676,6 +1688,10 @@ picture img {
 .places .controls__item.right svg {
   -webkit-transform: translateX(1px);
           transform: translateX(1px);
+}
+
+.places-carousel {
+  min-height: 662px;
 }
 
 .places-carousel__item {
@@ -1810,6 +1826,9 @@ picture img {
   .places__title {
     font-size: 80px;
   }
+  .places-carousel {
+    min-height: 565px;
+  }
   .places-carousel__item {
     max-width: 400px;
   }
@@ -1827,6 +1846,9 @@ picture img {
   }
   .places .controls {
     margin-bottom: 0px;
+  }
+  .places-carousel {
+    min-height: 600px;
   }
   .places-carousel__item {
     max-width: 360px;
@@ -1852,6 +1874,9 @@ picture img {
   .places .controls {
     margin-bottom: 40px;
     padding-left: 20px;
+  }
+  .places-carousel {
+    min-height: calc((50vw - 80px) * 1.1 + 100px);
   }
   .places-carousel__item {
     max-width: 100%;
@@ -2018,6 +2043,18 @@ picture img {
       -ms-flex-pack: center;
           justify-content: center;
   cursor: pointer;
+}
+
+.live-modal .controls__item::before {
+  z-index: 0;
+}
+
+.live-modal .controls__item:hover svg path {
+  fill: #404040;
+}
+
+.live-modal .controls__item:active {
+  background: transparent;
 }
 
 .live-modal .controls__item.left svg {

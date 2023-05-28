@@ -42,6 +42,13 @@
             align-items: center
             justify-content: center
             cursor: pointer
+            &::before
+                z-index: 0
+            &:hover
+              & svg path
+                  fill: $primary-color
+            &:active
+                background: transparent 
             &.left svg
                 transform: translateX(-2px)
             &.right svg

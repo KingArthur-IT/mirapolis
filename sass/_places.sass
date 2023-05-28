@@ -32,13 +32,20 @@
             align-items: center
             justify-content: center
             cursor: pointer
+            &::before
+                z-index: 0
+            &:hover
+              & svg path
+                  fill: $primary-color
+            &:active
+              background: transparent  
             &.left svg
                 transform: translateX(-2px)
             &.right svg
                 transform: translateX(1px)
 
 .places-carousel
-    // min-height: 662px
+    min-height: 662px
     &__item
         max-width: 480px
         padding: 60px 40px 0
@@ -119,6 +126,7 @@
         &__title
             font-size: 80px
     .places-carousel
+        min-height: 565px
         &__item
             max-width: 400px
         &__footer
@@ -136,6 +144,7 @@
         & .controls
             margin-bottom: 0px
     .places-carousel
+        min-height: 600px
         &__item
             max-width: 360px
             padding: 95px 20px 0
@@ -157,6 +166,7 @@
             margin-bottom: 40px
             padding-left: 20px
     .places-carousel
+        min-height: calc((50vw - 80px) * 1.1 + 100px)
         &__item
             max-width: 100%
             padding: 0px 40px 0
