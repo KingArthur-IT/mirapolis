@@ -2065,4 +2065,305 @@ picture img {
 
 .footer {
   width: 100%;
+  background: #404040;
+  color: #fff;
+}
+
+.footer__container {
+  padding: 40px 0;
+}
+
+.footer__hero {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  margin-bottom: 170px;
+}
+
+.footer__title {
+  font-family: 'Roboto Condensed';
+  font-weight: 400;
+  font-size: 20px;
+  line-height: 120%;
+  margin-bottom: 15px;
+}
+
+.footer__adress {
+  font-size: 40px;
+  line-height: 105%;
+  letter-spacing: -0.025em;
+  margin-bottom: 30px;
+}
+
+.footer__shedule-wrap {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  -webkit-box-align: start;
+      -ms-flex-align: start;
+          align-items: flex-start;
+}
+
+.footer__tel {
+  position: relative;
+  display: block;
+  width: -webkit-fit-content;
+  width: -moz-fit-content;
+  width: fit-content;
+  font-weight: 500;
+  font-size: 20px;
+  line-height: 158%;
+  letter-spacing: -0.025em;
+  color: #FFFFFF;
+}
+
+.footer__tel::before {
+  content: '';
+  position: absolute;
+  bottom: 6px;
+  left: 0;
+  right: 0;
+  height: 1px;
+  background: #fff;
+}
+
+.footer__time {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  font-family: 'GT Pressura Mono';
+  font-weight: 400;
+  font-size: 20px;
+  line-height: 125%;
+  letter-spacing: -0.025em;
+  margin-bottom: 20px;
+}
+
+.footer__time span {
+  font-family: 'Coil';
+  font-weight: 500;
+  font-size: 14px;
+  line-height: 110%;
+  letter-spacing: -0.025em;
+  margin-right: 15px;
+  -webkit-transform: translateY(4px);
+          transform: translateY(4px);
+}
+
+.footer__main-logo {
+  width: 100%;
+  margin-bottom: 80px;
+}
+
+.footer__main-logo svg {
+  width: 100%;
+}
+
+.footer__contacts {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  margin-bottom: 80px;
+}
+
+.footer__socials {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.footer__social {
+  display: block;
+  position: relative;
+  width: -webkit-fit-content;
+  width: -moz-fit-content;
+  width: fit-content;
+  font-weight: 500;
+  font-size: 20px;
+  line-height: 158%;
+  letter-spacing: -0.025em;
+  color: #fff;
+  margin-right: 150px;
+}
+
+.footer__social::before {
+  content: '';
+  position: absolute;
+  bottom: 6px;
+  left: 0;
+  right: 0;
+  height: 1px;
+  background: #fff;
+}
+
+.footer__social.agency {
+  text-align: right;
+  margin-right: 0;
+}
+
+.footer__bottom {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  font-weight: 500;
+  font-size: 14px;
+  line-height: 110%;
+  letter-spacing: -0.025em;
+}
+
+.footer__terms a {
+  color: #fff;
+  text-decoration: underline;
+}
+
+@media screen and (max-width: 1440px) {
+  .footer__hero {
+    -ms-flex-wrap: wrap;
+        flex-wrap: wrap;
+  }
+  .footer__logo {
+    -ms-flex-preferred-size: 30%;
+        flex-basis: 30%;
+  }
+  .footer__sales {
+    -ms-flex-preferred-size: 70%;
+        flex-basis: 70%;
+    max-width: 540px;
+    margin-bottom: 40px;
+  }
+  .footer__project {
+    -ms-flex-preferred-size: 100%;
+        flex-basis: 100%;
+    max-width: 540px;
+    margin-left: auto;
+  }
+  .footer__shedule-wrap {
+    -webkit-box-pack: start;
+        -ms-flex-pack: start;
+            justify-content: flex-start;
+  }
+  .footer__shedule {
+    margin-right: 115px;
+  }
+  .footer__social {
+    margin-right: 100px;
+  }
+  .footer__bottom {
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: reverse;
+        -ms-flex-direction: column-reverse;
+            flex-direction: column-reverse;
+  }
+  .footer__terms {
+    margin-bottom: 10px;
+  }
+}
+
+@media screen and (max-width: 1200px) {
+  .footer__social {
+    margin-right: 80px;
+  }
+  .footer__terms a {
+    display: block;
+    margin-top: 3px;
+  }
+}
+
+@media screen and (max-width: 1100px) {
+  .footer__contacts {
+    -ms-flex-wrap: wrap;
+        flex-wrap: wrap;
+  }
+  .footer__socials {
+    -ms-flex-preferred-size: 100%;
+        flex-basis: 100%;
+    -webkit-box-pack: start;
+        -ms-flex-pack: start;
+            justify-content: flex-start;
+    margin-bottom: 15px;
+  }
+  .footer__social.agency {
+    text-align: left;
+    width: -webkit-fit-content;
+    width: -moz-fit-content;
+    width: fit-content;
+  }
+}
+
+@media screen and (max-width: 1024px) {
+  .footer__hero {
+    margin-bottom: 80px;
+  }
+  .footer__main-logo svg {
+    height: -webkit-fit-content;
+    height: -moz-fit-content;
+    height: fit-content;
+  }
+}
+
+@media screen and (max-width: 960px) {
+  .footer__logo {
+    -ms-flex-preferred-size: 100%;
+        flex-basis: 100%;
+    margin-bottom: 40px;
+  }
+  .footer__sales {
+    -ms-flex-preferred-size: 100%;
+        flex-basis: 100%;
+  }
+  .footer__project {
+    -ms-flex-preferred-size: 100%;
+        flex-basis: 100%;
+    margin-left: 0;
+  }
+}
+
+@media screen and (max-width: 600px) {
+  .footer__adress {
+    font-size: 32px;
+  }
+  .footer__shedule-wrap {
+    -ms-flex-wrap: wrap;
+        flex-wrap: wrap;
+  }
+  .footer__shedule {
+    margin-right: 0;
+    -ms-flex-preferred-size: 100%;
+        flex-basis: 100%;
+  }
+  .footer__socials {
+    -webkit-box-pack: justify;
+        -ms-flex-pack: justify;
+            justify-content: space-between;
+  }
+  .footer__social {
+    margin-right: 0;
+  }
+  .footer__social.agency {
+    text-decoration: underline;
+  }
+  .footer__social.agency::before {
+    display: none;
+  }
 }

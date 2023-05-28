@@ -1,2 +1,188 @@
 .footer
     width: 100%
+    background: $primary-color
+    color: #fff
+    &__container
+        padding: 40px 0
+    &__hero
+        display: flex
+        justify-content: space-between
+        margin-bottom: 170px
+    &__title
+        font-family: 'Roboto Condensed'
+        font-weight: 400
+        font-size: 20px
+        line-height: 120%
+        margin-bottom: 15px
+    &__adress
+        font-size: 40px
+        line-height: 105%
+        letter-spacing: -0.025em
+        margin-bottom: 30px
+    &__shedule-wrap
+        display: flex
+        justify-content: space-between
+        align-items: flex-start
+    &__tel
+        position: relative
+        display: block
+        width: fit-content
+        font-weight: 500
+        font-size: 20px
+        line-height: 158%
+        letter-spacing: -0.025em
+        color: #FFFFFF
+        &::before
+            content: ''
+            position: absolute
+            bottom: 6px
+            left: 0
+            right: 0
+            height: 1px
+            background: #fff
+    &__time
+        display: flex
+        font-family: 'GT Pressura Mono'
+        font-weight: 400
+        font-size: 20px
+        line-height: 125%
+        letter-spacing: -0.025em
+        margin-bottom: 20px
+        & span
+            font-family: 'Coil'
+            font-weight: 500
+            font-size: 14px
+            line-height: 110%
+            letter-spacing: -0.025em
+            margin-right: 15px
+            transform: translateY(4px)
+    &__main-logo
+        width: 100%
+        margin-bottom: 80px
+        & svg
+            width: 100%
+    &__contacts
+        display: flex
+        justify-content: space-between
+        align-items: center
+        margin-bottom: 80px
+    &__socials
+        display: flex
+        justify-content: space-between
+        align-items: center
+    &__social
+        display: block
+        position: relative
+        width: fit-content
+        font-weight: 500
+        font-size: 20px
+        line-height: 158%
+        letter-spacing: -0.025em
+        color: #fff
+        margin-right: 150px
+        &::before
+            content: ''
+            position: absolute
+            bottom: 6px
+            left: 0
+            right: 0
+            height: 1px
+            background: #fff
+        &.agency
+            text-align: right
+            margin-right: 0
+    &__bottom
+        display: flex
+        justify-content: space-between
+        font-weight: 500
+        font-size: 14px
+        line-height: 110%
+        letter-spacing: -0.025em
+    // &__copyright
+    &__terms
+        & a
+            color: #fff
+            text-decoration: underline
+
+@media screen and (max-width: 1440px)
+    .footer
+        &__hero
+            flex-wrap: wrap
+        &__logo
+            flex-basis: 30%
+        &__sales
+            flex-basis: 70%
+            max-width: 540px
+            margin-bottom: 40px
+        &__project
+            flex-basis: 100%
+            max-width: 540px
+            margin-left: auto
+        &__shedule-wrap
+            justify-content: flex-start
+        &__shedule
+            margin-right: 115px
+        &__social
+            margin-right: 100px
+        &__bottom
+            flex-direction: column-reverse
+        &__terms
+            margin-bottom: 10px
+
+@media screen and (max-width: 1200px)
+    .footer
+        &__social
+            margin-right: 80px
+        &__terms
+            & a
+                display: block
+                margin-top: 3px
+
+@media screen and (max-width: 1100px)
+    .footer
+        &__contacts
+            flex-wrap: wrap
+        &__socials
+            flex-basis: 100%
+            justify-content: flex-start
+            margin-bottom: 15px
+        &__social
+            &.agency
+                text-align: left
+                width: fit-content
+
+@media screen and (max-width: 1024px)
+    .footer
+        &__hero
+            margin-bottom: 80px
+        &__main-logo svg
+            height: fit-content
+
+@media screen and (max-width: 960px)
+    .footer
+        &__logo
+            flex-basis: 100%
+            margin-bottom: 40px
+        &__sales
+            flex-basis: 100%
+        &__project
+            flex-basis: 100%
+            margin-left: 0
+
+@media screen and (max-width: 600px)
+    .footer
+        &__adress
+            font-size: 32px
+        &__shedule-wrap
+            flex-wrap: wrap
+        &__shedule
+            margin-right: 0
+            flex-basis: 100%
+        &__socials
+            justify-content: space-between
+        &__social
+            margin-right: 0
+            &.agency
+                text-decoration: underline
+                &::before
+                    display: none
