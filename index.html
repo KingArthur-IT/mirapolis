@@ -56,7 +56,7 @@
                             <div class="menu__address-text">г. Москва, Проспект мира, 222</div>
                             <div class="menu__live">
                                 <img src="./assets/menu.jpg" alt="live">
-                                <div class="menu__label">
+                                <div class="show-live-btn menu__label">
                                     <div class="live">
                                         <svg width="20" height="11" viewBox="0 0 20 11" fill="none" xmlns="http://www.w3.org/2000/svg">
                                             <path fill-rule="evenodd" clip-rule="evenodd" d="M2.55682 1.86359H11.0795C11.5502 1.86359 11.9318 2.27061 11.9318 2.77268V8.22723C11.9318 8.72931 11.5502 9.13632 11.0795 9.13632H2.55682C2.08612 9.13632 1.70455 8.72931 1.70455 8.22723V2.77268C1.70455 2.27061 2.08612 1.86359 2.55682 1.86359ZM0 2.77268C0 1.26645 1.14473 0.0454102 2.55682 0.0454102H11.0795C12.4916 0.0454102 13.6364 1.26645 13.6364 2.77268V3.10798L18.4467 1.10556C19.1086 0.713306 20 1.13058 20 1.83271L20 9.1672C20 9.86933 19.1086 10.2866 18.4467 9.89435L13.6364 7.89191V8.22723C13.6364 9.73346 12.4916 10.9545 11.0795 10.9545H2.55682C1.14473 10.9545 0 9.73346 0 8.22723V2.77268Z" fill="#FF4D00"/>
@@ -130,6 +130,37 @@
             </div>
         </div>
     </div>
+    <div class="live-modal">
+        <div class="container">
+            <div class="live-modal__hero">
+                <div class="controls">
+                    <div class="controls__item left">
+                        <svg width="9" height="16" viewBox="0 0 9 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <path fill-rule="evenodd" clip-rule="evenodd" d="M8.70727 0.626145C9.09779 1.01667 9.09779 1.64983 8.70727 2.04036L2.74771 7.99992L8.70727 13.9595C9.09779 14.35 9.09779 14.9832 8.70727 15.3737C8.31675 15.7642 7.68358 15.7642 7.29306 15.3737L0.626389 8.70702C0.235865 8.3165 0.235865 7.68334 0.626389 7.29281L7.29306 0.626145C7.68358 0.235621 8.31675 0.235621 8.70727 0.626145Z" fill="white"/>
+                        </svg>                            
+                    </div>
+                    <div class="controls__item right">
+                        <svg width="9" height="16" viewBox="0 0 9 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <path fill-rule="evenodd" clip-rule="evenodd" d="M0.626389 0.626145C1.01691 0.235621 1.65008 0.235621 2.0406 0.626145L8.70727 7.29281C9.09779 7.68334 9.09779 8.3165 8.70727 8.70702L2.0406 15.3737C1.65008 15.7642 1.01691 15.7642 0.626389 15.3737C0.235865 14.9832 0.235865 14.35 0.626389 13.9595L6.58595 7.99992L0.626389 2.04036C0.235865 1.64983 0.235865 1.01667 0.626389 0.626145Z" fill="white"/>
+                        </svg>                            
+                    </div>
+                </div>
+                <div class="live-modal__carousel-wrapper">
+                    <div class="owl-carousel live-modal__carousel">
+                        <div class="live-modal__item">
+                            <iframe width="100%" height="500" src="" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+                        </div>
+                        <div class="live-modal__item">
+                            <iframe width="100%" height="500" src="" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+                        </div>
+                        <div class="live-modal__item">
+                            <iframe width="100%" height="500" src="" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
     <header class="header">
         <nav class="header__nav">
             <button class="btn header__burger"></button>
@@ -174,7 +205,7 @@
                         </div>
                     </div>
                     <div class="parallax">
-                        <div class="parallax__live">
+                        <div class="show-live-btn parallax__live">
                             <svg width="20" height="12" viewBox="0 0 20 12" fill="none" xmlns="http://www.w3.org/2000/svg">
                                 <path fill-rule="evenodd" clip-rule="evenodd" d="M2.55682 2.36359H11.0795C11.5502 2.36359 11.9318 2.77061 11.9318 3.27268V8.72723C11.9318 9.22931 11.5502 9.63632 11.0795 9.63632H2.55682C2.08612 9.63632 1.70455 9.22931 1.70455 8.72723V3.27268C1.70455 2.77061 2.08612 2.36359 2.55682 2.36359ZM0 3.27268C0 1.76645 1.14473 0.54541 2.55682 0.54541H11.0795C12.4916 0.54541 13.6364 1.76645 13.6364 3.27268V3.60798L18.4467 1.60556C19.1086 1.21331 20 1.63058 20 2.33271L20 9.6672C20 10.3693 19.1086 10.7866 18.4467 10.3944L13.6364 8.39191V8.72723C13.6364 10.2335 12.4916 11.4545 11.0795 11.4545H2.55682C1.14473 11.4545 0 10.2335 0 8.72723V3.27268Z" fill="#FF4D00"/>
                                 <path d="M1.5 1.5H12V10.5H1.5V1.5Z" fill="#FF4D00"/>

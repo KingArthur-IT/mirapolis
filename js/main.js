@@ -5,13 +5,14 @@ document.addEventListener("DOMContentLoaded", () => {
   const callUserNameWrapper = document.querySelector('#call-name')
   const callUserPhoneWrapper = document.querySelector('#call-phone')
 
-  //burger
+  // --- burger ---
   document.querySelector('.header__burger').addEventListener('click', (e) => {
     e.target.classList.toggle('active')
     menu.classList.toggle('active')
     document.querySelector('body').classList.toggle('overflow-hidden')
   })
 
+  // --- call me form ---
   //call me name input focus
   callUserNameWrapper.querySelector('input').addEventListener('focus', () => callUserNameWrapper.classList.add('focus'))
   callUserNameWrapper.querySelector('input').addEventListener('blur', (e) => {
@@ -83,4 +84,29 @@ document.addEventListener("DOMContentLoaded", () => {
     callModal.querySelector('.call-modal__success').classList.add('active')
     callModal.querySelector('.call-modal__form').classList.add('sended')
   })
+
+  // --- live modal ---
+  const liveModal = document.querySelector('.live-modal')
+  //close
+  const closeLiveModal = () => {
+    document.querySelector('body').classList.remove('overflow-hidden')
+    liveModal.classList.remove('active')
+    document.querySelectorAll('.live-modal__item iframe').forEach(frame => frame.removeAttribute('src'))
+  }
+  liveModal.addEventListener('click', closeLiveModal)
+  document.querySelector('.live-modal__hero').addEventListener('click', (e) => e.stopPropagation())
+
+  //open
+  document.querySelectorAll('.show-live-btn').forEach(el => el.addEventListener('click', () => {
+    const frameSrc = [
+      'https://www.youtube.com/embed/Rl9bWV0ZA4I',
+      'https://www.youtube.com/embed/Rl9bWV0ZA4I',
+      'https://www.youtube.com/embed/Rl9bWV0ZA4I',
+    ]
+    document.querySelectorAll('.live-modal__item iframe').forEach((frame, index) => {
+      frame.setAttribute('src', frameSrc[index])
+    })
+    liveModal.classList.add('active')
+    document.querySelector('body').classList.add('overflow-hidden')
+  }))
 });

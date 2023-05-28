@@ -65,3 +65,23 @@ $(document).ready(function(){
     })
 });
 
+//live modal
+$(document).ready(function(){
+  var liveOwl = $('.live-modal__carousel').owlCarousel({
+      loop: false,
+      autoplay: false,
+      slideTransition: 'linear',
+      autoplayTimeout: 2000,
+      autoplaySpeed: 2000,
+      nav: false,
+      dots: false,
+      items: 1,
+  });
+
+  $('.live-modal .controls__item.left').click(function() {
+    liveOwl.trigger('prev.owl.carousel');
+  })
+  $('.live-modal .controls__item.right').click(function() {
+    liveOwl.trigger('next.owl.carousel');
+  })
+});
