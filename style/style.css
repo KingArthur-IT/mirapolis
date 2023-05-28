@@ -144,7 +144,7 @@ picture img {
   overflow: hidden;
 }
 
-@media screen and (max-width: 1280px) {
+@media screen and (max-width: 1340px) {
   .container {
     padding: 0 20px;
   }
@@ -1415,6 +1415,12 @@ picture img {
 }
 
 @media screen and (max-width: 768px) {
+  .parallax {
+    position: relative;
+    right: 0px;
+    left: 0px;
+    width: 100%;
+  }
   .parallax__img-wrapper {
     height: 100vw;
   }
@@ -1439,12 +1445,166 @@ picture img {
   }
 }
 
+.about {
+  height: 100vh;
+  overflow-y: hidden;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+}
+
 .about__title {
   font-weight: 400;
-  font-size: 90px;
+  font-size: 5.5vw;
   line-height: 105%;
   letter-spacing: -0.025em;
   color: #404040;
+}
+
+.about__hero {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  margin-top: 80px;
+  height: 100%;
+  overflow: hidden;
+}
+
+.about__content {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+}
+
+.about__btn {
+  width: 188px;
+  height: 48px;
+  font-size: 20px;
+  line-height: 1;
+}
+
+.about__text {
+  max-width: 490px;
+  font-family: 'GT Pressura Mono';
+  font-weight: 400;
+  font-size: 20px;
+  line-height: 125%;
+  letter-spacing: -0.025em;
+  color: #404040;
+  padding: 80px 0;
+}
+
+.about__slider-wrapper {
+  overflow: hidden;
+  padding-right: 20px;
+}
+
+.about__slider {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+}
+
+.about__img {
+  max-width: 600px;
+  border-radius: 20px;
+  margin-bottom: 40px;
+  overflow: hidden;
+}
+
+.about__img img {
+  width: 100%;
+}
+
+@media screen and (max-width: 1440px) {
+  .about__img {
+    max-width: 520px;
+  }
+}
+
+@media screen and (max-width: 1240px) {
+  .about__img {
+    max-width: 370px;
+  }
+}
+
+@media screen and (max-width: 1024px) {
+  .about__btn {
+    width: 162px;
+    height: 40px;
+    font-size: 18px;
+  }
+  .about__text {
+    max-width: 335px;
+    font-size: 16px;
+    padding: 20px 0 80px;
+  }
+}
+
+@media screen and (max-width: 768px) {
+  .about {
+    overflow: visible;
+  }
+  .about__hero {
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
+    margin-top: 40px;
+    overflow: visible;
+  }
+  .about__content {
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: reverse;
+        -ms-flex-direction: column-reverse;
+            flex-direction: column-reverse;
+  }
+  .about__btn {
+    margin-bottom: 40px;
+  }
+  .about__text {
+    max-width: 100%;
+    padding: 0 0 40px;
+  }
+  .about__slider-wrapper {
+    padding-right: 0;
+    overflow: visible;
+  }
+  .about__img {
+    width: 100%;
+    max-width: 100%;
+    margin-bottom: 20px;
+  }
+}
+
+@media screen and (max-width: 600px) {
+  .about__title {
+    font-size: 9vw;
+  }
+}
+
+@media screen and (max-width: 375px) {
+  .about__title {
+    font-size: 9.6vw;
+  }
 }
 
 .modal-display {

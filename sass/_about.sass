@@ -1,7 +1,101 @@
 .about 
+    height: 100vh
+    overflow-y: hidden
+    display: flex
+    flex-direction: column
     &__title
         font-weight: 400
-        font-size: 90px
+        font-size: 5.5vw
         line-height: 105%
         letter-spacing: -0.025em
         color: $primary-color
+    &__hero
+        display: flex
+        justify-content: space-between
+        margin-top: 80px
+        height: 100%
+        overflow: hidden
+    &__content
+        display: flex
+        flex-direction: column
+        justify-content: space-between
+    &__btn
+        width: 188px
+        height: 48px
+        font-size: 20px
+        line-height: 1
+    &__text
+        max-width: 490px
+        font-family: 'GT Pressura Mono'
+        font-weight: 400
+        font-size: 20px
+        line-height: 125%
+        letter-spacing: -0.025em
+        color: $primary-color
+        padding: 80px 0
+    &__slider-wrapper
+        overflow: hidden
+        padding-right: 20px
+    &__slider
+        display: flex
+        flex-direction: column
+    &__img
+        max-width: 600px
+        border-radius: 20px
+        margin-bottom: 40px
+        overflow: hidden
+        & img
+            width: 100%
+
+@media screen and (max-width: 1440px)
+    .about
+        &__img
+            max-width: 520px
+
+@media screen and (max-width: 1240px)
+    .about
+        &__img
+            max-width: 370px
+
+@media screen and (max-width: 1024px)
+    .about
+        &__btn
+            width: 162px
+            height: 40px
+            font-size: 18px
+        &__text
+            max-width: 335px
+            font-size: 16px
+            padding: 20px 0 80px
+
+@media screen and (max-width: 768px)
+    .about
+        overflow: visible
+        &__hero
+            flex-direction: column
+            margin-top: 40px
+            overflow: visible
+        &__content
+            flex-direction: column-reverse
+        &__btn
+            margin-bottom: 40px
+        &__text
+            max-width: 100%
+            padding: 0 0 40px
+        &__slider-wrapper
+            padding-right: 0
+            overflow: visible
+        &__img
+            width: 100%
+            max-width: 100%
+            margin-bottom: 20px
+
+@media screen and (max-width: 600px)
+    .about
+        &__title
+            font-size: 9vw
+
+@media screen and (max-width: 375px)
+    .about
+        &__title
+            font-size: 9.6vw

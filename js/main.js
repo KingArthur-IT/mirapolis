@@ -1,4 +1,6 @@
 document.addEventListener("DOMContentLoaded", () => {
+  window.scrollTo(0 ,0)
+  
   const menu = document.querySelector('.menu')
   const callUserNameWrapper = document.querySelector('#call-name')
   const callUserPhoneWrapper = document.querySelector('#call-phone')
