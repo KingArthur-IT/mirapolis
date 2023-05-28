@@ -66,17 +66,24 @@ document.addEventListener("DOMContentLoaded", () => {
     document.querySelector('body').classList.remove('overflow-hidden')
     callModal.classList.remove('active')
   }
-  document.querySelector('.call-modal__close').addEventListener('click', closeCallForm )
-  callModal.addEventListener('click', closeCallForm)
-  document.querySelector('.call-modal__hero').addEventListener('click', (e) => e.stopPropagation())
-
-  //open call me form
-  document.querySelectorAll('.call-me-btn').forEach(el => el.addEventListener('click', () => {
+  const openCallForm = (title) => {
     callModal.querySelector('.call-modal__form').classList.remove('sended')
     callModal.querySelector('.call-modal__success').classList.remove('active')
     callModal.classList.add('active')
     document.querySelector('body').classList.add('overflow-hidden')
+    callModal.querySelector('.call-modal__title').innerHTML = title
+  }
+
+  document.querySelectorAll('.call-me-btn').forEach(el => el.addEventListener('click', () => {
+    openCallForm('Обратный звонок')
   }))
+  document.querySelector('.give-me-booklet-btn').addEventListener('click', () => {
+    openCallForm('Получить буклет')
+  })
+
+  document.querySelector('.call-modal__close').addEventListener('click', closeCallForm )
+  callModal.addEventListener('click', closeCallForm)
+  document.querySelector('.call-modal__hero').addEventListener('click', (e) => e.stopPropagation())
 
   //submit call me form
   callModal.querySelector('button.submit').addEventListener('click', (e) => {
