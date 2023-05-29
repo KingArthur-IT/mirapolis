@@ -775,6 +775,9 @@ picture img {
   .menu__content {
     display: none;
   }
+  .menu__footer {
+    display: none;
+  }
 }
 
 .call-modal {
