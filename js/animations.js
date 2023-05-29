@@ -30,7 +30,7 @@ function offset(el) {
     const rect = el.getBoundingClientRect(),
     scrollLeft = window.pageXOffset || document.documentElement.scrollLeft,
     scrollTop = window.pageYOffset || document.documentElement.scrollTop;
-    return { top: rect.top, left: rect.left + scrollLeft }
+    return { top: rect.top, left: rect.left + scrollLeft } 
     // return { top: rect.top + scrollTop, left: rect.left + scrollLeft }
 }
 
@@ -129,6 +129,7 @@ function animOnScroll(animItems) {
 function wheelEvent(e) {
     const aboutSection = document.querySelector('.about')
     const animItemOffsetTop = offset(aboutSection).top;
+    console.log(animItemOffsetTop);
 
     const transformStep = 10
     const maxTransform = document.querySelector('.about__slider').offsetHeight - document.querySelector('.about__slider-wrapper').offsetHeight + transformStep
