@@ -56,7 +56,7 @@ function fullScreenAnimation() {
         }
         //fullscreen img animation
         const hasFullClass = parallaxWrapper.classList.contains('full')
-        if (window.pageYOffset > animItemOffsetTop - animItemPoint) { //&& (window.pageYOffset < animItemOffsetTop + animItemHeight)
+        if (window.pageYOffset > animItemOffsetTop - animItemPoint && window.pageYOffset > 60) { //&& (window.pageYOffset < animItemOffsetTop + animItemHeight)
             if (!hasFullClass) {
                 parallaxWrapper.classList.add('full')
                 parallaxSection.querySelector('.parallax__live').classList.add('hide')
@@ -111,7 +111,7 @@ function animOnScroll(animItems) {
         const animItemOffsetTop = offset(item).top;
         const animStart = 2;
 
-        let animItemPoint = window.innerHeight - animItemHeight / animStart;
+        let animItemPoint = window.innerHeight - 300 //animItemHeight / animStart;
         if (animItemHeight > window.innerHeight) {
             animItemPoint = window.innerHeight - window.innerHeight / animStart;
         }
