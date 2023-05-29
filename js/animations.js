@@ -61,6 +61,7 @@ function fullScreenAnimation() {
         const hasFullClass = parallaxWrapper.classList.contains('full')
         if (window.pageYOffset > animItemOffsetTop - animItemPoint && window.pageYOffset > 60) { //&& (window.pageYOffset < animItemOffsetTop + animItemHeight)
             if (!hasFullClass) {
+                console.log('full');
                 document.querySelector('body').classList.add('overflow-hidden')
                 parallaxWrapper.classList.add('full')
                 parallaxSection.querySelector('.parallax__live').classList.add('hide')
