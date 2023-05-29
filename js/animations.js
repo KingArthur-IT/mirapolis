@@ -15,13 +15,14 @@ window.addEventListener("load", () => {
     let isDownScrollDirection = true
 
     window.addEventListener('scroll', () => {
+        console.log(window.pageYOffset, window.scrollY);
         isDownScrollDirection = window.pageYOffset - lastScrollValue > 0
         lastScrollValue = window.pageYOffset
 
         fullScreenAnimation()
         afterFullAnimation(isDownScrollDirection)
         animOnScroll(animItems)
-    })
+    }, { passive: true })
 
     document.querySelector('body').addEventListener('wheel', wheelEvent)
 });
