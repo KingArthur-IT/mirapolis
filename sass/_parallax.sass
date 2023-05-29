@@ -5,7 +5,7 @@
     width: calc(100% - 40px)
     transition: margin .5s ease-out
     &.moved
-        margin-top: -200px
+        margin-top: -340px
     &.shown
         & .parallax__img-wrapper
             transform: translateY(0)
@@ -62,7 +62,7 @@
         z-index: 5
         cursor: pointer
         opacity: 1
-        transition: opacity .3s ease-out
+        transition: opacity .3s ease-out, background .3s ease-out
         &.hide
             opacity: 0
             pointer-events: none
@@ -72,9 +72,21 @@
             font-size: 20px
             letter-spacing: -0.025em
             color: #FFFFFF
+            transition: color .3s ease-out
+        &:hover span
+            color: $primary-color
+        &:active
+            background: #fff
+
+@media screen and (max-width: 1600px)
+    .parallax
+        &.moved
+            margin-top: -300px
 
 @media screen and (max-width: 1240px)
     .parallax
+        &.moved
+            margin-top: -240px
         &__building
             display: none
         &__img

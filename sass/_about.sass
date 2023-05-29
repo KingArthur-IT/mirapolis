@@ -1,14 +1,23 @@
 .about 
+    margin-top: -100px
     height: 100vh
     overflow-y: hidden
     display: flex
     flex-direction: column
+    position: relative
+    &__title-wrapper
+        overflow: hidden
+        min-height: 5.5vw
     &__title
+        transform: translateY(100%)
+        transition: transform .5s ease-out
         font-weight: 400
         font-size: 5.5vw
         line-height: 105%
         letter-spacing: -0.025em
         color: $primary-color
+        &.shown
+            transform: translateY(0%)
     &__hero
         display: flex
         justify-content: space-between
@@ -24,6 +33,13 @@
         height: 48px
         font-size: 20px
         line-height: 1
+        transform: translateY(100px)
+        opacity: 0
+        transition: transform .5s ease-out, opacity .5s ease-out
+        z-index: 5
+        &.anim-active
+            transform: translateY(0px)
+            opacity: 1
     &__text
         max-width: 490px
         font-family: 'GT Pressura Mono'
@@ -33,19 +49,39 @@
         letter-spacing: -0.025em
         color: $primary-color
         padding: 80px 0
+        transform: translateY(100px)
+        opacity: 0
+        transition: transform .5s ease-out, opacity .5s ease-out
+        &.anim-active
+            transform: translateY(0px)
+            opacity: 1
     &__slider-wrapper
         overflow: hidden
         padding-right: 20px
+        &.anim-active
+            & .about__img
+                transform: translateY(0px)
+                opacity: 1
     &__slider
         display: flex
         flex-direction: column
+        transition: transform .2s ease-out
     &__img
         max-width: 600px
         border-radius: 20px
         margin-bottom: 40px
         overflow: hidden
+        transform: translateY(200px)
+        opacity: 0
+        transition: transform .5s ease-out, opacity .5s ease-out
+        &:nth-child(2)
+            transition-delay: 0.3s
         & img
             width: 100%
+
+// @media screen and (max-width: 1600px)
+//     .about
+//         margin-top: -120px
 
 @media screen and (max-width: 1440px)
     .about
@@ -72,6 +108,7 @@
     .about
         height: auto
         overflow: visible
+        margin-top: 0
         &__hero
             flex-direction: column
             margin-top: 40px

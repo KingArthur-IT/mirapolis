@@ -1,5 +1,6 @@
+window.scrollTo(0 ,0)
+
 document.addEventListener("DOMContentLoaded", () => {
-  window.scrollTo(0 ,0)
   
   const menu = document.querySelector('.menu')
   const callUserNameWrapper = document.querySelector('#call-name')
@@ -10,6 +11,17 @@ document.addEventListener("DOMContentLoaded", () => {
     e.target.classList.toggle('active')
     menu.classList.toggle('active')
     document.querySelector('body').classList.toggle('overflow-hidden')
+  })
+
+  // --- menu item ---
+  menu.querySelectorAll('.menu__item').forEach(el => {
+    el.addEventListener('click', () => {
+      document.querySelector('.header__burger').classList.remove('active')
+      menu.classList.remove('active')
+      document.querySelector('body').classList.remove('overflow-hidden')
+      document.querySelector('.parallax').classList.add('moved')
+      document.querySelectorAll('.about__title').forEach(el => el.classList.add('shown'))
+    })
   })
 
   // --- call me form ---

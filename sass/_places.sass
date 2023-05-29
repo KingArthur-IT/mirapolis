@@ -4,12 +4,20 @@
         display: flex
         justify-content: space-between
         margin-bottom: 80px
+    &__title-wrapper
+        overflow: hidden
     &__title
         font-weight: 400
         font-size: 90px
         line-height: 105%
         letter-spacing: -0.025em
         color: $primary-color
+        transform: translateY(100%)
+        transition: transform .5s ease-out
+        &.anim-active
+            transform: translateY(0%)
+    &__text-wrapper
+        overflow: hidden
     &__text
         font-family: 'GT Pressura Mono'
         font-weight: 400
@@ -18,6 +26,10 @@
         letter-spacing: -0.025em
         color: $primary-color
         max-width: 490px
+        transform: translateY(100%)
+        transition: transform .5s ease-out
+        &.anim-active
+            transform: translateY(0%)
     & .controls
         display: flex
         align-items: center
@@ -46,6 +58,21 @@
 
 .places-carousel
     min-height: 662px
+    &__item-wrapper
+        transform: translateX(300px)
+        opacity: 0
+        transition: opacity .5s ease-out, transform .5s ease-out
+        &.delay-1
+            transition-delay: .2s
+        &.delay-2
+            transition-delay: .4s
+        &.delay-3
+            transition-delay: .6s
+        &.delay-4
+            transition-delay: .8s
+        &.anim-active
+            transform: translateX(0px)
+            opacity: 1
     &__item
         max-width: 480px
         padding: 60px 40px 0
@@ -62,7 +89,7 @@
         display: flex
         align-items: center
         justify-content: center
-        padding: 8px 16px
+        padding: 8px 16px 
         border-radius: 300px
         border: 2px solid $primary-color
         color: $primary-color

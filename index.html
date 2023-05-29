@@ -18,8 +18,8 @@
             <div class="menu__container">
                 <div class="menu__hero">
                     <div class="menu__nav">
-                        <a href="#" class="menu__item">О проекте</a>
-                        <a href="#" class="menu__item">Локации</a>
+                        <a href="#about" class="menu__item">О проекте</a>
+                        <a href="#places" class="menu__item">Локации</a>
                         <a href="#" class="menu__item">Галерея</a>
                         <a href="#" class="menu__item">Преимущества</a>
                         <a href="#" class="menu__item">Планировка</a>
@@ -28,6 +28,22 @@
                         <a href="#" class="menu__item">Контакты</a>
                     </div>
                     <div class="menu__content">
+                        <div class="menu__adress">
+                            <div class="menu__name">Адрес проекта</div>
+                            <div class="menu__address-text">г. Москва, Проспект мира, 222</div>
+                            <div class="menu__live">
+                                <img src="./assets/menu.jpg" alt="live">
+                                <div class="show-live-btn menu__label">
+                                    <div class="live">
+                                        <svg width="20" height="11" viewBox="0 0 20 11" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                            <path fill-rule="evenodd" clip-rule="evenodd" d="M2.55682 1.86359H11.0795C11.5502 1.86359 11.9318 2.27061 11.9318 2.77268V8.22723C11.9318 8.72931 11.5502 9.13632 11.0795 9.13632H2.55682C2.08612 9.13632 1.70455 8.72931 1.70455 8.22723V2.77268C1.70455 2.27061 2.08612 1.86359 2.55682 1.86359ZM0 2.77268C0 1.26645 1.14473 0.0454102 2.55682 0.0454102H11.0795C12.4916 0.0454102 13.6364 1.26645 13.6364 2.77268V3.10798L18.4467 1.10556C19.1086 0.713306 20 1.13058 20 1.83271L20 9.1672C20 9.86933 19.1086 10.2866 18.4467 9.89435L13.6364 7.89191V8.22723C13.6364 9.73346 12.4916 10.9545 11.0795 10.9545H2.55682C1.14473 10.9545 0 9.73346 0 8.22723V2.77268Z" fill="#FF4D00"/>
+                                            <path d="M1.5 1H12V10H1.5V1Z" fill="#FF4D00"/>
+                                        </svg>                                        
+                                    </div>
+                                    <span>Live</span>                                    
+                                </div>
+                            </div>
+                        </div>
                         <div class="menu__center">
                             <div class="menu__name">Офис продаж</div>
                             <div class="menu__address-text">г. Москва, ул. Бажова д. 17</div>
@@ -50,22 +66,6 @@
                                 <div class="text">Агентствам недвижимости по вопросам</div>
                                 <div class="text">сотрудничества</div>
                             </a>
-                        </div>
-                        <div class="menu__adress">
-                            <div class="menu__name">Адрес проекта</div>
-                            <div class="menu__address-text">г. Москва, Проспект мира, 222</div>
-                            <div class="menu__live">
-                                <img src="./assets/menu.jpg" alt="live">
-                                <div class="show-live-btn menu__label">
-                                    <div class="live">
-                                        <svg width="20" height="11" viewBox="0 0 20 11" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                            <path fill-rule="evenodd" clip-rule="evenodd" d="M2.55682 1.86359H11.0795C11.5502 1.86359 11.9318 2.27061 11.9318 2.77268V8.22723C11.9318 8.72931 11.5502 9.13632 11.0795 9.13632H2.55682C2.08612 9.13632 1.70455 8.72931 1.70455 8.22723V2.77268C1.70455 2.27061 2.08612 1.86359 2.55682 1.86359ZM0 2.77268C0 1.26645 1.14473 0.0454102 2.55682 0.0454102H11.0795C12.4916 0.0454102 13.6364 1.26645 13.6364 2.77268V3.10798L18.4467 1.10556C19.1086 0.713306 20 1.13058 20 1.83271L20 9.1672C20 9.86933 19.1086 10.2866 18.4467 9.89435L13.6364 7.89191V8.22723C13.6364 9.73346 12.4916 10.9545 11.0795 10.9545H2.55682C1.14473 10.9545 0 9.73346 0 8.22723V2.77268Z" fill="#FF4D00"/>
-                                            <path d="M1.5 1H12V10H1.5V1Z" fill="#FF4D00"/>
-                                        </svg>                                        
-                                    </div>
-                                    <span>Live</span>                                    
-                                </div>
-                            </div>
                         </div>
                     </div>
                 </div>
@@ -205,13 +205,13 @@
                         </div>
                     </div>
                     <div class="parallax">
-                        <div class="show-live-btn parallax__live">
+                        <button class="btn primary-btn show-live-btn parallax__live">
                             <svg width="20" height="12" viewBox="0 0 20 12" fill="none" xmlns="http://www.w3.org/2000/svg">
                                 <path fill-rule="evenodd" clip-rule="evenodd" d="M2.55682 2.36359H11.0795C11.5502 2.36359 11.9318 2.77061 11.9318 3.27268V8.72723C11.9318 9.22931 11.5502 9.63632 11.0795 9.63632H2.55682C2.08612 9.63632 1.70455 9.22931 1.70455 8.72723V3.27268C1.70455 2.77061 2.08612 2.36359 2.55682 2.36359ZM0 3.27268C0 1.76645 1.14473 0.54541 2.55682 0.54541H11.0795C12.4916 0.54541 13.6364 1.76645 13.6364 3.27268V3.60798L18.4467 1.60556C19.1086 1.21331 20 1.63058 20 2.33271L20 9.6672C20 10.3693 19.1086 10.7866 18.4467 10.3944L13.6364 8.39191V8.72723C13.6364 10.2335 12.4916 11.4545 11.0795 11.4545H2.55682C1.14473 11.4545 0 10.2335 0 8.72723V3.27268Z" fill="#FF4D00"/>
                                 <path d="M1.5 1.5H12V10.5H1.5V1.5Z" fill="#FF4D00"/>
                             </svg>    
                             <span>Live</span>                            
-                        </div>
+                        </button>
                         <div class="parallax__img-wrapper">
                             <div class="parallax__img"></div>
                         </div>
@@ -219,7 +219,7 @@
                     </div>
                 </div>
             </div>
-            <div class="about">
+            <div id="about" class="about">
                 <div class="about__title-wrapper">
                     <h2 class="about__title">«Мираполис» — ультрасовременный</h2>
                 </div>
@@ -228,12 +228,12 @@
                 </div>
                 <div class="about__hero">
                     <div class="about__content">
-                        <button class="give-me-booklet-btn btn primary-btn about__btn">Получить буклет</button>
-                        <p class="about__text">
+                        <button class="give-me-booklet-btn btn primary-btn about__btn anim-item">Получить буклет</button>
+                        <p class="about__text anim-item">
                             Здесь собраны лучшие международные практики нового урбанизма крупнейших городов мира, отвечающие любым потребностям жителей мегаполиса. Идеальное решение для тех, кто ценит свое время, привык получать удовольствие от жизни и хочет на максимум использовать каждый день.
                         </p>
                     </div>
-                    <div class="about__slider-wrapper">
+                    <div class="about__slider-wrapper anim-item">
                         <div class="about__slider">
                             <div class="about__img">
                                 <img src="./assets/about/1.jpg" alt="1">
@@ -255,14 +255,14 @@
                 </div>
             </div>
         </div>
-        <div class="places">
+        <div id="places" class="places">
             <div class="container">
                 <div class="places__head">
                     <div class="places__title-wrapper">
-                        <h2 class="places__title">Важное рядом</h2>
+                        <h2 class="places__title anim-item">Важное рядом</h2>
                     </div>
                     <div class="places__text-wrapper">
-                        <p class="places__text">
+                        <p class="places__text anim-item">
                             Развитая инфраструктура, близость к крупным торговым и бизнес-центрам, вузам и медицинским клиникам создаёт особенный комфорт в повседневной жизни. Быстрый выезд на главные транспортные магистрали позволяет всего за 30 мин. добраться до центра Москвы.
                         </p>
                     </div>
@@ -281,7 +281,7 @@
                 </div>
             </div>
             <div class="owl-carousel places-carousel">
-                <div class="places-carousel__item-wrapper">
+                <div class="places-carousel__item-wrapper anim-item delay-2">
                     <div class="places-carousel__item">
                         <div class="places-carousel__head">
                             <div class="places-carousel__label">400 М</div>
@@ -301,7 +301,7 @@
                         </div>
                     </div>
                 </div>
-                <div class="places-carousel__item-wrapper">
+                <div class="places-carousel__item-wrapper anim-item delay-3">
                     <div class="places-carousel__item">
                         <div class="places-carousel__head">
                             <div class="places-carousel__label">500 М</div>
@@ -322,7 +322,7 @@
                         </div>
                     </div>
                 </div>
-                <div class="places-carousel__item-wrapper">
+                <div class="places-carousel__item-wrapper anim-item delay-1">
                     <div class="places-carousel__item">
                         <div class="places-carousel__head">
                             <div class="places-carousel__label">500 М</div>
