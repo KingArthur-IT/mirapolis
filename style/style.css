@@ -427,6 +427,9 @@ picture img {
   line-height: 125%;
   color: #fff;
   margin-bottom: 5px;
+  width: -webkit-fit-content;
+  width: -moz-fit-content;
+  width: fit-content;
 }
 
 .menu__nav {

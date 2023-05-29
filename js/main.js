@@ -87,7 +87,7 @@ document.addEventListener("DOMContentLoaded", () => {
   }
 
   document.querySelectorAll('.call-me-btn').forEach(el => el.addEventListener('click', () => {
-    openCallForm('Обратный звонок')
+    openCallForm('Заказать звонок')
   }))
   document.querySelector('.give-me-booklet-btn').addEventListener('click', () => {
     openCallForm('Получить буклет')
