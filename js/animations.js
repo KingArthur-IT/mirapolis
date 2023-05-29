@@ -6,7 +6,10 @@ window.addEventListener("load", () => {
     document.querySelector('.baner__hero').classList.add('shown')
     document.querySelector('.parallax').classList.add('shown')
 
-    const animItems = document.querySelectorAll('.anim-item');
+    var animItems = document.querySelectorAll('.anim-item');
+    setTimeout(() => {
+        animItems = document.querySelectorAll('.anim-item');
+    }, 3000);
 
     let lastScrollValue = 0
     let isDownScrollDirection = true
