@@ -15,7 +15,6 @@ window.addEventListener("load", () => {
     let isDownScrollDirection = true
 
     window.addEventListener('scroll', () => {
-        console.log(window.pageYOffset, window.scrollY);
         isDownScrollDirection = window.pageYOffset - lastScrollValue > 0
         lastScrollValue = window.pageYOffset
 
@@ -62,11 +61,11 @@ function fullScreenAnimation() {
         const hasFullClass = parallaxWrapper.classList.contains('full')
         if (window.pageYOffset > animItemOffsetTop - animItemPoint && window.pageYOffset > 60) { //&& (window.pageYOffset < animItemOffsetTop + animItemHeight)
             if (!hasFullClass) {
+                document.querySelector('body').classList.add('overflow-hidden')
                 parallaxWrapper.classList.add('full')
                 parallaxSection.querySelector('.parallax__live').classList.add('hide')
                 parallaxSection.querySelector('.parallax__building').classList.add('hide')
                 parallaxWrapper.style.transform = `translateY(-${animItemOffsetTop}px)`
-                document.querySelector('body').classList.add('overflow-hidden')
                 document.querySelector('.baner__hero').classList.remove('shown')
                 setTimeout(() => {
                     document.querySelector('body').classList.remove('overflow-hidden')
