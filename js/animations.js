@@ -131,6 +131,7 @@ function animOnScroll(animItems) {
 
 function wheelEvent(e) {
     const isMouseWheel = !(Math.abs(e.wheelDeltaY) % 120 != 0 || Math.abs(e.wheelDeltaY) == Math.abs(e.deltaY))
+    const isOnTopScrolling = window.scrollY < 150
 
     if (isMouseWheel) {
         // Предотвращаем дальнейшую обработку события прокрутки
@@ -143,13 +144,13 @@ function wheelEvent(e) {
             const scrollAmount = e.deltaY;
         
             // Ограничиваем величину прокрутки до максимального значения
-            const maxScrollAmount = 50;
+            const maxScrollAmount = isOnTopScrolling ? 50 : 100;
             const limitedScrollAmount = Math.min(Math.abs(scrollAmount), maxScrollAmount) * Math.sign(scrollAmount);
         
             // Изменяем прокрутку на ограниченное значение
             window.scrollBy(0, limitedScrollAmount);
 
-            if (window.scrollY < 150) {
+            if (isOnTopScrolling) {
                 isWheelEnable = false
                 setTimeout(() => {
                     isWheelEnable = true
