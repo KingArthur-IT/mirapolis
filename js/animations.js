@@ -130,9 +130,9 @@ function animOnScroll(animItems) {
 }
 
 function wheelEvent(e) {
-    const isMouseWheel = !Number.isInteger(e.deltaY)
+    const isMouseWheel = !(Math.abs(e.wheelDeltaY) % 120 != 0 || Math.abs(e.wheelDeltaY) == Math.abs(e.deltaY))
+    console.log('isMouseWheel', isMouseWheel);
 
-    console.log('is', Math.abs(e.wheelDeltaY) % 120 != 0 || Math.abs(e.wheelDeltaY) == Math.abs(e.deltaY));
     if (isMouseWheel) {
         // Предотвращаем дальнейшую обработку события прокрутки
         e.preventDefault();
@@ -158,8 +158,6 @@ function wheelEvent(e) {
             scrollYVal = window.scrollY + limitedScrollAmount
         }
     } else scrollYVal = window.scrollY + e.deltaY
-
-    console.log('e.deltaY', e.deltaY, 'isMouseWheel', isMouseWheel);
 
     const aboutSection = document.querySelector('.about')
     const animItemOffsetTop = offset(aboutSection).top - scrollYVal + window.pageYOffset;
