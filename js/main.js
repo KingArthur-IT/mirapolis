@@ -11,7 +11,6 @@ document.addEventListener("DOMContentLoaded", () => {
   document.querySelector('.header__burger').addEventListener('click', (e) => {
     e.target.classList.toggle('active')
     menu.classList.toggle('active')
-    document.querySelector('body').classList.toggle('overflow-hidden')
   })
 
   // --- menu item ---
@@ -75,14 +74,12 @@ document.addEventListener("DOMContentLoaded", () => {
   //close call me form
   const callModal = document.querySelector('.call-modal')
   const closeCallForm = () => {
-    document.querySelector('body').classList.remove('overflow-hidden')
     callModal.classList.remove('active')
   }
   const openCallForm = (title) => {
     callModal.querySelector('.call-modal__form').classList.remove('sended')
     callModal.querySelector('.call-modal__success').classList.remove('active')
     callModal.classList.add('active')
-    document.querySelector('body').classList.add('overflow-hidden')
     callModal.querySelector('.call-modal__title').innerHTML = title
   }
 
@@ -108,7 +105,6 @@ document.addEventListener("DOMContentLoaded", () => {
   const liveModal = document.querySelector('.live-modal')
   //close
   const closeLiveModal = () => {
-    document.querySelector('body').classList.remove('overflow-hidden')
     liveModal.classList.remove('active')
     document.querySelectorAll('.live-modal__item iframe').forEach(frame => frame.removeAttribute('src'))
   }
