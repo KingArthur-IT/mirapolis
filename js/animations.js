@@ -142,9 +142,10 @@ function wheelEvent(e) {
         if (!document.querySelector('body').classList.contains('overflow-hidden')) {
             // Получаем величину прокрутки колесика мыши
             const scrollAmount = e.deltaY;
+            console.log(scrollAmount);
         
             // Ограничиваем величину прокрутки до максимального значения
-            const maxScrollAmount = isOnTopScrolling ? 60 : 500;
+            const maxScrollAmount = isOnTopScrolling ? 60 : Math.abs(scrollAmount);
             console.log(maxScrollAmount);
             const limitedScrollAmount = Math.min(Math.abs(scrollAmount), maxScrollAmount) * Math.sign(scrollAmount);
         
