@@ -27,14 +27,9 @@ const prevScreen = (min) => {
 }
 
 const anchorJump = (anchor) => {
-    document.getElementById(anchor).scrollIntoView({ alignToTop: true, behavior: "smooth" })
-
     setTimeout(() => {
         document.getElementById(anchor).scrollIntoView({ alignToTop: true, behavior: "smooth" })
-    }, 200);
-    setTimeout(() => {
-        document.getElementById(anchor).scrollIntoView({ alignToTop: true, behavior: "smooth" })
-    }, 500);
+    }, 0);
     setTimeout(() => {
         document.getElementById(anchor).scrollIntoView({ alignToTop: true, behavior: "smooth" })
     }, 1000);
@@ -78,6 +73,7 @@ window.addEventListener("load", () => {
 function wheelEvent(e) { 
     if (isScrollDisabled) {
         e.preventDefault()
+        e.stopPropagation()
         return
     }
     const isMouseWheel = !(Math.abs(e.wheelDeltaY) % 120 != 0 || Math.abs(e.wheelDeltaY) == Math.abs(e.deltaY))
@@ -122,6 +118,11 @@ function fullImgSectionWheel() {
 
     if (nextScreen(30)) {
         anchorJump('about')
+        setTimeout(() => {
+            const aboutSection = document.querySelector('.about')
+            aboutSection.querySelectorAll('.about__title').forEach(el => el.classList.add('shown'))
+            aboutSection.querySelectorAll('.anim-item').forEach(el => el.classList.add('anim-active'))
+        }, 500);
     }
     if (prevScreen(-5)) {
         parallaxWrapper.classList.remove('full')
@@ -138,26 +139,23 @@ function fullImgSectionWheel() {
 
 //about animation index === 3
 function aboutSectionWheel() {
+    const speed = 6
     const maxTransform = document.querySelector('.about__slider').offsetHeight - document.querySelector('.about__slider-wrapper').offsetHeight
     const aboutSection = document.querySelector('.about')
-    setTimeout(() => {
-        aboutSection.querySelectorAll('.about__title').forEach(el => el.classList.add('shown'))
-        aboutSection.querySelectorAll('.anim-item').forEach(el => el.classList.add('anim-active'))
-    }, 500);
 
-    if (scrollYVal > 10 && scrollYVal < maxTransform / 5 + 30) {
-        document.querySelector('.about__slider').style.transform = `translateY(${ 75 - 5 * scrollYVal }px)`
+    if (scrollYVal > 10 && scrollYVal < maxTransform / speed + 30) {
+        document.querySelector('.about__slider').style.transform = `translateY(${ 15 * speed - speed * scrollYVal }px)`
     }
 
-    if (nextScreen(maxTransform / 5 + 100)) {
+    if (nextScreen(maxTransform / speed + 100)) {
         anchorJump('places')
-        const aboutSection = document.querySelector('.about')
-        aboutSection.querySelectorAll('.about__title').forEach(el => el.classList.remove('shown'))
-        aboutSection.querySelectorAll('.anim-item').forEach(el => el.classList.remove('anim-active'))
+        setTimeout(() => {
+            aboutSection.querySelectorAll('.about__title').forEach(el => el.classList.remove('shown'))
+            aboutSection.querySelectorAll('.anim-item').forEach(el => el.classList.remove('anim-active'))
+        }, 500);
     }
 
     if (prevScreen(-5)) {
-        const aboutSection = document.querySelector('.about')
         aboutSection.querySelectorAll('.about__title').forEach(el => el.classList.remove('shown'))
         aboutSection.querySelectorAll('.anim-item').forEach(el => el.classList.remove('anim-active'))
         document.querySelector('.about__slider').style.transform = `translateY(0px)`
@@ -173,13 +171,23 @@ function placesSectionWheel() {
         placesSection.querySelectorAll('.anim-item').forEach(el => el.classList.add('anim-active'))
     }, 500);
 
-    if (scrollYVal >= 0)
+    const offsetVal = offset(document.querySelector('.places'))
+    if (offsetVal.top <= 0)
         document.querySelector('body').classList.remove('overflow-hidden')
     else {
-        prevScreen(-5)
-        document.querySelector('body').classList.add('overflow-hidden')
-        anchorJump('about')
-        placesSection.querySelectorAll('.anim-item').forEach(el => el.classList.remove('anim-active'))
+        if (prevScreen(-5)) {
+            document.querySelector('body').classList.add('overflow-hidden')
+            anchorJump('about')
+            placesSection.querySelectorAll('.anim-item').forEach(el => el.classList.remove('anim-active'))
+            setTimeout(() => {
+                const aboutSection = document.querySelector('.about')
+                aboutSection.querySelectorAll('.about__title').forEach(el => el.classList.add('shown'))
+                aboutSection.querySelectorAll('.anim-item').forEach(el => el.classList.add('anim-active'))
+            }, 500);
+            const speed = 6
+            const currTransformValue = Number(document.querySelector('.about__slider').style.transform.replace(/[^-\d]/g, ''))
+            scrollYVal = 15 - currTransformValue / speed
+        }
     }
 }
 
