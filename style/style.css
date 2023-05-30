@@ -1497,9 +1497,12 @@ picture img {
 }
 
 .about {
-  margin-top: -70px;
-  height: 100vh;
+  padding-top: 40px;
   overflow-y: hidden;
+}
+
+.about__container {
+  height: 100vh;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -1730,6 +1733,7 @@ picture img {
 }
 
 .places {
+  padding-top: 40px;
   margin-top: 170px;
 }
 

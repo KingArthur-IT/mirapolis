@@ -1,5 +1,7 @@
 document.addEventListener("DOMContentLoaded", () => {
-  window.scrollTo(0 ,0)
+  setTimeout(() => {
+    window.scrollTo(0, 0)
+  }, 100);
   
   const menu = document.querySelector('.menu')
   const callUserNameWrapper = document.querySelector('#call-name')
