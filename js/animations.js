@@ -1,3 +1,5 @@
+var scrollYVal = 0
+
 window.addEventListener("load", () => {
     //baner start animations
     document.querySelector('.baner__title').classList.add('shown')
@@ -5,6 +7,7 @@ window.addEventListener("load", () => {
     document.querySelector('.header').classList.add('shown')
     document.querySelector('.baner__hero').classList.add('shown')
     document.querySelector('.parallax').classList.add('shown')
+    document.querySelector('.parallax__live').classList.add('shown')
 
     var animItems = document.querySelectorAll('.anim-item');
     setTimeout(() => {
@@ -23,7 +26,7 @@ window.addEventListener("load", () => {
         animOnScroll(animItems)
     }, { passive: true })
 
-    document.querySelector('body').addEventListener('wheel', wheelEvent)
+    document.querySelector('body').addEventListener('wheel', wheelEvent, { passive: false })
 });
 
 function offset(el) {
@@ -61,12 +64,11 @@ function fullScreenAnimation() {
         const hasFullClass = parallaxWrapper.classList.contains('full')
         if (window.pageYOffset > animItemOffsetTop - animItemPoint && window.pageYOffset > 60) { //&& (window.pageYOffset < animItemOffsetTop + animItemHeight)
             if (!hasFullClass) {
-                console.log('full');
                 document.querySelector('body').classList.add('overflow-hidden')
                 parallaxWrapper.classList.add('full')
                 parallaxSection.querySelector('.parallax__live').classList.add('hide')
                 parallaxSection.querySelector('.parallax__building').classList.add('hide')
-                parallaxWrapper.style.transform = `translateY(-${animItemOffsetTop}px)`
+                parallaxWrapper.style.transform = `translateY(-${animItemOffsetTop - scrollYVal + window.pageYOffset}px)`
                 document.querySelector('.baner__hero').classList.remove('shown')
                 setTimeout(() => {
                     document.querySelector('body').classList.remove('overflow-hidden')
@@ -113,7 +115,7 @@ function animOnScroll(animItems) {
         const item = animItems[index];
         const animItemHeight = item.offsetHeight;
         const animItemOffsetTop = offset(item).top;
-        const animStart = 2;
+        const animStart = 4;
 
         let animItemPoint = window.innerHeight - 300 //animItemHeight / animStart;
         if (animItemHeight > window.innerHeight) {
@@ -121,18 +123,36 @@ function animOnScroll(animItems) {
         }
         
         if (animItemOffsetTop < animItemPoint)
-        {
             item.classList.add('anim-active');
-        }
+        else item.classList.remove('anim-active');
     }
 }
 
 function wheelEvent(e) {
-    const aboutSection = document.querySelector('.about')
-    const animItemOffsetTop = offset(aboutSection).top;
-    console.log(animItemOffsetTop);
+    const isMouseWheel = !Number.isInteger(e.deltaY)
 
-    const transformStep = 10
+    if (isMouseWheel) {
+        // Предотвращаем дальнейшую обработку события прокрутки
+        e.preventDefault();
+        
+        if (!document.querySelector('body').classList.contains('overflow-hidden')) {
+            // Получаем величину прокрутки колесика мыши
+            const scrollAmount = e.deltaY;
+        
+            // Ограничиваем величину прокрутки до максимального значения
+            const maxScrollAmount = 100;
+            const limitedScrollAmount = Math.min(Math.abs(scrollAmount), maxScrollAmount) * Math.sign(scrollAmount);
+        
+            // Изменяем прокрутку на ограниченное значение
+            window.scrollBy(0, limitedScrollAmount);
+            scrollYVal = window.scrollY + limitedScrollAmount
+        }
+    } else scrollYVal = window.scrollY + e.deltaY
+
+    const aboutSection = document.querySelector('.about')
+    const animItemOffsetTop = offset(aboutSection).top - scrollYVal + window.pageYOffset;
+
+    const transformStep = isMouseWheel ? 50 : 10
     const maxTransform = document.querySelector('.about__slider').offsetHeight - document.querySelector('.about__slider-wrapper').offsetHeight + transformStep
 
     if (animItemOffsetTop <= 10 && animItemOffsetTop > -50) {
@@ -154,7 +174,7 @@ function wheelEvent(e) {
                 document.querySelector('.about__slider').style.transform = `translateY(${newTransformValue}px)`
             } else {
                 document.querySelector('body').classList.remove('overflow-hidden')
-                document.querySelector('body').setAttribute('data-active-section', '')
+                document.querySelector('body').removeAttribute('data-active-section')
             }
         }
     }
