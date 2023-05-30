@@ -135,7 +135,8 @@ function wheelEvent(e) {
 
     if (isMouseWheel) {
         // Предотвращаем дальнейшую обработку события прокрутки
-        e.preventDefault();
+        if (isOnTopScrolling)
+            e.preventDefault();
 
         if (!isWheelEnable) return
         
