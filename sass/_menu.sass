@@ -56,7 +56,8 @@
                 left: 0
                 right: 0
                 background: #fff
-                height: 1px
+                height: 1px            
+                transition: opacity .3s ease-in-out
     &__name
         font-family: 'Roboto Condensed'
         font-weight: 400
@@ -102,6 +103,10 @@
             right: 0
             background: #fff
             height: 1px
+            transition: opacity .3s ease-in-out
+        &:hover
+            &::after
+                opacity: 0
     &__btn
         font-size: 20px
         padding: 8px 16px
@@ -129,8 +134,15 @@
             right: 0
             background: #fff
             height: 1px
+            transition: opacity .3s ease-in-out
+        &:hover
+            &::after
+                opacity: 0
     &__cooperate
         color: #fff
+        &:hover .text
+            &::after
+                opacity: 0
     &__adress
         flex-basis: 33.33%
         max-width: 360px

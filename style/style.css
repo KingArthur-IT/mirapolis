@@ -86,6 +86,7 @@ picture img {
   outline: none;
   display: block;
   cursor: pointer;
+  font-family: 'Coil';
 }
 
 .primary-btn {
@@ -183,18 +184,16 @@ picture img {
   font-size: 20px;
   letter-spacing: -0.025em;
   color: #404040;
-  opacity: 0;
   z-index: 10;
-  -webkit-transform: translateY(-100%);
-          transform: translateY(-100%);
-  -webkit-transition: opacity .5s linear 0.25s, -webkit-transform .5s linear 0.25s;
-  transition: opacity .5s linear 0.25s, -webkit-transform .5s linear 0.25s;
-  transition: opacity .5s linear 0.25s, transform .5s linear 0.25s;
-  transition: opacity .5s linear 0.25s, transform .5s linear 0.25s, -webkit-transform .5s linear 0.25s;
+  -webkit-transform: translateY(-102%);
+          transform: translateY(-102%);
+  -webkit-transition: -webkit-transform .5s ease-in-out 0.25s;
+  transition: -webkit-transform .5s ease-in-out 0.25s;
+  transition: transform .5s ease-in-out 0.25s;
+  transition: transform .5s ease-in-out 0.25s, -webkit-transform .5s ease-in-out 0.25s;
 }
 
 .header.shown {
-  opacity: 1;
   -webkit-transform: translateY(0%);
           transform: translateY(0%);
 }
@@ -322,6 +321,12 @@ picture img {
   right: 0;
   background: #404040;
   height: 1px;
+  -webkit-transition: opacity .3s ease-in-out;
+  transition: opacity .3s ease-in-out;
+}
+
+.header__phone:hover::before {
+  opacity: 0;
 }
 
 .header__button {
@@ -329,6 +334,7 @@ picture img {
   min-height: 48px;
   font-size: 20px;
   letter-spacing: -0.025em;
+  font-weight: 500;
 }
 
 @media screen and (max-width: 860px) {
@@ -486,6 +492,8 @@ picture img {
   right: 0;
   background: #fff;
   height: 1px;
+  -webkit-transition: opacity .3s ease-in-out;
+  transition: opacity .3s ease-in-out;
 }
 
 .menu__name {
@@ -559,6 +567,12 @@ picture img {
   right: 0;
   background: #fff;
   height: 1px;
+  -webkit-transition: opacity .3s ease-in-out;
+  transition: opacity .3s ease-in-out;
+}
+
+.menu__tel:hover::after {
+  opacity: 0;
 }
 
 .menu__btn {
@@ -605,10 +619,20 @@ picture img {
   right: 0;
   background: #fff;
   height: 1px;
+  -webkit-transition: opacity .3s ease-in-out;
+  transition: opacity .3s ease-in-out;
+}
+
+.menu__social:hover::after {
+  opacity: 0;
 }
 
 .menu__cooperate {
   color: #fff;
+}
+
+.menu__cooperate:hover .text::after {
+  opacity: 0;
 }
 
 .menu__adress {
@@ -1285,8 +1309,8 @@ picture img {
   right: 20px;
   left: 20px;
   width: calc(100% - 40px);
-  -webkit-transition: margin .5s ease-out;
-  transition: margin .5s ease-out;
+  -webkit-transition: margin .5s ease-in-out;
+  transition: margin .5s ease-in-out;
 }
 
 .parallax.moved {
@@ -1296,34 +1320,31 @@ picture img {
 .parallax.shown .parallax__img-wrapper {
   -webkit-transform: translateY(0);
           transform: translateY(0);
-  opacity: 1;
 }
 
 .parallax.shown .parallax__building {
   -webkit-transform: translateX(-55%) translateY(-20%) !important;
           transform: translateX(-55%) translateY(-20%) !important;
-  opacity: 1;
 }
 
 .parallax__img-wrapper {
-  -webkit-transition: opacity .5s ease-out .25s, -webkit-transform .5s ease-out .25s;
-  transition: opacity .5s ease-out .25s, -webkit-transform .5s ease-out .25s;
-  transition: transform .5s ease-out .25s, opacity .5s ease-out .25s;
-  transition: transform .5s ease-out .25s, opacity .5s ease-out .25s, -webkit-transform .5s ease-out .25s;
+  -webkit-transition: opacity .5s ease-in-out .25s, -webkit-transform .5s ease-in-out .25s;
+  transition: opacity .5s ease-in-out .25s, -webkit-transform .5s ease-in-out .25s;
+  transition: transform .5s ease-in-out .25s, opacity .5s ease-in-out .25s;
+  transition: transform .5s ease-in-out .25s, opacity .5s ease-in-out .25s, -webkit-transform .5s ease-in-out .25s;
   width: 100%;
   height: 100vh;
   -webkit-transform: translateY(200px);
           transform: translateY(200px);
-  opacity: 0;
   overflow: hidden;
   border-radius: 20px;
 }
 
 .parallax__img-wrapper.full {
-  -webkit-transition: -webkit-transform .5s ease-out;
-  transition: -webkit-transform .5s ease-out;
-  transition: transform .5s ease-out;
-  transition: transform .5s ease-out, -webkit-transform .5s ease-out;
+  -webkit-transition: -webkit-transform .5s ease-in-out;
+  transition: -webkit-transform .5s ease-in-out;
+  transition: transform .5s ease-in-out;
+  transition: transform .5s ease-in-out, -webkit-transform .5s ease-in-out;
 }
 
 .parallax__img-wrapper.full .parallax__img {
@@ -1332,10 +1353,10 @@ picture img {
 }
 
 .parallax__img {
-  -webkit-transition: -webkit-transform .5s ease-out;
-  transition: -webkit-transform .5s ease-out;
-  transition: transform .5s ease-out;
-  transition: transform .5s ease-out, -webkit-transform .5s ease-out;
+  -webkit-transition: -webkit-transform .5s ease-in-out;
+  transition: -webkit-transform .5s ease-in-out;
+  transition: transform .5s ease-in-out;
+  transition: transform .5s ease-in-out, -webkit-transform .5s ease-in-out;
   width: 100%;
   height: 100vh;
   background: url("../assets/baner.jpg") no-repeat;
@@ -1354,11 +1375,10 @@ picture img {
   -webkit-transform: translateX(-55%) translateY(200px);
           transform: translateX(-55%) translateY(200px);
   width: 58.7vw;
-  opacity: 0;
-  -webkit-transition: opacity .5s ease-out .25s, margin .3s ease-out, -webkit-transform .5s ease-out .25s;
-  transition: opacity .5s ease-out .25s, margin .3s ease-out, -webkit-transform .5s ease-out .25s;
-  transition: transform .5s ease-out .25s, opacity .5s ease-out .25s, margin .3s ease-out;
-  transition: transform .5s ease-out .25s, opacity .5s ease-out .25s, margin .3s ease-out, -webkit-transform .5s ease-out .25s;
+  -webkit-transition: opacity .2s ease-in-out .25s, margin .3s ease-out, -webkit-transform .5s ease-in-out .25s;
+  transition: opacity .2s ease-in-out .25s, margin .3s ease-out, -webkit-transform .5s ease-in-out .25s;
+  transition: transform .5s ease-in-out .25s, opacity .2s ease-in-out .25s, margin .3s ease-out;
+  transition: transform .5s ease-in-out .25s, opacity .2s ease-in-out .25s, margin .3s ease-out, -webkit-transform .5s ease-in-out .25s;
   pointer-events: none;
 }
 
@@ -1366,10 +1386,10 @@ picture img {
   opacity: 0 !important;
   -webkit-transform: scale(0.8) translate(-65%, -55%) !important;
           transform: scale(0.8) translate(-65%, -55%) !important;
-  -webkit-transition: opacity .2s ease-out, -webkit-transform .3s ease-out;
-  transition: opacity .2s ease-out, -webkit-transform .3s ease-out;
-  transition: opacity .2s ease-out, transform .3s ease-out;
-  transition: opacity .2s ease-out, transform .3s ease-out, -webkit-transform .3s ease-out;
+  -webkit-transition: opacity .2s ease-in-out, -webkit-transform .3s ease-in-out;
+  transition: opacity .2s ease-in-out, -webkit-transform .3s ease-in-out;
+  transition: opacity .2s ease-in-out, transform .3s ease-in-out;
+  transition: opacity .2s ease-in-out, transform .3s ease-in-out, -webkit-transform .3s ease-in-out;
 }
 
 .parallax__live {
@@ -1394,10 +1414,10 @@ picture img {
   opacity: 0;
   -webkit-transform: translateY(100px);
           transform: translateY(100px);
-  -webkit-transition: opacity .5s ease-out .25s, background .3s ease-out, -webkit-transform .5s ease-out .25s;
-  transition: opacity .5s ease-out .25s, background .3s ease-out, -webkit-transform .5s ease-out .25s;
-  transition: opacity .5s ease-out .25s, background .3s ease-out, transform .5s ease-out .25s;
-  transition: opacity .5s ease-out .25s, background .3s ease-out, transform .5s ease-out .25s, -webkit-transform .5s ease-out .25s;
+  -webkit-transition: opacity .5s ease-in-out .25s, background .3s ease-in-out, -webkit-transform .5s ease-in-out .25s;
+  transition: opacity .5s ease-in-out .25s, background .3s ease-in-out, -webkit-transform .5s ease-in-out .25s;
+  transition: opacity .5s ease-in-out .25s, background .3s ease-in-out, transform .5s ease-in-out .25s;
+  transition: opacity .5s ease-in-out .25s, background .3s ease-in-out, transform .5s ease-in-out .25s, -webkit-transform .5s ease-in-out .25s;
 }
 
 .parallax__live.shown {
@@ -1407,10 +1427,10 @@ picture img {
 }
 
 .parallax__live.hide {
-  -webkit-transition: opacity .3s ease-out, -webkit-transform .3s ease-out;
-  transition: opacity .3s ease-out, -webkit-transform .3s ease-out;
-  transition: opacity .3s ease-out, transform .3s ease-out;
-  transition: opacity .3s ease-out, transform .3s ease-out, -webkit-transform .3s ease-out;
+  -webkit-transition: opacity .3s ease-in-out, -webkit-transform .3s ease-in-out;
+  transition: opacity .3s ease-in-out, -webkit-transform .3s ease-in-out;
+  transition: opacity .3s ease-in-out, transform .3s ease-in-out;
+  transition: opacity .3s ease-in-out, transform .3s ease-in-out, -webkit-transform .3s ease-in-out;
   opacity: 0;
   -webkit-transform: translateY(-200px);
           transform: translateY(-200px);
@@ -1423,8 +1443,8 @@ picture img {
   font-size: 20px;
   letter-spacing: -0.025em;
   color: #FFFFFF;
-  -webkit-transition: color .3s ease-out;
-  transition: color .3s ease-out;
+  -webkit-transition: color .3s ease-in-out;
+  transition: color .3s ease-in-out;
 }
 
 .parallax__live:hover span {
@@ -1474,11 +1494,15 @@ picture img {
   }
   .parallax__img-wrapper {
     height: 100vw;
+    opacity: 0;
   }
   .parallax__img {
     height: 100vw;
     -webkit-transform: scale(1) translateX(0) translateY(0%);
             transform: scale(1) translateX(0) translateY(0%);
+  }
+  .parallax.shown .parallax__img-wrapper {
+    opacity: 1;
   }
 }
 
@@ -1687,6 +1711,7 @@ picture img {
     height: auto;
     overflow: visible;
     margin-top: 0;
+    padding-top: 0;
   }
   .about__hero {
     -webkit-box-orient: vertical;
@@ -1711,7 +1736,7 @@ picture img {
   }
   .about__slider-wrapper {
     padding-right: 0;
-    overflow: visible;
+    overflow: scroll;
   }
   .about__img {
     width: 100%;
@@ -1721,12 +1746,25 @@ picture img {
 }
 
 @media screen and (max-width: 600px) {
+  .about__container {
+    height: 100%;
+  }
+  .about__slider-wrapper {
+    max-height: 100vw;
+    overflow: scroll;
+  }
+  .about__title-wrapper {
+    min-height: 19vw;
+  }
   .about__title {
     font-size: 9vw;
   }
 }
 
 @media screen and (max-width: 375px) {
+  .about__title-wrapper {
+    min-height: 20vw;
+  }
   .about__title {
     font-size: 9.6vw;
   }
@@ -2057,6 +2095,7 @@ picture img {
 @media screen and (max-width: 1140px) {
   .places {
     margin-top: 80px;
+    padding-bottom: 110px;
   }
   .places__title {
     font-size: 46px;
@@ -2102,6 +2141,9 @@ picture img {
 }
 
 @media screen and (max-width: 860px) {
+  .places {
+    padding-bottom: 80px;
+  }
   .places-carousel__place {
     min-height: 50px;
   }
@@ -2109,7 +2151,7 @@ picture img {
 
 @media screen and (max-width: 768px) {
   .places {
-    margin-top: 40px;
+    margin-top: 140px;
   }
   .places__head {
     -webkit-box-orient: vertical;
@@ -2118,10 +2160,8 @@ picture img {
             flex-direction: column;
     margin-bottom: 40px;
   }
-  .places__title {
-    margin-bottom: 40px;
-  }
   .places__text {
+    margin-top: 40px;
     max-width: 100%;
   }
   .places .controls {
@@ -2139,7 +2179,17 @@ picture img {
   }
 }
 
+@media screen and (max-width: 600px) {
+  .places {
+    padding-top: 0;
+    margin-top: 40px;
+  }
+}
+
 @media screen and (max-width: 375px) {
+  .places {
+    padding-bottom: 60px;
+  }
   .places__title {
     font-size: 36px;
   }

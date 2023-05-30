@@ -27,20 +27,20 @@ const prevScreen = (min) => {
 }
 
 const anchorJump = (anchor) => {
-    document.getElementById(anchor).scrollIntoView()
+    document.getElementById(anchor).scrollIntoView({ alignToTop: true, behavior: "smooth" })
 
+    // setTimeout(() => {
+    //     document.getElementById(anchor).scrollIntoView()
+    // }, 100);
+    // setTimeout(() => {
+    //     document.getElementById(anchor).scrollIntoView()
+    // }, 300);
     setTimeout(() => {
-        document.getElementById(anchor).scrollIntoView()
-    }, 100);
-    setTimeout(() => {
-        document.getElementById(anchor).scrollIntoView()
-    }, 300);
-    setTimeout(() => {
-        document.getElementById(anchor).scrollIntoView()
+        document.getElementById(anchor).scrollIntoView({ alignToTop: true, behavior: "smooth" })
     }, 500);
-    setTimeout(() => {
-        document.getElementById(anchor).scrollIntoView()
-    }, 1000);
+    // setTimeout(() => {
+    //     document.getElementById(anchor).scrollIntoView()
+    // }, 1000);
 }
 
 const offset = (el) => {
@@ -57,14 +57,24 @@ const noScroll = (ms) => {
 
 window.addEventListener("load", () => {
     //baner start animations
-    document.querySelector('.baner__title').classList.add('shown')
-    document.querySelector('.baner__label').classList.add('shown')
-    document.querySelector('.header').classList.add('shown')
-    document.querySelector('.baner__hero').classList.add('shown')
-    document.querySelector('.parallax').classList.add('shown')
-    document.querySelector('.parallax__live').classList.add('shown')
+    setTimeout(() => {
+        document.querySelector('.baner__title').classList.add('shown')
+        document.querySelector('.baner__label').classList.add('shown')
+        document.querySelector('.header').classList.add('shown')
+        document.querySelector('.baner__hero').classList.add('shown')
+        document.querySelector('.parallax').classList.add('shown')
+        document.querySelector('.parallax__live').classList.add('shown')
+    }, 300);
 
-    document.querySelector('body').addEventListener('wheel', wheelEvent, { passive: false })
+    if (window.innerWidth < 769) {
+        document.querySelector('body').classList.remove('overflow-hidden')
+        window.addEventListener('scroll', () => {
+            animOnScroll()
+        }, { passive: true })
+    }
+    else {
+        document.querySelector('body').addEventListener('wheel', wheelEvent, { passive: false })
+    }
 });
 
 function wheelEvent(e) { 
@@ -172,5 +182,43 @@ function placesSectionWheel() {
         document.querySelector('body').classList.add('overflow-hidden')
         anchorJump('about')
         placesSection.querySelectorAll('.anim-item').forEach(el => el.classList.remove('anim-active'))
+    }
+}
+
+function animOnScroll() {
+    const animItems = document.querySelectorAll('.anim-item');
+
+    for (let index = 0; index < animItems.length; index++) {
+        const item = animItems[index];
+        const animItemHeight = item.offsetHeight;
+        const animItemOffsetTop = offset(item).top;
+        const animStart = 2;
+
+        let animItemPoint = window.innerHeight - 300 //animItemHeight / animStart;
+        if (animItemHeight > window.innerHeight) {
+            animItemPoint = window.innerHeight - window.innerHeight / animStart;
+        }
+        
+        if (animItemOffsetTop < animItemPoint)
+            item.classList.add('anim-active');
+        else item.classList.remove('anim-active');
+    }
+
+    const aboutTitles = document.querySelectorAll('.about__title')
+
+    for (let index = 0; index < aboutTitles.length; index++) {
+        const item = aboutTitles[index];
+        const animItemHeight = item.offsetHeight;
+        const animItemOffsetTop = offset(item).top;
+        const animStart = 2;
+
+        let animItemPoint = window.innerHeight - 300 //animItemHeight / animStart;
+        if (animItemHeight > window.innerHeight) {
+            animItemPoint = window.innerHeight - window.innerHeight / animStart;
+        }
+        
+        if (animItemOffsetTop < animItemPoint)
+            item.classList.add('shown');
+        else item.classList.remove('shown');
     }
 }

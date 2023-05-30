@@ -13,12 +13,10 @@
     font-size: 20px
     letter-spacing: -0.025em
     color: $primary-color
-    opacity: 0
     z-index: 10
-    transform: translateY(-100%)
-    transition: opacity .5s linear 0.25s, transform .5s linear 0.25s
+    transform: translateY(-102%)
+    transition: transform .5s ease-in-out 0.25s
     &.shown
-        opacity: 1
         transform: translateY(0%)
     &__nav
         display: flex
@@ -92,11 +90,16 @@
             right: 0
             background: $primary-color
             height: 1px
+            transition: opacity .3s ease-in-out
+        &:hover
+            &::before
+                opacity: 0
     &__button
         min-width: 196px
         min-height: 48px
         font-size: 20px
         letter-spacing: -0.025em
+        font-weight: 500
 
 @media screen and (max-width: 860px)
     .header
