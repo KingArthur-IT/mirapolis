@@ -1745,6 +1745,9 @@ picture img {
 
 .places__title-wrapper {
   overflow: hidden;
+  height: -webkit-fit-content;
+  height: -moz-fit-content;
+  height: fit-content;
 }
 
 .places__title {

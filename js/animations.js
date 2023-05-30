@@ -144,7 +144,7 @@ function wheelEvent(e) {
             const scrollAmount = e.deltaY;
         
             // Ограничиваем величину прокрутки до максимального значения
-            const maxScrollAmount = isOnTopScrolling ? 50 : 100;
+            const maxScrollAmount = isOnTopScrolling ? 50 : 300;
             const limitedScrollAmount = Math.min(Math.abs(scrollAmount), maxScrollAmount) * Math.sign(scrollAmount);
         
             // Изменяем прокрутку на ограниченное значение
