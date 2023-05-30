@@ -1,4 +1,5 @@
 var scrollYVal = 0
+var isWheelEnable = true
 
 window.addEventListener("load", () => {
     //baner start animations
@@ -135,6 +136,8 @@ function wheelEvent(e) {
     if (isMouseWheel) {
         // Предотвращаем дальнейшую обработку события прокрутки
         e.preventDefault();
+
+        if (!isWheelEnable) return
         
         if (!document.querySelector('body').classList.contains('overflow-hidden')) {
             // Получаем величину прокрутки колесика мыши
@@ -148,6 +151,10 @@ function wheelEvent(e) {
         
             // Изменяем прокрутку на ограниченное значение
             window.scrollBy(0, limitedScrollAmount);
+            isWheelEnable = false
+            setTimeout(() => {
+                isWheelEnable = true
+            }, 500);
             scrollYVal = window.scrollY + limitedScrollAmount
         }
     } else scrollYVal = window.scrollY + e.deltaY
