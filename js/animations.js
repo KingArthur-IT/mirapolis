@@ -71,6 +71,7 @@ window.addEventListener("load", () => {
     }
     else {
         document.querySelector('body').addEventListener('wheel', wheelEvent, { passive: false })
+        document.querySelector('body').addEventListener('keydown', keyDownEvent, { passive: false })
     }
 });
 
@@ -180,6 +181,32 @@ function placesSectionWheel() {
         anchorJump('about')
         placesSection.querySelectorAll('.anim-item').forEach(el => el.classList.remove('anim-active'))
     }
+}
+
+function keyDownEvent(e) {
+    e = e || window.event;
+
+    var scrollDirection = 0
+    if (e.keyCode === 38)
+        scrollDirection = -1
+    else if (e.keyCode === 40)
+        scrollDirection = 1
+
+    const scrollStep = 20
+    const newScrollVal = scrollYVal + scrollDirection * scrollStep
+    if (newScrollVal >= -10) {
+        scrollYVal = newScrollVal
+    }
+
+    if (activeSectionIndex === 1)
+        banerSectionWheel()
+    if (activeSectionIndex === 2)
+        fullImgSectionWheel()
+    if (activeSectionIndex === 3)
+        aboutSectionWheel()
+    if (activeSectionIndex === 4)
+        placesSectionWheel()
+
 }
 
 function animOnScroll() {
