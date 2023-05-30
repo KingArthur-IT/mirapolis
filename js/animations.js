@@ -100,8 +100,8 @@ function wheelEvent(e) {
 
 //baner animation index === 1
 function banerSectionWheel() {
-    document.querySelector('.parallax__building').style.marginTop = `${scrollYVal}px`
-    nextScreen(160)
+    document.querySelector('.parallax__building').style.marginTop = `${ scrollYVal * 3 }px`
+    nextScreen(50)
 }
 
 //img full animation index === 2 
@@ -119,7 +119,7 @@ function fullImgSectionWheel() {
 
     parallaxWrapper.style.transform = `translateY(-${animItemOffsetTop}px)`
 
-    if (nextScreen(15)) {
+    if (nextScreen(30)) {
         anchorJump('about')
     }
     if (prevScreen(-5)) {
