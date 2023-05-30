@@ -1345,11 +1345,13 @@ picture img {
   transition: -webkit-transform .5s ease-in-out;
   transition: transform .5s ease-in-out;
   transition: transform .5s ease-in-out, -webkit-transform .5s ease-in-out;
+  border-radius: 0;
 }
 
 .parallax__img-wrapper.full .parallax__img {
   -webkit-transform: scale(1) translateX(0);
           transform: scale(1) translateX(0);
+  border-radius: 0;
 }
 
 .parallax__img {

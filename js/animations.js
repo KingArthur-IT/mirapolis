@@ -29,18 +29,15 @@ const prevScreen = (min) => {
 const anchorJump = (anchor) => {
     document.getElementById(anchor).scrollIntoView({ alignToTop: true, behavior: "smooth" })
 
-    // setTimeout(() => {
-    //     document.getElementById(anchor).scrollIntoView()
-    // }, 100);
-    // setTimeout(() => {
-    //     document.getElementById(anchor).scrollIntoView()
-    // }, 300);
+    setTimeout(() => {
+        document.getElementById(anchor).scrollIntoView({ alignToTop: true, behavior: "smooth" })
+    }, 200);
     setTimeout(() => {
         document.getElementById(anchor).scrollIntoView({ alignToTop: true, behavior: "smooth" })
     }, 500);
-    // setTimeout(() => {
-    //     document.getElementById(anchor).scrollIntoView()
-    // }, 1000);
+    setTimeout(() => {
+        document.getElementById(anchor).scrollIntoView({ alignToTop: true, behavior: "smooth" })
+    }, 1000);
 }
 
 const offset = (el) => {
