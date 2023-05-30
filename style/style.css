@@ -1520,6 +1520,11 @@ picture img {
     height: 40px;
     font-size: 18px;
   }
+  .parallax__live.shown {
+    opacity: 1;
+    -webkit-transform: translateY(0px) translateX(-50%);
+            transform: translateY(0px) translateX(-50%);
+  }
 }
 
 .about {
