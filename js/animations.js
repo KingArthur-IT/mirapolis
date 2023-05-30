@@ -144,7 +144,8 @@ function wheelEvent(e) {
             const scrollAmount = e.deltaY;
         
             // Ограничиваем величину прокрутки до максимального значения
-            const maxScrollAmount = isOnTopScrolling ? 50 : 300;
+            const maxScrollAmount = isOnTopScrolling ? 50 : 400;
+            console.log(maxScrollAmount);
             const limitedScrollAmount = Math.min(Math.abs(scrollAmount), maxScrollAmount) * Math.sign(scrollAmount);
         
             // Изменяем прокрутку на ограниченное значение
@@ -163,10 +164,10 @@ function wheelEvent(e) {
     const aboutSection = document.querySelector('.about')
     const animItemOffsetTop = offset(aboutSection).top - scrollYVal + window.pageYOffset;
 
-    const transformStep = isMouseWheel ? 150 : 10
+    const transformStep = isMouseWheel ? 100 : 10
     const maxTransform = document.querySelector('.about__slider').offsetHeight - document.querySelector('.about__slider-wrapper').offsetHeight + transformStep
 
-    if (animItemOffsetTop <= 10 && animItemOffsetTop > -50) {
+    if (animItemOffsetTop <= 20 && animItemOffsetTop > -50) {
         document.querySelector('body').classList.add('overflow-hidden')
         setTimeout(() => {
             document.querySelector('body').setAttribute('data-active-section', 'about')
