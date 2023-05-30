@@ -135,8 +135,7 @@ function wheelEvent(e) {
 
     if (isMouseWheel) {
         // Предотвращаем дальнейшую обработку события прокрутки
-        if (isOnTopScrolling)
-            e.preventDefault();
+        e.preventDefault();
 
         if (!isWheelEnable) return
         
@@ -146,7 +145,7 @@ function wheelEvent(e) {
             console.log(scrollAmount);
         
             // Ограничиваем величину прокрутки до максимального значения
-            const maxScrollAmount = isOnTopScrolling ? 60 : Math.abs(scrollAmount);
+            const maxScrollAmount = isOnTopScrolling ? 60 : 400;
             console.log(maxScrollAmount);
             const limitedScrollAmount = Math.min(Math.abs(scrollAmount), maxScrollAmount) * Math.sign(scrollAmount);
         
