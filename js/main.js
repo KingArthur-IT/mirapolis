@@ -19,9 +19,8 @@ document.addEventListener("DOMContentLoaded", () => {
     el.addEventListener('click', () => {
       document.querySelector('.header__burger').classList.remove('active')
       menu.classList.remove('active')
-      document.querySelector('body').classList.remove('overflow-hidden')
-      document.querySelector('.parallax').classList.add('moved')
-      document.querySelectorAll('.about__title').forEach(el => el.classList.add('shown'))
+      // document.querySelector('body').classList.remove('overflow-hidden')
+      // document.querySelectorAll('.about__title').forEach(el => el.classList.add('shown'))
     })
   })
 
