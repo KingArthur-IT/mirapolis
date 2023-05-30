@@ -119,7 +119,7 @@ function fullImgSectionWheel() {
 
     parallaxWrapper.style.transform = `translateY(-${animItemOffsetTop}px)`
 
-    if (nextScreen(50)) {
+    if (nextScreen(15)) {
         anchorJump('about')
     }
     if (prevScreen(-5)) {
@@ -144,11 +144,11 @@ function aboutSectionWheel() {
         aboutSection.querySelectorAll('.anim-item').forEach(el => el.classList.add('anim-active'))
     }, 500);
 
-    if (scrollYVal > 10 && scrollYVal < maxTransform / 3 + 30) {
-        document.querySelector('.about__slider').style.transform = `translateY(${ 45 - 3 * scrollYVal }px)`
+    if (scrollYVal > 10 && scrollYVal < maxTransform / 5 + 30) {
+        document.querySelector('.about__slider').style.transform = `translateY(${ 75 - 5 * scrollYVal }px)`
     }
 
-    if (nextScreen(maxTransform / 3 + 60)) {
+    if (nextScreen(maxTransform / 5 + 100)) {
         anchorJump('places')
         const aboutSection = document.querySelector('.about')
         aboutSection.querySelectorAll('.about__title').forEach(el => el.classList.remove('shown'))
