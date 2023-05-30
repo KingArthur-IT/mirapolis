@@ -131,8 +131,8 @@ function animOnScroll(animItems) {
 
 function wheelEvent(e) {
     const isMouseWheel = !Number.isInteger(e.deltaY)
-    console.log('e.deltaY', e.deltaY, 'isMouseWheel', isMouseWheel);
 
+    console.log('is', Math.abs(e.wheelDeltaY) % 120 != 0 || Math.abs(e.wheelDeltaY) == Math.abs(e.deltaY));
     if (isMouseWheel) {
         // Предотвращаем дальнейшую обработку события прокрутки
         e.preventDefault();
@@ -147,7 +147,7 @@ function wheelEvent(e) {
             const maxScrollAmount = 50;
             const limitedScrollAmount = Math.min(Math.abs(scrollAmount), maxScrollAmount) * Math.sign(scrollAmount);
 
-            console.log('limitedScrollAmount', limitedScrollAmount);
+            // console.log('limitedScrollAmount', limitedScrollAmount);
         
             // Изменяем прокрутку на ограниченное значение
             window.scrollBy(0, limitedScrollAmount);
@@ -159,10 +159,12 @@ function wheelEvent(e) {
         }
     } else scrollYVal = window.scrollY + e.deltaY
 
+    console.log('e.deltaY', e.deltaY, 'isMouseWheel', isMouseWheel);
+
     const aboutSection = document.querySelector('.about')
     const animItemOffsetTop = offset(aboutSection).top - scrollYVal + window.pageYOffset;
 
-    const transformStep = isMouseWheel ? 100 : 10
+    const transformStep = isMouseWheel ? 200 : 10
     const maxTransform = document.querySelector('.about__slider').offsetHeight - document.querySelector('.about__slider-wrapper').offsetHeight + transformStep
 
     if (animItemOffsetTop <= 10 && animItemOffsetTop > -50) {
