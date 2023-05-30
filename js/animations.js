@@ -191,10 +191,10 @@ function animOnScroll() {
         const animItemOffsetTop = offset(item).top;
         const animStart = 2;
 
-        let animItemPoint = window.innerHeight - 300 //animItemHeight / animStart;
-        if (animItemHeight > window.innerHeight) {
-            animItemPoint = window.innerHeight - window.innerHeight / animStart;
-        }
+        let animItemPoint = window.innerHeight - 100 //animItemHeight / animStart;
+        // if (animItemHeight > window.innerHeight) {
+        //     animItemPoint = window.innerHeight - window.innerHeight / animStart;
+        // }
         
         if (animItemOffsetTop < animItemPoint)
             item.classList.add('anim-active');
@@ -209,10 +209,10 @@ function animOnScroll() {
         const animItemOffsetTop = offset(item).top;
         const animStart = 2;
 
-        let animItemPoint = window.innerHeight - 300 //animItemHeight / animStart;
-        if (animItemHeight > window.innerHeight) {
-            animItemPoint = window.innerHeight - window.innerHeight / animStart;
-        }
+        let animItemPoint = window.innerHeight - 100 //animItemHeight / animStart;
+        // if (animItemHeight > window.innerHeight) {
+        //     animItemPoint = window.innerHeight - window.innerHeight / animStart;
+        // }
         
         if (animItemOffsetTop < animItemPoint)
             item.classList.add('shown');
