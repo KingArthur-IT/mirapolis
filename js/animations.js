@@ -150,11 +150,11 @@ function aboutSectionWheel() {
     const maxTransform = document.querySelector('.about__slider').offsetHeight - document.querySelector('.about__slider-wrapper').offsetHeight
     const aboutSection = document.querySelector('.about')
 
-    if (scrollYVal > 10 && scrollYVal < maxTransform / speed + 30) {
+    if (scrollYVal > 10 && scrollYVal < maxTransform / speed + 20) {
         document.querySelector('.about__slider').style.transform = `translateY(${ 15 * speed - speed * scrollYVal }px)`
     }
 
-    if (nextScreen(maxTransform / speed + 100)) {
+    if (nextScreen(maxTransform / speed + 80)) {
         changeScreen(1)
         setTimeout(() => {
             aboutSection.querySelectorAll('.about__title').forEach(el => el.classList.remove('shown'))
@@ -193,8 +193,11 @@ function placesSectionWheel(direction) {
                 placesSection.querySelectorAll('.anim-item').forEach(el => el.classList.remove('anim-active'))
             }, 100);
             const speed = 6
-            const currTransformValue = Number(document.querySelector('.about__slider').style.transform.replace(/[^-\d]/g, ''))
-            scrollYVal = 15 - currTransformValue / speed
+
+            const maxTransform = document.querySelector('.about__slider').offsetHeight - document.querySelector('.about__slider-wrapper').offsetHeight
+            // const currTransformValue = Number(document.querySelector('.about__slider').style.transform.replace(/[^-\d]/g, '')) + 100
+            // document.querySelector('.about__slider').style.transform = `translateY(${ currTransformValue }px)`
+            scrollYVal = maxTransform / speed
         }
     }
 }

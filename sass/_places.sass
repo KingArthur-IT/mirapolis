@@ -58,7 +58,7 @@
                 transform: translateX(1px)
 
 .places-carousel
-    min-height: 662px
+    min-height: 600px
     &__item-wrapper
         transform: translateX(300px)
         opacity: 0
@@ -75,7 +75,7 @@
             transform: translateX(0px)
             opacity: 1
     &__item
-        max-width: 480px
+        max-width: 430px
         padding: 60px 40px 0
         margin: 0 auto
         transition: all .3s ease-out
@@ -90,13 +90,13 @@
         display: flex
         align-items: center
         justify-content: center
-        padding: 8px 16px 
+        padding: 5px 8px 
         border-radius: 300px
         border: 2px solid $primary-color
         color: $primary-color
         font-family: 'Coil'
         font-weight: 500
-        font-size: 22px
+        font-size: 20px
         line-height: 125%
         letter-spacing: -0.025em
         &.time
@@ -137,7 +137,7 @@
     & .owl-item.active
         &.center
             & .places-carousel__item
-                max-width: 540px
+                max-width: 480px
                 transform: translate(0px, -60px)
                 margin: 0 auto
                 & .places-carousel__img-wrapper
@@ -154,16 +154,8 @@
         &__title
             font-size: 80px
     .places-carousel
-        min-height: 565px
-        &__item
-            max-width: 400px
         &__footer
             width: calc(100% + 30px)
-    .places-carousel .owl-item.active
-        &.center
-            & .places-carousel__item
-                max-width: 450px
-
 
 @media screen and (max-width: 1280px)
     .places
@@ -179,11 +171,12 @@
     .places-carousel .owl-item.active
         &.center
             & .places-carousel__item
-                max-width: 420px
+                max-width: 410px
                 padding-top: 90px
 
 @media screen and (max-width: 1140px)
     .places
+        margin-bottom: 120px
         &__title
             font-size: 46px
         &__text
@@ -217,8 +210,6 @@
             margin-right: 0
 
 @media screen and (max-width: 860px)
-    .places
-        padding-bottom: 80px
     .places-carousel
         &__place
             min-height: 50px
@@ -250,10 +241,10 @@
     .places
         padding-top: 0
         margin-top: 40px
+        margin-bottom: 60px
 
 @media screen and (max-width: 375px)
     .places
-        padding-bottom: 60px
         &__title
             font-size: 36px
     .places-carousel

@@ -10,7 +10,7 @@
         & .parallax__img-wrapper
             transform: translateY(0)
         & .parallax__building
-            transform: translateX(-55%) translateY(-20%) !important
+            transform: translateX(-55%) translateY(-15%) !important
     &__img-wrapper
         transition: transform .5s ease-in-out .25s, opacity .5s ease-in-out .25s
         width: 100%
@@ -86,6 +86,12 @@
     .parallax
         &.moved
             margin-top: -300px
+
+@media screen and (max-width: 1440px)
+    .parallax
+        &.shown
+            & .parallax__building
+                transform: translateX(-55%) translateY(-20%) !important
 
 @media screen and (max-width: 1240px)
     .parallax
