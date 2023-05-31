@@ -63,6 +63,8 @@ body::-webkit-scrollbar {
 
 main {
   overflow-x: hidden;
+  -webkit-transition: margin .75s ease-in-out;
+  transition: margin .75s ease-in-out;
 }
 
 picture img {
@@ -187,10 +189,10 @@ picture img {
   z-index: 10;
   -webkit-transform: translateY(-102%);
           transform: translateY(-102%);
-  -webkit-transition: -webkit-transform .5s ease-in-out 0.25s;
-  transition: -webkit-transform .5s ease-in-out 0.25s;
-  transition: transform .5s ease-in-out 0.25s;
-  transition: transform .5s ease-in-out 0.25s, -webkit-transform .5s ease-in-out 0.25s;
+  -webkit-transition: -webkit-transform .5s ease-in-out;
+  transition: -webkit-transform .5s ease-in-out;
+  transition: transform .5s ease-in-out;
+  transition: transform .5s ease-in-out, -webkit-transform .5s ease-in-out;
 }
 
 .header.shown {
@@ -1528,11 +1530,11 @@ picture img {
 }
 
 .about {
-  padding-top: 40px;
   overflow-y: hidden;
 }
 
 .about__container {
+  padding-top: 40px;
   height: 100vh;
   display: -webkit-box;
   display: -ms-flexbox;
@@ -1658,10 +1660,10 @@ picture img {
   -webkit-box-direction: normal;
       -ms-flex-direction: column;
           flex-direction: column;
-  -webkit-transition: -webkit-transform .2s ease-out;
-  transition: -webkit-transform .2s ease-out;
-  transition: transform .2s ease-out;
-  transition: transform .2s ease-out, -webkit-transform .2s ease-out;
+  -webkit-transition: -webkit-transform .4s ease-out;
+  transition: -webkit-transform .4s ease-out;
+  transition: transform .4s ease-out;
+  transition: transform .4s ease-out, -webkit-transform .4s ease-out;
 }
 
 .about__img {
@@ -1779,7 +1781,6 @@ picture img {
 
 .places {
   padding-top: 40px;
-  margin-top: 170px;
 }
 
 .places__head {
@@ -2100,10 +2101,6 @@ picture img {
 }
 
 @media screen and (max-width: 1140px) {
-  .places {
-    margin-top: 80px;
-    padding-bottom: 110px;
-  }
   .places__title {
     font-size: 46px;
   }

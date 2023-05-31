@@ -26,13 +26,18 @@ const prevScreen = (min) => {
     } return false
 }
 
-const anchorJump = (anchor) => {
-    setTimeout(() => {
-        document.getElementById(anchor).scrollIntoView({ alignToTop: true, behavior: "smooth" })
-    }, 0);
-    setTimeout(() => {
-        document.getElementById(anchor).scrollIntoView({ alignToTop: true, behavior: "smooth" })
-    }, 1000);
+const getTransformValue = (query) => {
+    return Number(document.querySelector(query).style.marginTop.replace(/[^-\d]/g, ''))
+}
+
+const addTransform = (query, value) => {
+    const currValue = getTransformValue(query)
+    document.querySelector(query).style.marginTop = `${ currValue + value }px`
+}
+
+const changeScreen = (direction) => {
+    const height = window.innerHeight
+    addTransform('main', -1 * direction * height)
 }
 
 const offset = (el) => {
@@ -52,7 +57,9 @@ window.addEventListener("load", () => {
     setTimeout(() => {
         document.querySelector('.baner__title').classList.add('shown')
         document.querySelector('.baner__label').classList.add('shown')
-        document.querySelector('.header').classList.add('shown')
+        setTimeout(() => {
+            document.querySelector('.header').classList.add('shown')
+        }, 250);
         document.querySelector('.baner__hero').classList.add('shown')
         document.querySelector('.parallax').classList.add('shown')
         document.querySelector('.parallax__live').classList.add('shown')
@@ -92,13 +99,15 @@ function wheelEvent(e) {
     if (activeSectionIndex === 3)
         aboutSectionWheel()
     if (activeSectionIndex === 4)
-        placesSectionWheel()
+        placesSectionWheel(scrollDirection)
 }
 
 //baner animation index === 1
 function banerSectionWheel() {
-    document.querySelector('.parallax__building').style.marginTop = `${ scrollYVal * 3 }px`
-    nextScreen(50)
+    const speed = 5
+    const nextScreenPx = 150
+    document.querySelector('.parallax__building').style.marginTop = `${ scrollYVal * speed }px`
+    nextScreen( Math.floor(nextScreenPx / speed) )
 }
 
 //img full animation index === 2 
@@ -116,13 +125,11 @@ function fullImgSectionWheel() {
 
     parallaxWrapper.style.transform = `translateY(-${animItemOffsetTop}px)`
 
-    if (nextScreen(30)) {
-        anchorJump('about')
-        setTimeout(() => {
-            const aboutSection = document.querySelector('.about')
-            aboutSection.querySelectorAll('.about__title').forEach(el => el.classList.add('shown'))
-            aboutSection.querySelectorAll('.anim-item').forEach(el => el.classList.add('anim-active'))
-        }, 500);
+    if (nextScreen(0)) {
+        changeScreen(1)
+        const aboutSection = document.querySelector('.about')
+        aboutSection.querySelectorAll('.about__title').forEach(el => el.classList.add('shown'))
+        aboutSection.querySelectorAll('.anim-item').forEach(el => el.classList.add('anim-active'))
     }
     if (prevScreen(-5)) {
         parallaxWrapper.classList.remove('full')
@@ -139,7 +146,7 @@ function fullImgSectionWheel() {
 
 //about animation index === 3
 function aboutSectionWheel() {
-    const speed = 6
+    const speed = 8
     const maxTransform = document.querySelector('.about__slider').offsetHeight - document.querySelector('.about__slider-wrapper').offsetHeight
     const aboutSection = document.querySelector('.about')
 
@@ -148,11 +155,14 @@ function aboutSectionWheel() {
     }
 
     if (nextScreen(maxTransform / speed + 100)) {
-        anchorJump('places')
+        changeScreen(1)
         setTimeout(() => {
             aboutSection.querySelectorAll('.about__title').forEach(el => el.classList.remove('shown'))
             aboutSection.querySelectorAll('.anim-item').forEach(el => el.classList.remove('anim-active'))
-        }, 500);
+        }, 100);
+        setTimeout(() => {
+            document.querySelector('body').classList.remove('overflow-hidden')
+        }, 1000);
     }
 
     if (prevScreen(-5)) {
@@ -160,30 +170,28 @@ function aboutSectionWheel() {
         aboutSection.querySelectorAll('.anim-item').forEach(el => el.classList.remove('anim-active'))
         document.querySelector('.about__slider').style.transform = `translateY(0px)`
 
-        anchorJump('baner')
+        changeScreen(-1)
     }
 }
 
 //places animation index === 4
-function placesSectionWheel() {
+function placesSectionWheel(direction) {
     const placesSection = document.querySelector('.places')
     setTimeout(() => {
         placesSection.querySelectorAll('.anim-item').forEach(el => el.classList.add('anim-active'))
     }, 500);
 
-    const offsetVal = offset(document.querySelector('.places'))
-    if (offsetVal.top <= 0)
-        document.querySelector('body').classList.remove('overflow-hidden')
-    else {
+    if (window.scrollY <= 0 && direction < 0) {
         if (prevScreen(-5)) {
             document.querySelector('body').classList.add('overflow-hidden')
-            anchorJump('about')
+            changeScreen(-1)
             placesSection.querySelectorAll('.anim-item').forEach(el => el.classList.remove('anim-active'))
             setTimeout(() => {
                 const aboutSection = document.querySelector('.about')
                 aboutSection.querySelectorAll('.about__title').forEach(el => el.classList.add('shown'))
                 aboutSection.querySelectorAll('.anim-item').forEach(el => el.classList.add('anim-active'))
-            }, 500);
+                placesSection.querySelectorAll('.anim-item').forEach(el => el.classList.remove('anim-active'))
+            }, 100);
             const speed = 6
             const currTransformValue = Number(document.querySelector('.about__slider').style.transform.replace(/[^-\d]/g, ''))
             scrollYVal = 15 - currTransformValue / speed
