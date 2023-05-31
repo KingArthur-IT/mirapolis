@@ -83,6 +83,12 @@ function wheelEvent(e) {
         e.stopPropagation()
         return
     }
+
+    if ( document.querySelector('.call-modal').classList.contains('active') || 
+         document.querySelector('.live-modal').classList.contains('active') ||
+         document.querySelector('.menu').classList.contains('active')
+    ) return
+   
     const isMouseWheel = !(Math.abs(e.wheelDeltaY) % 120 != 0 || Math.abs(e.wheelDeltaY) == Math.abs(e.deltaY))
 
     const scrollDirection = Math.sign(e.deltaY);

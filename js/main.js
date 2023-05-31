@@ -106,21 +106,13 @@ document.addEventListener("DOMContentLoaded", () => {
   //close
   const closeLiveModal = () => {
     liveModal.classList.remove('active')
-    document.querySelectorAll('.live-modal__item iframe').forEach(frame => frame.removeAttribute('src'))
   }
   liveModal.addEventListener('click', closeLiveModal)
   document.querySelector('.live-modal__hero').addEventListener('click', (e) => e.stopPropagation())
+  document.querySelector('.live-close').addEventListener('click', () => closeLiveModal())
 
   //open
   document.querySelectorAll('.show-live-btn').forEach(el => el.addEventListener('click', () => {
-    const frameSrc = [
-      'https://www.youtube.com/embed/Rl9bWV0ZA4I',
-      'https://www.youtube.com/embed/Rl9bWV0ZA4I',
-      'https://www.youtube.com/embed/Rl9bWV0ZA4I',
-    ]
-    document.querySelectorAll('.live-modal__item iframe').forEach((frame, index) => {
-      frame.setAttribute('src', frameSrc[index])
-    })
     liveModal.classList.add('active')
     document.querySelector('body').classList.add('overflow-hidden')
   }))

@@ -68,7 +68,7 @@ $(document).ready(function(){
 //live modal
 $(document).ready(function(){
   var liveOwl = $('.live-modal__carousel').owlCarousel({
-      loop: false,
+      loop: true,
       autoplay: false,
       slideTransition: 'linear',
       autoplayTimeout: 2000,
@@ -84,4 +84,9 @@ $(document).ready(function(){
   $('.live-modal .controls__item.right').click(function() {
     liveOwl.trigger('next.owl.carousel');
   })
+
+  $('.live-modal__carousel').on('changed.owl.carousel', (e) => {
+    const index = e.item.index % 2 === 0 ? 1 : 2
+    document.querySelector('.controls__label').innerHTML = 'Камера ' + index
+  });
 });
