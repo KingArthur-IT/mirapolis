@@ -157,10 +157,9 @@ function aboutSectionWheel() {
     const aboutSection = document.querySelector('.about')
 
     if (scrollYVal > 10 && scrollYVal < maxTransform / speed + 20) {
-        document.querySelector('.about__slider').style.transform = `translateY(${ 15 * speed - speed * scrollYVal }px)`
+        document.querySelector('.about__slider').style.transform = `translateY(${ 10 * speed - speed * scrollYVal }px)`
     }
 
-    console.log(scrollYVal, maxTransform / speed);
     if (nextScreen(maxTransform / speed + 30)) {
         changeScreen(1)
         setTimeout(() => {
@@ -202,7 +201,7 @@ function placesSectionWheel(direction) {
             const speed = 8
 
             const maxTransform = document.querySelector('.about__slider').offsetHeight - document.querySelector('.about__slider-wrapper').offsetHeight
-            scrollYVal = maxTransform / speed - 35
+            scrollYVal = maxTransform / speed - 30
         }
     }
 }
@@ -216,7 +215,14 @@ function keyDownEvent(e) {
     else if (e.keyCode === 40)
         scrollDirection = 1
 
-    const scrollStep = 20
+    if (Math.abs(scrollDirection) !== 1) return
+
+    if ( document.querySelector('.call-modal').classList.contains('active') || 
+         document.querySelector('.live-modal').classList.contains('active') ||
+         document.querySelector('.menu').classList.contains('active')
+    ) return
+
+    const scrollStep = 5
     const newScrollVal = scrollYVal + scrollDirection * scrollStep
     if (newScrollVal >= -10) {
         scrollYVal = newScrollVal
@@ -229,7 +235,7 @@ function keyDownEvent(e) {
     if (activeSectionIndex === 3)
         aboutSectionWheel()
     if (activeSectionIndex === 4)
-        placesSectionWheel()
+        placesSectionWheel(scrollDirection)
 
 }
 
