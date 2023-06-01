@@ -1326,8 +1326,8 @@ picture img {
 }
 
 .parallax.shown .parallax__building {
-  -webkit-transform: translateX(-55%) translateY(-15%) !important;
-          transform: translateX(-55%) translateY(-15%) !important;
+  -webkit-transform: translateX(-55%) translateY(-35%) !important;
+          transform: translateX(-55%) translateY(-35%) !important;
 }
 
 .parallax__img-wrapper {
@@ -1468,8 +1468,8 @@ picture img {
 
 @media screen and (max-width: 1440px) {
   .parallax.shown .parallax__building {
-    -webkit-transform: translateX(-55%) translateY(-20%) !important;
-            transform: translateX(-55%) translateY(-20%) !important;
+    -webkit-transform: translateX(-55%) translateY(-40%) !important;
+            transform: translateX(-55%) translateY(-40%) !important;
   }
 }
 

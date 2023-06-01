@@ -160,6 +160,7 @@ function aboutSectionWheel() {
         document.querySelector('.about__slider').style.transform = `translateY(${ 15 * speed - speed * scrollYVal }px)`
     }
 
+    console.log(scrollYVal, maxTransform / speed);
     if (nextScreen(maxTransform / speed + 30)) {
         changeScreen(1)
         setTimeout(() => {
@@ -198,10 +199,10 @@ function placesSectionWheel(direction) {
                 aboutSection.querySelectorAll('.anim-item').forEach(el => el.classList.add('anim-active'))
                 placesSection.querySelectorAll('.anim-item').forEach(el => el.classList.remove('anim-active'))
             }, 100);
-            const speed = 6
+            const speed = 8
 
             const maxTransform = document.querySelector('.about__slider').offsetHeight - document.querySelector('.about__slider-wrapper').offsetHeight
-            scrollYVal = maxTransform / speed - 10
+            scrollYVal = maxTransform / speed - 35
         }
     }
 }
