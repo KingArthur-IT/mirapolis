@@ -160,7 +160,7 @@ function aboutSectionWheel() {
         document.querySelector('.about__slider').style.transform = `translateY(${ 15 * speed - speed * scrollYVal }px)`
     }
 
-    if (nextScreen(maxTransform / speed + 80)) {
+    if (nextScreen(maxTransform / speed + 30)) {
         changeScreen(1)
         setTimeout(() => {
             aboutSection.querySelectorAll('.about__title').forEach(el => el.classList.remove('shown'))
@@ -201,9 +201,7 @@ function placesSectionWheel(direction) {
             const speed = 6
 
             const maxTransform = document.querySelector('.about__slider').offsetHeight - document.querySelector('.about__slider-wrapper').offsetHeight
-            // const currTransformValue = Number(document.querySelector('.about__slider').style.transform.replace(/[^-\d]/g, '')) + 100
-            // document.querySelector('.about__slider').style.transform = `translateY(${ currTransformValue }px)`
-            scrollYVal = maxTransform / speed
+            scrollYVal = maxTransform / speed - 10
         }
     }
 }
