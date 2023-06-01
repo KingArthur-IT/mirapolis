@@ -106,10 +106,26 @@
 
 @media screen and (max-width: 1440px)
     .footer
+        &__logo
+            flex-basis: auto
+            & svg
+                width: 224px
+        &__adress
+            font-size: 36px
+
+@media screen and (max-width: 1400px)
+    .footer
+        &__social
+            margin-right: 100px
+        &__bottom
+            flex-direction: column-reverse
+        &__terms
+            margin-bottom: 10px
+
+@media screen and (max-width: 1240px)
+    .footer
         &__hero
             flex-wrap: wrap
-        &__logo
-            flex-basis: 30%
         &__sales
             flex-basis: 70%
             max-width: 540px
@@ -122,12 +138,6 @@
             justify-content: flex-start
         &__shedule
             margin-right: 115px
-        &__social
-            margin-right: 100px
-        &__bottom
-            flex-direction: column-reverse
-        &__terms
-            margin-bottom: 10px
 
 @media screen and (max-width: 1200px)
     .footer

@@ -2622,13 +2622,37 @@ picture img {
 }
 
 @media screen and (max-width: 1440px) {
+  .footer__logo {
+    -ms-flex-preferred-size: auto;
+        flex-basis: auto;
+  }
+  .footer__logo svg {
+    width: 224px;
+  }
+  .footer__adress {
+    font-size: 36px;
+  }
+}
+
+@media screen and (max-width: 1400px) {
+  .footer__social {
+    margin-right: 100px;
+  }
+  .footer__bottom {
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: reverse;
+        -ms-flex-direction: column-reverse;
+            flex-direction: column-reverse;
+  }
+  .footer__terms {
+    margin-bottom: 10px;
+  }
+}
+
+@media screen and (max-width: 1240px) {
   .footer__hero {
     -ms-flex-wrap: wrap;
         flex-wrap: wrap;
-  }
-  .footer__logo {
-    -ms-flex-preferred-size: 30%;
-        flex-basis: 30%;
   }
   .footer__sales {
     -ms-flex-preferred-size: 70%;
@@ -2649,18 +2673,6 @@ picture img {
   }
   .footer__shedule {
     margin-right: 115px;
-  }
-  .footer__social {
-    margin-right: 100px;
-  }
-  .footer__bottom {
-    -webkit-box-orient: vertical;
-    -webkit-box-direction: reverse;
-        -ms-flex-direction: column-reverse;
-            flex-direction: column-reverse;
-  }
-  .footer__terms {
-    margin-bottom: 10px;
   }
 }
 
