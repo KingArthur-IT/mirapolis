@@ -2457,10 +2457,15 @@ picture img {
 }
 
 .map__title {
+  font-weight: 400;
   font-size: 90px;
   letter-spacing: -0.025em;
   color: #FFFFFF;
   text-align: center;
+}
+
+.map__title span {
+  display: none;
 }
 
 .map__hero {
@@ -2478,6 +2483,8 @@ picture img {
 }
 
 .map__hero .zoom-btn {
+  position: relative;
+  overflow: hidden;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -2548,6 +2555,15 @@ picture img {
 }
 
 .map-objects {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.map-objects__wrapper {
   position: absolute;
   bottom: 40px;
   left: 40px;
@@ -2556,12 +2572,6 @@ picture img {
           backdrop-filter: blur(2.5px);
   border-radius: 300px;
   padding: 20px 30px;
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
 }
 
 .map-objects__item {
@@ -2586,6 +2596,73 @@ picture img {
 
 .map-objects__btn:active {
   background: transparent;
+}
+
+@media screen and (max-width: 1440px) {
+  .map__title {
+    font-size: 80px;
+  }
+}
+
+@media screen and (max-width: 1280px) {
+  .map__title {
+    font-size: 72px;
+  }
+}
+
+@media screen and (max-width: 1024px) {
+  .map__title {
+    font-size: 46px;
+  }
+  .map-objects {
+    -webkit-box-pack: justify;
+        -ms-flex-pack: justify;
+            justify-content: space-between;
+    width: 920px;
+  }
+  .map-objects__wrapper {
+    bottom: 40px;
+    left: 32px;
+    padding: 20px 10px;
+    overflow-x: scroll;
+    right: 0;
+    border-radius: 300px 0 0 300px;
+  }
+  .map-objects__wrapper::-webkit-scrollbar {
+    display: none;
+  }
+  .map-objects__item {
+    -webkit-box-flex: 1;
+        -ms-flex-positive: 1;
+            flex-grow: 1;
+  }
+  .map-objects__btn {
+    font-size: 18px;
+    width: 100%;
+  }
+}
+
+@media screen and (max-width: 600px) {
+  .map__title span {
+    display: inline;
+  }
+  .map__hero {
+    height: 500px;
+  }
+  .map-objects {
+    width: 850px;
+  }
+  .map-objects__wrapper {
+    bottom: 20px;
+    left: 20px;
+    padding: 20px 10px;
+  }
+}
+
+@media screen and (max-width: 375px) {
+  .map__title {
+    font-size: 36px;
+  }
 }
 
 .footer {

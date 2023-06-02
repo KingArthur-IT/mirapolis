@@ -1,11 +1,14 @@
 ymaps.ready(init);
 
 const spin = { w: 96, h: 96 }
+var mapCenter = [55.840576, 37.660200]
+if (window.innerWidth < 600)
+    mapCenter = [55.840452, 37.665044]
 var myMap = null
 
 function init() {
     myMap = new ymaps.Map("map", {
-        center: [55.840576, 37.660200],
+        center: mapCenter,
         zoom: 16,
         controls: []
     });
@@ -178,13 +181,29 @@ function addZoomControls() {
             var map = this.getData().control.getMap();
             map.setZoom(map.getZoom() - 1, {checkZoomRange: true});
         }
-    }),
-    zoomControl = new ymaps.control.ZoomControl({ 
-        options: { 
-            layout: ZoomLayout,
-            position: { top: 40, right: 40 }
-        }
-    });
+    })
+
+    if (window.innerWidth > 1024)
+        zoomControl = new ymaps.control.ZoomControl({ 
+            options: { 
+                layout: ZoomLayout,
+                position: { top: 40, right: 40 }
+            }
+        });
+    else if (window.innerWidth > 600)
+        zoomControl = new ymaps.control.ZoomControl({ 
+            options: { 
+                layout: ZoomLayout,
+                position: { bottom: 160, left: 32 }
+            }
+        });
+    else
+        zoomControl = new ymaps.control.ZoomControl({ 
+            options: { 
+                layout: ZoomLayout,
+                position: { bottom: 130, left: 20 }
+            }
+        });
 
     myMap.controls.add(zoomControl);
 }

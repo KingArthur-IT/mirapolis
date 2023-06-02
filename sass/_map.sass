@@ -4,10 +4,13 @@
     &__title-wrapper
         margin-bottom: 40px
     &__title
+        font-weight: 400
         font-size: 90px
         letter-spacing: -0.025em
         color: #FFFFFF
         text-align: center
+        & span
+            display: none
     &__hero
         position: relative
         border-radius: 20px
@@ -19,6 +22,8 @@
             padding: 0
             margin: 0
         & .zoom-btn
+            position: relative
+            overflow: hidden
             display: flex
             align-items: center
             justify-content: center
@@ -60,15 +65,16 @@
             border-radius: 50%
 
 .map-objects
-    position: absolute
-    bottom: 40px
-    left: 40px
-    background: rgba(255, 255, 255, 0.3)
-    backdrop-filter: blur(2.5px)
-    border-radius: 300px
-    padding: 20px 30px
     display: flex
     align-items: center
+    &__wrapper
+        position: absolute
+        bottom: 40px
+        left: 40px
+        background: rgba(255, 255, 255, 0.3)
+        backdrop-filter: blur(2.5px)
+        border-radius: 300px
+        padding: 20px 30px
     &__item
         padding: 0 10px
     &__btn
@@ -84,3 +90,54 @@
                 z-index: 2
         &:active
             background: transparent
+
+@media screen and (max-width: 1440px)
+    .map
+        &__title
+            font-size: 80px
+
+@media screen and (max-width: 1280px)
+    .map
+        &__title
+            font-size: 72px
+
+@media screen and (max-width: 1024px)
+    .map
+        &__title
+            font-size: 46px
+    .map-objects
+        justify-content: space-between
+        width: 920px
+        &__wrapper
+            bottom: 40px
+            left: 32px
+            padding: 20px 10px
+            overflow-x: scroll
+            right: 0
+            border-radius: 300px 0 0 300px
+            &::-webkit-scrollbar
+                display: none
+        &__item
+            flex-grow: 1
+        &__btn
+            font-size: 18px
+            width: 100%
+
+@media screen and (max-width: 600px)
+    .map
+        &__title
+            & span
+                display: inline
+        &__hero
+            height: 500px
+    .map-objects
+        width: 850px
+        &__wrapper
+            bottom: 20px
+            left: 20px
+            padding: 20px 10px
+
+@media screen and (max-width: 375px)
+    .map
+        &__title
+            font-size: 36px

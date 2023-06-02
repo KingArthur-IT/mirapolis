@@ -162,10 +162,10 @@
                     </button>
                     <div class="owl-carousel live-modal__carousel">
                         <div class="live-modal__item">
-                            <video id="video" class="video" muted="" autoplay poster="../assets/live/1.jpeg" src="blob:https://rtsp.me/b309eed7-4fa6-4029-8c18-3b1e0002c67d"></video>
+                            <video id="video" class="video" muted="" autoplay poster="./assets/live/1.jpeg" src="blob:https://rtsp.me/b309eed7-4fa6-4029-8c18-3b1e0002c67d"></video>
                         </div>
                         <div class="live-modal__item">
-                            <video id="video" class="video" muted="" poster="../assets/live/2.jpeg" src="blob:https://rtsp.me/c02e066c-76a4-4483-bef6-3272a2718de5"></video>
+                            <video id="video" class="video" muted="" poster="./assets/live/2.jpeg" src="blob:https://rtsp.me/c02e066c-76a4-4483-bef6-3272a2718de5"></video>
                         </div>
                     </div>
                 </div>
@@ -360,29 +360,31 @@
         <div class="map">
             <div class="container">
                 <div class="map__title-wrapper">
-                    <h2 class="map__title">Москва, Проспект мира, 222</h2>
+                    <h2 class="map__title">Москва, <span><br></span> Проспект мира, 222</h2>
                 </div>
                 <div class="map__hero">
                     <!-- <div style="position:relative;overflow:hidden;"><a href="https://yandex.ru/maps/213/moscow/?utm_medium=mapframe&utm_source=maps" style="color:#eee;font-size:12px;position:absolute;top:0px;">Москва</a><a href="https://yandex.ru/maps/213/moscow/?feedback=map%2Fedit&feedback-context=map.controls&ll=37.669150%2C55.841561&utm_medium=mapframe&utm_source=maps&z=16.7" style="color:#eee;font-size:12px;position:absolute;top:14px;">Яндекс Карты</a><iframe src="https://yandex.ru/map-widget/v1/?feedback=map%2Fedit&feedback-context=map.controls&ll=37.669150%2C55.841561&z=16.7" width="560" height="400" frameborder="1" allowfullscreen="true" style="position:relative;"></iframe></div> -->
                     <div id="map"></div>
-                    <div class="map-objects">
-                        <div class="map-objects__item">
-                            <button class="btn primary-btn map-objects__btn" data-search="park"><span>Парки</span></button>
-                        </div>
-                        <div class="map-objects__item">
-                            <button class="btn primary-btn map-objects__btn" data-search="education"><span>Образование</span></button>
-                        </div>
-                        <div class="map-objects__item">
-                            <button class="btn primary-btn map-objects__btn" data-search="sport"><span>Спорт</span></button>
-                        </div>
-                        <div class="map-objects__item">
-                            <button class="btn primary-btn map-objects__btn" data-search="market"><span>Продукты</span></button>
-                        </div>
-                        <div class="map-objects__item">
-                            <button class="btn primary-btn map-objects__btn" data-search="transport"><span>Транспорт</span></button>
-                        </div>
-                        <div class="map-objects__item">
-                            <button class="btn primary-btn map-objects__btn" data-search="medicine"><span>Медицина</span></button>
+                    <div class="map-objects__wrapper">
+                        <div class="map-objects">
+                            <div class="map-objects__item">
+                                <button class="btn primary-btn map-objects__btn" data-search="park"><span>Парки</span></button>
+                            </div>
+                            <div class="map-objects__item">
+                                <button class="btn primary-btn map-objects__btn" data-search="education"><span>Образование</span></button>
+                            </div>
+                            <div class="map-objects__item">
+                                <button class="btn primary-btn map-objects__btn" data-search="sport"><span>Спорт</span></button>
+                            </div>
+                            <div class="map-objects__item">
+                                <button class="btn primary-btn map-objects__btn" data-search="market"><span>Продукты</span></button>
+                            </div>
+                            <div class="map-objects__item">
+                                <button class="btn primary-btn map-objects__btn" data-search="transport"><span>Транспорт</span></button>
+                            </div>
+                            <div class="map-objects__item">
+                                <button class="btn primary-btn map-objects__btn" data-search="medicine"><span>Медицина</span></button>
+                            </div>
                         </div>
                     </div>
                 </div>
