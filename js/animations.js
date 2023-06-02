@@ -134,8 +134,10 @@ function fullImgSectionWheel() {
     if (nextScreen(0)) {
         changeScreen(1)
         const aboutSection = document.querySelector('.about')
-        aboutSection.querySelectorAll('.about__title').forEach(el => el.classList.add('shown'))
-        aboutSection.querySelectorAll('.anim-item').forEach(el => el.classList.add('anim-active'))
+        setTimeout(() => {
+            aboutSection.querySelectorAll('.about__title').forEach(el => el.classList.add('shown'))
+            aboutSection.querySelectorAll('.anim-item').forEach(el => el.classList.add('anim-active'))
+        }, 500);
     }
     if (prevScreen(-5)) {
         parallaxWrapper.classList.remove('full')
