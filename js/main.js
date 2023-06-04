@@ -11,6 +11,7 @@ document.addEventListener("DOMContentLoaded", () => {
   document.querySelector('.header__burger').addEventListener('click', (e) => {
     e.target.classList.toggle('active')
     menu.classList.toggle('active')
+    document.querySelector('.header').classList.toggle('disabled')
   })
 
   // --- menu item ---
@@ -18,6 +19,7 @@ document.addEventListener("DOMContentLoaded", () => {
     el.addEventListener('click', () => {
       document.querySelector('.header__burger').classList.remove('active')
       menu.classList.remove('active')
+      document.querySelector('.header').classList.toggle('disabled')
     })
   })
 

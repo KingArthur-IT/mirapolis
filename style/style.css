@@ -191,15 +191,59 @@ picture img {
   z-index: 10;
   -webkit-transform: translateY(-102%);
           transform: translateY(-102%);
-  -webkit-transition: -webkit-transform .5s ease-in-out;
-  transition: -webkit-transform .5s ease-in-out;
-  transition: transform .5s ease-in-out;
-  transition: transform .5s ease-in-out, -webkit-transform .5s ease-in-out;
+  -webkit-transition: background .5s ease-in-out, color .5s ease-in-out, -webkit-transform .5s ease-in-out;
+  transition: background .5s ease-in-out, color .5s ease-in-out, -webkit-transform .5s ease-in-out;
+  transition: transform .5s ease-in-out, background .5s ease-in-out, color .5s ease-in-out;
+  transition: transform .5s ease-in-out, background .5s ease-in-out, color .5s ease-in-out, -webkit-transform .5s ease-in-out;
 }
 
 .header.shown {
   -webkit-transform: translateY(0%);
           transform: translateY(0%);
+}
+
+.header.dark {
+  background: #404040;
+  color: #fff;
+}
+
+.header.dark .header__burger {
+  background: #fff;
+}
+
+.header.dark .header__burger:before {
+  background: #404040;
+}
+
+.header.dark .header__burger:after {
+  background: #404040;
+}
+
+.header.dark .header__svg path {
+  fill: #fff;
+}
+
+.header.dark .header__phone {
+  color: #fff;
+}
+
+.header.dark .header__phone::before {
+  background: #fff;
+}
+
+.header.dark .header__button {
+  border-color: #fff;
+  color: #fff;
+}
+
+.header.disabled .header__select {
+  opacity: 0;
+  pointer-events: none;
+}
+
+.header.disabled .header__callback {
+  opacity: 0;
+  pointer-events: none;
 }
 
 .header__nav {
@@ -287,6 +331,8 @@ picture img {
       -ms-flex-align: center;
           align-items: center;
   cursor: pointer;
+  -webkit-transition: opacity .3s ease-in-out;
+  transition: opacity .3s ease-in-out;
 }
 
 .header__svg {
@@ -306,6 +352,8 @@ picture img {
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
+  -webkit-transition: opacity .3s ease-in-out;
+  transition: opacity .3s ease-in-out;
 }
 
 .header__phone {

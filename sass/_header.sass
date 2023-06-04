@@ -15,9 +15,34 @@
     color: $primary-color
     z-index: 10
     transform: translateY(-102%)
-    transition: transform .5s ease-in-out
+    transition: transform .5s ease-in-out, background .5s ease-in-out, color .5s ease-in-out
     &.shown
         transform: translateY(0%)
+    &.dark
+        background: $primary-color
+        color: #fff
+        & .header__burger
+            background: #fff
+            &:before
+                background: $primary-color
+            &:after
+                background: $primary-color
+        & .header__svg path
+            fill: #fff
+        & .header__phone
+            color: #fff
+            &::before
+                background: #fff
+        & .header__button
+            border-color: #fff
+            color: #fff
+    &.disabled
+        & .header__select
+            opacity: 0
+            pointer-events: none
+        & .header__callback
+            opacity: 0
+            pointer-events: none
     &__nav
         display: flex
         align-items: center
@@ -68,6 +93,7 @@
         display: flex
         align-items: center
         cursor: pointer
+        transition: opacity .3s ease-in-out
     &__svg
         display: flex
         align-items: center
@@ -75,6 +101,7 @@
     &__callback
         display: flex
         align-items: center
+        transition: opacity .3s ease-in-out
     &__phone
         display: block
         position: relative

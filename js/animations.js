@@ -111,6 +111,7 @@ function wheelEvent(e) {
 function mainScroll(delta, scrollDirection) {
     if (scrollYVal + delta < 0) {
         setTransform('main', 0)
+        document.querySelector('header').classList.remove('dark')
         return
     }
 
@@ -159,10 +160,14 @@ function mainScroll(delta, scrollDirection) {
     addTransform('main', delta)
 
 
-    if (scrollYVal > document.querySelector('header').clientHeight && scrollDirection > 0)
+    if (scrollYVal > document.querySelector('header').clientHeight && scrollDirection > 0) {
         document.querySelector('header').classList.remove('shown')
-    if (scrollDirection < 0)
+        document.querySelector('header').classList.remove('dark')
+    }
+    if (scrollDirection < 0) {
         document.querySelector('header').classList.add('shown')
+        document.querySelector('header').classList.add('dark')
+    }
 }
 
 //------------------------------------------------------------------
