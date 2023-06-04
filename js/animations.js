@@ -1,6 +1,17 @@
-var scrollYVal = 0
-var activeSectionIndex = 1
 var isScrollDisabled = false
+var isAboutSliderScrolling = false
+var aboutSliderScrollCounter = -1
+var scrollYVal = 0
+const buildingBreakpoint = 150
+const buildingStartOffset = 200
+
+const parallaxTopOffset = document.querySelector('.parallax__img-wrapper').getBoundingClientRect().top - buildingStartOffset
+const placesTopOffset = document.querySelector('.places').getBoundingClientRect().top
+
+const imgBreakpoint = { value: 150, isPassed: false }
+const aboutBeakpoint = { value: placesTopOffset, isPassed: false }
+
+const aboutImgs = document.querySelectorAll('.about__img')
 
 const disableWheel = (ms) => {
     isScrollDisabled = true
@@ -9,47 +20,27 @@ const disableWheel = (ms) => {
     }, ms);
 }
 
-const nextScreen = (max) => {
-    if (scrollYVal > max) {
-        scrollYVal = 0
-        activeSectionIndex ++
-        disableWheel(1000)
-        return true
-    } return false
-}
-const prevScreen = (min) => {
-    if (scrollYVal < min) {
-        scrollYVal = 0
-        activeSectionIndex --
-        disableWheel(1000)
-        return true
-    } return false
+const getTransformValue = (query) => {
+    return Number(document.querySelector(query).style.transform.replace(/[^-\d]/g, ''))
 }
 
-const getTransformValue = (query) => {
+const getMarginValue = (query) => {
     return Number(document.querySelector(query).style.marginTop.replace(/[^-\d]/g, ''))
 }
 
 const addTransform = (query, value) => {
-    const currValue = getTransformValue(query)
-    document.querySelector(query).style.marginTop = `${ currValue + value }px`
+    scrollYVal += value
+    document.querySelector(query).style.transform = `translateY(${ -scrollYVal }px)`
 }
 
-const changeScreen = (direction) => {
-    const height = window.innerHeight
-    addTransform('main', -1 * direction * height)
+const setTransform = (query, value) => {
+    document.querySelector(query).style.transform = `translateY(${ -value }px)`
+    scrollYVal = value
 }
 
-const offset = (el) => {
+const topOffset = (el) => { //?
     const rect = el.getBoundingClientRect()
-    return { top: rect.top, left: rect.left  } 
-}
-
-const noScroll = (ms) => {
-    document.querySelector('body').classList.add('overflow-hidden')
-    setTimeout(() => {
-        document.querySelector('body').classList.remove('overflow-hidden')
-    }, ms);
+    return rect.top 
 }
 
 window.addEventListener("load", () => {
@@ -78,107 +69,154 @@ window.addEventListener("load", () => {
 });
 
 function wheelEvent(e) { 
-    if (isScrollDisabled) {
-        e.preventDefault()
-        e.stopPropagation()
-        return
-    }
+    e.preventDefault()
+    e.stopPropagation()
+    if (isScrollDisabled) return
 
+    //если открыты модалки
     if ( document.querySelector('.call-modal').classList.contains('active') || 
          document.querySelector('.live-modal').classList.contains('active') ||
          document.querySelector('.menu').classList.contains('active')
     ) return
    
-    const isMouseWheel = !(Math.abs(e.wheelDeltaY) % 120 != 0 || Math.abs(e.wheelDeltaY) == Math.abs(e.deltaY))
-
     const scrollDirection = Math.sign(e.deltaY);
-    const scrollStep = isMouseWheel ? 5 : 1
-    const newScrollVal = scrollYVal + scrollDirection * scrollStep
-    if (newScrollVal >= -10) {
-        scrollYVal = newScrollVal
+    const deltaScroll = Math.floor(e.deltaY)
+
+    // showAboutSection()
+    if (isAboutSliderScrolling) {
+        isScrollDisabled = true
+        setTimeout(() => {
+            isScrollDisabled = false
+        }, 1000);
+        aboutSectionWheel(scrollDirection)
+    }
+    else {
+        mainScroll(deltaScroll, scrollDirection)
+        buildingParallaxEffect()
+    }
+}
+
+//------------------------------------------------------------------
+
+function mainScroll(delta, scrollDirection) {
+    if (scrollYVal + delta < 0) {
+        setTransform('main', 0)
+        return
     }
 
-    if (activeSectionIndex === 1)
-        banerSectionWheel()
-    if (activeSectionIndex === 2)
-        fullImgSectionWheel()
-    if (activeSectionIndex === 3)
-        aboutSectionWheel()
-    if (activeSectionIndex === 4)
-        placesSectionWheel(scrollDirection)
+    let isReturn = false
+    if (scrollYVal + delta >= imgBreakpoint.value && !imgBreakpoint.isPassed && scrollDirection > 0) { //учесть обратный скролл !!
+        setTransform('main', imgBreakpoint.value)
+        disableWheel(1000)
+        setTimeout(() => {
+            imgBreakpoint.isPassed = true
+        }, 300);
+        showFullScreenAnimation()
+        isReturn = true
+    }
+    if (scrollYVal + delta <= imgBreakpoint.value && imgBreakpoint.isPassed && scrollDirection < 0) {
+        setTransform('main', imgBreakpoint.value)
+        disableWheel(1000)
+        setTimeout(() => {
+            imgBreakpoint.isPassed = false
+        }, 300);
+        hideFullScreenAnimation()
+        isReturn = true
+    }
+    if (scrollYVal + delta > aboutBeakpoint.value - window.innerHeight && !aboutBeakpoint.isPassed && scrollDirection > 0) {
+        setTransform('main', aboutBeakpoint.value - window.innerHeight)
+        isReturn = true
+        disableWheel(1000)
+        setTimeout(() => {
+            isAboutSliderScrolling = true
+        }, 300);
+    }
+    if (scrollYVal + delta < aboutBeakpoint.value - window.innerHeight && aboutBeakpoint.isPassed && scrollDirection < 0) {
+        setTransform('main', aboutBeakpoint.value - window.innerHeight)
+        isReturn = true
+        disableWheel(500)
+        hideFullScreenAnimation()
+        setTransform('main', 150)
+    }
+
+    if (isReturn) return
+
+    addTransform('main', delta)
+
+
+    if (scrollYVal > document.querySelector('header').clientHeight && scrollDirection > 0)
+        document.querySelector('header').classList.remove('shown')
+    if (scrollDirection < 0)
+        document.querySelector('header').classList.add('shown')
 }
 
-//baner animation index === 1
-function banerSectionWheel() {
-    const speed = 5
-    const nextScreenPx = 150
-    document.querySelector('.parallax__building').style.marginTop = `${ scrollYVal * speed }px`
-    nextScreen( Math.floor(nextScreenPx / speed) )
+//------------------------------------------------------------------
+
+function buildingParallaxEffect() {
+    const currMainScroll = getTransformValue('main')
+    if (currMainScroll > -buildingBreakpoint) {
+        document.querySelector('.parallax__building').style.marginTop = `${ -currMainScroll }px`
+    }
 }
 
-//img full animation index === 2 
-function fullImgSectionWheel() {
-    //on show
+//------------------------------------------------------------------
+
+function showFullScreenAnimation() {
     const parallaxSection = document.querySelector('.parallax');
     const parallaxWrapper = parallaxSection.querySelector('.parallax__img-wrapper');
-    const animItemOffsetTop = offset(parallaxSection).top;
 
     parallaxWrapper.classList.add('full')
     parallaxSection.querySelector('.parallax__live').classList.add('hide')
     parallaxSection.querySelector('.parallax__building').classList.add('hide')
     document.querySelector('.baner__hero').classList.remove('shown')
-    document.querySelector('.header').classList.remove('shown')
 
-    parallaxWrapper.style.transform = `translateY(-${animItemOffsetTop}px)`
-
-    if (nextScreen(0)) {
-        changeScreen(1)
-        const aboutSection = document.querySelector('.about')
-        setTimeout(() => {
-            aboutSection.querySelectorAll('.about__title').forEach(el => el.classList.add('shown'))
-            aboutSection.querySelectorAll('.anim-item').forEach(el => el.classList.add('anim-active'))
-        }, 500);
-    }
-    if (prevScreen(-5)) {
-        parallaxWrapper.classList.remove('full')
-        parallaxSection.querySelector('.parallax__live').classList.remove('hide')
-        parallaxSection.querySelector('.parallax__building').classList.remove('hide')
-        parallaxWrapper.style.transform = `translateY(0px)`
-        document.querySelector('.baner__hero').classList.add('shown')
-        document.querySelector('.header').classList.add('shown')
-        setTimeout(() => {
-            document.querySelector('.parallax__building').style.marginTop = `0px`
-        }, 500);
-    }   
+    parallaxWrapper.style.transform = `translateY(-${parallaxTopOffset - buildingBreakpoint}px)`
 }
 
+function hideFullScreenAnimation() {
+    const parallaxSection = document.querySelector('.parallax');
+    const parallaxWrapper = parallaxSection.querySelector('.parallax__img-wrapper');
+
+    parallaxWrapper.classList.remove('full')
+    parallaxSection.querySelector('.parallax__live').classList.remove('hide')
+    parallaxSection.querySelector('.parallax__building').classList.remove('hide')
+    document.querySelector('.baner__hero').classList.add('shown')
+
+    parallaxWrapper.style.transform = `translateY(0px)`
+}
+
+//------------------------------------------------------------------
+
+function showAboutSection() {
+    if (scrollYVal > window.innerHeight / 2) { //aboutTopOffset
+        const aboutSection = document.querySelector('.about')
+        aboutSection.querySelectorAll('.about__title').forEach(el => el.classList.add('shown'))
+        // aboutSection.querySelectorAll('.anim-item').forEach(el => el.classList.add('anim-active'))
+    }
+}
+
+//------------------------------------------------------------------
+
 //about animation index === 3
-function aboutSectionWheel() {
-    const speed = 8
-    const maxTransform = document.querySelector('.about__slider').offsetHeight - document.querySelector('.about__slider-wrapper').offsetHeight
-    const aboutSection = document.querySelector('.about')
-
-    if (scrollYVal > 10 && scrollYVal < maxTransform / speed + 20) {
-        document.querySelector('.about__slider').style.transform = `translateY(${ 10 * speed - speed * scrollYVal }px)`
-    }
-
-    if (nextScreen(maxTransform / speed + 30)) {
-        changeScreen(1)
+function aboutSectionWheel(scrollDirection) {
+    if (scrollDirection > 0)
+        if (aboutSliderScrollCounter >= -1 && aboutSliderScrollCounter < aboutImgs.length - 2) {
+            aboutSliderScrollCounter ++
+            aboutImgs[aboutSliderScrollCounter].classList.add('hide')
+        } else {
+            setTimeout(() => {
+                isAboutSliderScrolling = false
+                aboutBeakpoint.isPassed = true
+            }, 500);
+        }
+    else if (aboutSliderScrollCounter > 0 ) {
+        aboutSliderScrollCounter = -1
+        aboutImgs.forEach(img => img.classList.remove('hide'))
+    } else {
         setTimeout(() => {
-            aboutSection.querySelectorAll('.about__title').forEach(el => el.classList.remove('shown'))
-            aboutSection.querySelectorAll('.anim-item').forEach(el => el.classList.remove('anim-active'))
-        }, 100);
-        setTimeout(() => {
-            document.querySelector('body').classList.remove('overflow-hidden')
-        }, 1000);
-    }
-
-    if (prevScreen(-5)) {
-        aboutSection.querySelectorAll('.about__title').forEach(el => el.classList.remove('shown'))
-        aboutSection.querySelectorAll('.anim-item').forEach(el => el.classList.remove('anim-active'))
-        document.querySelector('.about__slider').style.transform = `translateY(0px)`
-
-        changeScreen(-1)
+            isAboutSliderScrolling = false
+            aboutBeakpoint.isPassed = false
+        }, 500);
     }
 }
 
@@ -246,35 +284,20 @@ function animOnScroll() {
 
     for (let index = 0; index < animItems.length; index++) {
         const item = animItems[index];
-        const animItemHeight = item.offsetHeight;
-        const animItemOffsetTop = offset(item).top;
-        const animStart = 2;
+            const animItemHeight = item.offsetHeight;
+            const animItemOffsetTop = topOffset(item);
+            const animStart = 2;
 
-        let animItemPoint = window.innerHeight - 100 //animItemHeight / animStart;
-        // if (animItemHeight > window.innerHeight) {
-        //     animItemPoint = window.innerHeight - window.innerHeight / animStart;
-        // }
-        
-        if (animItemOffsetTop < animItemPoint)
-            item.classList.add('anim-active');
-        else item.classList.remove('anim-active');
-    }
+            let animItemPoint = window.innerHeight - animItemHeight / animStart;
+            if (animItemHeight > window.innerHeight) {
+                animItemPoint = window.innerHeight - window.innerHeight / animStart;
+            }
 
-    const aboutTitles = document.querySelectorAll('.about__title')
-
-    for (let index = 0; index < aboutTitles.length; index++) {
-        const item = aboutTitles[index];
-        const animItemHeight = item.offsetHeight;
-        const animItemOffsetTop = offset(item).top;
-        const animStart = 2;
-
-        let animItemPoint = window.innerHeight - 100 //animItemHeight / animStart;
-        // if (animItemHeight > window.innerHeight) {
-        //     animItemPoint = window.innerHeight - window.innerHeight / animStart;
-        // }
-        
-        if (animItemOffsetTop < animItemPoint)
-            item.classList.add('shown');
-        else item.classList.remove('shown');
+            if ((window.pageYOffset > animItemOffsetTop - animItemPoint) && (window.pageYOffset < animItemOffsetTop + animItemHeight))
+            {
+                item.classList.add('anim-active');
+            } else {
+                item.classList.remove('anim-active');
+            }
     }
 }

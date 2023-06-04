@@ -1,5 +1,6 @@
 .about 
     overflow-y: hidden
+    margin-top: 200px
     &__container
         padding-top: 40px
         height: 100vh
@@ -69,30 +70,47 @@
         flex-direction: column
         transition: transform .4s ease-out
     &__img
-        max-width: 710px
+        position: relative
+        width: 710px
+        height: 450px
         border-radius: 20px
         margin-bottom: 20px
         overflow: hidden
-        transform: translateY(200px)
-        opacity: 0
-        transition: transform .5s ease-out, opacity .5s ease-out
-        &:nth-child(2)
-            transition-delay: 0.3s
+        transition: height .7s ease-in-out .2s
+        &.hide
+            height: 0
+            & img
+                transform: scale(1)
+                transition-delay: 0s
         & img
+            width: 710px
+            height: 450px
             width: 100%
+            position: absolute
+            bottom: 0
+            left: 0
+            right: 0
             margin-bottom: -4px
+            transform: scale(1.1)
+            transition: transform .3s ease-in-out .7s
 
 @media screen and (max-width: 1440px)
     .about
         &__img
-            max-width: 520px
-        &__img
-            max-width: 570px
+            width: 570px
+            height: 361px
+            & img
+                width: 570px
+                height: 361px
 
 @media screen and (max-width: 1240px)
     .about
         &__img
-            max-width: 370px
+            width: 370px
+            height: 234px
+            & img
+                width: 370px
+                height: 234px
 
 @media screen and (max-width: 1024px)
     .about
