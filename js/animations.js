@@ -12,6 +12,7 @@ const parallaxTopOffset = document.querySelector('.parallax__img-wrapper').getBo
 console.log(parallaxTopOffset);
 const aboutTopOffset = document.querySelector('.about').getBoundingClientRect().top
 const placesTopOffset = document.querySelector('.places').getBoundingClientRect().top
+const mapTopOffset = document.querySelector('.map').getBoundingClientRect().top
 
 const imgBreakpoint = { value: 150, isPassed: false }
 const aboutBeakpoint = { value: placesTopOffset, isPassed: false }
@@ -85,7 +86,7 @@ function wheelEvent(e) {
     //если открыты модалки
     if ( document.querySelector('.call-modal').classList.contains('active') || 
          document.querySelector('.live-modal').classList.contains('active') ||
-         document.querySelector('.menu').classList.contains('active')
+         document.querySelector('.menu').classList.contains('active') 
     ) return
    
     const scrollDirection = Math.sign(e.deltaY);
@@ -95,7 +96,7 @@ function wheelEvent(e) {
         isScrollDisabled = true
         setTimeout(() => {
             isScrollDisabled = false
-        }, 1000);
+        }, 600);
         aboutSectionWheel(scrollDirection)
     }
     else {
@@ -103,6 +104,7 @@ function wheelEvent(e) {
         buildingParallaxEffect()
         showAboutSection()
         showPlacesSection()
+        changeBgColor()
     }
 }
 
@@ -114,6 +116,7 @@ function mainScroll(delta, scrollDirection) {
         document.querySelector('header').classList.remove('dark')
         return
     }
+    if (scrollYVal + delta > document.querySelector('main').clientHeight - window.innerWidth) return
 
     let isReturn = false
     //showFullScreenAnimation
@@ -189,6 +192,7 @@ function showFullScreenAnimation() {
     parallaxSection.querySelector('.parallax__live').classList.add('hide')
     parallaxSection.querySelector('.parallax__building').classList.add('hide')
     document.querySelector('.baner__hero').classList.remove('shown')
+    document.querySelector('.header').classList.remove('shown')
 
     parallaxWrapper.style.transform = `translateY(-${parallaxTopOffset - buildingBreakpoint}px)`
 }
@@ -226,6 +230,14 @@ function showPlacesSection() {
     }
 }
 
+function changeBgColor() {
+    if (scrollYVal > mapTopOffset + window.innerHeight / 2) {
+        document.querySelector('main').classList.add('dark')
+    } else {
+        document.querySelector('main').classList.remove('dark')
+    }
+}
+
 //------------------------------------------------------------------
 
 //about animation index === 3
@@ -248,7 +260,7 @@ function aboutSectionWheel(scrollDirection) {
             isAboutSliderScrolling = false
             aboutBeakpoint.isPassed = false
             hideFullScreenAnimation()
-            setTransform('main', 150)
+            setTransform('main', buildingBreakpoint)
         }, 500);
     }
 }

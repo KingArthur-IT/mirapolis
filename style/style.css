@@ -62,10 +62,11 @@ body::-webkit-scrollbar {
 
 main {
   overflow-x: hidden;
-  -webkit-transition: -webkit-transform .3s ease-out;
-  transition: -webkit-transform .3s ease-out;
-  transition: transform .3s ease-out;
-  transition: transform .3s ease-out, -webkit-transform .3s ease-out;
+  -webkit-transition: background 1s ease-in-out, -webkit-transform .3s ease-out;
+  transition: background 1s ease-in-out, -webkit-transform .3s ease-out;
+  transition: transform .3s ease-out, background 1s ease-in-out;
+  transition: transform .3s ease-out, background 1s ease-in-out, -webkit-transform .3s ease-out;
+  background: transparent;
 }
 
 main.showMenu {
@@ -73,6 +74,10 @@ main.showMenu {
   transition: -webkit-transform 1s cubic-bezier(0.38, 0.84, 0.52, 0.99);
   transition: transform 1s cubic-bezier(0.38, 0.84, 0.52, 0.99);
   transition: transform 1s cubic-bezier(0.38, 0.84, 0.52, 0.99), -webkit-transform 1s cubic-bezier(0.38, 0.84, 0.52, 0.99);
+}
+
+main.dark {
+  background: #404040;
 }
 
 picture img {
@@ -1495,10 +1500,10 @@ picture img {
   -webkit-transform: translateX(-55%) translateY(200px);
           transform: translateX(-55%) translateY(200px);
   width: 58.7vw;
-  -webkit-transition: opacity .2s ease-in-out .25s, margin .3s ease-out, -webkit-transform .5s ease-in-out .25s;
-  transition: opacity .2s ease-in-out .25s, margin .3s ease-out, -webkit-transform .5s ease-in-out .25s;
-  transition: transform .5s ease-in-out .25s, opacity .2s ease-in-out .25s, margin .3s ease-out;
-  transition: transform .5s ease-in-out .25s, opacity .2s ease-in-out .25s, margin .3s ease-out, -webkit-transform .5s ease-in-out .25s;
+  -webkit-transition: opacity .2s ease-in-out .25s, margin .3s ease-out, -webkit-transform 1s ease-out .25s;
+  transition: opacity .2s ease-in-out .25s, margin .3s ease-out, -webkit-transform 1s ease-out .25s;
+  transition: transform 1s ease-out .25s, opacity .2s ease-in-out .25s, margin .3s ease-out;
+  transition: transform 1s ease-out .25s, opacity .2s ease-in-out .25s, margin .3s ease-out, -webkit-transform 1s ease-out .25s;
   pointer-events: none;
 }
 
@@ -2577,7 +2582,6 @@ picture img {
 
 .map {
   padding: 40px 0;
-  background: #404040;
 }
 
 .map__title-wrapper {
@@ -2795,7 +2799,6 @@ picture img {
 
 .footer {
   width: 100%;
-  background: #404040;
   color: #fff;
 }
 
