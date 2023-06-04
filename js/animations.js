@@ -87,7 +87,6 @@ function wheelEvent(e) {
     const scrollDirection = Math.sign(e.deltaY);
     const deltaScroll = Math.floor(e.deltaY)
 
-    showAboutSection()
     if (isAboutSliderScrolling) {
         isScrollDisabled = true
         setTimeout(() => {
@@ -98,6 +97,8 @@ function wheelEvent(e) {
     else {
         mainScroll(deltaScroll, scrollDirection)
         buildingParallaxEffect()
+        showAboutSection()
+        showPlacesSection()
     }
 }
 
@@ -110,6 +111,7 @@ function mainScroll(delta, scrollDirection) {
     }
 
     let isReturn = false
+    //showFullScreenAnimation
     if (scrollYVal + delta >= imgBreakpoint.value && !imgBreakpoint.isPassed && scrollDirection > 0) { //учесть обратный скролл !!
         setTransform('main', imgBreakpoint.value)
         disableWheel(1000)
@@ -119,6 +121,7 @@ function mainScroll(delta, scrollDirection) {
         showFullScreenAnimation()
         isReturn = true
     }
+    //hideFullScreenAnimation
     if (scrollYVal + delta <= imgBreakpoint.value && imgBreakpoint.isPassed && scrollDirection < 0) {
         setTransform('main', imgBreakpoint.value)
         disableWheel(1000)
@@ -128,6 +131,7 @@ function mainScroll(delta, scrollDirection) {
         hideFullScreenAnimation()
         isReturn = true
     }
+    //aboutBeakpoint down
     if (scrollYVal + delta > aboutBeakpoint.value - window.innerHeight && !aboutBeakpoint.isPassed && scrollDirection > 0) {
         setTransform('main', aboutBeakpoint.value - window.innerHeight)
         isReturn = true
@@ -136,7 +140,7 @@ function mainScroll(delta, scrollDirection) {
             isAboutSliderScrolling = true
         }, 300);
     }
-    console.log(scrollYVal + delta < aboutBeakpoint.value - window.innerHeight,  aboutBeakpoint.isPassed);
+    //aboutBeakpoint up
     if (scrollYVal + delta < aboutBeakpoint.value - window.innerHeight && aboutBeakpoint.isPassed && scrollDirection < 0) {
         setTransform('main', aboutBeakpoint.value - window.innerHeight)
         isReturn = true
@@ -200,6 +204,15 @@ function showAboutSection() {
         setTimeout(() => {
             aboutSection.querySelectorAll('.about__title').forEach(el => el.classList.add('shown'))
             aboutSection.querySelectorAll('.anim-item').forEach(el => el.classList.add('anim-active'))
+        }, 400);
+    }
+}
+
+function showPlacesSection() {
+    if (scrollYVal > placesTopOffset - window.innerHeight) {
+        const placesSection = document.querySelector('.places')
+        setTimeout(() => {
+            placesSection.querySelectorAll('.anim-item').forEach(el => el.classList.add('anim-active'))
         }, 400);
     }
 }

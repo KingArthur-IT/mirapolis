@@ -1634,7 +1634,6 @@ picture img {
   line-height: 125%;
   letter-spacing: -0.025em;
   color: #404040;
-  padding: 80px 0;
   -webkit-transform: translateY(100px);
           transform: translateY(100px);
   opacity: 0;
@@ -1754,7 +1753,6 @@ picture img {
   .about__text {
     max-width: 335px;
     font-size: 16px;
-    padding: 20px 0 80px;
   }
 }
 
@@ -1784,7 +1782,6 @@ picture img {
   }
   .about__text {
     max-width: 100%;
-    padding: 0 0 40px;
   }
   .about__slider-wrapper {
     padding-right: 0;
@@ -1942,39 +1939,11 @@ picture img {
 }
 
 .places-carousel__item-wrapper {
-  -webkit-transform: translateX(300px);
-          transform: translateX(300px);
-  opacity: 0;
-  -webkit-transition: opacity .5s ease-out, -webkit-transform .5s ease-out;
-  transition: opacity .5s ease-out, -webkit-transform .5s ease-out;
-  transition: opacity .5s ease-out, transform .5s ease-out;
-  transition: opacity .5s ease-out, transform .5s ease-out, -webkit-transform .5s ease-out;
+  position: relative;
 }
 
-.places-carousel__item-wrapper.delay-1 {
-  -webkit-transition-delay: .2s;
-          transition-delay: .2s;
-}
-
-.places-carousel__item-wrapper.delay-2 {
-  -webkit-transition-delay: .4s;
-          transition-delay: .4s;
-}
-
-.places-carousel__item-wrapper.delay-3 {
-  -webkit-transition-delay: .6s;
-          transition-delay: .6s;
-}
-
-.places-carousel__item-wrapper.delay-4 {
-  -webkit-transition-delay: .8s;
-          transition-delay: .8s;
-}
-
-.places-carousel__item-wrapper.anim-active {
-  -webkit-transform: translateX(0px);
-          transform: translateX(0px);
-  opacity: 1;
+.places-carousel__item-wrapper.anim-active .places-carousel__img-wrapper::after {
+  bottom: 100%;
 }
 
 .places-carousel__item {
@@ -2039,6 +2008,19 @@ picture img {
   aspect-ratio: 1.11;
   -webkit-transition: all .3s ease-out;
   transition: all .3s ease-out;
+  position: relative;
+}
+
+.places-carousel__img-wrapper::after {
+  content: '';
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: 0;
+  bottom: 0%;
+  background: #fff;
+  -webkit-transition: bottom .5s ease-in-out;
+  transition: bottom .5s ease-in-out;
 }
 
 .places-carousel__img {
