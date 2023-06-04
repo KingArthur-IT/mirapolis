@@ -1,3 +1,11 @@
+// const getTransformValue = (query) => {
+//   return Number(document.querySelector(query).style.transform.replace(/[^-\d]/g, ''))
+// }
+// const addTransform = (query, value) => {
+//   const currTransform = getTransformValue('main')
+//   document.querySelector(query).style.transform = `translateY(${ currTransform - value }px)`
+// }
+
 document.addEventListener("DOMContentLoaded", () => {
   setTimeout(() => {
     window.scrollTo(0, 0)
@@ -12,6 +20,16 @@ document.addEventListener("DOMContentLoaded", () => {
     e.target.classList.toggle('active')
     menu.classList.toggle('active')
     document.querySelector('.header').classList.toggle('disabled')
+    if (menu.classList.contains('active')) {
+      document.querySelector('main').classList.add('showMenu')
+      addTransform('main', -window.innerHeight)
+    }
+    else {
+      addTransform('main', window.innerHeight)
+      setTimeout(() => {
+        document.querySelector('main').classList.remove('showMenu')
+      }, 1000);
+    }
   })
 
   // --- menu item ---

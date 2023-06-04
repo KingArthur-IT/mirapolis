@@ -68,6 +68,13 @@ main {
   transition: transform .3s ease-out, -webkit-transform .3s ease-out;
 }
 
+main.showMenu {
+  -webkit-transition: -webkit-transform 1s cubic-bezier(0.38, 0.84, 0.52, 0.99);
+  transition: -webkit-transform 1s cubic-bezier(0.38, 0.84, 0.52, 0.99);
+  transition: transform 1s cubic-bezier(0.38, 0.84, 0.52, 0.99);
+  transition: transform 1s cubic-bezier(0.38, 0.84, 0.52, 0.99), -webkit-transform 1s cubic-bezier(0.38, 0.84, 0.52, 0.99);
+}
+
 picture img {
   width: 100%;
 }
@@ -450,17 +457,45 @@ picture img {
   width: 100vw;
   height: 100vh;
   z-index: 10;
-  -webkit-transition: opacity .3s ease;
-  transition: opacity .3s ease;
+  -webkit-transition: -webkit-transform 1s cubic-bezier(0.38, 0.84, 0.52, 0.99);
+  transition: -webkit-transform 1s cubic-bezier(0.38, 0.84, 0.52, 0.99);
+  transition: transform 1s cubic-bezier(0.38, 0.84, 0.52, 0.99);
+  transition: transform 1s cubic-bezier(0.38, 0.84, 0.52, 0.99), -webkit-transform 1s cubic-bezier(0.38, 0.84, 0.52, 0.99);
   letter-spacing: -0.025em;
   font-weight: 500;
-  opacity: 0;
   pointer-events: none;
+  -webkit-transform: translateY(-100%);
+          transform: translateY(-100%);
 }
 
 .menu.active {
-  opacity: 1 !important;
+  -webkit-transform: translateY(0) !important;
+          transform: translateY(0) !important;
   pointer-events: all;
+}
+
+.menu.active .menu__item {
+  opacity: 1;
+  -webkit-transform: translateY(0);
+          transform: translateY(0);
+}
+
+.menu.active .menu__center {
+  opacity: 1;
+  -webkit-transform: translateY(0);
+          transform: translateY(0);
+}
+
+.menu.active .menu__adress {
+  opacity: 1;
+  -webkit-transform: translateY(0);
+          transform: translateY(0);
+}
+
+.menu.active .menu__footer {
+  opacity: 1;
+  -webkit-transform: translateY(0);
+          transform: translateY(0);
 }
 
 .menu__container {
@@ -494,6 +529,13 @@ picture img {
   width: -webkit-fit-content;
   width: -moz-fit-content;
   width: fit-content;
+  opacity: 0;
+  -webkit-transform: translateY(-50px);
+          transform: translateY(-50px);
+  -webkit-transition: opacity 1s cubic-bezier(0.43, 0.98, 0.41, 0.99) 0.6s, -webkit-transform 1.6s cubic-bezier(0.43, 0.98, 0.41, 0.99) 0.6s;
+  transition: opacity 1s cubic-bezier(0.43, 0.98, 0.41, 0.99) 0.6s, -webkit-transform 1.6s cubic-bezier(0.43, 0.98, 0.41, 0.99) 0.6s;
+  transition: opacity 1s cubic-bezier(0.43, 0.98, 0.41, 0.99) 0.6s, transform 1.6s cubic-bezier(0.43, 0.98, 0.41, 0.99) 0.6s;
+  transition: opacity 1s cubic-bezier(0.43, 0.98, 0.41, 0.99) 0.6s, transform 1.6s cubic-bezier(0.43, 0.98, 0.41, 0.99) 0.6s, -webkit-transform 1.6s cubic-bezier(0.43, 0.98, 0.41, 0.99) 0.6s;
 }
 
 .menu__nav {
@@ -524,6 +566,13 @@ picture img {
       flex-basis: 33.33%;
   max-width: 460px;
   min-width: 460px;
+  opacity: 0;
+  -webkit-transform: translateY(-50px);
+          transform: translateY(-50px);
+  -webkit-transition: opacity 1s cubic-bezier(0.43, 0.98, 0.41, 0.99) 0.8s, -webkit-transform 1.6s cubic-bezier(0.43, 0.98, 0.41, 0.99) 0.8s;
+  transition: opacity 1s cubic-bezier(0.43, 0.98, 0.41, 0.99) 0.8s, -webkit-transform 1.6s cubic-bezier(0.43, 0.98, 0.41, 0.99) 0.8s;
+  transition: opacity 1s cubic-bezier(0.43, 0.98, 0.41, 0.99) 0.8s, transform 1.6s cubic-bezier(0.43, 0.98, 0.41, 0.99) 0.8s;
+  transition: opacity 1s cubic-bezier(0.43, 0.98, 0.41, 0.99) 0.8s, transform 1.6s cubic-bezier(0.43, 0.98, 0.41, 0.99) 0.8s, -webkit-transform 1.6s cubic-bezier(0.43, 0.98, 0.41, 0.99) 0.8s;
 }
 
 .menu__center .text {
@@ -692,6 +741,13 @@ picture img {
       flex-basis: 33.33%;
   max-width: 360px;
   min-width: 360px;
+  opacity: 0;
+  -webkit-transform: translateY(-50px);
+          transform: translateY(-50px);
+  -webkit-transition: opacity 1s cubic-bezier(0.43, 0.98, 0.41, 0.99) 1s, -webkit-transform 1.6s cubic-bezier(0.43, 0.98, 0.41, 0.99) 1s;
+  transition: opacity 1s cubic-bezier(0.43, 0.98, 0.41, 0.99) 1s, -webkit-transform 1.6s cubic-bezier(0.43, 0.98, 0.41, 0.99) 1s;
+  transition: opacity 1s cubic-bezier(0.43, 0.98, 0.41, 0.99) 1s, transform 1.6s cubic-bezier(0.43, 0.98, 0.41, 0.99) 1s;
+  transition: opacity 1s cubic-bezier(0.43, 0.98, 0.41, 0.99) 1s, transform 1.6s cubic-bezier(0.43, 0.98, 0.41, 0.99) 1s, -webkit-transform 1.6s cubic-bezier(0.43, 0.98, 0.41, 0.99) 1s;
 }
 
 .menu__live {
@@ -737,6 +793,13 @@ picture img {
 .menu__footer {
   margin-top: auto;
   padding: 20px 0;
+  opacity: 0;
+  -webkit-transform: translateY(30px);
+          transform: translateY(30px);
+  -webkit-transition: opacity 1s cubic-bezier(0.43, 0.98, 0.41, 0.99) 0.6s, -webkit-transform 1.6s cubic-bezier(0.43, 0.98, 0.41, 0.99) 0.6s;
+  transition: opacity 1s cubic-bezier(0.43, 0.98, 0.41, 0.99) 0.6s, -webkit-transform 1.6s cubic-bezier(0.43, 0.98, 0.41, 0.99) 0.6s;
+  transition: opacity 1s cubic-bezier(0.43, 0.98, 0.41, 0.99) 0.6s, transform 1.6s cubic-bezier(0.43, 0.98, 0.41, 0.99) 0.6s;
+  transition: opacity 1s cubic-bezier(0.43, 0.98, 0.41, 0.99) 0.6s, transform 1.6s cubic-bezier(0.43, 0.98, 0.41, 0.99) 0.6s, -webkit-transform 1.6s cubic-bezier(0.43, 0.98, 0.41, 0.99) 0.6s;
 }
 
 .menu__footer a {
