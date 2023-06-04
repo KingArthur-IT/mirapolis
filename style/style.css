@@ -37,7 +37,6 @@
           box-sizing: border-box;
   margin: 0;
   padding: 0;
-  scroll-behavior: smooth;
 }
 
 ul {
@@ -1122,8 +1121,11 @@ picture img {
 .baner {
   width: 100%;
   min-height: 100vh;
-  padding-top: 132px;
   overflow: hidden;
+}
+
+.baner__container {
+  padding-top: 132px;
 }
 
 .baner__label {
@@ -1300,7 +1302,7 @@ picture img {
 }
 
 @media screen and (max-width: 375px) {
-  .baner {
+  .baner__container {
     padding-top: 100px;
   }
   .baner__label {
@@ -1545,6 +1547,7 @@ picture img {
 
 .about__container {
   padding-top: 40px;
+  padding-bottom: 40px;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;

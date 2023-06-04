@@ -1,8 +1,9 @@
 .baner
     width: 100%
     min-height: 100vh
-    padding-top: 132px
     overflow: hidden
+    &__container
+        padding-top: 132px
     &__label
         margin: 0 auto
         display: block
@@ -111,7 +112,8 @@
 
 @media screen and (max-width: 375px)
     .baner
-        padding-top: 100px
+        &__container
+            padding-top: 100px
         &__label
             font-size: 20px
             padding: 6px 12px

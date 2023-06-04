@@ -1,3 +1,6 @@
+document.querySelector('main').style.transform = `translateY(0px)`
+window.scrollTo({ top: 0, behavior: 'instant' })
+
 var isScrollDisabled = false
 var isAboutSliderScrolling = false
 var aboutSliderScrollCounter = -1
@@ -6,6 +9,7 @@ const buildingBreakpoint = 150
 const buildingStartOffset = 200
 
 const parallaxTopOffset = document.querySelector('.parallax__img-wrapper').getBoundingClientRect().top - buildingStartOffset
+console.log(parallaxTopOffset);
 const aboutTopOffset = document.querySelector('.about').getBoundingClientRect().top
 const placesTopOffset = document.querySelector('.places').getBoundingClientRect().top
 
@@ -112,7 +116,7 @@ function mainScroll(delta, scrollDirection) {
 
     let isReturn = false
     //showFullScreenAnimation
-    if (scrollYVal + delta >= imgBreakpoint.value && !imgBreakpoint.isPassed && scrollDirection > 0) { //учесть обратный скролл !!
+    if (scrollYVal + delta >= imgBreakpoint.value && !imgBreakpoint.isPassed && scrollDirection > 0) {
         setTransform('main', imgBreakpoint.value)
         disableWheel(1000)
         setTimeout(() => {
@@ -235,7 +239,6 @@ function aboutSectionWheel(scrollDirection) {
         aboutSliderScrollCounter = -1
         aboutImgs.forEach(img => img.classList.remove('hide'))
     } else {
-        console.log(aboutBeakpoint.isPassed);
         setTimeout(() => {
             isAboutSliderScrolling = false
             aboutBeakpoint.isPassed = false
