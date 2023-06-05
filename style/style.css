@@ -1417,7 +1417,7 @@ picture img {
   }
   .baner__hero {
     margin-top: 20px;
-    margin-bottom: 60px;
+    margin-bottom: 0px;
     -webkit-box-orient: vertical;
     -webkit-box-direction: normal;
         -ms-flex-direction: column;
@@ -1924,6 +1924,7 @@ picture img {
   }
   .about__text {
     max-width: 100%;
+    padding: 0 0 40px;
   }
   .about__slider-wrapper {
     padding-right: 0;
@@ -2306,9 +2307,6 @@ picture img {
 }
 
 @media screen and (max-width: 1140px) {
-  .places {
-    margin-bottom: 80px;
-  }
   .places__title {
     font-size: 46px;
   }
@@ -2393,8 +2391,7 @@ picture img {
 
 @media screen and (max-width: 600px) {
   .places {
-    padding-top: 0;
-    margin-bottom: 60px;
+    padding-top: 80px;
   }
 }
 
@@ -2833,6 +2830,9 @@ picture img {
 }
 
 @media screen and (max-width: 600px) {
+  .map {
+    padding-top: 80px;
+  }
   .map__title span {
     display: inline;
   }
