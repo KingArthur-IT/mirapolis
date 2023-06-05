@@ -1,5 +1,9 @@
-document.querySelector('main').style.transform = `translateY(0px)`
-window.scrollTo({ top: 0, behavior: 'instant' })
+// document.querySelector('main').style.transform = `translateY(${document.querySelector('.baner'),getBoundingClientRect().top}px)`
+// window.scrollTo({ top: 0, behavior: 'instant' })
+
+// document.querySelector('main').style.transform = `translateY(${document.querySelector('main').getBoundingClientRect().top}px)`
+// console.log(document.querySelector('main').getBoundingClientRect().top);
+
 
 var isScrollDisabled = false
 var isAboutSliderScrolling = false
@@ -78,6 +82,9 @@ window.addEventListener("load", () => {
 // -----------------------------------------------------------------
 
 function wheelEvent(e) { 
+    //убрать эффект при заходе на другие
+    document.querySelectorAll('.primary-btn').forEach(b => b.classList.remove('leaved'))
+
     e.preventDefault()
     e.stopPropagation()
     if (isScrollDisabled) return
@@ -285,7 +292,7 @@ function keyDownEvent(e) {
 
 function animOnScrollMobile() {
     changeBgColorMobile()
-    
+
     const animItems = document.querySelectorAll('.anim-item');
 
     for (let index = 0; index < animItems.length; index++) {

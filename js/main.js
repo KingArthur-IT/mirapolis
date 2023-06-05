@@ -1,16 +1,4 @@
-// const getTransformValue = (query) => {
-//   return Number(document.querySelector(query).style.transform.replace(/[^-\d]/g, ''))
-// }
-// const addTransform = (query, value) => {
-//   const currTransform = getTransformValue('main')
-//   document.querySelector(query).style.transform = `translateY(${ currTransform - value }px)`
-// }
-
 document.addEventListener("DOMContentLoaded", () => {
-  setTimeout(() => {
-    window.scrollTo(0, 0)
-  }, 100);
-  
   const menu = document.querySelector('.menu')
   const callUserNameWrapper = document.querySelector('#call-name')
   const callUserPhoneWrapper = document.querySelector('#call-phone')
@@ -134,4 +122,26 @@ document.addEventListener("DOMContentLoaded", () => {
     liveModal.classList.add('active')
     document.querySelector('body').classList.add('overflow-hidden')
   }))
+
+  // --- эффект потери фокуса для кнопок ---
+  const allBtns = document.querySelectorAll('.primary-btn')
+  const allCloseFocusEffBtns = document.querySelectorAll('.close-focus-btn')
+  // const inputsFocusEff = document.querySelectorAll('.call-modal__form input')
+  allBtns.forEach(btn => btn.addEventListener('mouseleave', () => {
+    btn.classList.add('leaved') //добавить эфф при уходе
+  }))
+
+
+  //убрать эффект при заходе на другие
+  allBtns.forEach(btn => btn.addEventListener('mouseenter', () => {
+    allBtns.forEach(b => b.classList.remove('leaved'))
+  }))
+  allCloseFocusEffBtns.forEach(btn => btn.addEventListener('mouseenter', () => {
+    allBtns.forEach(b => b.classList.remove('leaved'))
+  }))
+
+  //убрать при клике на тело
+  document.querySelector('body').addEventListener('click', () => {
+    allBtns.forEach(b => b.classList.remove('leaved'))
+  })
 });
