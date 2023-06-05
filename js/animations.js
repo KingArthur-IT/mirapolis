@@ -220,6 +220,15 @@ function changeBgColor() {
     }
 }
 
+function changeBgColorMobile() {
+    console.log();
+    if (window.pageYOffset > mapTopOffset + window.innerHeight / 2) {
+        document.querySelector('main').classList.add('dark')
+    } else {
+        document.querySelector('main').classList.remove('dark')
+    }
+}
+
 //------------------------------------------------------------------
 
 function aboutSectionWheel(scrollDirection) {
@@ -246,32 +255,6 @@ function aboutSectionWheel(scrollDirection) {
     }
 }
 
-//places animation index === 4
-function placesSectionWheel(direction) {
-    const placesSection = document.querySelector('.places')
-    setTimeout(() => {
-        placesSection.querySelectorAll('.anim-item').forEach(el => el.classList.add('anim-active'))
-    }, 500);
-
-    if (window.scrollY <= 0 && direction < 0) {
-        if (prevScreen(-5)) {
-            document.querySelector('body').classList.add('overflow-hidden')
-            changeScreen(-1)
-            placesSection.querySelectorAll('.anim-item').forEach(el => el.classList.remove('anim-active'))
-            setTimeout(() => {
-                const aboutSection = document.querySelector('.about')
-                aboutSection.querySelectorAll('.about__title').forEach(el => el.classList.add('shown'))
-                aboutSection.querySelectorAll('.anim-item').forEach(el => el.classList.add('anim-active'))
-                placesSection.querySelectorAll('.anim-item').forEach(el => el.classList.remove('anim-active'))
-            }, 100);
-            const speed = 8
-
-            const maxTransform = document.querySelector('.about__slider').offsetHeight - document.querySelector('.about__slider-wrapper').offsetHeight
-            scrollYVal = maxTransform / speed - 30
-        }
-    }
-}
-
 // ------------------------------------------------------------------
 
 function keyDownEvent(e) {
@@ -290,26 +273,19 @@ function keyDownEvent(e) {
          document.querySelector('.menu').classList.contains('active')
     ) return
 
-    const scrollStep = 5
-    const newScrollVal = scrollYVal + scrollDirection * scrollStep
-    if (newScrollVal >= -10) {
-        scrollYVal = newScrollVal
-    }
-
-    if (activeSectionIndex === 1)
-        banerSectionWheel()
-    if (activeSectionIndex === 2)
-        fullImgSectionWheel()
-    if (activeSectionIndex === 3)
-        aboutSectionWheel()
-    if (activeSectionIndex === 4)
-        placesSectionWheel(scrollDirection)
+    // const scrollStep = 5
+    // const newScrollVal = scrollYVal + scrollDirection * scrollStep
+    // if (newScrollVal >= -10) {
+    //     scrollYVal = newScrollVal
+    // }
 
 }
 
 // ------------------------------------------------------------------
 
 function animOnScrollMobile() {
+    changeBgColorMobile()
+    
     const animItems = document.querySelectorAll('.anim-item');
 
     for (let index = 0; index < animItems.length; index++) {
@@ -323,12 +299,9 @@ function animOnScrollMobile() {
             animItemPoint = window.innerHeight - window.innerHeight / animStart;
         }
 
-        if ((window.pageYOffset > animItemOffsetTop - animItemPoint) && (window.pageYOffset < animItemOffsetTop + animItemHeight))
-        {
+        if (window.pageYOffset > animItemOffsetTop + animItemPoint) {
             item.classList.add('anim-active');
-        } else {
-            item.classList.remove('anim-active');
-        }
+        } 
     }
 }
 
@@ -343,12 +316,5 @@ function animOnScroll() {
         if (scrollYVal > animItemOffsetTop - window.innerHeight / 2) {
             item.classList.add('anim-active');
         }
-
-        // if ((window.pageYOffset > animItemOffsetTop - animItemPoint) && (window.pageYOffset < animItemOffsetTop + animItemHeight))
-        // {
-        //     item.classList.add('anim-active');
-        // } else {
-        //     item.classList.remove('anim-active');
-        // }
     }
 }

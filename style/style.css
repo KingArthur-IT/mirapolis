@@ -1739,6 +1739,7 @@ picture img {
   width: 188px;
   height: 48px;
   font-size: 20px;
+  font-weight: 500;
   line-height: 1;
   -webkit-transform: translateY(100px);
           transform: translateY(100px);
@@ -2812,6 +2813,8 @@ picture img {
     overflow-x: scroll;
     right: 0;
     border-radius: 300px 0 0 300px;
+    -webkit-transform: translateX(20px);
+            transform: translateX(20px);
   }
   .map-objects__wrapper::-webkit-scrollbar {
     display: none;
