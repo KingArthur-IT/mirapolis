@@ -26,12 +26,16 @@ body
 
 main
   overflow-x: hidden
-  transition: transform .3s ease-out, background 1s ease-in-out
+  transition: transform .3s ease-out, background 1s ease-in-out, color .5s ease-in-out
   background: transparent
+  color: $primary-color
   &.showMenu
     transition: transform 1s cubic-bezier(.38,.84,.52,.99)
   &.dark
     background: $primary-color
+    color: #fff
+    & .places-carousel__spin svg path
+      fill: #fff
 
 picture img
   width: 100%

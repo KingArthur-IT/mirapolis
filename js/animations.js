@@ -67,7 +67,7 @@ window.addEventListener("load", () => {
     if (window.innerWidth < 769) {
         document.querySelector('body').classList.remove('overflow-hidden')
         window.addEventListener('scroll', () => {
-            animOnScroll()
+            animOnScrollMobile()
         }, { passive: true })
     }
     else {
@@ -92,6 +92,7 @@ function wheelEvent(e) {
     const scrollDirection = Math.sign(e.deltaY);
     const deltaScroll = Math.floor(e.deltaY)
 
+    animOnScroll()
     if (isAboutSliderScrolling) {
         isScrollDisabled = true
         setTimeout(() => {
@@ -102,8 +103,6 @@ function wheelEvent(e) {
     else {
         mainScroll(deltaScroll, scrollDirection)
         buildingParallaxEffect()
-        showAboutSection()
-        showPlacesSection()
         changeBgColor()
     }
 }
@@ -144,6 +143,7 @@ function mainScroll(delta, scrollDirection) {
         setTransform('main', aboutBeakpoint.value - window.innerHeight)
         isReturn = true
         disableWheel(1000)
+        document.querySelector('.about').querySelectorAll('.anim-item').forEach(el => el.classList.add('anim-active'))
         setTimeout(() => {
             isAboutSliderScrolling = true
         }, 300);
@@ -165,7 +165,9 @@ function mainScroll(delta, scrollDirection) {
 
     if (scrollYVal > document.querySelector('header').clientHeight && scrollDirection > 0) {
         document.querySelector('header').classList.remove('shown')
-        document.querySelector('header').classList.remove('dark')
+        setTimeout(() => {
+            document.querySelector('header').classList.remove('dark')
+        }, 500);
     }
     if (scrollDirection < 0) {
         document.querySelector('header').classList.add('shown')
@@ -211,25 +213,6 @@ function hideFullScreenAnimation() {
 
 //------------------------------------------------------------------
 
-function showAboutSection() {
-    if (scrollYVal > aboutTopOffset - window.innerHeight) {
-        const aboutSection = document.querySelector('.about')
-        setTimeout(() => {
-            aboutSection.querySelectorAll('.about__title').forEach(el => el.classList.add('shown'))
-            aboutSection.querySelectorAll('.anim-item').forEach(el => el.classList.add('anim-active'))
-        }, 400);
-    }
-}
-
-function showPlacesSection() {
-    if (scrollYVal > placesTopOffset - window.innerHeight) {
-        const placesSection = document.querySelector('.places')
-        setTimeout(() => {
-            placesSection.querySelectorAll('.anim-item').forEach(el => el.classList.add('anim-active'))
-        }, 400);
-    }
-}
-
 function changeBgColor() {
     if (scrollYVal > mapTopOffset + window.innerHeight / 2) {
         document.querySelector('main').classList.add('dark')
@@ -240,7 +223,6 @@ function changeBgColor() {
 
 //------------------------------------------------------------------
 
-//about animation index === 3
 function aboutSectionWheel(scrollDirection) {
     if (scrollDirection > 0)
         if (aboutSliderScrollCounter >= -1 && aboutSliderScrollCounter < aboutImgs.length - 2) {
@@ -291,6 +273,8 @@ function placesSectionWheel(direction) {
     }
 }
 
+// ------------------------------------------------------------------
+
 function keyDownEvent(e) {
     e = e || window.event;
 
@@ -324,25 +308,48 @@ function keyDownEvent(e) {
 
 }
 
+// ------------------------------------------------------------------
+
+function animOnScrollMobile() {
+    const animItems = document.querySelectorAll('.anim-item');
+
+    for (let index = 0; index < animItems.length; index++) {
+        const item = animItems[index];
+        const animItemHeight = item.offsetHeight;
+        const animItemOffsetTop = topOffset(item);
+        const animStart = 2;
+
+        let animItemPoint = window.innerHeight - animItemHeight / animStart;
+        if (animItemHeight > window.innerHeight) {
+            animItemPoint = window.innerHeight - window.innerHeight / animStart;
+        }
+
+        if ((window.pageYOffset > animItemOffsetTop - animItemPoint) && (window.pageYOffset < animItemOffsetTop + animItemHeight))
+        {
+            item.classList.add('anim-active');
+        } else {
+            item.classList.remove('anim-active');
+        }
+    }
+}
+
 function animOnScroll() {
     const animItems = document.querySelectorAll('.anim-item');
 
     for (let index = 0; index < animItems.length; index++) {
         const item = animItems[index];
-            const animItemHeight = item.offsetHeight;
-            const animItemOffsetTop = topOffset(item);
-            const animStart = 2;
+        const animItemHeight = item.offsetHeight;
+        const animItemOffsetTop = item.getBoundingClientRect().top;
 
-            let animItemPoint = window.innerHeight - animItemHeight / animStart;
-            if (animItemHeight > window.innerHeight) {
-                animItemPoint = window.innerHeight - window.innerHeight / animStart;
-            }
+        if (scrollYVal > animItemOffsetTop - window.innerHeight / 2) {
+            item.classList.add('anim-active');
+        }
 
-            if ((window.pageYOffset > animItemOffsetTop - animItemPoint) && (window.pageYOffset < animItemOffsetTop + animItemHeight))
-            {
-                item.classList.add('anim-active');
-            } else {
-                item.classList.remove('anim-active');
-            }
+        // if ((window.pageYOffset > animItemOffsetTop - animItemPoint) && (window.pageYOffset < animItemOffsetTop + animItemHeight))
+        // {
+        //     item.classList.add('anim-active');
+        // } else {
+        //     item.classList.remove('anim-active');
+        // }
     }
 }

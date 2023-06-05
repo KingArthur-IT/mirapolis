@@ -12,7 +12,7 @@
         font-size: 90px
         line-height: 105%
         letter-spacing: -0.025em
-        color: $primary-color
+        // color: $primary-color
         transform: translateY(100%)
         transition: transform .5s ease-out
         &.anim-active
@@ -25,7 +25,7 @@
         font-size: 20px
         line-height: 125%
         letter-spacing: -0.025em
-        color: $primary-color
+        // color: $primary-color
         max-width: 490px
         transform: translateY(100%)
         transition: transform .5s ease-out
@@ -35,6 +35,10 @@
         display: flex
         align-items: center
         margin-bottom: 20px
+        overflow: hidden
+        &.anim-active
+            & .controls__item
+                transform: translateY(0)
         &__item
             width: 52px
             height: 40px
@@ -45,6 +49,8 @@
             align-items: center
             justify-content: center
             cursor: pointer
+            transform: translateY(100%)
+            transition: transform .5s ease-out
             &::before
                 z-index: 0
             &:hover
@@ -59,11 +65,16 @@
 
 .places-carousel
     min-height: 600px
+    &.anim-active
+        & .places-carousel__img-wrapper::after
+            bottom: 100%
+        & .places-carousel__label
+            transform: translateY(0)
+        & .places-carousel__footer
+            transform: translateY(0)
+            opacity: 1
     &__item-wrapper
         position: relative
-        &.anim-active
-            & .places-carousel__img-wrapper::after
-                bottom: 100%
     &__item
         max-width: 430px
         padding: 60px 40px 0
@@ -76,6 +87,7 @@
         align-items: stretch
         justify-content: space-between
         margin-bottom: 15px
+        overflow: hidden
     &__label
         display: flex
         align-items: center
@@ -89,6 +101,8 @@
         font-size: 20px
         line-height: 125%
         letter-spacing: -0.025em
+        transition: transform .5s ease-in-out .5s
+        transform: translateY(-100%)
         &.time
             background: $secondary-color
             border-color: $secondary-color
@@ -108,7 +122,7 @@
             top: 0
             bottom: 0%
             background: #fff
-            transition: bottom .5s ease-in-out
+            transition: bottom .75s ease-in-out
     &__img
         width: 100%
         & img
@@ -116,16 +130,21 @@
             height: 100%
     &__footer
         display: flex
+        opacity: 0
+        transform: translateY(100%)
+        transition: transform .5s ease-in-out .5s, opacity .5s ease-in-out .5s
     &__spin
         margin-right: 4px
         height: 23px
+        & svg path
+            transition: .75s ease-in-out
     &__place
         font-family: 'GT Pressura Mono'
         font-weight: 400
         font-size: 20px
         line-height: 125%
         letter-spacing: -0.025em
-        color: $primary-color
+        // color: $primary-color
 
 .places-carousel 
     & .owl-stage
@@ -216,7 +235,6 @@
         
 @media screen and (max-width: 768px)
     .places
-        margin-top: 140px
         &__head
             flex-direction: column
             margin-bottom: 40px
@@ -240,7 +258,6 @@
 @media screen and (max-width: 600px)
     .places
         padding-top: 0
-        margin-top: 40px
         margin-bottom: 60px
 
 @media screen and (max-width: 375px)
