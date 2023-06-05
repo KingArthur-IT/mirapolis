@@ -1324,6 +1324,7 @@ picture img {
   transition: -webkit-transform .5s linear 0.25s;
   transition: transform .5s linear 0.25s;
   transition: transform .5s linear 0.25s, -webkit-transform .5s linear 0.25s;
+  min-height: 100px;
 }
 
 .baner__hero.shown {
@@ -1474,10 +1475,10 @@ picture img {
 }
 
 .parallax__img-wrapper.full {
-  -webkit-transition: -webkit-transform .5s ease-in-out;
-  transition: -webkit-transform .5s ease-in-out;
-  transition: transform .5s ease-in-out;
-  transition: transform .5s ease-in-out, -webkit-transform .5s ease-in-out;
+  -webkit-transition: -webkit-transform .75s ease-in-out;
+  transition: -webkit-transform .75s ease-in-out;
+  transition: transform .75s ease-in-out;
+  transition: transform .75s ease-in-out, -webkit-transform .75s ease-in-out;
   border-radius: 0;
 }
 

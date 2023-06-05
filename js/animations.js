@@ -9,7 +9,6 @@ const buildingBreakpoint = 150
 const buildingStartOffset = 200
 
 const parallaxTopOffset = document.querySelector('.parallax__img-wrapper').getBoundingClientRect().top - buildingStartOffset
-console.log(parallaxTopOffset);
 const aboutTopOffset = document.querySelector('.about').getBoundingClientRect().top
 const placesTopOffset = document.querySelector('.places').getBoundingClientRect().top
 const mapTopOffset = document.querySelector('.map').getBoundingClientRect().top
@@ -115,7 +114,7 @@ function mainScroll(delta, scrollDirection) {
         document.querySelector('header').classList.remove('dark')
         return
     }
-    if (scrollYVal + delta > document.querySelector('main').clientHeight - window.innerWidth) return
+    if (scrollYVal + delta > document.querySelector('main').clientHeight - window.innerHeight) return
 
     let isReturn = false
     //showFullScreenAnimation
