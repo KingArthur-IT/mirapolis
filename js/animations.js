@@ -273,11 +273,21 @@ function keyDownEvent(e) {
          document.querySelector('.menu').classList.contains('active')
     ) return
 
-    // const scrollStep = 5
-    // const newScrollVal = scrollYVal + scrollDirection * scrollStep
-    // if (newScrollVal >= -10) {
-    //     scrollYVal = newScrollVal
-    // }
+    const deltaScroll = 30
+
+    animOnScroll()
+    if (isAboutSliderScrolling) {
+        isScrollDisabled = true
+        setTimeout(() => {
+            isScrollDisabled = false
+        }, 600);
+        aboutSectionWheel(scrollDirection)
+    }
+    else {
+        mainScroll(deltaScroll * scrollDirection, scrollDirection)
+        buildingParallaxEffect()
+        changeBgColor()
+    }
 
 }
 
@@ -323,3 +333,9 @@ window.onbeforeunload = function() {
     document.querySelector('main').classList.remove('smooth')
     setTransform('main', 0)
 };
+
+window.addEventListener('resize', () => {
+    document.querySelector('main').classList.remove('smooth')
+    setTransform('main', 0)
+    location.reload()
+})

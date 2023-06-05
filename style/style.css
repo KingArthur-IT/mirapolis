@@ -1684,12 +1684,11 @@ picture img {
 }
 
 .about {
-  margin-top: 200px;
+  margin-top: 170px;
 }
 
 .about__container {
-  padding-top: 40px;
-  padding-bottom: 40px;
+  padding-top: 100px;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -1734,7 +1733,7 @@ picture img {
           justify-content: space-between;
   margin-top: 80px;
   overflow: hidden;
-  height: 500px;
+  height: 600px;
   padding: 2px 0;
 }
 
@@ -1781,6 +1780,7 @@ picture img {
   line-height: 125%;
   letter-spacing: -0.025em;
   color: #404040;
+  padding: 0px 0 80px;
   -webkit-transform: translateY(100px);
           transform: translateY(100px);
   opacity: 0;
@@ -1864,9 +1864,6 @@ picture img {
 }
 
 @media screen and (max-width: 1440px) {
-  .about__hero {
-    height: 400px;
-  }
   .about__img {
     width: 570px;
     height: 361px;
@@ -1878,9 +1875,6 @@ picture img {
 }
 
 @media screen and (max-width: 1240px) {
-  .about__hero {
-    height: 275px;
-  }
   .about__img {
     width: 370px;
     height: 234px;
@@ -1975,7 +1969,7 @@ picture img {
 }
 
 .places {
-  padding-top: 40px;
+  padding-top: 170px;
 }
 
 .places__head {
@@ -2313,7 +2307,7 @@ picture img {
 
 @media screen and (max-width: 1140px) {
   .places {
-    margin-bottom: 120px;
+    margin-bottom: 80px;
   }
   .places__title {
     font-size: 46px;
@@ -2355,6 +2349,12 @@ picture img {
   .places-carousel .owl-item.active.right .places-carousel__item {
     margin-left: auto;
     margin-right: 0;
+  }
+}
+
+@media screen and (max-width: 1024px) {
+  .places {
+    padding-top: 120px;
   }
 }
 
@@ -2653,7 +2653,7 @@ picture img {
 }
 
 .map {
-  padding: 40px 0;
+  padding: 120px 0;
 }
 
 .map__title-wrapper {
