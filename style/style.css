@@ -1306,17 +1306,82 @@ picture img {
 .baner__title {
   text-align: center;
   text-transform: uppercase;
-  -webkit-transform: translateY(100%);
-          transform: translateY(100%);
-  -webkit-transition: -webkit-transform .5s ease-out;
-  transition: -webkit-transform .5s ease-out;
-  transition: transform .5s ease-out;
-  transition: transform .5s ease-out, -webkit-transform .5s ease-out;
+  position: relative;
 }
 
-.baner__title.shown {
-  -webkit-transform: translateY(0);
-          transform: translateY(0);
+.baner__title svg path {
+  -webkit-transform: translateY(100%);
+          transform: translateY(100%);
+  -webkit-transition: -webkit-transform 1s ease-in-out;
+  transition: -webkit-transform 1s ease-in-out;
+  transition: transform 1s ease-in-out;
+  transition: transform 1s ease-in-out, -webkit-transform 1s ease-in-out;
+}
+
+.baner__title svg path:nth-child(1) {
+  -webkit-transform: translateY(100%) skew(-10deg, 10deg);
+          transform: translateY(100%) skew(-10deg, 10deg);
+}
+
+.baner__title svg path:nth-child(2) {
+  -webkit-transform: translateY(100%) skew(-10deg, 10deg);
+          transform: translateY(100%) skew(-10deg, 10deg);
+  -webkit-transition-delay: 0.35s;
+          transition-delay: 0.35s;
+}
+
+.baner__title svg path:nth-child(3) {
+  -webkit-transform: translateY(100%) skew(-10deg, 10deg);
+          transform: translateY(100%) skew(-10deg, 10deg);
+  -webkit-transition-delay: 0.05s;
+          transition-delay: 0.05s;
+}
+
+.baner__title svg path:nth-child(4) {
+  -webkit-transform: translateY(100%) skew(-10deg, 10deg);
+          transform: translateY(100%) skew(-10deg, 10deg);
+  -webkit-transition-delay: 0.1s;
+          transition-delay: 0.1s;
+}
+
+.baner__title svg path:nth-child(5) {
+  -webkit-transform: translateY(100%) skew(-10deg, 10deg);
+          transform: translateY(100%) skew(-10deg, 10deg);
+  -webkit-transition-delay: 0.2s;
+          transition-delay: 0.2s;
+}
+
+.baner__title svg path:nth-child(6) {
+  -webkit-transform: translateY(100%) skew(-10deg, 10deg);
+          transform: translateY(100%) skew(-10deg, 10deg);
+  -webkit-transition-delay: 0.25s;
+          transition-delay: 0.25s;
+}
+
+.baner__title svg path:nth-child(7) {
+  -webkit-transform: translateY(100%) skew(-10deg, 10deg);
+          transform: translateY(100%) skew(-10deg, 10deg);
+  -webkit-transition-delay: 0.4s;
+          transition-delay: 0.4s;
+}
+
+.baner__title svg path:nth-child(8) {
+  -webkit-transform: translateY(100%) skew(-10deg, 10deg);
+          transform: translateY(100%) skew(-10deg, 10deg);
+  -webkit-transition-delay: 0.15s;
+          transition-delay: 0.15s;
+}
+
+.baner__title svg path:nth-child(9) {
+  -webkit-transform: translateY(100%) skew(-10deg, 10deg);
+          transform: translateY(100%) skew(-10deg, 10deg);
+  -webkit-transition-delay: 0.3s;
+          transition-delay: 0.3s;
+}
+
+.baner__title.shown svg path {
+  -webkit-transform: translateY(0) skew(0deg, 0deg);
+          transform: translateY(0) skew(0deg, 0deg);
 }
 
 .baner__hero-wrapper {
