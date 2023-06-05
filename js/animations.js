@@ -1,10 +1,3 @@
-// document.querySelector('main').style.transform = `translateY(${document.querySelector('.baner'),getBoundingClientRect().top}px)`
-// window.scrollTo({ top: 0, behavior: 'instant' })
-
-// document.querySelector('main').style.transform = `translateY(${document.querySelector('main').getBoundingClientRect().top}px)`
-// console.log(document.querySelector('main').getBoundingClientRect().top);
-
-
 var isScrollDisabled = false
 var isAboutSliderScrolling = false
 var aboutSliderScrollCounter = -1
@@ -325,3 +318,8 @@ function animOnScroll() {
         }
     }
 }
+
+window.onbeforeunload = function() {
+    document.querySelector('main').classList.remove('smooth')
+    setTransform('main', 0)
+};

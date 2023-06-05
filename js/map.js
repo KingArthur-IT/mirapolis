@@ -9,7 +9,7 @@ var myMap = null
 function init() {
     myMap = new ymaps.Map("map", {
         center: mapCenter,
-        zoom: 16,
+        zoom: 14,
         controls: []
     });
 
@@ -21,6 +21,7 @@ function init() {
     //кнопки управления
     document.querySelectorAll('.map-objects__btn').forEach(btn => btn.addEventListener('click', () => {
         const type = btn.getAttribute('data-search')
+        document.querySelector('#map').classList.add('selected')
         getObjects(type)
     }))
 } 
@@ -117,8 +118,14 @@ function getObjects(type) {
         var point = myPoints.filter(el => el.type === type)[i];
         myCollection.add(new ymaps.Placemark(
             point.coords, {
-                balloonContentBody: point.text
-            }
+                // balloonContentBody: point.text
+            },
+            {
+                iconLayout: "default#image",
+                iconImageHref: "./assets/spin-empty.svg",
+                iconImageSize: [30, 36],
+                iconImageOffset: [-15, -18]
+                }
         ));
     }
 
