@@ -323,7 +323,7 @@ function animOnScroll() {
         // const animItemHeight = item.offsetHeight;
         const animItemOffsetTop = item.getBoundingClientRect().top;
 
-        const animStartPoint = item.classList.contains('about__title') ? 0 : window.innerHeight / 2
+        const animStartPoint = item.classList.contains('about__title') ? -400 : window.innerHeight / 2
         if (scrollYVal > animItemOffsetTop + animStartPoint ) {
             if (!item.classList.contains('anim-title') && !item.classList.contains('anim-title-active'))
                 item.classList.add('anim-active')
@@ -337,13 +337,6 @@ function animOnScroll() {
                 }
             }
         }
-    }
-
-    const aboutSect = document.querySelector('.about__container')
-    const aboutOffsetTop = aboutSect.getBoundingClientRect().top;
-
-    if (scrollYVal > aboutOffsetTop) {
-
     }
 }
 
