@@ -334,8 +334,8 @@ window.onbeforeunload = function() {
     setTransform('main', 0)
 };
 
-window.addEventListener('resize', () => {
-    document.querySelector('main').classList.remove('smooth')
-    setTransform('main', 0)
-    location.reload()
-})
+// window.addEventListener('resize', () => {
+//     document.querySelector('main').classList.remove('smooth')
+//     setTransform('main', 0)
+//     location.reload()
+// })
