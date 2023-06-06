@@ -2245,10 +2245,10 @@ picture img {
   font-size: 20px;
   line-height: 125%;
   letter-spacing: -0.025em;
-  -webkit-transition: -webkit-transform .5s ease-in-out .5s;
-  transition: -webkit-transform .5s ease-in-out .5s;
-  transition: transform .5s ease-in-out .5s;
-  transition: transform .5s ease-in-out .5s, -webkit-transform .5s ease-in-out .5s;
+  -webkit-transition: -webkit-transform .5s ease-in-out 1.3s;
+  transition: -webkit-transform .5s ease-in-out 1.3s;
+  transition: transform .5s ease-in-out 1.3s;
+  transition: transform .5s ease-in-out 1.3s, -webkit-transform .5s ease-in-out 1.3s;
   -webkit-transform: translateY(-100%);
           transform: translateY(-100%);
 }
@@ -2277,8 +2277,8 @@ picture img {
   top: 0;
   bottom: 0%;
   background: #fff;
-  -webkit-transition: bottom .75s ease-in-out;
-  transition: bottom .75s ease-in-out;
+  -webkit-transition: bottom 1.5s ease-in-out;
+  transition: bottom 1.5s ease-in-out;
 }
 
 .places-carousel__img {
@@ -2297,10 +2297,10 @@ picture img {
   opacity: 0;
   -webkit-transform: translateY(100%);
           transform: translateY(100%);
-  -webkit-transition: opacity .5s ease-in-out .5s, -webkit-transform .5s ease-in-out .5s;
-  transition: opacity .5s ease-in-out .5s, -webkit-transform .5s ease-in-out .5s;
-  transition: transform .5s ease-in-out .5s, opacity .5s ease-in-out .5s;
-  transition: transform .5s ease-in-out .5s, opacity .5s ease-in-out .5s, -webkit-transform .5s ease-in-out .5s;
+  -webkit-transition: opacity .5s ease-in-out 1.3s, -webkit-transform .5s ease-in-out 1.3s;
+  transition: opacity .5s ease-in-out 1.3s, -webkit-transform .5s ease-in-out 1.3s;
+  transition: transform .5s ease-in-out 1.3s, opacity .5s ease-in-out 1.3s;
+  transition: transform .5s ease-in-out 1.3s, opacity .5s ease-in-out 1.3s, -webkit-transform .5s ease-in-out 1.3s;
 }
 
 .places-carousel__spin {
