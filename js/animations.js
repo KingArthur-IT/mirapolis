@@ -320,11 +320,30 @@ function animOnScroll() {
 
     for (let index = 0; index < animItems.length; index++) {
         const item = animItems[index];
-        const animItemHeight = item.offsetHeight;
+        // const animItemHeight = item.offsetHeight;
         const animItemOffsetTop = item.getBoundingClientRect().top;
 
-        if (scrollYVal > animItemOffsetTop - window.innerHeight / 2) {
-            item.classList.add('anim-active');
+        if (scrollYVal > animItemOffsetTop + window.innerHeight / 4 ) {
+            if (!item.classList.contains('anim-title') && !item.classList.contains('anim-title-active'))
+                item.classList.add('anim-active')
+            else if (!item.classList.contains('anim-title-active')) {
+                const isSecondLine = item.classList.contains('delay-1')
+                const delayStart = isSecondLine ? 3 : 0
+                const text = item.innerHTML
+                item.innerHTML = ''
+                console.log(text);
+                text.split('').forEach((letter, ind) => {
+                    const div = document.createElement('div');
+                    div.style = `transform: translateY(100%); transition: transform .75s ease-in-out ${delayStart + ind / 10}s`
+                    
+                    div.innerHTML = letter === ' ' ? '&nbsp;' : letter;                  
+                    item.append(div)
+                })
+                item.classList.add('anim-title-active')
+                setTimeout(() => {
+                    item.classList.add('anim-active')
+                }, 200);
+            }
         }
     }
 }

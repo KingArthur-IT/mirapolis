@@ -97,6 +97,18 @@ picture img
     &.leaved::after
         opacity: 1
 
+.anim-title
+  display: flex
+  align-items: center
+// .anim-title 
+//   & div
+//     transition: transform 3s ease-in-out
+//     transform: translateY(100%)
+.anim-item.anim-active.anim-title-active
+  & div
+    transition: transform 3s ease-in-out
+    transform: translateY(0%) !important
+
 .d-none
   display: none !important
 .no-events
