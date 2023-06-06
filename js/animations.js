@@ -323,29 +323,43 @@ function animOnScroll() {
         // const animItemHeight = item.offsetHeight;
         const animItemOffsetTop = item.getBoundingClientRect().top;
 
-        if (scrollYVal > animItemOffsetTop + window.innerHeight / 4 ) {
+        if (scrollYVal > animItemOffsetTop + window.innerHeight / 2 ) {
             if (!item.classList.contains('anim-title') && !item.classList.contains('anim-title-active'))
                 item.classList.add('anim-active')
-            else if (!item.classList.contains('anim-title-active')) {
-                const isSecondLine = item.classList.contains('delay-1')
-                const delayStart = isSecondLine ? 3 : 0
-                const text = item.innerHTML
-                item.innerHTML = ''
-                console.log(text);
-                text.split('').forEach((letter, ind) => {
-                    const div = document.createElement('div');
-                    div.style = `transform: translateY(100%); transition: transform .75s ease-in-out ${delayStart + ind / 10}s`
-                    
-                    div.innerHTML = letter === ' ' ? '&nbsp;' : letter;                  
-                    item.append(div)
-                })
-                item.classList.add('anim-title-active')
-                setTimeout(() => {
-                    item.classList.add('anim-active')
-                }, 200);
+            else if (!item.classList.contains('anim-title-active') && !item.classList.contains('delay-1')) {
+                splitText(item)
+                if (item.classList.contains('about__title') && !item.classList.contains('delay-1')) {
+                    const secondLine = document.querySelector('.about__title.anim-item.anim-title.delay-1')
+                    setTimeout(() => {
+                        splitText(secondLine)
+                    }, 3200);
+                }
             }
         }
     }
+
+    const aboutSect = document.querySelector('.about__container')
+    const aboutOffsetTop = aboutSect.getBoundingClientRect().top;
+
+    if (scrollYVal > aboutOffsetTop) {
+
+    }
+}
+
+function splitText(item) {
+    const text = item.innerHTML
+    item.innerHTML = ''
+    text.split('').forEach((letter, ind) => {
+        const div = document.createElement('div');
+        div.style = `transform: translateY(100%); transition: transform .75s ease-in-out ${ind / 10}s`
+        
+        div.innerHTML = letter === ' ' ? '&nbsp;' : letter;                  
+        item.append(div)
+    })
+    item.classList.add('anim-title-active')
+    setTimeout(() => {
+        item.classList.add('anim-active')
+    }, 100);
 }
 
 window.onbeforeunload = function() {

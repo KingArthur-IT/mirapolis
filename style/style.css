@@ -194,6 +194,15 @@ picture img {
           transform: translateY(0%) !important;
 }
 
+.anim-active.anim-title-second div {
+  -webkit-transition: -webkit-transform 3s ease-in-out;
+  transition: -webkit-transform 3s ease-in-out;
+  transition: transform 3s ease-in-out;
+  transition: transform 3s ease-in-out, -webkit-transform 3s ease-in-out;
+  -webkit-transform: translateY(0%) !important;
+          transform: translateY(0%) !important;
+}
+
 .d-none {
   display: none !important;
 }
