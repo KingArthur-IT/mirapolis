@@ -323,7 +323,8 @@ function animOnScroll() {
         // const animItemHeight = item.offsetHeight;
         const animItemOffsetTop = item.getBoundingClientRect().top;
 
-        if (scrollYVal > animItemOffsetTop + window.innerHeight / 2 ) {
+        const animStartPoint = item.classList.contains('about__title') ? 0 : window.innerHeight / 2
+        if (scrollYVal > animItemOffsetTop + animStartPoint ) {
             if (!item.classList.contains('anim-title') && !item.classList.contains('anim-title-active'))
                 item.classList.add('anim-active')
             else if (!item.classList.contains('anim-title-active') && !item.classList.contains('delay-1')) {
