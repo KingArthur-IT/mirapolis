@@ -1776,7 +1776,10 @@ picture img {
 }
 
 .about {
-  margin-top: 170px;
+  margin-top: 150px;
+  background: #fff;
+  position: relative;
+  z-index: 2;
 }
 
 .about__container {

@@ -75,7 +75,7 @@ window.addEventListener("load", () => {
 // -----------------------------------------------------------------
 
 function wheelEvent(e) { 
-    //убрать эффект при заходе на другие
+    //убрать эффект с кнопок при скролле
     document.querySelectorAll('.primary-btn').forEach(b => b.classList.remove('leaved'))
 
     e.preventDefault()
@@ -153,8 +153,6 @@ function mainScroll(delta, scrollDirection) {
         isReturn = true
         isAboutSliderScrolling = true
         disableWheel(500)
-        // hideFullScreenAnimation()
-        // setTransform('main', 150)
     }
 
     if (isReturn) return
@@ -221,7 +219,6 @@ function changeBgColor() {
 }
 
 function changeBgColorMobile() {
-    console.log();
     if (window.pageYOffset > mapTopOffset + window.innerHeight / 2) {
         document.querySelector('main').classList.add('dark')
     } else {
@@ -325,11 +322,13 @@ function animOnScroll() {
 
         const animStartPoint = item.classList.contains('about__title') ? -400 : window.innerHeight / 2
         if (scrollYVal > animItemOffsetTop + animStartPoint ) {
+            //если это не title
             if (!item.classList.contains('anim-title') && !item.classList.contains('anim-title-active'))
                 item.classList.add('anim-active')
-            else if (!item.classList.contains('anim-title-active') && !item.classList.contains('delay-1')) {
-                splitText(item)
-                if (item.classList.contains('about__title') && !item.classList.contains('delay-1')) {
+            //для title
+            else if (!item.classList.contains('anim-title-active') && !item.classList.contains('delay-1')) { //если еще не активная или не вторая строка
+                splitText(item) //добавить анимация слова
+                if (item.classList.contains('about__title')) { //если среагировало на текст в первой строке about то запустить вторую
                     const secondLine = document.querySelector('.about__title.anim-item.anim-title.delay-1')
                     setTimeout(() => {
                         splitText(secondLine)
