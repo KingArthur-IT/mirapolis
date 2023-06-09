@@ -1,35 +1,35 @@
 .parallax
-    position: absolute
-    right: 20px
-    left: 20px
-    width: calc(100% - 40px)
+    position: relative
     transition: margin .5s ease-in-out
-    &.moved
-        margin-top: -340px
+    // &.moved
+    //     margin-top: -340px
     &.shown
         & .parallax__img-wrapper
             transform: translateY(0)
         & .parallax__building
             transform: translateX(-55%) translateY(-35%) !important
+            &.hide
+                opacity: 0 !important
+                margin-top: 200px !important
+                transition: opacity .2s ease-in-out .2s, transform .5s ease-in-out, margin .5s ease-out
     &__img-wrapper
-        transition: transform .5s ease-in-out .25s, opacity .5s ease-in-out .25s
+        transition: transform .5s ease-in-out .25s, opacity .5s ease-in-out .25s, border-radius .5s ease-in-out
         width: 100%
         height: 100vh
         transform: translateY(200px)
         overflow: hidden
         border-radius: 20px
         &.full
-            transition: transform .75s ease-in-out
-            border-radius: 0
+            transition: transform .75s ease-in-out, border-radius .5s ease-in-out
+            // border-radius: 0 !important
             & .parallax__img
                 transform: scale(1) translateX(0)
-                border-radius: 0
+                // border-radius: 0
     &__img
-        transition: transform .5s ease-in-out
+        transition: transform 1s ease-in-out
         width: 100%
         height: 100vh
         background: url('../assets/baner.jpg') no-repeat
-        border-radius: 20px
         background-size: cover
         background-position-x: center
         background-position-y: top
@@ -38,14 +38,10 @@
         position: absolute
         top: 0
         left: 50%
-        transform: translateX(-55%) translateY(200px)
+        transform: scale(1) translateX(-55%) translateY(200px)
         width: 58.7vw
-        transition: transform 1s ease-out .25s, opacity .2s ease-in-out .25s, margin .3s ease-out
+        transition: transform 1s ease-out .25s, opacity .2s ease-in-out .25s, margin .75s ease-in-out
         pointer-events: none
-        &.hide
-            opacity: 0 !important
-            transform: scale(0.8) translate(-65%, -55%) !important
-            transition: opacity .2s ease-in-out, transform .3s ease-in-out
     &__live
         position: absolute
         top: 20px
@@ -66,9 +62,8 @@
             opacity: 1
             transform: translateY(0px)
         &.hide
-            transition: opacity .3s ease-in-out, transform .3s ease-in-out
+            transition: opacity .3s ease-in-out
             opacity: 0
-            transform: translateY(-200px)
             pointer-events: none
         & span
             margin-left: 14px
@@ -84,8 +79,10 @@
 
 @media screen and (max-width: 1600px)
     .parallax
-        &.moved
-            margin-top: -300px
+        &__img
+            transform: scale(1.4) translateX(-3.5%) translateY(5%)
+        // &.moved
+        //     margin-top: -300px
 
 @media screen and (max-width: 1440px)
     .parallax
@@ -95,8 +92,8 @@
 
 @media screen and (max-width: 1240px)
     .parallax
-        &.moved
-            margin-top: -240px
+        // &.moved
+        //     margin-top: -240px
         &__building
             display: none
         &__img

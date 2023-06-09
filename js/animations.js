@@ -2,18 +2,17 @@ var isScrollDisabled = false
 var isAboutSliderScrolling = false
 var aboutSliderScrollCounter = -1
 var scrollYVal = 0
-const buildingBreakpoint = 150
+const buildingBreakpoint = 160
 const buildingStartOffset = 200
 
 const parallaxTopOffset = document.querySelector('.parallax__img-wrapper').getBoundingClientRect().top - buildingStartOffset
-const aboutTopOffset = document.querySelector('.about').getBoundingClientRect().top
 const placesTopOffset = document.querySelector('.places').getBoundingClientRect().top
 const mapTopOffset = document.querySelector('.map').getBoundingClientRect().top
 
-const imgBreakpoint = { value: 150, isPassed: false }
 const aboutBeakpoint = { value: placesTopOffset, isPassed: false }
-
 const aboutImgs = document.querySelectorAll('.about__img')
+
+// ------------------------------------------------------------------------
 
 const disableWheel = (ms) => {
     isScrollDisabled = true
@@ -75,9 +74,6 @@ window.addEventListener("load", () => {
 // -----------------------------------------------------------------
 
 function wheelEvent(e) { 
-    //убрать эффект с кнопок при скролле
-    document.querySelectorAll('.primary-btn').forEach(b => b.classList.remove('leaved'))
-
     e.preventDefault()
     e.stopPropagation()
     if (isScrollDisabled) return
@@ -91,6 +87,10 @@ function wheelEvent(e) {
     const scrollDirection = Math.sign(e.deltaY);
     const deltaScroll = Math.floor(e.deltaY)
 
+    wheelActions(deltaScroll, scrollDirection)
+}
+
+function wheelActions(deltaScroll, scrollDirection) {
     animOnScroll()
     if (isAboutSliderScrolling) {
         isScrollDisabled = true
@@ -106,37 +106,47 @@ function wheelEvent(e) {
     }
 }
 
+function keyDownEvent(e) {
+    e = e || window.event;
+
+    var scrollDirection = 0
+    const deltaScroll = 30
+
+    if (e.keyCode === 38)
+        scrollDirection = -1
+    else if (e.keyCode === 40)
+        scrollDirection = 1
+
+    if (Math.abs(scrollDirection) !== 1) return
+
+    if ( document.querySelector('.call-modal').classList.contains('active') || 
+         document.querySelector('.live-modal').classList.contains('active') ||
+         document.querySelector('.menu').classList.contains('active')
+    ) return
+
+    wheelActions(deltaScroll * scrollDirection, scrollDirection)
+}
+
 //------------------------------------------------------------------
 
 function mainScroll(delta, scrollDirection) {
+    //start & end of the page
     if (scrollYVal + delta < 0) {
         setTransform('main', 0)
-        document.querySelector('header').classList.remove('dark')
         return
     }
     if (scrollYVal + delta > document.querySelector('main').clientHeight - window.innerHeight) return
 
-    let isReturn = false
     //showFullScreenAnimation
-    if (scrollYVal + delta >= imgBreakpoint.value && !imgBreakpoint.isPassed && scrollDirection > 0) {
-        setTransform('main', imgBreakpoint.value)
-        disableWheel(1000)
-        setTimeout(() => {
-            imgBreakpoint.isPassed = true
-        }, 300);
+    if (scrollYVal + delta >= buildingBreakpoint && scrollDirection > 0) {
         showFullScreenAnimation()
-        isReturn = true
     }
     //hideFullScreenAnimation
-    if (scrollYVal + delta <= imgBreakpoint.value && imgBreakpoint.isPassed && scrollDirection < 0) {
-        setTransform('main', imgBreakpoint.value)
-        disableWheel(1000)
-        setTimeout(() => {
-            imgBreakpoint.isPassed = false
-        }, 300);
+    if (scrollYVal + delta < buildingBreakpoint && scrollDirection < 0) {
         hideFullScreenAnimation()
-        isReturn = true
     }
+
+    let isReturn = false
     //aboutBeakpoint down
     if (scrollYVal + delta > aboutBeakpoint.value - window.innerHeight && !aboutBeakpoint.isPassed && scrollDirection > 0) {
         setTransform('main', aboutBeakpoint.value - window.innerHeight)
@@ -158,26 +168,17 @@ function mainScroll(delta, scrollDirection) {
     if (isReturn) return
 
     addTransform('main', delta)
-
-
-    if (scrollYVal > document.querySelector('header').clientHeight && scrollDirection > 0) {
-        document.querySelector('header').classList.remove('shown')
-        setTimeout(() => {
-            document.querySelector('header').classList.remove('dark')
-        }, 500);
-    }
-    if (scrollDirection < 0) {
-        document.querySelector('header').classList.add('shown')
-        document.querySelector('header').classList.add('dark')
-    }
+    headerEffects(scrollDirection)
 }
 
 //------------------------------------------------------------------
 
-function buildingParallaxEffect() {
-    const currMainScroll = getTransformValue('main')
-    if (currMainScroll > -buildingBreakpoint) {
-        document.querySelector('.parallax__building').style.marginTop = `${ -currMainScroll }px`
+function headerEffects(scrollDirection) {
+    if (scrollYVal > document.querySelector('header').clientHeight && scrollDirection > 0) {
+        document.querySelector('header').classList.remove('shown')
+    }
+    if (scrollDirection < 0) {
+        document.querySelector('header').classList.add('shown')
     }
 }
 
@@ -190,10 +191,7 @@ function showFullScreenAnimation() {
     parallaxWrapper.classList.add('full')
     parallaxSection.querySelector('.parallax__live').classList.add('hide')
     parallaxSection.querySelector('.parallax__building').classList.add('hide')
-    document.querySelector('.baner__hero').classList.remove('shown')
     document.querySelector('.header').classList.remove('shown')
-
-    parallaxWrapper.style.transform = `translateY(-${parallaxTopOffset - buildingBreakpoint}px)`
 }
 
 function hideFullScreenAnimation() {
@@ -203,9 +201,16 @@ function hideFullScreenAnimation() {
     parallaxWrapper.classList.remove('full')
     parallaxSection.querySelector('.parallax__live').classList.remove('hide')
     parallaxSection.querySelector('.parallax__building').classList.remove('hide')
-    document.querySelector('.baner__hero').classList.add('shown')
+}
 
-    parallaxWrapper.style.transform = `translateY(0px)`
+//------------------------------------------------------------------
+
+function buildingParallaxEffect() {
+    const currMainScroll = getTransformValue('main')
+    if (currMainScroll > -buildingBreakpoint) {
+        if (currMainScroll % 10 === 0)
+            document.querySelector('.parallax__building').style.marginTop = `${ -currMainScroll }px`
+    }
 }
 
 //------------------------------------------------------------------
@@ -213,8 +218,10 @@ function hideFullScreenAnimation() {
 function changeBgColor() {
     if (scrollYVal > mapTopOffset + window.innerHeight / 2) {
         document.querySelector('main').classList.add('dark')
+        document.querySelector('header').classList.add('dark')
     } else {
         document.querySelector('main').classList.remove('dark')
+        document.querySelector('header').classList.remove('dark')
     }
 }
 
@@ -250,42 +257,6 @@ function aboutSectionWheel(scrollDirection) {
             setTransform('main', buildingBreakpoint)
         }, 500);
     }
-}
-
-// ------------------------------------------------------------------
-
-function keyDownEvent(e) {
-    e = e || window.event;
-
-    var scrollDirection = 0
-    if (e.keyCode === 38)
-        scrollDirection = -1
-    else if (e.keyCode === 40)
-        scrollDirection = 1
-
-    if (Math.abs(scrollDirection) !== 1) return
-
-    if ( document.querySelector('.call-modal').classList.contains('active') || 
-         document.querySelector('.live-modal').classList.contains('active') ||
-         document.querySelector('.menu').classList.contains('active')
-    ) return
-
-    const deltaScroll = 30
-
-    animOnScroll()
-    if (isAboutSliderScrolling) {
-        isScrollDisabled = true
-        setTimeout(() => {
-            isScrollDisabled = false
-        }, 600);
-        aboutSectionWheel(scrollDirection)
-    }
-    else {
-        mainScroll(deltaScroll * scrollDirection, scrollDirection)
-        buildingParallaxEffect()
-        changeBgColor()
-    }
-
 }
 
 // ------------------------------------------------------------------
