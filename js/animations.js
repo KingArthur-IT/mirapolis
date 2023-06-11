@@ -2,6 +2,7 @@ var isScrollDisabled = false
 var isAboutSliderScrolling = false
 var aboutSliderScrollCounter = -1
 var scrollYVal = 0
+var mouseYVal = 0
 const buildingBreakpoint = 160
 const buildingStartOffset = 200
 
@@ -64,6 +65,7 @@ window.addEventListener("load", () => {
         window.addEventListener('scroll', () => {
             animOnScrollMobile()
         }, { passive: true })
+        document.addEventListener("touchmove", touchMoveHandler); 
     }
     else {
         document.querySelector('body').addEventListener('wheel', wheelEvent, { passive: false })
@@ -125,6 +127,18 @@ function keyDownEvent(e) {
     ) return
 
     wheelActions(deltaScroll * scrollDirection, scrollDirection)
+}
+
+function touchMoveHandler(e) {
+    let evt = (typeof e.originalEvent === 'undefined') ? e : e.originalEvent;
+    let touch = evt.touches[0] || evt.changedTouches[0];
+    
+    const deltaY = Math.sign(parseInt(touch.pageY) - mouseYVal)
+    mouseYVal = parseInt(touch.pageY)
+
+    if (deltaY > 0) {
+        document.querySelector('header').classList.add('shown')
+    }
 }
 
 //------------------------------------------------------------------
