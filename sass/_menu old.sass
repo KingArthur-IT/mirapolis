@@ -1,0 +1,283 @@
+.menu
+    background: $primary-color
+    color: #fff
+    position: fixed
+    top: 0
+    left: 0
+    width: 100vw
+    height: 100vh
+    z-index: 10
+    transition: transform 1s cubic-bezier(.38,.84,.52,.99)
+    letter-spacing: -0.025em
+    font-weight: 500
+    pointer-events: none
+    transform: translateY(-100%)
+    &.active
+        transform: translateY(0) !important
+        pointer-events: all
+        & .menu__item
+            opacity: 1
+            transform: translateY(0)
+        & .menu__center
+            opacity: 1
+            transform: translateY(0)
+        & .menu__adress
+            opacity: 1
+            transform: translateY(0)
+        & .menu__footer
+            opacity: 1
+            transform: translateY(0)
+    &__container
+        padding-top: 148px
+        display: flex
+        flex-direction: column
+        min-height: 100vh
+    &__hero
+        display: flex
+        justify-content: space-between
+    &__item
+        display: block
+        font-weight: 500
+        font-size: 33px
+        line-height: 125%
+        color: #fff
+        margin-bottom: 5px
+        width: fit-content
+        opacity: 0
+        transform: translateY(-50px)
+        transition: opacity 1s cubic-bezier(.43,.98,.41,.99) .6s, transform 1.6s cubic-bezier(.43,.98,.41,.99) .6s
+    &__nav
+        flex-grow: 1
+    &__content
+        display: flex
+        flex-direction: row-reverse
+        width: auto
+        flex-grow: 1
+        justify-content: space-between
+    &__center
+        flex-basis: 33.33%
+        max-width: 460px
+        min-width: 460px
+        opacity: 0
+        transform: translateY(-50px)
+        transition: opacity 1s cubic-bezier(.43,.98,.41,.99) .8s, transform 1.6s cubic-bezier(.43,.98,.41,.99) .8s
+        & .text
+            font-size: 20px
+            margin-bottom: 12px
+            display: block
+            position: relative
+            width: fit-content
+            &::after
+                content: ''
+                position: absolute
+                bottom: 2px
+                left: 0
+                right: 0
+                background: #fff
+                height: 1px            
+                transition: opacity .3s ease-in-out
+    &__name
+        font-family: 'Roboto Condensed'
+        font-weight: 400
+        font-size: 20px
+        line-height: 120%
+        margin-bottom: 15px
+    &__address-text
+        letter-spacing: -0.025em
+        font-weight: 400
+        font-size: 40px
+        line-height: 105%
+        margin-bottom: 30px
+    &__contacts
+        display: flex
+        justify-content: space-between
+        margin-bottom: 40px
+        & .col
+            width: fit-content
+    &__schedule
+        display: flex
+        margin-bottom: 15px
+        & .time
+            font-family: 'GT Pressura Mono'
+            font-weight: 400
+            font-size: 20px
+        & .day
+            font-size: 14px
+            margin-right: 15px
+            padding-top: 4px
+    &__tel
+        position: relative
+        font-weight: 500
+        font-size: 20px
+        margin-bottom: 15px
+        display: block
+        color: #fff
+        width: fit-content
+        &::after
+            content: ''
+            position: absolute
+            bottom: 2px
+            left: 0
+            right: 0
+            background: #fff
+            height: 1px
+            transition: opacity .3s ease-in-out
+        &:hover
+            &::after
+                opacity: 0
+    &__btn
+        font-size: 20px
+        padding: 8px 16px
+        border-color: #fff
+        color: #fff
+        transition: color .3s ease-out, border .3s ease
+        &:active
+            color: #fff
+    &__socials
+        display: flex
+        align-items: center
+        justify-content: space-between
+        margin-bottom: 40px
+    &__social
+        font-size: 20px
+        color: #fff
+        position: relative
+        display: block
+        width: fit-content
+        &::after
+            content: ''
+            position: absolute
+            bottom: 2px
+            left: 0
+            right: 0
+            background: #fff
+            height: 1px
+            transition: opacity .3s ease-in-out
+        &:hover
+            &::after
+                opacity: 0
+    &__cooperate
+        color: #fff
+        &:hover .text
+            &::after
+                opacity: 0
+    &__adress
+        flex-basis: 33.33%
+        max-width: 360px
+        min-width: 360px
+        opacity: 0
+        transform: translateY(-50px)
+        transition: opacity 1s cubic-bezier(.43,.98,.41,.99) 1s, transform 1.6s cubic-bezier(.43,.98,.41,.99) 1s
+    &__live
+        position: relative
+        width: 320px
+        height: 210px
+        border-radius: 20px
+        overflow: hidden
+        border: 2px solid #fff
+        margin-top: 40px
+        & img
+            width: 100%
+    &__label
+        cursor: pointer
+        position: absolute
+        background: rgba(255, 255, 255, 0.3)
+        backdrop-filter: blur(2.5px)
+        border-radius: 300px
+        top: 20px
+        left: 20px
+        display: flex
+        align-items: center
+        padding: 9px 16px
+        & .live
+            margin-right: 14px
+        & span
+            font-size: 18px
+    &__footer
+        margin-top: auto
+        padding: 20px 0
+        opacity: 0
+        transform: translateY(30px)
+        transition: opacity 1s cubic-bezier(.43,.98,.41,.99) .6s, transform 1.6s cubic-bezier(.43,.98,.41,.99) .6s
+        & a
+            color: #fff
+            font-size: 14px
+    &__copyright
+        margin-right: 150px
+    &__agreement
+        & span
+            position: relative
+            &::after
+                content: ''
+                position: absolute
+                bottom: 1px
+                left: 0
+                right: 0
+                background: #fff
+                height: 1px
+
+@media screen and (max-width: 1600px)
+    .menu
+        &__copyright
+            margin-right: 80px
+
+@media screen and (max-width: 1500px)
+    .menu
+        &__copyright
+            margin-right: 60px
+
+@media screen and (max-width: 1240px)
+    .menu
+        &__content
+            flex-direction: column
+            flex-grow: 0
+            max-height: 400px
+            overflow-y: scroll
+            padding-right: 56px
+            &::-webkit-scrollbar
+                width: 10px
+            &::-webkit-scrollbar-track
+                background-color: #ffffff4d
+                border-radius: 10px
+            &::-webkit-scrollbar-thumb
+                background-color: #fff
+                border-radius: 10px
+        &__center
+            min-width: 460px
+        &__adress
+            margin-bottom: 40px
+        &__contacts
+            flex-direction: column
+        &__footer
+            display: flex
+            flex-direction: column-reverse
+            & a:last-child
+                margin-bottom: 10px
+            & a span
+                display: block
+                width: fit-content
+                margin-top: 4px
+
+@media screen and (max-width: 960px)
+    .menu
+        &__center
+            min-width: 360px
+            max-width: 360px
+            & .text:first-child
+                width: calc(100% + 20px)
+        &__address-text
+            width: calc(100% + 20px)
+
+@media screen and (max-width: 880px)
+    .menu
+        &__container
+            padding-top: 98px
+        &__item
+            margin-bottom: 15px
+
+@media screen and (max-width: 768px)
+    .menu
+        &__content
+            display: none
+        &__footer
+            display: none

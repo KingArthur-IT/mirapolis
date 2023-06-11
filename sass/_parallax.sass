@@ -1,17 +1,24 @@
 .parallax
     position: relative
     transition: margin .5s ease-in-out
-    // &.moved
-    //     margin-top: -340px
     &.shown
         & .parallax__img-wrapper
             transform: translateY(0)
         & .parallax__building
             transform: translateX(-55%) translateY(-35%) !important
-            &.hide
+        & .parallax__video
+            transform: translate(-50%, -50%)
+        &.hide
+            & .parallax__live
+                transition: opacity .3s ease-in-out
+                opacity: 0
+                pointer-events: none
+            & .parallax__building
                 opacity: 0 !important
                 margin-top: 200px !important
                 transition: opacity .2s ease-in-out .2s, transform .5s ease-in-out, margin .5s ease-out
+            & .parallax__video
+                opacity: 0
     &__img-wrapper
         transition: transform .5s ease-in-out .25s, opacity .5s ease-in-out .25s, border-radius .5s ease-in-out
         width: 100%
@@ -25,6 +32,8 @@
             & .parallax__img
                 transform: scale(1) translateX(0)
                 // border-radius: 0
+            & .parallax__video
+                opacity: 0
     &__img
         transition: transform 1s ease-in-out
         width: 100%
@@ -36,12 +45,57 @@
         transform: scale(1.5) translateX(-3.5%) translateY(5%)
     &__building
         position: absolute
-        top: 0
+        top: 0px
         left: 50%
         transform: scale(1) translateX(-55%) translateY(200px)
         width: 58.7vw
         transition: transform 1s ease-out .25s, opacity .2s ease-in-out .25s, margin .75s ease-in-out
         pointer-events: none
+    &__video
+        position: absolute
+        top: 100px
+        left: 50%
+        transform: translate(-50%, 250%)
+        z-index: 1
+        width: 125px
+        height: 125px
+        background: #EFA7E8
+        border-radius: 50%
+        transition: transform 1s ease-out .25s, opacity .2s ease-in-out .25s
+        &::before   
+            content: ''
+            position: absolute
+            top: 0
+            bottom: 0
+            left: 0
+            right: 0
+            border-radius: 50%
+            background: linear-gradient(108.36deg, #7C84F3 15.1%, #949AE9 34.9%, #90BFE8 48.96%, #8CD9E7 66.67%, #88FBE6 77.6%)
+            z-index: 0
+            opacity: 0
+            transition: opacity .3s ease-in-out
+        &-hero
+            position: absolute
+            top: 0
+            bottom: 0
+            left: 0
+            right: 0
+            display: flex
+            align-items: center
+            justify-content: center
+            z-index: 1
+            border-radius: 50%
+            animation: rotating 17s linear infinite
+        &:hover
+            &::before
+                opacity: 1
+    &__mobile-video
+        display: none
+    &__play
+        position: absolute
+        top: 50%
+        left: 50%
+        transform: translate(-50%, -50%)
     &__live
         position: absolute
         top: 20px
@@ -61,10 +115,6 @@
         &.shown
             opacity: 1
             transform: translateY(0px)
-        &.hide
-            transition: opacity .3s ease-in-out
-            opacity: 0
-            pointer-events: none
         & span
             margin-left: 14px
             font-weight: 500
@@ -77,12 +127,16 @@
         &:active
             background: #fff
 
+@keyframes rotating
+  from
+    transform: rotate(0deg)
+  to
+    transform: rotate(360deg)
+
 @media screen and (max-width: 1600px)
     .parallax
         &__img
             transform: scale(1.4) translateX(-3.5%) translateY(5%)
-        // &.moved
-        //     margin-top: -300px
 
 @media screen and (max-width: 1440px)
     .parallax
@@ -92,8 +146,6 @@
 
 @media screen and (max-width: 1240px)
     .parallax
-        // &.moved
-        //     margin-top: -240px
         &__building
             display: none
         &__img
@@ -123,6 +175,13 @@
         &.shown
             & .parallax__img-wrapper
                 opacity: 1
+            & .parallax__video
+                transform: translate(-50%, 0px)
+        &__video
+            top: auto
+            bottom: 40px
+            transform: translate(-50%, 200px)
+        
 
 @media screen and (max-width: 375px)
     .parallax
@@ -138,3 +197,15 @@
             &.shown
                 opacity: 1
                 transform: translateY(0px) translateX(-50%)
+        &__video
+            display: none
+        &__mobile-video
+            display: block
+            position: relative
+            margin: auto
+            margin-top: 20px
+            transform: translate(0, 0)
+            left: 0
+            right: 0
+            top: 0
+            bottom: 0

@@ -8,7 +8,9 @@ document.addEventListener("DOMContentLoaded", () => {
     e.target.classList.toggle('active')
     menu.classList.toggle('active')
     document.querySelector('.header').classList.toggle('disabled')
-    if (menu.classList.contains('active')) {
+    if (window.innerWidth < 768)
+      document.querySelector('body').classList.toggle('overflow-hidden')
+    if (menu.classList.contains('active')) { //animation effect
       document.querySelector('main').classList.add('showMenu')
       addTransform('main', -window.innerHeight)
     }
@@ -123,25 +125,20 @@ document.addEventListener("DOMContentLoaded", () => {
     document.querySelector('body').classList.add('overflow-hidden')
   }))
 
-  // --- эффект потери фокуса для кнопок ---
-  const allBtns = document.querySelectorAll('.primary-btn')
-  const allCloseFocusEffBtns = document.querySelectorAll('.close-focus-btn')
-  // const inputsFocusEff = document.querySelectorAll('.call-modal__form input')
-  allBtns.forEach(btn => btn.addEventListener('mouseleave', () => {
-    btn.classList.add('leaved') //добавить эфф при уходе
-  }))
-
-
-  //убрать эффект при заходе на другие
-  allBtns.forEach(btn => btn.addEventListener('mouseenter', () => {
-    allBtns.forEach(b => b.classList.remove('leaved'))
-  }))
-  allCloseFocusEffBtns.forEach(btn => btn.addEventListener('mouseenter', () => {
-    allBtns.forEach(b => b.classList.remove('leaved'))
-  }))
-
-  //убрать при клике на тело
-  document.querySelector('body').addEventListener('click', () => {
-    allBtns.forEach(b => b.classList.remove('leaved'))
-  })
+  //video
+  // if (Hls.isSupported()) {
+  //   var video = document.getElementById('video1');
+  //   var hls = new Hls();
+  //   hls.loadSource('https://rtsp.me/b309eed7-4fa6-4029-8c18-3b1e0002c67d');
+  //   hls.attachMedia(video);
+  //   hls.on(Hls.Events.MANIFEST_PARSED, function () {
+  //     video.play();
+  //   });
+  // }
+  // else if (video.canPlayType('application/vnd.apple.mpegurl')) {
+  //   video.src = ' ';
+  //   video.addEventListener('loadedmetadata', function () {
+  //     video.play();
+  //   });
+  // }
 });

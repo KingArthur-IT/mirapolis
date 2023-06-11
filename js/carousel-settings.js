@@ -2,7 +2,7 @@ $(document).ready(function(){
     var placesOwl = $('.places-carousel').owlCarousel({
         loop: true,
         autoplay: false,
-        slideTransition: 'linear',
+        slideTransition: 'ease-in-out',
         autoplayTimeout: 2000,
         autoplaySpeed: 2000,
         nav: false,

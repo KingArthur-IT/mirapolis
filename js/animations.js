@@ -189,8 +189,7 @@ function showFullScreenAnimation() {
     const parallaxWrapper = parallaxSection.querySelector('.parallax__img-wrapper');
 
     parallaxWrapper.classList.add('full')
-    parallaxSection.querySelector('.parallax__live').classList.add('hide')
-    parallaxSection.querySelector('.parallax__building').classList.add('hide')
+    parallaxSection.classList.add('hide')
     document.querySelector('.header').classList.remove('shown')
 }
 
@@ -199,8 +198,7 @@ function hideFullScreenAnimation() {
     const parallaxWrapper = parallaxSection.querySelector('.parallax__img-wrapper');
 
     parallaxWrapper.classList.remove('full')
-    parallaxSection.querySelector('.parallax__live').classList.remove('hide')
-    parallaxSection.querySelector('.parallax__building').classList.remove('hide')
+    parallaxSection.classList.remove('hide')
 }
 
 //------------------------------------------------------------------
