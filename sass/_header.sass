@@ -17,11 +17,14 @@
     border: 1px solid transparent
     z-index: 10
     transform: translateY(-102%)
-    transition: transform .5s ease-in-out, background 1s ease-in-out .5s, color .5s ease-in-out .5s
+    transition: transform .5s ease-in-out, color .5s ease-in-out .5s, background .1s ease-out .5s
     &.shown
-        background: #fff
         transform: translateY(0%)
         transition: transform .75s ease-in-out
+        &.fill
+            transition: transform .75s ease-in-out
+    &.fill
+        background: #fff
     &.dark
         background: $primary-color
         color: #fff

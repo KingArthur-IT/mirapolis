@@ -203,9 +203,11 @@ function mainScroll(delta, scrollDirection) {
 function headerEffects(yVal, scrollDirection) {
     if (yVal > document.querySelector('header').clientHeight && scrollDirection > 0) {
         document.querySelector('header').classList.remove('shown')
+        document.querySelector('header').classList.remove('fill')
     }
     if (scrollDirection < 0) {
         document.querySelector('header').classList.add('shown')
+        document.querySelector('header').classList.add('fill')
     }
 }
 
