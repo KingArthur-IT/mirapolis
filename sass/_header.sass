@@ -13,13 +13,15 @@
     font-size: 20px
     letter-spacing: -0.025em
     color: $primary-color
-    background: #fff
+    background: transparent
+    border: 1px solid transparent
     z-index: 10
     transform: translateY(-102%)
     transition: transform .5s ease-in-out, background 1s ease-in-out .5s, color .5s ease-in-out .5s
     &.shown
+        background: #fff
         transform: translateY(0%)
-        transition: transform .5s ease-in-out, background 1s ease-in-out
+        transition: transform .75s ease-in-out
     &.dark
         background: $primary-color
         color: #fff

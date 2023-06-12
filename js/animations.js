@@ -54,7 +54,7 @@ window.addEventListener("load", () => {
         document.querySelector('.baner__label').classList.add('shown')
         setTimeout(() => {
             document.querySelector('.header').classList.add('shown')
-        }, 250);
+        }, 400);
         document.querySelector('.baner__hero').classList.add('shown')
         document.querySelector('.parallax').classList.add('shown')
         document.querySelector('.parallax__live').classList.add('shown')
@@ -130,14 +130,25 @@ function keyDownEvent(e) {
 }
 
 function touchMoveHandler(e) {
-    let evt = (typeof e.originalEvent === 'undefined') ? e : e.originalEvent;
-    let touch = evt.touches[0] || evt.changedTouches[0];
+    // let evt = (typeof e.originalEvent === 'undefined') ? e : e.originalEvent;
+    // let touch = evt.touches[0] || evt.changedTouches[0];
     
-    const deltaY = Math.sign(parseInt(touch.pageY) - mouseYVal)
-    mouseYVal = parseInt(touch.pageY)
+    const offset = -topOffset(document.querySelector('.baner'))
+    const deltaY = Math.sign(offset - mouseYVal)
+    mouseYVal = offset
 
-    if (deltaY > 0) {
-        document.querySelector('header').classList.add('shown')
+    headerEffects(mouseYVal, deltaY)
+    if (mouseYVal < 30) {
+        if (mouseYVal % 10 === 0)
+            document.querySelector('.parallax__building').style.marginTop = `${ mouseYVal }px`
+    }
+    //showFullScreenAnimation
+    if (mouseYVal >= 30 && deltaY > 0) {
+        showFullScreenAnimation()
+    }
+    //hideFullScreenAnimation
+    if (scrollYVal < 30 && deltaY < 0) {
+        hideFullScreenAnimation()
     }
 }
 
@@ -151,13 +162,15 @@ function mainScroll(delta, scrollDirection) {
     }
     if (scrollYVal + delta > document.querySelector('main').clientHeight - window.innerHeight) return
 
-    //showFullScreenAnimation
-    if (scrollYVal + delta >= buildingBreakpoint && scrollDirection > 0) {
-        showFullScreenAnimation()
-    }
-    //hideFullScreenAnimation
-    if (scrollYVal + delta < buildingBreakpoint && scrollDirection < 0) {
-        hideFullScreenAnimation()
+    if (window.innerWidth > 1240) {
+        //showFullScreenAnimation
+        if (scrollYVal + delta >= buildingBreakpoint && scrollDirection > 0) {
+            showFullScreenAnimation()
+        }
+        //hideFullScreenAnimation
+        if (scrollYVal + delta < buildingBreakpoint && scrollDirection < 0) {
+            hideFullScreenAnimation()
+        }
     }
 
     let isReturn = false
@@ -182,13 +195,13 @@ function mainScroll(delta, scrollDirection) {
     if (isReturn) return
 
     addTransform('main', delta)
-    headerEffects(scrollDirection)
+    headerEffects(scrollYVal, scrollDirection)
 }
 
 //------------------------------------------------------------------
 
-function headerEffects(scrollDirection) {
-    if (scrollYVal > document.querySelector('header').clientHeight && scrollDirection > 0) {
+function headerEffects(yVal, scrollDirection) {
+    if (yVal > document.querySelector('header').clientHeight && scrollDirection > 0) {
         document.querySelector('header').classList.remove('shown')
     }
     if (scrollDirection < 0) {

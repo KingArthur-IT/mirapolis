@@ -227,7 +227,8 @@ picture img {
   font-size: 20px;
   letter-spacing: -0.025em;
   color: #404040;
-  background: #fff;
+  background: transparent;
+  border: 1px solid transparent;
   z-index: 10;
   -webkit-transform: translateY(-102%);
           transform: translateY(-102%);
@@ -238,12 +239,13 @@ picture img {
 }
 
 .header.shown {
+  background: #fff;
   -webkit-transform: translateY(0%);
           transform: translateY(0%);
-  -webkit-transition: background 1s ease-in-out, -webkit-transform .5s ease-in-out;
-  transition: background 1s ease-in-out, -webkit-transform .5s ease-in-out;
-  transition: transform .5s ease-in-out, background 1s ease-in-out;
-  transition: transform .5s ease-in-out, background 1s ease-in-out, -webkit-transform .5s ease-in-out;
+  -webkit-transition: -webkit-transform .75s ease-in-out;
+  transition: -webkit-transform .75s ease-in-out;
+  transition: transform .75s ease-in-out;
+  transition: transform .75s ease-in-out, -webkit-transform .75s ease-in-out;
 }
 
 .header.dark {
@@ -1200,10 +1202,10 @@ picture img {
   margin-bottom: 40px;
   -webkit-transform: translateY(150%);
           transform: translateY(150%);
-  -webkit-transition: -webkit-transform .5s linear 0.25s;
-  transition: -webkit-transform .5s linear 0.25s;
-  transition: transform .5s linear 0.25s;
-  transition: transform .5s linear 0.25s, -webkit-transform .5s linear 0.25s;
+  -webkit-transition: -webkit-transform .75s linear 0.4s;
+  transition: -webkit-transform .75s linear 0.4s;
+  transition: transform .75s linear 0.4s;
+  transition: transform .75s linear 0.4s, -webkit-transform .75s linear 0.4s;
   min-height: 100px;
 }
 
@@ -1278,7 +1280,7 @@ picture img {
     -webkit-box-direction: reverse;
         -ms-flex-direction: column-reverse;
             flex-direction: column-reverse;
-    margin-top: 40px;
+    margin-top: 80px;
   }
   .baner__hero {
     margin-top: 20px;
@@ -1287,6 +1289,8 @@ picture img {
     -webkit-box-direction: normal;
         -ms-flex-direction: column;
             flex-direction: column;
+    -webkit-transform: translateY(50%);
+            transform: translateY(50%);
   }
   .baner__first-text {
     max-width: 100%;
@@ -1309,6 +1313,9 @@ picture img {
 }
 
 @media screen and (max-width: 375px) {
+  .baner__first-text {
+    margin-bottom: 20px;
+  }
   .baner__container {
     padding-top: 100px;
   }
@@ -1322,6 +1329,9 @@ picture img {
   position: relative;
   -webkit-transition: margin .5s ease-in-out;
   transition: margin .5s ease-in-out;
+  overflow: hidden;
+  padding-top: 230px;
+  margin-top: -230px;
 }
 
 .parallax.shown .parallax__img-wrapper {
@@ -1330,8 +1340,8 @@ picture img {
 }
 
 .parallax.shown .parallax__building {
-  -webkit-transform: translateX(-55%) translateY(-35%) !important;
-          transform: translateX(-55%) translateY(-35%) !important;
+  -webkit-transform: translateX(-61%) translateY(0) !important;
+          transform: translateX(-61%) translateY(0) !important;
 }
 
 .parallax.shown .parallax__video {
@@ -1360,10 +1370,10 @@ picture img {
 }
 
 .parallax__img-wrapper {
-  -webkit-transition: opacity .5s ease-in-out .25s, border-radius .5s ease-in-out, -webkit-transform .5s ease-in-out .25s;
-  transition: opacity .5s ease-in-out .25s, border-radius .5s ease-in-out, -webkit-transform .5s ease-in-out .25s;
-  transition: transform .5s ease-in-out .25s, opacity .5s ease-in-out .25s, border-radius .5s ease-in-out;
-  transition: transform .5s ease-in-out .25s, opacity .5s ease-in-out .25s, border-radius .5s ease-in-out, -webkit-transform .5s ease-in-out .25s;
+  -webkit-transition: opacity .5s ease-in-out .25s, border-radius .5s ease-in-out, -webkit-transform .75s ease-in-out .5s;
+  transition: opacity .5s ease-in-out .25s, border-radius .5s ease-in-out, -webkit-transform .75s ease-in-out .5s;
+  transition: transform .75s ease-in-out .5s, opacity .5s ease-in-out .25s, border-radius .5s ease-in-out;
+  transition: transform .75s ease-in-out .5s, opacity .5s ease-in-out .25s, border-radius .5s ease-in-out, -webkit-transform .75s ease-in-out .5s;
   width: 100%;
   height: 100vh;
   -webkit-transform: translateY(200px);
@@ -1399,27 +1409,27 @@ picture img {
   background-size: cover;
   background-position-x: center;
   background-position-y: top;
-  -webkit-transform: scale(1.5) translateX(-3.5%) translateY(5%);
-          transform: scale(1.5) translateX(-3.5%) translateY(5%);
+  -webkit-transform: scale(1.55) translateX(-3.5%) translateY(7%);
+          transform: scale(1.55) translateX(-3.5%) translateY(7%);
 }
 
 .parallax__building {
   position: absolute;
   top: 0px;
   left: 50%;
-  -webkit-transform: scale(1) translateX(-55%) translateY(200px);
-          transform: scale(1) translateX(-55%) translateY(200px);
-  width: 58.7vw;
-  -webkit-transition: opacity .2s ease-in-out .25s, margin .75s ease-in-out, -webkit-transform 1s ease-out .25s;
-  transition: opacity .2s ease-in-out .25s, margin .75s ease-in-out, -webkit-transform 1s ease-out .25s;
-  transition: transform 1s ease-out .25s, opacity .2s ease-in-out .25s, margin .75s ease-in-out;
-  transition: transform 1s ease-out .25s, opacity .2s ease-in-out .25s, margin .75s ease-in-out, -webkit-transform 1s ease-out .25s;
+  -webkit-transform: scale(1) translateX(-61%) translateY(400px);
+          transform: scale(1) translateX(-61%) translateY(400px);
+  width: 525px;
+  -webkit-transition: opacity .2s ease-in-out .25s, margin .75s ease-in-out, -webkit-transform 1.4s ease-out .7s;
+  transition: opacity .2s ease-in-out .25s, margin .75s ease-in-out, -webkit-transform 1.4s ease-out .7s;
+  transition: transform 1.4s ease-out .7s, opacity .2s ease-in-out .25s, margin .75s ease-in-out;
+  transition: transform 1.4s ease-out .7s, opacity .2s ease-in-out .25s, margin .75s ease-in-out, -webkit-transform 1.4s ease-out .7s;
   pointer-events: none;
 }
 
 .parallax__video {
   position: absolute;
-  top: 100px;
+  top: 330px;
   left: 50%;
   -webkit-transform: translate(-50%, 250%);
           transform: translate(-50%, 250%);
@@ -1488,7 +1498,7 @@ picture img {
 
 .parallax__live {
   position: absolute;
-  top: 20px;
+  top: 250px;
   right: 20px;
   width: 109px;
   height: 48px;
@@ -1560,31 +1570,37 @@ picture img {
   }
 }
 
-@media screen and (max-width: 1600px) {
+@media screen and (max-width: 1500px) {
   .parallax__img {
-    -webkit-transform: scale(1.4) translateX(-3.5%) translateY(5%);
-            transform: scale(1.4) translateX(-3.5%) translateY(5%);
+    -webkit-transform: scale(1.55) translateX(-4.5%) translateY(7%);
+            transform: scale(1.55) translateX(-4.5%) translateY(7%);
   }
 }
 
-@media screen and (max-width: 1440px) {
-  .parallax.shown .parallax__building {
-    -webkit-transform: translateX(-55%) translateY(-40%) !important;
-            transform: translateX(-55%) translateY(-40%) !important;
+@media screen and (max-width: 1600px) {
+  .parallax__img {
+    -webkit-transform: scale(1.55) translateX(-4.5%) translateY(7%);
+            transform: scale(1.55) translateX(-4.5%) translateY(7%);
   }
 }
 
 @media screen and (max-width: 1240px) {
+  .parallax {
+    padding-top: 0px;
+    margin-top: 0px;
+  }
   .parallax__building {
     display: none;
   }
-  .parallax__img {
-    -webkit-transform: scale(1.5) translateX(-3.5%) translateY(8%);
-            transform: scale(1.5) translateX(-3.5%) translateY(8%);
+  .parallax__video {
+    top: auto;
+    bottom: 40px;
+    -webkit-transform: translate(-50%, 200px);
+            transform: translate(-50%, 200px);
   }
-}
-
-@media screen and (max-width: 1024px) {
+  .parallax__live {
+    top: 20px;
+  }
   .parallax__img {
     background: url("../assets/baner-mobile.jpg") no-repeat;
     background-size: cover;
@@ -1601,15 +1617,51 @@ picture img {
     right: 0px;
     left: 0px;
     width: 100%;
+    padding-top: 40px;
+    margin-top: -40px;
+  }
+  .parallax__building {
+    display: block;
+    width: 35vw;
+    opacity: 0;
+    -webkit-transform: scale(1) translateX(-41%) translateY(100px);
+            transform: scale(1) translateX(-41%) translateY(100px);
+    -webkit-transition: opacity .2s ease-in-out, margin .75s ease-in-out, -webkit-transform 1s ease-out .2s;
+    transition: opacity .2s ease-in-out, margin .75s ease-in-out, -webkit-transform 1s ease-out .2s;
+    transition: transform 1s ease-out .2s, opacity .2s ease-in-out, margin .75s ease-in-out;
+    transition: transform 1s ease-out .2s, opacity .2s ease-in-out, margin .75s ease-in-out, -webkit-transform 1s ease-out .2s;
   }
   .parallax__img-wrapper {
-    height: 100vw;
+    height: 76vw;
+    -webkit-transition: opacity .5s ease-out, -webkit-transform 1s ease-out;
+    transition: opacity .5s ease-out, -webkit-transform 1s ease-out;
+    transition: opacity .5s ease-out, transform 1s ease-out;
+    transition: opacity .5s ease-out, transform 1s ease-out, -webkit-transform 1s ease-out;
     opacity: 0;
+    -webkit-transform: translateY(50px);
+            transform: translateY(50px);
+  }
+  .parallax__img-wrapper.full {
+    height: 100vw;
+    -webkit-transition: height .6s ease-in-out .2s;
+    transition: height .6s ease-in-out .2s;
+  }
+  .parallax__img-wrapper.full .parallax__img {
+    height: 100vw;
+    -webkit-transition: height .6s ease-in-out .2s;
+    transition: height .6s ease-in-out .2s;
   }
   .parallax__img {
-    height: 100vw;
+    height: 76vw;
     -webkit-transform: scale(1) translateX(0) translateY(0%);
             transform: scale(1) translateX(0) translateY(0%);
+    background: url("../assets/baner-mobile.jpg") no-repeat;
+    background-size: cover;
+    background-position-x: center;
+    background-position-y: top;
+  }
+  .parallax__live {
+    top: 60px;
   }
   .parallax.shown .parallax__img-wrapper {
     opacity: 1;
@@ -1618,11 +1670,13 @@ picture img {
     -webkit-transform: translate(-50%, 0px);
             transform: translate(-50%, 0px);
   }
-  .parallax__video {
-    top: auto;
-    bottom: 40px;
-    -webkit-transform: translate(-50%, 200px);
-            transform: translate(-50%, 200px);
+  .parallax.shown .parallax__building {
+    opacity: 1;
+    -webkit-transform: translateX(-41%) translateY(0) !important;
+            transform: translateX(-41%) translateY(0) !important;
+  }
+  .parallax.shown.hide .parallax__building {
+    margin-top: 50px !important;
   }
 }
 

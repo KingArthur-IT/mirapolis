@@ -70,7 +70,7 @@
         margin-top: 170px
         margin-bottom: 40px
         transform: translateY(150%)
-        transition: transform .5s linear 0.25s
+        transition: transform .75s linear 0.4s
         min-height: 100px
         &.shown
             transform: translateY(0)
@@ -120,11 +120,12 @@
         &__wrapper
             display: flex
             flex-direction: column-reverse
-            margin-top: 40px
+            margin-top: 80px
         &__hero
             margin-top: 20px
             margin-bottom: 0px
             flex-direction: column
+            transform: translateY(50%)
         &__first-text
             max-width: 100%
             width: 100%
@@ -142,6 +143,8 @@
 
 @media screen and (max-width: 375px)
     .baner
+        &__first-text
+            margin-bottom: 20px
         &__container
             padding-top: 100px
         &__label

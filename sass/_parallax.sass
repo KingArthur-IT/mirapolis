@@ -1,11 +1,14 @@
 .parallax
     position: relative
     transition: margin .5s ease-in-out
+    overflow: hidden
+    padding-top: 230px
+    margin-top: -230px
     &.shown
         & .parallax__img-wrapper
             transform: translateY(0)
         & .parallax__building
-            transform: translateX(-55%) translateY(-35%) !important
+            transform: translateX(-61%) translateY(0) !important
         & .parallax__video
             transform: translate(-50%, -50%)
         &.hide
@@ -20,7 +23,7 @@
             & .parallax__video
                 opacity: 0
     &__img-wrapper
-        transition: transform .5s ease-in-out .25s, opacity .5s ease-in-out .25s, border-radius .5s ease-in-out
+        transition: transform .75s ease-in-out .5s, opacity .5s ease-in-out .25s, border-radius .5s ease-in-out
         width: 100%
         height: 100vh
         transform: translateY(200px)
@@ -42,18 +45,18 @@
         background-size: cover
         background-position-x: center
         background-position-y: top
-        transform: scale(1.5) translateX(-3.5%) translateY(5%)
+        transform: scale(1.55) translateX(-3.5%) translateY(7%)
     &__building
         position: absolute
         top: 0px
         left: 50%
-        transform: scale(1) translateX(-55%) translateY(200px)
-        width: 58.7vw
-        transition: transform 1s ease-out .25s, opacity .2s ease-in-out .25s, margin .75s ease-in-out
+        transform: scale(1) translateX(-61%) translateY(400px)
+        width: 525px
+        transition: transform 1.4s ease-out .7s, opacity .2s ease-in-out .25s, margin .75s ease-in-out
         pointer-events: none
     &__video
         position: absolute
-        top: 100px
+        top: 330px
         left: 50%
         transform: translate(-50%, 250%)
         z-index: 1
@@ -98,7 +101,7 @@
         transform: translate(-50%, -50%)
     &__live
         position: absolute
-        top: 20px
+        top: 250px
         right: 20px
         width: 109px
         height: 48px
@@ -133,26 +136,28 @@
   to
     transform: rotate(360deg)
 
+@media screen and (max-width: 1500px)
+    .parallax
+        &__img
+            transform: scale(1.55) translateX(-4.5%) translateY(7%)
+
 @media screen and (max-width: 1600px)
     .parallax
         &__img
-            transform: scale(1.4) translateX(-3.5%) translateY(5%)
-
-@media screen and (max-width: 1440px)
-    .parallax
-        &.shown
-            & .parallax__building
-                transform: translateX(-55%) translateY(-40%) !important
+            transform: scale(1.55) translateX(-4.5%) translateY(7%)
 
 @media screen and (max-width: 1240px)
     .parallax
+        padding-top: 0px
+        margin-top: 0px
         &__building
             display: none
-        &__img
-            transform: scale(1.5) translateX(-3.5%) translateY(8%)
-
-@media screen and (max-width: 1024px)
-    .parallax
+        &__video
+            top: auto
+            bottom: 40px
+            transform: translate(-50%, 200px)
+        &__live
+            top: 20px
         &__img
             background: url('../assets/baner-mobile.jpg') no-repeat
             background-size: cover
@@ -166,22 +171,46 @@
         right: 0px
         left: 0px
         width: 100%
-        &__img-wrapper
-            height: 100vw
+        padding-top: 40px
+        margin-top: -40px
+        &__building
+            display: block
+            width: 35vw
             opacity: 0
+            transform: scale(1) translateX(-41%) translateY(100px)
+            transition: transform 1s ease-out .2s, opacity .2s ease-in-out, margin .75s ease-in-out
+        &__img-wrapper
+            height: 76vw
+            transition: opacity .5s ease-out, transform 1s ease-out
+            opacity: 0
+            transform: translateY(50px)
+            &.full
+                height: 100vw
+                transition: height .6s ease-in-out .2s
+                & .parallax__img
+                    height: 100vw
+                    transition: height .6s ease-in-out .2s
         &__img
-            height: 100vw
+            height: 76vw
             transform: scale(1) translateX(0) translateY(0%)
+            background: url('../assets/baner-mobile.jpg') no-repeat
+            background-size: cover
+            background-position-x: center
+            background-position-y: top
+            // transition: height 1s ease-in-out .5s
+        &__live
+            top: 60px
         &.shown
             & .parallax__img-wrapper
                 opacity: 1
             & .parallax__video
                 transform: translate(-50%, 0px)
-        &__video
-            top: auto
-            bottom: 40px
-            transform: translate(-50%, 200px)
-        
+            & .parallax__building
+                opacity: 1
+                transform: translateX(-41%) translateY(0) !important
+            &.hide
+                & .parallax__building
+                    margin-top: 50px !important
 
 @media screen and (max-width: 375px)
     .parallax
