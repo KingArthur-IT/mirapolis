@@ -3,6 +3,7 @@ $(document).ready(function(){
         loop: true,
         autoplay: false,
         slideTransition: 'ease-in-out',
+        smartSpeed: 1000, // duration of change of 1 slide
         autoplayTimeout: 2000,
         autoplaySpeed: 2000,
         nav: false,

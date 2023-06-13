@@ -318,8 +318,10 @@ function animOnScroll() {
         // const animItemHeight = item.offsetHeight;
         const animItemOffsetTop = item.getBoundingClientRect().top;
 
-        const animStartPoint = item.classList.contains('about__title') ? -400 : window.innerHeight / 2
-        if (scrollYVal > animItemOffsetTop + animStartPoint ) {
+        // const animStartPoint = item.classList.contains('about__title') ? -400 : window.innerHeight / 2
+        const animStartPoint = window.innerHeight / 1.2
+        // if (scrollYVal > animItemOffsetTop - animStartPoint ) {
+        if (animItemOffsetTop < animStartPoint ) {
             //если это не title
             if (!item.classList.contains('anim-title') && !item.classList.contains('anim-title-active'))
                 item.classList.add('anim-active')
@@ -330,7 +332,7 @@ function animOnScroll() {
                     const secondLine = document.querySelector('.about__title.anim-item.anim-title.delay-1')
                     setTimeout(() => {
                         splitText(secondLine)
-                    }, 3200);
+                    }, 1000);
                 }
             }
         }
@@ -342,7 +344,7 @@ function splitText(item) {
     item.innerHTML = ''
     text.split('').forEach((letter, ind) => {
         const div = document.createElement('div');
-        div.style = `transform: translateY(100%); transition: transform .75s ease-in-out ${ind / 10}s`
+        div.style = `transform: translateY(100%); transition: transform .5s ease-in-out ${ind / 30}s`
         
         div.innerHTML = letter === ' ' ? '&nbsp;' : letter;                  
         item.append(div)
