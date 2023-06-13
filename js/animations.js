@@ -1,4 +1,5 @@
 var isScrollDisabled = false
+var isAboutSectionDelay = false
 var isAboutSliderScrolling = false
 var aboutSliderScrollCounter = -1
 var scrollYVal = 0
@@ -265,8 +266,14 @@ function changeBgColorMobile() {
 function aboutSectionWheel(scrollDirection) {
     if (scrollDirection > 0)
         if (aboutSliderScrollCounter >= -1 && aboutSliderScrollCounter < aboutImgs.length - 2) {
-            aboutSliderScrollCounter ++
-            aboutImgs[aboutSliderScrollCounter].classList.add('hide')
+            if (!isAboutSectionDelay) {
+                isAboutSectionDelay = true
+                aboutSliderScrollCounter ++
+                aboutImgs[aboutSliderScrollCounter].classList.add('hide')
+                setTimeout(() => {
+                    isAboutSectionDelay = false
+                }, 1000);
+            }
         } else {
             setTimeout(() => {
                 isAboutSliderScrolling = false
