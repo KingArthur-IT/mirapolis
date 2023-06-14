@@ -1,4 +1,94 @@
 document.addEventListener("DOMContentLoaded", () => {
+  //cursor
+  const follower = document.querySelector('#cursor');
+  const followerShadow = document.querySelector('#cursor-shadow');
+  isCursorChangeDisable = false
+
+  // Текущие координаты элемента
+  let currentX = 0;
+  let currentY = 0;
+
+  // Целевые координаты элемента
+  let targetX = 0;
+  let targetY = 0;
+
+  let xVal = 0
+  let yVal = 0
+
+  // Коэффициент инерции
+  const inertia = 1;
+  const radius = 100; // Здесь можно задать нужный радиус
+  
+  document.addEventListener('mousemove', function(event) {
+    // Вычисление расстояния от исходной позиции до текущих координат курсора
+    const dx = event.clientX - currentX;
+    const dy = event.clientY - currentY;
+
+    // var currentX = event.clientX;
+    // var currentY = event.clientY;
+
+    follower.style.left = event.clientX + 'px';
+    follower.style.top = event.clientY + 'px';
+
+    if (!isCursorChangeDisable) {
+      if (event.clientY - yVal > 0) {
+        follower.classList.remove('up')
+        follower.classList.add('down')
+      }
+      else {
+        follower.classList.remove('down')
+        follower.classList.add('up')
+      }
+    }
+
+    xVal = event.clientX;
+    yVal = event.clientY;
+
+    // Вычисление расстояния от исходной позиции до текущих координат курсора, ограниченное радиусом
+    const distance = Math.sqrt(dx * dx + dy * dy);
+    const limitedDistance = Math.min(distance, radius);
+
+    // Вычисление направления движения курсора
+    const angle = Math.atan2(dy, dx);
+
+    // Вычисление целевых координат элемента
+    targetX = currentX + Math.cos(angle) * limitedDistance;
+    targetY = currentY + Math.sin(angle) * limitedDistance;
+  });
+
+
+  // Функция анимации элемента
+  function animate() {
+    // Вычисление расстояния между текущими и целевыми координатами
+    const dx = targetX - currentX;
+    const dy = targetY - currentY;
+
+    // Вычисление расстояния для сглаживания
+    const vx = dx * inertia;
+    const vy = dy * inertia;
+
+    // Обновление текущих координат элемента
+    currentX += vx;
+    currentY += vy;
+
+    // Применение новых координат к элементу
+    followerShadow.style.transform = `translate3d(${currentX - 50}px, ${currentY - 35}px, 0)`;
+
+    // Рекурсивный вызов функции анимации
+    requestAnimationFrame(animate);
+  }
+  animate()
+
+  document.querySelectorAll('.btn').forEach(el => el.addEventListener('mouseenter', () => {
+    isCursorChangeDisable = true
+    follower.classList.add('pointer')
+  }))
+  document.querySelectorAll('.btn').forEach(el => el.addEventListener('mouseleave', () => {
+    isCursorChangeDisable = false
+    follower.classList.remove('pointer')
+  }))
+
+
   const menu = document.querySelector('.menu')
   const callUserNameWrapper = document.querySelector('#call-name')
   const callUserPhoneWrapper = document.querySelector('#call-phone')

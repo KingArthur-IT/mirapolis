@@ -179,6 +179,7 @@ function mainScroll(delta, scrollDirection) {
     if (scrollYVal + delta > aboutBeakpoint.value - window.innerHeight && !aboutBeakpoint.isPassed && scrollDirection > 0) {
         setTransform('main', aboutBeakpoint.value - window.innerHeight)
         isReturn = true
+        document.querySelector('#cursor').classList.add('scroll')
         disableWheel(1000)
         document.querySelector('.about').querySelectorAll('.anim-item').forEach(el => el.classList.add('anim-active'))
         setTimeout(() => {
@@ -189,6 +190,7 @@ function mainScroll(delta, scrollDirection) {
     if (scrollYVal + delta < aboutBeakpoint.value - window.innerHeight && aboutBeakpoint.isPassed && scrollDirection < 0) {
         setTransform('main', aboutBeakpoint.value - window.innerHeight)
         isReturn = true
+        document.querySelector('#cursor').classList.add('scroll')
         isAboutSliderScrolling = true
         disableWheel(500)
     }
@@ -277,6 +279,7 @@ function aboutSectionWheel(scrollDirection) {
         } else {
             setTimeout(() => {
                 isAboutSliderScrolling = false
+                document.querySelector('#cursor').classList.remove('scroll')
                 aboutBeakpoint.isPassed = true
             }, 500);
         }
@@ -286,6 +289,7 @@ function aboutSectionWheel(scrollDirection) {
     } else {
         setTimeout(() => {
             isAboutSliderScrolling = false
+            document.querySelector('#cursor').classList.remove('scroll')
             aboutBeakpoint.isPassed = false
             hideFullScreenAnimation()
             setTransform('main', buildingBreakpoint)

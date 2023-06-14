@@ -7,6 +7,7 @@ $secondary-color: #EFA7E8
   box-sizing: border-box
   margin: 0
   padding: 0
+  cursor: none !important
 
 ul
   list-style: none
@@ -27,6 +28,7 @@ main
   overflow-x: hidden
   background: transparent
   color: $primary-color
+  cursor: url('../assets/cursor/down.svg'), auto
   &.smooth
     transition: transform .3s ease-out, background 1s ease-in-out, color .5s ease-in-out
   &.showMenu
@@ -116,6 +118,39 @@ picture img
   pointer-events: none
 .overflow-hidden
   overflow: hidden
+
+#cursor
+  position: fixed
+  width: 80px
+  height: 72px
+  z-index: 999
+  transform: translate(-50%, -50%)
+  pointer-events: none
+  transition: background .3s ease
+  &.up
+    background: url('../assets/cursor/up.svg') no-repeat
+    background-size: cover
+  &.down
+    background: url('../assets/cursor/down.svg') no-repeat
+    background-size: cover
+  &.scroll
+    background: url('../assets/cursor/scroll.svg') no-repeat !important
+    background-size: cover
+  &.pointer
+    background: url('../assets/cursor/pointer.svg') no-repeat !important
+    background-size: cover
+#cursor-shadow
+    position: fixed
+    width: 100px
+    height: 70px
+    left: 0px
+    top: 0px
+    background: #7C84F3
+    filter: blur(25px)
+    z-index: 900
+    pointer-events: none
+    transform: translate(-50%, -50%)
+    transition: transform .2s linear
 
 @media screen and (max-width: 1340px)
   .container
