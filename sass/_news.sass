@@ -1,0 +1,80 @@
+.news
+    &__container
+        display: flex
+    &__title-wrapper
+        overflow: hidden
+        height: fit-content
+        margin-bottom: 40px
+    &__title
+        font-weight: 400
+        font-size: 90px
+        line-height: 105%
+        letter-spacing: -0.025em
+        transform: translateY(100%)
+        &.anim-active
+            transform: translateY(0%)
+    &__controls
+        display: flex
+    &__btn
+        height: 48px
+        padding: 0 16px
+        background: $primary-color
+        color: #fff
+        font-weight: 500
+        font-size: 20px
+        margin-right: 20px
+        & span
+            z-index: 2
+            transition: color .3s ease-out
+        &:hover
+            background: transparent
+            & span
+                color: $primary-color
+        &::before
+            z-index: 0
+        &.active
+            & span
+                color: $primary-color
+            &::before
+                opacity: 1
+    &__right
+        max-width: 710px
+        margin: 0 auto
+    &__img
+        margin-right: 40px
+    &__item
+        padding: 20px
+        display: flex
+        align-items: center
+    &__date
+        font-family: 'GT Pressura Mono'
+        font-weight: 400
+        font-size: 20px
+        line-height: 125%
+        margin-bottom: 15px
+    &__name
+        font-weight: 400
+        font-size: 25px
+        line-height: 105%
+        letter-spacing: -0.025em
+        text-decoration-line: underline
+        margin-bottom: 15px
+    &__text
+        font-family: 'GT Pressura Mono'
+        font-weight: 400
+        font-size: 20px
+        line-height: 125%
+        letter-spacing: -0.025em
+        display: -webkit-box
+        -webkit-line-clamp: 3
+        -webkit-box-orient: vertical
+        overflow: hidden
+        text-overflow: ellipsis
+        max-width: 360px
+    &__more
+        margin-top: 20px
+        height: 48px
+        padding: 0 16px
+        font-weight: 500
+        font-size: 20px
+        letter-spacing: -0.025em

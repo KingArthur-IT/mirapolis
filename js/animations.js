@@ -41,17 +41,20 @@ function scrollEvent() {
     scrollDirection = Math.sign(newScrollVal - currentScrollValue)
     currentScrollValue = newScrollVal
 
-    buildingParallaxEffect()
+    console.log(currentScrollValue);
+
+    // buildingParallaxEffect()
     headerEffects()
     fullScreenAnimation()
     animOnScroll()
-    changeBgColor()
+    // changeBgColor()
+    // aboutAnimation()
     
 }
 
 function buildingParallaxEffect() {
     if (currentScrollValue < buildingBreakpoint) {
-        if (currentScrollValue % 10 === 0)
+        if (currentScrollValue % 2 === 0)
             document.querySelector('.parallax__building').style.marginTop = `${ currentScrollValue }px`
     }
 }
@@ -157,4 +160,24 @@ function splitText(item) {
     setTimeout(() => {
         item.classList.add('anim-active')
     }, 100);
+}
+
+// --------------------------------------------------------------------
+
+function aboutAnimation() {
+    const section = document.querySelector('.about__hero')
+    const offset = topOffset(section)
+    const animStartPoint = window.innerHeight / 4
+
+    if (offset < animStartPoint){ // && offset > -section.clientHeight) {
+        console.log(offset);
+        const scaleVal = -0.2 * (offset - animStartPoint) / section.clientHeight + 1
+        const translateYVal = 1000 * (offset - animStartPoint) / section.clientHeight
+        section.querySelectorAll('.about__img img').forEach(el => {
+            el.style.transform = `scale(${scaleVal})`
+        })
+        section.querySelectorAll('.about__img').forEach((el, i) => {
+            el.style.transform = `translateY(${translateYVal }px)` //+ translateYVal * (3 - i) * 2
+        })
+    }
 }

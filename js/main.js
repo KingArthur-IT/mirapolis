@@ -90,8 +90,8 @@ document.addEventListener("DOMContentLoaded", () => {
 
 
   const menu = document.querySelector('.menu')
-  const callUserNameWrapper = document.querySelector('#call-name')
-  const callUserPhoneWrapper = document.querySelector('#call-phone')
+  const callUserNameWrapper = document.querySelectorAll('.call-name')
+  const callUserPhoneWrapper = document.querySelectorAll('.call-phone')
 
   // --- burger ---
   document.querySelector('.header__burger').addEventListener('click', (e) => {
@@ -123,50 +123,60 @@ document.addEventListener("DOMContentLoaded", () => {
 
   // --- call me form ---
   //call me name input focus
-  callUserNameWrapper.querySelector('input').addEventListener('focus', () => callUserNameWrapper.classList.add('focus'))
-  callUserNameWrapper.querySelector('input').addEventListener('blur', (e) => {
-    if (!e.target.value)
-      callUserNameWrapper.classList.remove('focus')
+  callUserNameWrapper.forEach(el => {
+    el.querySelector('input').addEventListener('focus', () => el.classList.add('focus'))
+  }) 
+  callUserNameWrapper.forEach(el => {
+    el.querySelector('input').addEventListener('blur', (e) => {
+      if (!e.target.value)
+        el.classList.remove('focus')
+    })
   })
 
   //call me phone input focus
-  callUserPhoneWrapper.querySelector('input').addEventListener('focus', () => {
-    callUserPhoneWrapper.querySelector('label').innerHTML = 'Ваш телефон'
-    callUserPhoneWrapper.classList.add('focus')
+  callUserPhoneWrapper.forEach(el => {
+    el.querySelector('input').addEventListener('focus', () => {
+      el.querySelector('label').innerHTML = 'Ваш телефон'
+      el.classList.add('focus')
+    })
   })
-  callUserPhoneWrapper.querySelector('input').addEventListener('blur', (e) => {
-    if (!e.target.value) {
-      callUserPhoneWrapper.querySelector('label').innerHTML = '+7 (___) ___ - __ - __'
-      callUserPhoneWrapper.classList.remove('focus')
-    }
+  callUserPhoneWrapper.forEach(el => {
+    el.querySelector('input').addEventListener('blur', (e) => {
+      if (!e.target.value) {
+        el.querySelector('label').innerHTML = '+7 (___) ___ - __ - __'
+        el.classList.remove('focus')
+      }
+    })
   })
   //call me phone validation
-  callUserPhoneWrapper.querySelector('input').addEventListener('input', () => {
-    const value = callUserPhoneWrapper.querySelector('input').value.replace(/\D+/g, "");
-    const numberLength = 11;
-    let result = '+';
-
-    for (let i = 0; i < value.length && i < numberLength; i++) {
-        switch (i) {
-        case 0:
-            result += '7 ('
-            continue;
-        case 4:
-            result += ") ";
-            break;
-        case 7:
-            result += "-";
-            break;
-        case 9:
-            result += "-";
-            break;
-        default:
-            break;
-        }
-        result += value[i];
-    }
-
-    callUserPhoneWrapper.querySelector('input').value = result;
+  callUserPhoneWrapper.forEach(el => {
+    el.querySelector('input').addEventListener('input', () => {
+      const value = el.querySelector('input').value.replace(/\D+/g, "");
+      const numberLength = 11;
+      let result = '+';
+  
+      for (let i = 0; i < value.length && i < numberLength; i++) {
+          switch (i) {
+          case 0:
+              result += '7 ('
+              continue;
+          case 4:
+              result += ") ";
+              break;
+          case 7:
+              result += "-";
+              break;
+          case 9:
+              result += "-";
+              break;
+          default:
+              break;
+          }
+          result += value[i];
+      }
+  
+      el.querySelector('input').value = result;
+    })
   })
 
   //close call me form
@@ -231,4 +241,16 @@ document.addEventListener("DOMContentLoaded", () => {
   //     video.play();
   //   });
   // }
+
+  const moreButton = document.querySelector('.news__more');
+  const newsWrapper = document.querySelector('.news__wrapper');
+
+  function copyAndAppendNewsItem() {
+    const newsItem = document.querySelector('.news__item');
+    const clonedNewsItem = newsItem.cloneNode(true);
+    newsWrapper.appendChild(clonedNewsItem);
+  }
+
+  moreButton.addEventListener('click', copyAndAppendNewsItem);
+
 });

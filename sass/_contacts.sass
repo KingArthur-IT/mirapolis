@@ -1,1 +1,130 @@
 .contacts
+    margin: 85px 0
+    &__container
+        padding: 40px 0
+        max-width: 1386px
+        margin: 0 auto
+    &__content
+        background: $primary-color
+        border-radius: 20px
+        padding: 20px
+    &__title
+        font-weight: 400
+        font-size: 90px
+        line-height: 105%
+        letter-spacing: -0.025em
+        color: #FFFFFF
+        margin-bottom: 80px
+    &__hero
+        margin-bottom: 20px
+        display: flex
+        align-items: center
+        justify-content: center
+    &__socials
+        display: flex
+        align-items: center
+        margin-right: 25px
+    &__social
+        padding: 0 10px
+        & a
+            background: #fff
+            border-radius: 300px
+            display: flex
+            align-items: center
+            justify-content: center
+            width: 64px
+            height: 48px
+            & svg
+                z-index: 2
+            &:hover
+                background: transparent
+                & svg path
+                    stroke: $primary-color
+                    fill: $primary-color
+            &::before
+                z-index: 0
+    &__form
+        display: flex
+        align-items: center
+        justify-content: center
+        .input-wrapper
+            width: 100%
+            position: relative
+            display: block
+            padding: 0 5px
+            & input
+                border-radius: 20px
+                width: 100%
+                height: 48px
+                font-family: 'Coil'
+                font-size: 20px
+                letter-spacing: -0.025em
+                color: $primary-color
+                padding: 0 16px
+                outline: none
+                caret-color: $primary-color
+                border: none
+            & label
+                position: absolute
+                font-size: 20px
+                letter-spacing: -0.025em
+                color: #8A8A8A
+                left: 14px
+                top: 10px
+                background: transparent
+                padding: 2px
+                pointer-events: none
+                transition: top .3s ease-out, color .3s ease-out, font-size .3s ease-out, background .1s ease-out .3s
+                z-index: 1
+                background: #fff
+            &.focus label
+                transition: top .3s ease-out, color .3s ease-out, font-size .3s ease-out
+                background: transparent
+                color: #fff
+                font-size: 12px
+                top: -20px
+            & .active-style
+                position: absolute
+                background: transparent
+                border: 2px dashed #88FBE6
+                top: -2px
+                bottom: -2px
+                left: -2px
+                right: -2px
+                border-radius: 20px
+                pointer-events: none
+                opacity: 0
+                transition: opacity .1s ease-out
+                z-index: 0
+            & input.active + .active-style
+                opacity: 1
+        .submit
+            background: $secondary-color
+            border-radius: 300px
+            width: 100%
+            height: 48px
+            display: flex
+            align-items: center
+            justify-content: center
+            color: $primary-color
+            font-size: 20px
+            transition: background .3s ease-out
+            & span
+                z-index: 2
+                transition: color .3s ease-out
+            &:hover
+                background: transparent
+                & span
+                    color: $primary-color
+            &::before
+                z-index: 0
+    &__footer
+        font-weight: 500
+        font-size: 14px
+        line-height: 110%
+        letter-spacing: -0.025em
+        color: #FFFFFF
+        text-align: center
+        & a
+            color: #fff
+            text-decoration: underline

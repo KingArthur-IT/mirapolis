@@ -21,18 +21,17 @@
         &.anim-active
             transform: translateY(0%)
     &__hero
-        min-height: 100vh
+        position: relative
         display: flex
         justify-content: space-between
         margin-top: 80px
-        overflow: hidden
-        height: 600px
         padding: 2px 0
     &__content
         display: flex
         flex-direction: column
         justify-content: space-between
         padding: 80px 0
+        height: 100vh
     &__btn
         width: 188px
         height: 48px
@@ -60,13 +59,6 @@
         &.anim-active
             transform: translateY(0px)
             opacity: 1
-    &__slider-wrapper
-        overflow: hidden
-        padding-right: 20px
-        &.anim-active
-            & .about__img
-                transform: translateY(0px)
-                opacity: 1
     &__slider
         display: flex
         flex-direction: column
@@ -78,16 +70,9 @@
         border-radius: 20px
         margin-bottom: 20px
         overflow: hidden
-        transition: height 1s ease .2s, margin .5s ease-in-out
-        &.hide
-            height: 0
-            margin-bottom: 0
-            transition: height 1s ease-in-out, margin 1.3s ease-out
-        &.hide
-            & img
-                transform: scale(1)
-                transition: transform 2s ease-in-out
+        transition: transform .4s ease-out
         & img
+            border-radius: 20px
             width: 710px
             height: 450px
             width: 100%
@@ -97,7 +82,7 @@
             right: 0
             margin-bottom: -4px
             transform: scale(1.2)
-            transition: transform 1s ease .3s
+            transition: transform .4s ease-out
 
 @media screen and (max-width: 1440px)
     .about
