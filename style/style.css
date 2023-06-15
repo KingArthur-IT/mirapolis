@@ -63,13 +63,6 @@ main {
   overflow-x: hidden;
 }
 
-main.smooth {
-  -webkit-transition: background 1s ease-in-out, color .5s ease-in-out, -webkit-transform .3s ease-out;
-  transition: background 1s ease-in-out, color .5s ease-in-out, -webkit-transform .3s ease-out;
-  transition: transform .3s ease-out, background 1s ease-in-out, color .5s ease-in-out;
-  transition: transform .3s ease-out, background 1s ease-in-out, color .5s ease-in-out, -webkit-transform .3s ease-out;
-}
-
 main.showMenu {
   -webkit-transition: -webkit-transform 1s cubic-bezier(0.38, 0.84, 0.52, 0.99);
   transition: -webkit-transform 1s cubic-bezier(0.38, 0.84, 0.52, 0.99);
@@ -98,6 +91,7 @@ picture img {
 
 .section {
   width: 100%;
+  padding: 85px 0;
 }
 
 .btn {
@@ -2910,6 +2904,194 @@ picture img {
   }
 }
 
+.plannings__container {
+  padding: 40px 0;
+}
+
+.plannings__title-wrapper {
+  overflow: hidden;
+  height: -webkit-fit-content;
+  height: -moz-fit-content;
+  height: fit-content;
+  margin-bottom: 40px;
+  width: -webkit-fit-content;
+  width: -moz-fit-content;
+  width: fit-content;
+  margin: 0 auto;
+}
+
+.plannings__title {
+  font-weight: 400;
+  font-size: 90px;
+  line-height: 105%;
+  letter-spacing: -0.025em;
+  -webkit-transform: translateY(100%);
+          transform: translateY(100%);
+  text-align: center;
+}
+
+.plannings__title.anim-active {
+  -webkit-transform: translateY(0%);
+          transform: translateY(0%);
+}
+
+.plannings__controls {
+  margin-top: 40px;
+  margin-bottom: 80px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+}
+
+.plannings__btn {
+  height: 48px;
+  padding: 0 16px;
+  background: #EFA7E8;
+  border: none;
+  font-weight: 500;
+  font-size: 20px;
+  margin-right: 40px;
+  -webkit-transition: background .3s ease-out;
+  transition: background .3s ease-out;
+}
+
+.plannings__btn span {
+  z-index: 2;
+}
+
+.plannings__btn svg {
+  z-index: 2;
+}
+
+.plannings__btn:hover {
+  background: transparent;
+}
+
+.plannings__btn::before {
+  z-index: 0;
+}
+
+.plannings__slider-btns {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+}
+
+.plannings__slider-btns .controls__item {
+  width: 52px;
+  height: 40px;
+  border-radius: 300px;
+  background: #404040;
+  margin-right: 20px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  cursor: pointer;
+  -webkit-transition: -webkit-transform .5s ease-out;
+  transition: -webkit-transform .5s ease-out;
+  transition: transform .5s ease-out;
+  transition: transform .5s ease-out, -webkit-transform .5s ease-out;
+}
+
+.plannings__slider-btns .controls__item::before {
+  z-index: 0;
+}
+
+.plannings__slider-btns .controls__item:hover svg path {
+  fill: #404040;
+}
+
+.plannings__slider-btns .controls__item:active {
+  background: transparent;
+}
+
+.plannings__slider-btns .controls__item.left svg {
+  -webkit-transform: translateX(-2px);
+          transform: translateX(-2px);
+}
+
+.plannings__slider-btns .controls__item.right svg {
+  -webkit-transform: translateX(1px);
+          transform: translateX(1px);
+}
+
+.plannings__cards {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: stretch;
+      -ms-flex-align: stretch;
+          align-items: stretch;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+}
+
+.plannings__card-wrap {
+  padding: 0 10px;
+}
+
+.plannings__card {
+  min-width: 282px;
+  border-radius: 20px;
+  background: #404040;
+  padding: 20px;
+  color: #FFFFFF;
+  -webkit-transition: color .3s ease-in-out, background .3s ease-in-out;
+  transition: color .3s ease-in-out, background .3s ease-in-out;
+}
+
+.plannings__card:hover {
+  background: #EFA7E8;
+  color: #404040;
+}
+
+.plannings__card:hover svg path {
+  fill: #404040;
+}
+
+.plannings__icon {
+  margin-bottom: 80px;
+}
+
+.plannings__icon svg path {
+  -webkit-transition: fill .3s ease-in-out;
+  transition: fill .3s ease-in-out;
+}
+
+.plannings__name {
+  font-size: 40px;
+  line-height: 105%;
+  margin-bottom: 15px;
+}
+
+.plannings__text {
+  font-family: 'GT Pressura Mono';
+  font-weight: 400;
+  font-size: 20px;
+  line-height: 125%;
+}
+
+.plannings__cards .owl-stage {
+  margin-left: calc(320px);
+}
+
+.services__container {
+  padding: 40px 0;
+}
+
 .services__title-wrapper {
   overflow: hidden;
   height: -webkit-fit-content;
@@ -2938,10 +3120,173 @@ picture img {
           transform: translateY(0%);
 }
 
+.services__controls {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  margin-bottom: 80px;
+}
+
+.services__btn {
+  height: 48px;
+  padding: 0 16px;
+  margin: 0 10px;
+  font-weight: 500;
+  font-size: 20px;
+}
+
+.services__consult {
+  background: #404040;
+  -webkit-transition: background .3s ease;
+  transition: background .3s ease;
+}
+
+.services__consult span {
+  color: #fff;
+  z-index: 2;
+  -webkit-transition: color .3s ease-out;
+  transition: color .3s ease-out;
+}
+
+.services__consult:hover {
+  background: transparent;
+}
+
+.services__consult:hover span {
+  color: #404040;
+}
+
+.services__consult::before {
+  z-index: 0;
+}
+
+.services__cards {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: stretch;
+      -ms-flex-align: stretch;
+          align-items: stretch;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+}
+
+.services__card-wrap {
+  padding: 0 10px;
+}
+
+.services__card {
+  min-width: 420px;
+  border-radius: 20px;
+  background: #404040;
+  padding: 20px;
+  color: #FFFFFF;
+  -webkit-transition: color .3s ease-in-out, background .3s ease-in-out;
+  transition: color .3s ease-in-out, background .3s ease-in-out;
+}
+
+.services__card:hover {
+  background: #EFA7E8;
+  color: #404040;
+}
+
+.services__card:hover svg path {
+  fill: #404040;
+}
+
+.services__icon {
+  margin-bottom: 80px;
+}
+
+.services__icon svg path {
+  -webkit-transition: fill .3s ease-in-out;
+  transition: fill .3s ease-in-out;
+}
+
+.services__name {
+  font-size: 40px;
+  line-height: 105%;
+  margin-bottom: 15px;
+}
+
+.services__text {
+  font-family: 'GT Pressura Mono';
+  font-weight: 400;
+  font-size: 20px;
+  line-height: 125%;
+}
+
+.team__container {
+  padding: 40px 0;
+}
+
+.team__title-wrapper {
+  overflow: hidden;
+  height: -webkit-fit-content;
+  height: -moz-fit-content;
+  height: fit-content;
+  margin-bottom: 40px;
+  width: -webkit-fit-content;
+  width: -moz-fit-content;
+  width: fit-content;
+  margin: 0 auto;
+  margin-bottom: 170px;
+}
+
+.team__title {
+  font-weight: 400;
+  font-size: 90px;
+  line-height: 105%;
+  letter-spacing: -0.025em;
+  -webkit-transform: translateY(100%);
+          transform: translateY(100%);
+  text-align: center;
+}
+
+.team__title.anim-active {
+  -webkit-transform: translateY(0%);
+          transform: translateY(0%);
+}
+
+.team__list {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+}
+
+.team__item-wrap:nth-child(2) {
+  margin: 0 200px;
+}
+
+.team__logo {
+  margin-bottom: 20px;
+}
+
+.team__logo svg {
+  display: block;
+  margin: 0 auto;
+}
+
+.team__text {
+  font-size: 25px;
+  text-align: center;
+}
+
 .news__container {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
+  padding: 40px 0;
 }
 
 .news__title-wrapper {
@@ -2980,6 +3325,8 @@ picture img {
   font-weight: 500;
   font-size: 20px;
   margin-right: 20px;
+  -webkit-transition: background .3s ease;
+  transition: background .3s ease;
 }
 
 .news__btn span {
@@ -3066,10 +3413,6 @@ picture img {
   font-weight: 500;
   font-size: 20px;
   letter-spacing: -0.025em;
-}
-
-.contacts {
-  margin: 85px 0;
 }
 
 .contacts__container {

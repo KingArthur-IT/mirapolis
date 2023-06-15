@@ -90,4 +90,25 @@ $(document).ready(function(){
     const index = e.item.index % 2 === 0 ? 1 : 2
     document.querySelector('.controls__label').innerHTML = 'Камера ' + index
   });
+
+
+  //planning
+  var planningOwl = $('.plannings__cards').owlCarousel({
+    loop: false,
+    autoplay: false,
+    slideTransition: 'ease-in-out',
+    smartSpeed: 1000,
+    autoplayTimeout: 2000,
+    autoplaySpeed: 2000,
+    nav: false,
+    dots: false,
+    items: 5.3,
+  });
+
+  $('.plannings__slider-btns .controls__item.left').click(function() {
+    planningOwl.trigger('prev.owl.carousel');
+  })
+  $('.plannings__slider-btns .controls__item.right').click(function() {
+    planningOwl.trigger('next.owl.carousel');
+  })
 });

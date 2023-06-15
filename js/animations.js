@@ -41,8 +41,6 @@ function scrollEvent() {
     scrollDirection = Math.sign(newScrollVal - currentScrollValue)
     currentScrollValue = newScrollVal
 
-    console.log(currentScrollValue);
-
     // buildingParallaxEffect()
     headerEffects()
     fullScreenAnimation()
