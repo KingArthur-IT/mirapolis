@@ -25,5 +25,5 @@ ScrollTrigger.create({
   end: () => `bottom bottom`,
   pin: '.about__content',
   pinSpacing: false, 
-  markers: true, 
+  markers: false, 
 });

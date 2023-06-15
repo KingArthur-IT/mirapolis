@@ -1,1 +1,166 @@
-// .gallery
+.gallery
+    &__container
+        padding: 40px 0
+    &__title-wrapper
+        overflow: hidden
+        height: fit-content
+        margin-bottom: 40px
+        width: fit-content
+        margin: 0 auto
+        margin-bottom: 40px
+    &__title
+        font-weight: 400
+        font-size: 90px
+        line-height: 105%
+        letter-spacing: -0.025em
+        transform: translateY(100%)
+        text-align: center
+        &.anim-active
+            transform: translateY(0%)
+    &__btns
+        display: flex
+        justify-content: center
+        align-items: center
+        margin-bottom: 80px
+    &__btn
+        height: 48px
+        padding: 0 16px
+        background: $primary-color
+        color: #fff
+        font-weight: 500
+        font-size: 20px
+        margin: 0 10px
+        transition: background .3s ease
+        & span
+            z-index: 2
+            transition: color .3s ease-out
+        &:hover
+            background: transparent
+            & span
+                color: $primary-color
+        &::before
+            z-index: 0
+        &.active
+            & span
+                color: $primary-color
+            &::before
+                opacity: 1
+    &__details
+        opacity: 0
+        position: absolute
+        bottom: 20px
+        right: 20px
+        border: 2px solid #fff
+        color: #fff
+        height: 40px
+        padding: 0 10px
+        font-weight: 500
+        font-size: 18px
+        transition: opacity 1s ease-in-out
+        & span
+            z-index: 2
+            transition: color .3s ease-out
+        & svg
+            margin-left: 14px
+            z-index: 2
+            & path
+                transition: fill .3s ease-in-out
+        &:hover
+            background: transparent
+            & span
+                color: $primary-color
+            & svg path
+                fill: $primary-color
+        &::before
+            z-index: 0
+
+.gallery-carousel__wrapper
+    position: relative
+    & .controls
+        position: absolute
+        top: 50%
+        left: 200px
+        display: flex
+        flex-direction: column
+        align-items: center
+        padding: 2px 0
+        transform: translateY(-50%)
+        &__item
+            width: 52px
+            height: 40px
+            border-radius: 300px
+            background: $primary-color
+            margin: 10px 0
+            display: flex
+            align-items: center
+            justify-content: center
+            cursor: pointer
+            transition: transform .5s ease-out
+            &::before
+                z-index: 0
+            &:hover
+              & svg path
+                  fill: $primary-color
+            &:active
+              background: transparent  
+            &.left svg
+                transform: translateX(-2px)
+            &.right svg
+                transform: translateX(1px)
+
+.gallery-carousel
+    &.anim-active
+        & .gallery-carousel__img-wrapper::after
+            bottom: 100%
+        & .gallery-carousel__label
+            transform: translateY(0)
+        & .gallery-carousel__footer
+            transform: translateY(0)
+            opacity: 1
+    &__item-wrapper
+        position: relative
+        padding: 50px 30px
+        transform: scale(1)
+        transition: padding 1s ease-in-out, transform 1s ease-in-out
+    &__item
+        position: relative
+        margin: 0 auto
+        transition: all 1s ease-in-out
+    &__img-wrapper
+        width: 100%
+        border-radius: 20px
+        overflow: hidden
+        position: relative
+        &::after
+            content: ''
+            position: absolute
+            left: 0
+            right: 0
+            top: 0
+            bottom: 0%
+            background: #fff
+            transition: bottom 1.5s ease-in-out
+    &__img
+        width: 100%
+        & img
+            width: 100%
+            height: 100%
+
+.gallery-carousel 
+    margin-left: 250px
+    & .owl-stage
+        display: flex
+        & .gallery-carousel__item-wrapper
+            height: 100%
+            & .gallery-carousel__item
+                height: 100%
+    & .owl-item.active
+        &.center
+            & .gallery-carousel__item-wrapper
+                padding: 20px 0
+                transform: scale(1.1)
+            & .gallery__details
+                opacity: 1
+        &.right
+            & .gallery-carousel__item-wrapper
+                transform: translateX(-40px)

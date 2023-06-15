@@ -111,4 +111,44 @@ $(document).ready(function(){
   $('.plannings__slider-btns .controls__item.right').click(function() {
     planningOwl.trigger('next.owl.carousel');
   })
+
+  //gallery
+  var galleryOwl = $('.gallery-carousel').owlCarousel({
+    loop: true,
+    autoplay: false,
+    slideTransition: 'ease-in-out',
+    smartSpeed: 1000,
+    autoplayTimeout: 2000,
+    autoplaySpeed: 2000,
+    nav: false,
+    dots: false,
+    items: 4,
+    center: false,
+    onInitialized: function(event) {
+      $(event.target).find(".owl-item.active").eq(1).addClass("center");
+      $(event.target).find(".owl-item.active").eq(3).addClass("right");
+    },
+  });
+
+  $('.gallery-carousel').on('changed.owl.carousel', (e) => {
+    setTimeout(() => {
+      $('.gallery-carousel .owl-item.active').each(function(i) {
+        $( this ).removeClass('center')
+        $( this ).removeClass('right')
+
+        if (i === 1)
+          $( this ).addClass('center')
+        if (i === 3)
+          $( this ).addClass('right')
+      })
+    }, 10);
+  });
+
+  $('.gallery-carousel__wrapper .controls__item.left').click(function() {
+    galleryOwl.trigger('next.owl.carousel');
+  })
+  $('.gallery-carousel__wrapper .controls__item.right').click(function() {
+    galleryOwl.trigger('prev.owl.carousel');
+  })
+
 });
