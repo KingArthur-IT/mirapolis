@@ -54,15 +54,9 @@ body {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   -ms-overflow-style: none;
-  scrollbar-width: none;
-}
-
-body::-webkit-scrollbar {
-  display: none;
 }
 
 main {
-  overflow-x: hidden;
   background: transparent;
   color: #404040;
   cursor: url("../assets/cursor/down.svg"), auto;
