@@ -61,6 +61,8 @@ main {
   color: #404040;
   cursor: url("../assets/cursor/down.svg"), auto;
   overflow-x: hidden;
+  -webkit-transition: background 1s ease-in-out, color .3s ease-in-out;
+  transition: background 1s ease-in-out, color .3s ease-in-out;
 }
 
 main.showMenu {
@@ -1798,6 +1800,10 @@ picture img {
   line-height: 105%;
   letter-spacing: -0.025em;
   color: #404040;
+  -webkit-transition: -webkit-transform 1s ease-in-out;
+  transition: -webkit-transform 1s ease-in-out;
+  transition: transform 1s ease-in-out;
+  transition: transform 1s ease-in-out, -webkit-transform 1s ease-in-out;
 }
 
 .about__title.anim-active {
@@ -2060,6 +2066,10 @@ picture img {
   letter-spacing: -0.025em;
   -webkit-transform: translateY(100%);
           transform: translateY(100%);
+  -webkit-transition: -webkit-transform 1s ease-in-out;
+  transition: -webkit-transform 1s ease-in-out;
+  transition: transform 1s ease-in-out;
+  transition: transform 1s ease-in-out, -webkit-transform 1s ease-in-out;
 }
 
 .places__title.anim-active {
@@ -2929,6 +2939,10 @@ picture img {
   -webkit-transform: translateY(100%);
           transform: translateY(100%);
   text-align: center;
+  -webkit-transition: -webkit-transform 1s ease-in-out;
+  transition: -webkit-transform 1s ease-in-out;
+  transition: transform 1s ease-in-out;
+  transition: transform 1s ease-in-out, -webkit-transform 1s ease-in-out;
 }
 
 .gallery__title.anim-active {
@@ -3219,6 +3233,10 @@ picture img {
   -webkit-transform: translateY(100%);
           transform: translateY(100%);
   text-align: center;
+  -webkit-transition: -webkit-transform 1s ease-in-out;
+  transition: -webkit-transform 1s ease-in-out;
+  transition: transform 1s ease-in-out;
+  transition: transform 1s ease-in-out, -webkit-transform 1s ease-in-out;
 }
 
 .advantages__title.anim-active {
@@ -3295,6 +3313,10 @@ picture img {
   letter-spacing: -0.025em;
   -webkit-transform: translateY(100%);
           transform: translateY(100%);
+  -webkit-transition: -webkit-transform 1s ease-in-out;
+  transition: -webkit-transform 1s ease-in-out;
+  transition: transform 1s ease-in-out;
+  transition: transform 1s ease-in-out, -webkit-transform 1s ease-in-out;
 }
 
 .appartments__title.anim-active {
@@ -3478,6 +3500,10 @@ picture img {
   -webkit-transform: translateY(100%);
           transform: translateY(100%);
   text-align: center;
+  -webkit-transition: -webkit-transform 1s ease-in-out;
+  transition: -webkit-transform 1s ease-in-out;
+  transition: transform 1s ease-in-out;
+  transition: transform 1s ease-in-out, -webkit-transform 1s ease-in-out;
 }
 
 .plannings__title.anim-active {
@@ -3665,6 +3691,10 @@ picture img {
   -webkit-transform: translateY(100%);
           transform: translateY(100%);
   text-align: center;
+  -webkit-transition: -webkit-transform 1s ease-in-out;
+  transition: -webkit-transform 1s ease-in-out;
+  transition: transform 1s ease-in-out;
+  transition: transform 1s ease-in-out, -webkit-transform 1s ease-in-out;
 }
 
 .services__title.anim-active {
@@ -3800,6 +3830,10 @@ picture img {
   -webkit-transform: translateY(100%);
           transform: translateY(100%);
   text-align: center;
+  -webkit-transition: -webkit-transform 1s ease-in-out;
+  transition: -webkit-transform 1s ease-in-out;
+  transition: transform 1s ease-in-out;
+  transition: transform 1s ease-in-out, -webkit-transform 1s ease-in-out;
 }
 
 .team__title.anim-active {
@@ -3856,6 +3890,10 @@ picture img {
   letter-spacing: -0.025em;
   -webkit-transform: translateY(100%);
           transform: translateY(100%);
+  -webkit-transition: -webkit-transform 1s ease-in-out;
+  transition: -webkit-transform 1s ease-in-out;
+  transition: transform 1s ease-in-out;
+  transition: transform 1s ease-in-out, -webkit-transform 1s ease-in-out;
 }
 
 .news__title.anim-active {

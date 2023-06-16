@@ -15,9 +15,11 @@ window.addEventListener("load", () => {
     setTimeout(() => {
         document.querySelector('.baner__title').classList.add('shown')
         document.querySelector('.baner__label').classList.add('shown')
-        setTimeout(() => {
-            document.querySelector('.header').classList.add('shown')
-        }, 400);
+        console.log(topOffset(baner));
+        if (topOffset(baner) > -90)
+            setTimeout(() => {
+                document.querySelector('.header').classList.add('shown')
+            }, 400);
         document.querySelector('.baner__hero').classList.add('shown')
         document.querySelector('.parallax').classList.add('shown')
         document.querySelector('.parallax__live').classList.add('shown')
@@ -45,7 +47,7 @@ function scrollEvent() {
     headerEffects()
     fullScreenAnimation()
     animOnScroll()
-    // changeBgColor()
+    changeBgColor()
     aboutAnimation()
     advantagesAnimation()
     
@@ -102,11 +104,16 @@ function headerEffects() {
 //------------------------------------------------------------------
 
 function changeBgColor() {
-    const section = document.querySelector('.map')
-    const offset = topOffset(section)
-    const animStartPoint = window.innerHeight
+    const maxSection = document.querySelector('.map')
+    const maxOffset = topOffset(maxSection)
 
-    if (offset < animStartPoint){ // && offset > -section.clientHeight) {
+    const advSection = document.querySelector('.advantages')
+    const advOffset = topOffset(advSection)
+    const animStartPoint = window.innerHeight / 2
+
+    if ((maxOffset < animStartPoint && maxOffset > -maxSection.clientHeight + animStartPoint) || 
+        (advOffset < animStartPoint && advOffset > -advSection.clientHeight + animStartPoint)
+    ) {
         document.querySelector('main').classList.add('dark')
         document.querySelector('header').classList.add('dark')
     } else {
@@ -128,19 +135,20 @@ function animOnScroll() {
         const animStartPoint = window.innerHeight
   
         if (animItemOffsetTop < animStartPoint ) {
+            item.classList.add('anim-active')
             //если это не title
-            if (!item.classList.contains('anim-title') && !item.classList.contains('anim-title-active'))
-                item.classList.add('anim-active')
-            //для title
-            else if (!item.classList.contains('anim-title-active') && !item.classList.contains('delay-1')) { //если еще не активная или не вторая строка
-                splitText(item) //добавить анимация слова
-                if (item.classList.contains('about__title')) { //если среагировало на текст в первой строке about то запустить вторую
-                    const secondLine = document.querySelector('.about__title.anim-item.anim-title.delay-1')
-                    setTimeout(() => {
-                        splitText(secondLine)
-                    }, 1000);
-                }
-            }
+            // if (!item.classList.contains('anim-title') && !item.classList.contains('anim-title-active'))
+            //     item.classList.add('anim-active')
+            // //для title
+            // else if (!item.classList.contains('anim-title-active') && !item.classList.contains('delay-1')) { //если еще не активная или не вторая строка
+            //     splitText(item) //добавить анимация слова
+            //     if (item.classList.contains('about__title')) { //если среагировало на текст в первой строке about то запустить вторую
+            //         const secondLine = document.querySelector('.about__title.anim-item.anim-title.delay-1')
+            //         setTimeout(() => {
+            //             splitText(secondLine)
+            //         }, 1000);
+            //     }
+            // }
         }
     }
 }

@@ -98,8 +98,7 @@ document.addEventListener("DOMContentLoaded", () => {
     e.target.classList.toggle('active')
     menu.classList.toggle('active')
     document.querySelector('.header').classList.toggle('disabled')
-    if (window.innerWidth < 768)
-      document.querySelector('body').classList.toggle('overflow-hidden')
+    document.querySelector('body').classList.toggle('overflow-hidden')
     if (menu.classList.contains('active')) { //animation effect
       document.querySelector('main').classList.add('showMenu')
       addTransform('main', -window.innerHeight)
@@ -116,6 +115,7 @@ document.addEventListener("DOMContentLoaded", () => {
   menu.querySelectorAll('.menu__item').forEach(el => {
     el.addEventListener('click', () => {
       document.querySelector('.header__burger').classList.remove('active')
+      document.querySelector('body').classList.remove('overflow-hidden')
       menu.classList.remove('active')
       document.querySelector('.header').classList.toggle('disabled')
     })
@@ -183,12 +183,14 @@ document.addEventListener("DOMContentLoaded", () => {
   const callModal = document.querySelector('.call-modal')
   const closeCallForm = () => {
     callModal.classList.remove('active')
+    document.querySelector('body').classList.remove('overflow-hidden')
   }
   const openCallForm = (title) => {
     callModal.querySelector('.call-modal__form').classList.remove('sended')
     callModal.querySelector('.call-modal__success').classList.remove('active')
     callModal.classList.add('active')
     callModal.querySelector('.call-modal__title').innerHTML = title
+    document.querySelector('body').classList.add('overflow-hidden')
   }
 
   document.querySelectorAll('.call-me-btn').forEach(el => el.addEventListener('click', () => {
@@ -214,6 +216,7 @@ document.addEventListener("DOMContentLoaded", () => {
   //close
   const closeLiveModal = () => {
     liveModal.classList.remove('active')
+    document.querySelector('body').classList.remove('overflow-hidden')
   }
   liveModal.addEventListener('click', closeLiveModal)
   document.querySelector('.live-modal__hero').addEventListener('click', (e) => e.stopPropagation())
