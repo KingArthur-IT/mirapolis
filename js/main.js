@@ -228,6 +228,24 @@ document.addEventListener("DOMContentLoaded", () => {
     document.querySelector('body').classList.add('overflow-hidden')
   }))
 
+
+  //video modal
+  const videoModal = document.querySelector('.video-modal')
+  //close
+  const closeVideoModal = () => {
+    videoModal.classList.remove('active')
+    document.querySelector('body').classList.remove('overflow-hidden')
+  }
+  videoModal.addEventListener('click', closeVideoModal)
+  document.querySelector('.video-modal__hero').addEventListener('click', (e) => e.stopPropagation())
+  document.querySelector('.video-modal__close').addEventListener('click', () => closeVideoModal())
+
+  //open
+  document.querySelectorAll('.show-video-btn').forEach(el => el.addEventListener('click', () => {
+    videoModal.classList.add('active')
+    document.querySelector('body').classList.add('overflow-hidden')
+  }))
+
   //video
   // if (Hls.isSupported()) {
   //   var video = document.getElementById('video1');
