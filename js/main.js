@@ -79,11 +79,13 @@ document.addEventListener("DOMContentLoaded", () => {
   }
   animate()
 
-  document.querySelectorAll('.btn').forEach(el => el.addEventListener('mouseenter', () => {
+  const pointerArr = [...document.querySelectorAll('.btn'), ...document.querySelectorAll('a'), ...document.querySelectorAll('input')]
+
+  pointerArr.forEach(el => el.addEventListener('mouseenter', () => {
     isCursorChangeDisable = true
     follower.classList.add('pointer')
   }))
-  document.querySelectorAll('.btn').forEach(el => el.addEventListener('mouseleave', () => {
+  pointerArr.forEach(el => el.addEventListener('mouseleave', () => {
     isCursorChangeDisable = false
     follower.classList.remove('pointer')
   }))
