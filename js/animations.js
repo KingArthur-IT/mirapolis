@@ -176,16 +176,17 @@ function aboutAnimation() {
     const offset = topOffset(section)
     const animStartPoint = window.innerHeight / 4
 
-    if (offset < animStartPoint){ // && offset > -section.clientHeight) {
+    if (offset < animStartPoint && offset > -section.clientHeight) {
         const scaleVal = -0.1 * (offset - animStartPoint) / section.clientHeight + 1
         // const translateYVal = 1000 * (offset - animStartPoint) / section.clientHeight
         section.querySelectorAll('.about__img img').forEach(el => {
             el.style.transform = `scale(${scaleVal})`
         })
+        document.querySelector('#cursor').classList.add('scroll')
         // section.querySelectorAll('.about__img').forEach((el, i) => {
         //     el.style.transform = `translateY(${translateYVal }px)` //+ translateYVal * (3 - i) * 2
         // })
-    }
+    } else document.querySelector('#cursor').classList.remove('scroll')
 }
 
 function advantagesAnimation() {
@@ -193,14 +194,15 @@ function advantagesAnimation() {
     const offset = topOffset(section)
     const animStartPoint = window.innerHeight / 4
 
-    if (offset < animStartPoint){ // && offset > -section.clientHeight) {
+    if (offset < animStartPoint && offset > -section.clientHeight) {
         const scaleVal = -0.1 * (offset - animStartPoint) / section.clientHeight + 1
         // const translateYVal = 1000 * (offset - animStartPoint) / section.clientHeight
         section.querySelectorAll('.advantages__img img').forEach(el => {
             el.style.transform = `scale(${scaleVal})`
         })
+        // document.querySelector('#cursor').classList.add('scroll')
         // section.querySelectorAll('.about__img').forEach((el, i) => {
         //     el.style.transform = `translateY(${translateYVal }px)` //+ translateYVal * (3 - i) * 2
         // })
-    }
+    } //else document.querySelector('#cursor').classList.remove('scroll')
 }
