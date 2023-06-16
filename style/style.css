@@ -3335,7 +3335,6 @@ picture img {
 
 .appartments__list {
   padding-left: 100px;
-  max-width: 1084px;
 }
 
 .appartments__list-item {
@@ -3447,6 +3446,12 @@ picture img {
   font-weight: 400;
   font-size: 25px;
   line-height: 105%;
+}
+
+@media screen and (max-width: 1600px) {
+  .appartments {
+    max-width: 884px;
+  }
 }
 
 .plannings__container {
@@ -3620,6 +3625,7 @@ picture img {
   font-size: 40px;
   line-height: 105%;
   margin-bottom: 15px;
+  letter-spacing: -0.025em;
 }
 
 .plannings__text {
@@ -3627,6 +3633,7 @@ picture img {
   font-weight: 400;
   font-size: 20px;
   line-height: 125%;
+  letter-spacing: -0.025em;
 }
 
 .plannings__cards .owl-stage {

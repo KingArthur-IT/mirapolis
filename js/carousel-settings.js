@@ -103,6 +103,14 @@ $(document).ready(function(){
     nav: false,
     dots: false,
     items: 5.3,
+    responsive: {
+      0: {
+        items: 4.5
+      },
+      1600: {
+        items: 5.3
+      },
+    }
   });
 
   $('.plannings__slider-btns .controls__item.left').click(function() {
