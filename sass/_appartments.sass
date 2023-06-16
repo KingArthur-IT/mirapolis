@@ -1,6 +1,6 @@
 .appartments
     &__container
-        padding: 40px 0
+        padding: 40px 0 100px
         display: flex
     &__title-wrapper
         overflow: hidden
@@ -43,7 +43,7 @@
         background: transparent
     &__list
         padding-left: 100px
-        // max-width: 1084px
+        max-width: calc(100% - 600px)
         // max-height: 100vh
         // overflow-y: scroll
     &__list-item
@@ -105,8 +105,3 @@
         font-weight: 400
         font-size: 25px
         line-height: 105%
-
-@media screen and (max-width: 1600px)
-    .appartments
-        &__list
-        max-width: 884px

@@ -3286,7 +3286,7 @@ picture img {
 }
 
 .appartments__container {
-  padding: 40px 0;
+  padding: 40px 0 100px;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -3358,6 +3358,7 @@ picture img {
 
 .appartments__list {
   padding-left: 100px;
+  max-width: calc(100% - 600px);
 }
 
 .appartments__list-item {
@@ -3469,12 +3470,6 @@ picture img {
   font-weight: 400;
   font-size: 25px;
   line-height: 105%;
-}
-
-@media screen and (max-width: 1600px) {
-  .appartments {
-    max-width: 884px;
-  }
 }
 
 .plannings__container {

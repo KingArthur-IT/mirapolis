@@ -31,14 +31,14 @@ ScrollTrigger.create({
 });
 
 //appartments
-// ScrollTrigger.create({
-//   trigger: '.appartments', 
-//   start: 'top top', 
-//   end: () => `bottom bottom`,
-//   pin: '.appartments__content',
-//   pinSpacing: false, 
-//   markers: false, 
-// });
+ScrollTrigger.create({
+  trigger: '.appartments__container', 
+  start: 'top top', 
+  end: () => `bottom bottom`,
+  pin: '.appartments__content',
+  pinSpacing: false, 
+  markers: false, 
+});
 
 //advantages
 // Задайте селекторы для ваших колонок с картинками
