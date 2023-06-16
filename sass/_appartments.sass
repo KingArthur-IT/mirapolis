@@ -1,0 +1,106 @@
+.appartments
+    &__container
+        padding: 40px 0
+        display: flex
+    &__title-wrapper
+        overflow: hidden
+        height: fit-content
+        margin-bottom: 80px
+    &__content
+        max-width: 510px
+        min-width: 510px
+        padding-left: 40px
+        margin-right: 90px
+    &__title
+        font-weight: 400
+        font-size: 90px
+        line-height: 105%
+        letter-spacing: -0.025em
+        transform: translateY(100%)
+        &.anim-active
+            transform: translateY(0%)
+    &__text
+        font-family: 'GT Pressura Mono'
+        font-style: normal
+        font-weight: 400
+        font-size: 20px
+        line-height: 125%
+        margin-bottom: 80px
+    &__btns
+        display: flex
+    &__more
+        height: 48px
+        padding: 0 16px
+        font-weight: 500
+        font-size: 20px
+        margin-right: 40px
+    &__skip
+        font-weight: 500
+        font-size: 18px
+        color: #8A8A8A
+        padding: 4px 10px
+        background: transparent
+    &__list
+        // max-height: 100vh
+        // overflow-y: scroll
+        padding-left: 100px
+        max-width: 1084px
+    &__list-item
+        margin-bottom: 150px
+        &:last-child
+            margin-bottom: 0
+    &__carousel-wrapper
+        display: flex
+        position: relative
+        & .controls
+            position: absolute
+            top: 50%
+            left: -80px
+            transform: translateY(-50%)
+            display: flex
+            flex-direction: column
+            align-items: center
+            padding: 2px 0
+            transform: translateY(-50%)
+            &__item
+                width: 52px
+                height: 40px
+                border-radius: 300px
+                background: $primary-color
+                margin: 10px 0
+                display: flex
+                align-items: center
+                justify-content: center
+                cursor: pointer
+                transition: transform .5s ease-out
+                &::before
+                    z-index: 0
+                &:hover
+                    & svg path
+                        fill: $primary-color
+                &:active
+                    background: transparent  
+                &.left svg
+                    transform: translateX(-2px)
+                &.right svg
+                    transform: translateX(1px)
+    &__item
+        padding: 0 10px
+        width: fit-content
+    &__img
+        border-radius: 20px
+        overflow: hidden
+        max-height: 540px
+        width: fit-content
+        & img
+            border-radius: 20px
+            // width: auto !important
+            height: 100%
+    &__description
+        position: absolute
+        bottom: -20px
+        left: 270px
+        transform: translateY(100%)
+        font-weight: 400
+        font-size: 25px
+        line-height: 105%

@@ -151,4 +151,46 @@ $(document).ready(function(){
     galleryOwl.trigger('prev.owl.carousel');
   })
 
+
+  //appartments 
+  var appartmentsOwl1 = $('.app-1 .appartments__carousel').owlCarousel({
+    loop: true,
+    autoplay: false,
+    slideTransition: 'ease-in-out',
+    smartSpeed: 1000,
+    autoplayTimeout: 2000,
+    autoplaySpeed: 2000,
+    nav: false,
+    dots: false,
+    items: 1.5,
+    center: false,
+  });
+
+  $('.app-1.appartments__carousel-wrapper .controls__item.left').click(function() {
+    appartmentsOwl1.trigger('next.owl.carousel');
+  })
+  $('.app-1.appartments__carousel-wrapper .controls__item.right').click(function() {
+    appartmentsOwl1.trigger('prev.owl.carousel');
+  })
+
+
+  var appartmentsOwl2 = $('.app-2 .appartments__carousel').owlCarousel({
+    loop: true,
+    autoplay: false,
+    slideTransition: 'ease-in-out',
+    smartSpeed: 1000,
+    autoplayTimeout: 2000,
+    autoplaySpeed: 2000,
+    nav: false,
+    dots: false,
+    items: 1.5,
+    center: false,
+  });
+
+  $('.app-2.appartments__carousel-wrapper .controls__item.left').click(function() {
+    appartmentsOwl2.trigger('next.owl.carousel');
+  })
+  $('.app-2.appartments__carousel-wrapper .controls__item.right').click(function() {
+    appartmentsOwl2.trigger('prev.owl.carousel');
+  })
 });
