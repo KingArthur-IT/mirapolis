@@ -4298,12 +4298,14 @@ picture img {
   font-size: 20px;
   -webkit-transition: background .3s ease-out;
   transition: background .3s ease-out;
+  border: none;
 }
 
 .contacts__form .submit span {
   z-index: 2;
   -webkit-transition: color .3s ease-out;
   transition: color .3s ease-out;
+  font-weight: 500;
 }
 
 .contacts__form .submit:hover {
@@ -4330,6 +4332,72 @@ picture img {
 .contacts__footer a {
   color: #fff;
   text-decoration: underline;
+}
+
+@media screen and (max-width: 1440px) {
+  .contacts__container {
+    max-width: 1236px;
+  }
+}
+
+@media screen and (max-width: 1280px) {
+  .contacts__container {
+    max-width: 1120px;
+  }
+}
+
+@media screen and (max-width: 1140px) {
+  .contacts__container {
+    max-width: 960px;
+  }
+}
+
+@media screen and (max-width: 860px) {
+  .contacts__container {
+    max-width: 430px;
+  }
+  .contacts__title {
+    margin-bottom: 40px;
+    text-align: left;
+  }
+  .contacts__hero {
+    padding: 0 55px;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
+  }
+  .contacts__socials {
+    margin-right: 0;
+    margin-bottom: 40px;
+  }
+  .contacts__form {
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
+    width: 100%;
+  }
+  .contacts__form .input-wrapper {
+    padding: 0;
+    margin-bottom: 10px;
+  }
+  .contacts__form .submit {
+    margin-top: 10px;
+  }
+  .contacts__footer {
+    padding: 0 70px 0 55px;
+    text-align: left;
+  }
+}
+
+@media screen and (max-width: 470px) {
+  .contacts__hero {
+    padding: 0 17px;
+  }
+  .contacts__footer {
+    padding: 0 17px;
+  }
 }
 
 .footer {

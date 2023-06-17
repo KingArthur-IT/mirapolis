@@ -43,7 +43,7 @@
         display: flex
         align-items: center
         justify-content: center
-        .input-wrapper
+        & .input-wrapper
             width: 100%
             position: relative
             display: block
@@ -94,7 +94,7 @@
                 z-index: 0
             & input.active + .active-style
                 opacity: 1
-        .submit
+        & .submit
             background: $secondary-color
             border-radius: 300px
             width: 100%
@@ -105,9 +105,11 @@
             color: $primary-color
             font-size: 20px
             transition: background .3s ease-out
+            border: none
             & span
                 z-index: 2
                 transition: color .3s ease-out
+                font-weight: 500
             &:hover
                 background: transparent
                 & span
@@ -124,3 +126,50 @@
         & a
             color: #fff
             text-decoration: underline
+
+@media screen and (max-width: 1440px)
+    .contacts
+        &__container
+            max-width: 1236px
+
+@media screen and (max-width: 1280px)
+    .contacts
+        &__container
+            max-width: 1120px
+
+@media screen and (max-width: 1140px)
+    .contacts
+        &__container
+            max-width: 960px
+
+@media screen and (max-width: 860px)
+    .contacts
+        &__container
+            max-width: 430px
+        &__title
+            margin-bottom: 40px
+            text-align: left
+        &__hero
+            padding: 0 55px
+            flex-direction: column
+        &__socials
+            margin-right: 0
+            margin-bottom: 40px
+        &__form
+            flex-direction: column
+            width: 100%
+            & .input-wrapper
+                padding: 0
+                margin-bottom: 10px
+            & .submit
+                margin-top: 10px
+        &__footer
+            padding: 0 70px 0 55px
+            text-align: left
+
+@media screen and (max-width: 470px)
+    .contacts
+        &__hero
+            padding: 0 17px
+        &__footer
+            padding: 0 17px
