@@ -8,6 +8,7 @@
         width: fit-content
         margin: 0 auto
         margin-bottom: 40px
+        padding: 0 20px
     &__title
         text-align: center
     &__btns
@@ -72,7 +73,7 @@
     & .controls
         position: absolute
         top: 50%
-        left: 200px
+        left: calc(50vw - 592px - 70px)
         display: flex
         flex-direction: column
         align-items: center
@@ -140,7 +141,7 @@
             height: 100%
 
 .gallery-carousel 
-    margin-left: 250px
+    margin-left: calc(50vw - 592px)
     & .owl-stage
         display: flex
         & .gallery-carousel__item-wrapper
@@ -151,9 +152,93 @@
         &.center
             & .gallery-carousel__item-wrapper
                 padding: 20px 0
-                transform: scale(1.1)
+                transform: scale(1.05)
             & .gallery__details
                 opacity: 1
         &.right
             & .gallery-carousel__item-wrapper
                 transform: translateX(-40px)
+
+@media screen and (max-width: 1440px)
+    .gallery-carousel__wrapper
+        & .controls
+            left: 74px
+    .gallery-carousel 
+        margin-left: 116px
+
+@media screen and (max-width: 1280px)
+    .gallery-carousel__wrapper
+        & .controls
+            left: 54px
+    .gallery-carousel 
+        & .owl-item.active
+            &.center
+                & .gallery-carousel__item-wrapper
+                    transform: scale(1.07)
+
+@media screen and (max-width: 1024px)
+    .gallery-carousel__wrapper
+        & .controls
+            left: 74px
+    .gallery-carousel 
+        margin-left: 116px
+    .gallery
+        &__btn
+            font-size: 18px
+            padding: 0 10px
+            height: 40px
+
+@media screen and (max-width: 768px)
+    .gallery-carousel__wrapper
+        position: relative
+        margin-left: -10px
+        & .controls
+            display: none
+    .gallery-carousel 
+        margin-left: 0px
+
+@media screen and (max-width: 600px)
+    .gallery
+        &__btns-wrap
+            padding-left: 10px
+            width: 100%
+            overflow-x: scroll
+            -ms-overflow-style: none
+            scrollbar-width: none
+            &::-webkit-scrollbar
+                display: none
+        &__btns
+            width: 610px
+            flex-direction: row-reverse
+    .gallery-carousel__wrapper
+        margin-left: 0px
+    .gallery-carousel 
+        &__item-wrapper
+            padding: 0px 10px
+        & .owl-item.active
+            &.left
+                & .gallery__details
+                    opacity: 1
+            &.center
+                & .gallery-carousel__item-wrapper
+                    padding: 0 10px
+                    transform: scale(1)
+                & .gallery__details
+                    opacity: 0
+            &.right
+                & .gallery-carousel__item-wrapper
+                    transform: translateX(0px)
+
+@media screen and (max-width: 375px)
+    .gallery
+        &__title-wrapper
+            margin-bottom: 20px
+            padding: 0
+        &__title
+            text-align: left
+            padding: 0 10px
+        &__btns-wrap
+            padding: 0
+        &__btns
+            width: 600px
+            margin-bottom: 40px

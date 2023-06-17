@@ -136,18 +136,20 @@ picture img
   &.pointer
     background: url('../assets/cursor/pointer.svg') no-repeat !important
     background-size: cover
+    & ~ #cursor-shadow
+      opacity: 0
 #cursor-shadow
-    position: fixed
-    width: 100px
-    height: 70px
-    left: 0px
-    top: 0px
-    background: #7C84F3
-    filter: blur(25px)
-    z-index: 900
-    pointer-events: none
-    transform: translate(-50%, -50%)
-    transition: transform .2s linear
+  position: fixed
+  width: 100px
+  height: 70px
+  left: 0px
+  top: 0px
+  background: #7C84F3
+  filter: blur(25px)
+  z-index: 900
+  pointer-events: none
+  transform: translate(-50%, -50%)
+  transition: transform .2s linear, opacity .3s ease
 
 @media screen and (max-width: 1440px)
   .section

@@ -136,6 +136,26 @@ $(document).ready(function(){
       $(event.target).find(".owl-item.active").eq(1).addClass("center");
       $(event.target).find(".owl-item.active").eq(3).addClass("right");
     },
+    responsive: {
+      0: {
+        items: 1.15,
+      },
+      425: {
+        items: 1.5,
+      },
+      600: {
+        items: 2.2,
+      },
+      768: {
+        items: 2.65,
+      },
+      1024: {
+        items: 3.5,
+      },
+      1440: {
+        items: 4,
+      },
+    }
   });
 
   $('.gallery-carousel').on('changed.owl.carousel', (e) => {
@@ -144,6 +164,8 @@ $(document).ready(function(){
         $( this ).removeClass('center')
         $( this ).removeClass('right')
 
+        if (i === 0)
+          $( this ).addClass('left')
         if (i === 1)
           $( this ).addClass('center')
         if (i === 3)

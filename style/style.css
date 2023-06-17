@@ -248,6 +248,10 @@ picture img {
   background-size: cover;
 }
 
+#cursor.pointer ~ #cursor-shadow {
+  opacity: 0;
+}
+
 #cursor-shadow {
   position: fixed;
   width: 100px;
@@ -261,10 +265,10 @@ picture img {
   pointer-events: none;
   -webkit-transform: translate(-50%, -50%);
           transform: translate(-50%, -50%);
-  -webkit-transition: -webkit-transform .2s linear;
-  transition: -webkit-transform .2s linear;
-  transition: transform .2s linear;
-  transition: transform .2s linear, -webkit-transform .2s linear;
+  -webkit-transition: opacity .3s ease, -webkit-transform .2s linear;
+  transition: opacity .3s ease, -webkit-transform .2s linear;
+  transition: transform .2s linear, opacity .3s ease;
+  transition: transform .2s linear, opacity .3s ease, -webkit-transform .2s linear;
 }
 
 @media screen and (max-width: 1440px) {
@@ -3006,6 +3010,7 @@ picture img {
   width: fit-content;
   margin: 0 auto;
   margin-bottom: 40px;
+  padding: 0 20px;
 }
 
 .gallery__title {
@@ -3117,7 +3122,7 @@ picture img {
 .gallery-carousel__wrapper .controls {
   position: absolute;
   top: 50%;
-  left: 200px;
+  left: calc(50vw - 592px - 70px);
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -3239,7 +3244,7 @@ picture img {
 }
 
 .gallery-carousel {
-  margin-left: 250px;
+  margin-left: calc(50vw - 592px);
 }
 
 .gallery-carousel .owl-stage {
@@ -3258,8 +3263,8 @@ picture img {
 
 .gallery-carousel .owl-item.active.center .gallery-carousel__item-wrapper {
   padding: 20px 0;
-  -webkit-transform: scale(1.1);
-          transform: scale(1.1);
+  -webkit-transform: scale(1.05);
+          transform: scale(1.05);
 }
 
 .gallery-carousel .owl-item.active.center .gallery__details {
@@ -3269,6 +3274,111 @@ picture img {
 .gallery-carousel .owl-item.active.right .gallery-carousel__item-wrapper {
   -webkit-transform: translateX(-40px);
           transform: translateX(-40px);
+}
+
+@media screen and (max-width: 1440px) {
+  .gallery-carousel__wrapper .controls {
+    left: 74px;
+  }
+  .gallery-carousel {
+    margin-left: 116px;
+  }
+}
+
+@media screen and (max-width: 1280px) {
+  .gallery-carousel__wrapper .controls {
+    left: 54px;
+  }
+  .gallery-carousel .owl-item.active.center .gallery-carousel__item-wrapper {
+    -webkit-transform: scale(1.07);
+            transform: scale(1.07);
+  }
+}
+
+@media screen and (max-width: 1024px) {
+  .gallery-carousel__wrapper .controls {
+    left: 74px;
+  }
+  .gallery-carousel {
+    margin-left: 116px;
+  }
+  .gallery__btn {
+    font-size: 18px;
+    padding: 0 10px;
+    height: 40px;
+  }
+}
+
+@media screen and (max-width: 768px) {
+  .gallery-carousel__wrapper {
+    position: relative;
+    margin-left: -10px;
+  }
+  .gallery-carousel__wrapper .controls {
+    display: none;
+  }
+  .gallery-carousel {
+    margin-left: 0px;
+  }
+}
+
+@media screen and (max-width: 600px) {
+  .gallery__btns-wrap {
+    padding-left: 10px;
+    width: 100%;
+    overflow-x: scroll;
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+  }
+  .gallery__btns-wrap::-webkit-scrollbar {
+    display: none;
+  }
+  .gallery__btns {
+    width: 610px;
+    -webkit-box-orient: horizontal;
+    -webkit-box-direction: reverse;
+        -ms-flex-direction: row-reverse;
+            flex-direction: row-reverse;
+  }
+  .gallery-carousel__wrapper {
+    margin-left: 0px;
+  }
+  .gallery-carousel__item-wrapper {
+    padding: 0px 10px;
+  }
+  .gallery-carousel .owl-item.active.left .gallery__details {
+    opacity: 1;
+  }
+  .gallery-carousel .owl-item.active.center .gallery-carousel__item-wrapper {
+    padding: 0 10px;
+    -webkit-transform: scale(1);
+            transform: scale(1);
+  }
+  .gallery-carousel .owl-item.active.center .gallery__details {
+    opacity: 0;
+  }
+  .gallery-carousel .owl-item.active.right .gallery-carousel__item-wrapper {
+    -webkit-transform: translateX(0px);
+            transform: translateX(0px);
+  }
+}
+
+@media screen and (max-width: 375px) {
+  .gallery__title-wrapper {
+    margin-bottom: 20px;
+    padding: 0;
+  }
+  .gallery__title {
+    text-align: left;
+    padding: 0 10px;
+  }
+  .gallery__btns-wrap {
+    padding: 0;
+  }
+  .gallery__btns {
+    width: 600px;
+    margin-bottom: 40px;
+  }
 }
 
 .advantages__container {

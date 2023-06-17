@@ -17,7 +17,6 @@ window.addEventListener("load", () => {
     setTimeout(() => {
         document.querySelector('.baner__title').classList.add('shown')
         document.querySelector('.baner__label').classList.add('shown')
-        console.log(topOffset(baner));
         if (topOffset(baner) > -90)
             setTimeout(() => {
                 document.querySelector('.header').classList.add('shown')
@@ -55,7 +54,6 @@ function buildingParallaxEffect() {
 //------------------------------------------------------------------
 
 function fullScreenAnimation() {
-    console.log(currentScrollValue);
     if (currentScrollValue > buildingBreakpoint && scrollDirection > 0) {
         showFullScreenAnimation()
     }
