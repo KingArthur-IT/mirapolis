@@ -13,12 +13,15 @@
         display: flex
         justify-content: center
         margin-top: 80px
+    &__mobile-hero
+        display: none
     &__left-list    
         padding: 0 85px
     &__right-list    
         padding: 85px 85px 0
     &__item
         margin-bottom: 40px
+        width: 360px
     &__text
         font-family: 'GT Pressura Mono'
         font-weight: 400
@@ -31,3 +34,50 @@
             border-radius: 20px
             width: 100%
             height: 100%
+
+@media screen and (max-width: 1280px)
+    .advantages
+        &__item
+            width: 320px
+
+@media screen and (max-width: 1024px)
+    .advantages
+        &__item
+            width: 240px
+        &__left-list    
+            padding: 0 40px
+        &__right-list    
+            padding: 85px 40px 0
+
+@media screen and (max-width: 600px)
+    .advantages
+        &__title-wrapper
+            padding: 0 20px
+        &__hero
+            display: none
+        &__mobile-hero
+            display: block
+            margin-top: 80px
+        &__text-wrap
+            min-height: 50px
+            margin-bottom: 15px
+            display: flex
+        &__text
+            margin-top: auto
+            margin-bottom: 0px
+        &__item
+            width: 100%
+            margin-bottom: 0
+            padding-left: 20px
+
+@media screen and (max-width: 375px)
+    .advantages
+        &__title-wrapper
+            padding: 0 10px
+            margin: 0
+        &__title
+            text-align: left
+        &__mobile-hero
+            margin-top: 40px
+        &__item
+            padding: 0 10px
