@@ -1,7 +1,9 @@
 var currentScrollValue = 0
 var scrollDirection = 1
 
-const buildingBreakpoint = 160
+let buildingBreakpoint = 160
+if (window.innerWidth < 769)
+    buildingBreakpoint = 15
 
 const baner = document.querySelector('.baner')
 
@@ -25,17 +27,7 @@ window.addEventListener("load", () => {
         document.querySelector('.parallax__live').classList.add('shown')
     }, 300);
 
-    // if (window.innerWidth < 769) {
-    //     document.querySelector('body').classList.remove('overflow-hidden')
-    //     window.addEventListener('scroll', () => {
-    //         animOnScrollMobile()
-    //     }, { passive: true })
-    //     document.addEventListener("touchmove", touchMoveHandler); 
-    // }
-    // else {
-        // document.querySelector('body').addEventListener('scroll', scrollEvent)
-        document.addEventListener('scroll', scrollEvent)
-    // }
+    document.addEventListener('scroll', scrollEvent)
 });
 
 function scrollEvent() {
@@ -63,6 +55,7 @@ function buildingParallaxEffect() {
 //------------------------------------------------------------------
 
 function fullScreenAnimation() {
+    console.log(currentScrollValue);
     if (currentScrollValue > buildingBreakpoint && scrollDirection > 0) {
         showFullScreenAnimation()
     }
@@ -136,37 +129,8 @@ function animOnScroll() {
   
         if (animItemOffsetTop < animStartPoint ) {
             item.classList.add('anim-active')
-            //если это не title
-            // if (!item.classList.contains('anim-title') && !item.classList.contains('anim-title-active'))
-            //     item.classList.add('anim-active')
-            // //для title
-            // else if (!item.classList.contains('anim-title-active') && !item.classList.contains('delay-1')) { //если еще не активная или не вторая строка
-            //     splitText(item) //добавить анимация слова
-            //     if (item.classList.contains('about__title')) { //если среагировало на текст в первой строке about то запустить вторую
-            //         const secondLine = document.querySelector('.about__title.anim-item.anim-title.delay-1')
-            //         setTimeout(() => {
-            //             splitText(secondLine)
-            //         }, 1000);
-            //     }
-            // }
         }
     }
-}
-
-function splitText(item) {
-    const text = item.innerHTML
-    item.innerHTML = ''
-    text.split('').forEach((letter, ind) => {
-        const div = document.createElement('div');
-        div.style = `transform: translateY(100%); transition: transform .5s ease-in-out ${ind / 30}s`
-        
-        div.innerHTML = letter === ' ' ? '&nbsp;' : letter;                  
-        item.append(div)
-    })
-    item.classList.add('anim-title-active')
-    setTimeout(() => {
-        item.classList.add('anim-active')
-    }, 100);
 }
 
 // --------------------------------------------------------------------

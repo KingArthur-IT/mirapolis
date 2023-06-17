@@ -1,21 +1,8 @@
 .places
-    padding-top: 170px
     &__head
         display: flex
         justify-content: space-between
         margin-bottom: 80px
-    &__title-wrapper
-        overflow: hidden
-        height: fit-content
-    &__title
-        font-weight: 400
-        font-size: 90px
-        line-height: 105%
-        letter-spacing: -0.025em
-        transform: translateY(100%)
-        transition: transform 1s ease-in-out
-        &.anim-active
-            transform: translateY(0%)
     &__text-wrapper
         overflow: hidden
     &__text
@@ -168,17 +155,12 @@
             // margin-right: 0
 
 @media screen and (max-width: 1440px)
-    .places
-        &__title
-            font-size: 80px
     .places-carousel
         &__footer
             width: calc(100% + 30px)
 
 @media screen and (max-width: 1280px)
     .places
-        &__title
-            font-size: 72px
         & .controls
             margin-bottom: 0px
     .places-carousel
@@ -194,8 +176,6 @@
 
 @media screen and (max-width: 1140px)
     .places
-        &__title
-            font-size: 46px
         &__text
             font-size: 16px
             max-width: 364px
@@ -226,10 +206,6 @@
             margin-left: auto
             margin-right: 0
 
-@media screen and (max-width: 1024px)
-    .places
-        padding-top: 120px
-
 @media screen and (max-width: 860px)
     .places-carousel
         &__place
@@ -257,14 +233,7 @@
             & .places-carousel__img-wrapper
                 aspect-ratio: 1.11
 
-@media screen and (max-width: 600px)
-    .places
-        padding-top: 70px
-
 @media screen and (max-width: 375px)
-    .places
-        &__title
-            font-size: 36px
     .places-carousel
         &__item
             padding: 0 10px 0

@@ -162,6 +162,16 @@
             background-position-x: center
             background-position-y: top
             transform: scale(1) translateX(0) translateY(-5%)
+        &.shown
+            & .parallax__video
+                transform: translate(-50%, 0%)
+            &.hide
+                & .parallax__live
+                    opacity: 1
+                    pointer-events: all
+                & .parallax__video
+                    opacity: 1
+
 
 @media screen and (max-width: 768px)
     .parallax

@@ -46,6 +46,19 @@ picture img
 .section
     width: 100%
     padding: 85px 0
+    &__title-wrapper
+      overflow: hidden
+      height: fit-content
+    &__title
+      font-size: 90px
+      line-height: 105%
+      letter-spacing: -0.025em
+      font-weight: 400
+    &__anim-title
+      transform: translateY(100%)
+      transition: transform 1s ease-in-out
+      &.anim-active
+        transform: translateY(0%)
 .btn
     appearance: none
     border: none
@@ -136,10 +149,34 @@ picture img
     transform: translate(-50%, -50%)
     transition: transform .2s linear
 
+@media screen and (max-width: 1440px)
+  .section
+    &__title
+      font-size: 80px
+
 @media screen and (max-width: 1340px)
   .container
     padding: 0 20px
 
+@media screen and (max-width: 1280px)
+  .section
+    &__title
+      font-size: 72px
+
+@media screen and (max-width: 1140px)
+  .section
+    &__title
+      font-size: 46px
+
+@media screen and (max-width: 860px)
+  #cursor
+    display: none
+  #cursor-shadow
+    display: none
+
 @media screen and (max-width: 375px)
   .container
     padding: 0 10px
+  .section
+    &__title
+      font-size: 36px
