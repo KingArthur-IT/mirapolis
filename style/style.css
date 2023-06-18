@@ -3965,6 +3965,107 @@ picture img {
   line-height: 125%;
 }
 
+@media screen and (max-width: 1440px) {
+  .services__card {
+    min-width: 366px;
+  }
+}
+
+@media screen and (max-width: 1240px) {
+  .services__btn {
+    font-size: 18px;
+    height: 40px;
+  }
+  .services__cards {
+    padding: 0 30px;
+    -ms-flex-wrap: wrap;
+        flex-wrap: wrap;
+    -webkit-box-pack: start;
+        -ms-flex-pack: start;
+            justify-content: flex-start;
+    -webkit-box-align: stretch;
+        -ms-flex-align: stretch;
+            align-items: stretch;
+  }
+  .services__card-wrap {
+    padding: 0 10px 20px;
+    -ms-flex-preferred-size: 50%;
+        flex-basis: 50%;
+  }
+  .services__card {
+    height: 100%;
+  }
+}
+
+@media screen and (max-width: 860px) {
+  .services__card {
+    min-width: 100%;
+  }
+}
+
+@media screen and (max-width: 768px) {
+  .services__cards {
+    padding: 0 10px;
+  }
+  .services__icon {
+    margin-bottom: 40px;
+  }
+}
+
+@media screen and (max-width: 600px) {
+  .services__controls {
+    padding: 0 20px;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
+  }
+  .services__consult {
+    margin-bottom: 20px;
+  }
+  .services__cards {
+    padding: 0 20px;
+  }
+  .services__card-wrap {
+    padding: 0 0px 20px;
+    -ms-flex-preferred-size: 100%;
+        flex-basis: 100%;
+  }
+}
+
+@media screen and (max-width: 375px) {
+  .services__title-wrapper {
+    margin-left: 10px;
+    margin-right: auto;
+    margin-bottom: 20px;
+  }
+  .services__title {
+    text-align: left;
+  }
+  .services__controls {
+    padding: 0 10px;
+    margin-bottom: 40px;
+    -webkit-box-align: start;
+        -ms-flex-align: start;
+            align-items: flex-start;
+  }
+  .services__btn {
+    margin: 0;
+  }
+  .services__consult {
+    margin-bottom: 20px;
+  }
+  .services__cards {
+    padding: 0 10px;
+  }
+  .services__name {
+    font-size: 30px;
+  }
+  .services__text {
+    font-size: 16px;
+  }
+}
+
 .team__container {
   padding: 40px 0;
 }
