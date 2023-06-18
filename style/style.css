@@ -1244,6 +1244,7 @@ picture img {
 
 .baner__title {
   position: relative;
+  text-align: center;
 }
 
 .baner__title svg path {
@@ -5014,6 +5015,7 @@ picture img {
   font-size: 20px;
   line-height: 120%;
   margin-bottom: 15px;
+  text-align: center;
 }
 
 .footer__adress {

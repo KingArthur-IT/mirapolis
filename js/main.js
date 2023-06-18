@@ -129,10 +129,29 @@ document.addEventListener("DOMContentLoaded", () => {
   // --- menu item ---
   menu.querySelectorAll('.menu__item').forEach(el => {
     el.addEventListener('click', () => {
+      addTransform('main', 0)
+      const anchorName = el.getAttribute('data-anchor')
+      const section = document.getElementById(anchorName)
+
+      const offset = 0;
+      const sectionTop = section.offsetTop - offset;
+
+      setTimeout(() => {
+        window.scrollTo({
+          top: sectionTop,
+          behavior: 'instant'
+        });
+        menu.classList.remove('active')
+      }, 200);
+
       document.querySelector('.header__burger').classList.remove('active')
       document.querySelector('body').classList.remove('overflow-hidden')
-      menu.classList.remove('active')
       document.querySelector('.header').classList.toggle('disabled')
+      document.querySelector('.header').classList.add('menu-close')
+      setTimeout(() => {
+        document.querySelector('main').classList.remove('showMenu')
+        document.querySelector('.header').classList.remove('menu-close')
+      }, 1000);
     })
   })
 
