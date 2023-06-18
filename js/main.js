@@ -233,6 +233,9 @@ document.addEventListener("DOMContentLoaded", () => {
   document.querySelector('.give-me-booklet-btn').addEventListener('click', () => {
     openCallForm('Получить буклет')
   })
+  document.querySelector('.give-me-consult-btn').addEventListener('click', () => {
+    openCallForm('Получить консультацию')
+  })
 
   document.querySelector('.call-modal__close').addEventListener('click', closeCallForm )
   callModal.addEventListener('click', closeCallForm)
@@ -307,5 +310,13 @@ document.addEventListener("DOMContentLoaded", () => {
   }
 
   moreButton.addEventListener('click', copyAndAppendNewsItem);
+
+
+  //form send in contacts section
+  document.querySelector('.contacts__form .submit').addEventListener('click', e => {
+    e.preventDefault()
+    document.querySelector('.contacts__success').classList.add('active')
+    document.querySelector('.contacts__form').classList.add('sended')
+  })
 
 });

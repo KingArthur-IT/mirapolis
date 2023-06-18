@@ -43,6 +43,12 @@
         display: flex
         align-items: center
         justify-content: center
+        width: 100%
+        &.sended
+            transition: width .5s ease-out, opacity .2s ease-out
+            width: 0%
+            opacity: 0
+            pointer-events: none
         & .input-wrapper
             width: 100%
             position: relative
@@ -116,6 +122,28 @@
                     color: $primary-color
             &::before
                 z-index: 0
+    &__success
+        width: 0
+        opacity: 0
+        background: $secondary-color
+        height: 48px
+        align-items: center
+        justify-content: center
+        border-radius: 300px
+        z-index: 1
+        position: relative
+        transition: width .3s ease, opacity .3s ease
+        &.active
+            width: 250px
+            opacity: 1
+            display: flex
+        & .svg-wrap
+            margin-right: 13px
+            height: 21px
+        & span
+            font-size: 20px
+            font-weight: 500
+            color: $primary-color
     &__footer
         font-weight: 500
         font-size: 14px

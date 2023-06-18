@@ -932,6 +932,7 @@ picture img {
   font-size: 36px;
   color: #404040;
   margin-bottom: 40px;
+  text-align: center;
 }
 
 .call-modal__socials {
@@ -1188,6 +1189,7 @@ picture img {
 
 .call-modal__success span {
   font-size: 20px;
+  font-weight: 500;
   color: #404040;
 }
 
@@ -4796,6 +4798,15 @@ picture img {
   -webkit-box-pack: center;
       -ms-flex-pack: center;
           justify-content: center;
+  width: 100%;
+}
+
+.contacts__form.sended {
+  -webkit-transition: width .5s ease-out, opacity .2s ease-out;
+  transition: width .5s ease-out, opacity .2s ease-out;
+  width: 0%;
+  opacity: 0;
+  pointer-events: none;
 }
 
 .contacts__form .input-wrapper {
@@ -4902,6 +4913,43 @@ picture img {
 
 .contacts__form .submit::before {
   z-index: 0;
+}
+
+.contacts__success {
+  width: 0;
+  opacity: 0;
+  background: #EFA7E8;
+  height: 48px;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  border-radius: 300px;
+  z-index: 1;
+  position: relative;
+  -webkit-transition: width .3s ease, opacity .3s ease;
+  transition: width .3s ease, opacity .3s ease;
+}
+
+.contacts__success.active {
+  width: 250px;
+  opacity: 1;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+}
+
+.contacts__success .svg-wrap {
+  margin-right: 13px;
+  height: 21px;
+}
+
+.contacts__success span {
+  font-size: 20px;
+  font-weight: 500;
+  color: #404040;
 }
 
 .contacts__footer {
