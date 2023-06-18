@@ -21,14 +21,15 @@ timeline.to(building, {
 
 
 // about
-ScrollTrigger.create({
-  trigger: '.about__hero', 
-  start: 'top top', 
-  end: () => `bottom bottom`,
-  pin: '.about__content',
-  pinSpacing: false, 
-  markers: false, 
-});
+if (window.innerWidth > 768)
+  ScrollTrigger.create({
+    trigger: '.about__hero', 
+    start: 'top top', 
+    end: () => `bottom bottom`,
+    pin: '.about__content',
+    pinSpacing: false, 
+    markers: false, 
+  });
 
 //appartments
 if (window.innerWidth > 1024)
@@ -50,14 +51,14 @@ const img4 = document.querySelectorAll('.advantages__right-list .advantages__ite
 
 const animation1 = gsap.fromTo(
   img1,
-  { y: 100 }, // Начальные стили
-  { y: 0, duration: 1, ease: 'power1.out' } // Конечные стили и параметры анимации
+  { y: 0 }, // Начальные стили
+  { y: -60, duration: 1, ease: 'power1.out' } // Конечные стили и параметры анимации
 );
 
 const animation2 = gsap.fromTo(
   img2,
-  { y: 100 }, // Начальные стили
-  { y: 0, duration: 1, ease: 'power3.out' } // Конечные стили и параметры анимации
+  { y: 50 }, // Начальные стили
+  { y: -60, duration: 1, ease: 'power3.out' } // Конечные стили и параметры анимации
 );
 
 

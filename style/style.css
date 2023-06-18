@@ -302,6 +302,9 @@ picture img {
   #cursor-shadow {
     display: none;
   }
+  .section {
+    padding: 20px 0;
+  }
 }
 
 @media screen and (max-width: 375px) {
@@ -1389,6 +1392,9 @@ picture img {
 }
 
 @media screen and (max-width: 768px) {
+  .baner {
+    padding-bottom: 40px;
+  }
   .baner__wrapper {
     display: -webkit-box;
     display: -ms-flexbox;
@@ -1857,6 +1863,7 @@ picture img {
       -ms-flex-direction: column;
           flex-direction: column;
   position: relative;
+  padding-top: 40px;
 }
 
 .about__title-wrapper {
@@ -2041,14 +2048,14 @@ picture img {
     overflow: visible;
   }
   .about__container {
-    padding-top: 120px;
+    padding-top: 60px;
   }
   .about__hero {
     -webkit-box-orient: vertical;
     -webkit-box-direction: normal;
         -ms-flex-direction: column;
             flex-direction: column;
-    margin-top: 40px;
+    margin-top: 0px;
     overflow: visible;
     height: auto;
   }
@@ -2057,9 +2064,13 @@ picture img {
     -webkit-box-direction: reverse;
         -ms-flex-direction: column-reverse;
             flex-direction: column-reverse;
+    padding: 40px 0;
+    height: -webkit-fit-content;
+    height: -moz-fit-content;
+    height: fit-content;
   }
   .about__btn {
-    margin-bottom: 40px;
+    margin-bottom: 0px;
   }
   .about__text {
     max-width: 100%;
@@ -2106,6 +2117,10 @@ picture img {
   .about__title {
     font-size: 9.6vw;
   }
+}
+
+.places__container {
+  padding-top: 40px;
 }
 
 .places__head {
@@ -2466,6 +2481,9 @@ picture img {
     margin-left: 0;
     margin-right: 20px;
   }
+  .places-carousel {
+    padding-bottom: 40px;
+  }
   .places-carousel__item {
     padding: 0px 20px;
   }
@@ -2818,6 +2836,11 @@ picture img {
   .video-modal__close svg {
     width: 23px;
   }
+}
+
+.map__container {
+  padding-top: 40px;
+  padding-bottom: 40px;
 }
 
 .map__title-wrapper {
@@ -4363,6 +4386,9 @@ picture img {
   .team__item {
     margin-bottom: 80px;
   }
+  .team__item-wrap:last-child .team__item {
+    margin-bottom: 0;
+  }
 }
 
 @media screen and (max-width: 425px) {
@@ -4536,6 +4562,10 @@ picture img {
   }
   .news__text {
     max-width: 100%;
+  }
+  .news__more {
+    margin: 0 auto;
+    margin-top: 20px;
   }
 }
 
@@ -4863,6 +4893,7 @@ picture img {
 }
 
 .footer {
+  margin-top: 85px;
   width: 100%;
   background: #404040;
   color: #fff;
