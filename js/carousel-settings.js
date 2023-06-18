@@ -105,6 +105,27 @@ $(document).ready(function(){
     items: 5.3,
     responsive: {
       0: {
+        items: 1.3
+      },
+      360: {
+        items: 1.5
+      },
+      460: {
+        items: 1.5
+      },
+      660: {
+        items: 2.2
+      },
+      820: {
+        items: 2.7
+      },
+      900: {
+        items: 3
+      },
+      1240: {
+        items: 4
+      },
+      1440: {
         items: 4.5
       },
       1600: {

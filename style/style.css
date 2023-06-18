@@ -3842,7 +3842,72 @@ picture img {
 }
 
 .plannings__cards .owl-stage {
-  margin-left: calc(320px);
+  margin-left: calc(50vw - 520px);
+}
+
+@media screen and (max-width: 1240px) {
+  .plannings__cards .owl-stage {
+    margin-left: 125px;
+  }
+  .plannings__btn {
+    height: 40px;
+    font-size: 18px;
+  }
+}
+
+@media screen and (max-width: 820px) {
+  .plannings__cards .owl-stage {
+    margin-left: 20px;
+  }
+}
+
+@media screen and (max-width: 600px) {
+  .plannings__title-wrapper {
+    padding: 0 20px;
+    text-align: center;
+  }
+  .plannings__controls {
+    padding: 0 20px;
+  }
+  .plannings__slider-btns {
+    display: none;
+  }
+  .plannings__btn {
+    margin-right: 0;
+  }
+}
+
+@media screen and (max-width: 460px) {
+  .plannings__name {
+    font-size: 30px;
+  }
+  .plannings__text {
+    font-size: 16px;
+  }
+  .plannings__icon {
+    margin-bottom: 40px;
+  }
+  .plannings__card {
+    min-width: 234px;
+  }
+}
+
+@media screen and (max-width: 375px) {
+  .plannings__title-wrapper {
+    padding: 0 10px;
+    text-align: left;
+    margin: 0;
+  }
+  .plannings__controls {
+    padding: 0 10px;
+    margin: 20px 0 40px;
+  }
+  .plannings__btn {
+    margin-right: auto;
+  }
+  .plannings__cards .owl-stage {
+    margin-left: 0px;
+  }
 }
 
 .services__container {
