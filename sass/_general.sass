@@ -121,9 +121,9 @@ picture img
   width: 80px
   height: 72px
   z-index: 999
-  transform: translate(-50%, -50%)
+  transform: scale(1) translate(-50%, -50%)
   pointer-events: none
-  transition: background .3s ease
+  transition: background .3s ease, transform .3s ease
   &.up
     background: url('../assets/cursor/up.svg') no-repeat
     background-size: cover
@@ -136,6 +136,7 @@ picture img
   &.pointer
     background: url('../assets/cursor/pointer.svg') no-repeat !important
     background-size: cover
+    transform: scale(0.8) translate(-50%, -50%)
     & ~ #cursor-shadow
       opacity: 0
 #cursor-shadow
@@ -150,6 +151,9 @@ picture img
   pointer-events: none
   transform: translate(-50%, -50%)
   transition: transform .2s linear, opacity .3s ease
+  &.hide
+    opacity: 0
+    transition: none
 
 @media screen and (max-width: 1440px)
   .section

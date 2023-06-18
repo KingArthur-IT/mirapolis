@@ -1,8 +1,8 @@
 .footer
     margin-top: 85px
     width: 100%
-    background: $primary-color
-    color: #fff
+    // background: $primary-color
+    // color: #fff
     &__container
         padding: 40px 0
     &__hero
@@ -75,11 +75,45 @@
         font-size: 20px
         letter-spacing: -0.025em
         border: none
+    &__title-wrapper
+        overflow: hidden
     &__main-logo
         width: 100%
+        position: relative
         & svg
             width: 100%
             height: fit-content
+            & path
+                transform: translateY(100%)
+                transition: transform 1s ease-in-out
+                &:nth-child(1)
+                    transform: translateY(100%) skew(-10deg, 10deg)
+                &:nth-child(2)
+                    transform: translateY(100%) skew(-10deg, 10deg)
+                    transition-delay: 0.35s
+                &:nth-child(3)
+                    transform: translateY(100%) skew(-10deg, 10deg)
+                    transition-delay: 0.05s
+                &:nth-child(4)
+                    transform: translateY(100%) skew(-10deg, 10deg)
+                    transition-delay: 0.1s
+                &:nth-child(5)
+                    transform: translateY(100%) skew(-10deg, 10deg)
+                    transition-delay: 0.2s
+                &:nth-child(6)
+                    transform: translateY(100%) skew(-10deg, 10deg)
+                    transition-delay: 0.25s
+                &:nth-child(7)
+                    transform: translateY(100%) skew(-10deg, 10deg)
+                    transition-delay: 0.4s
+                &:nth-child(8)
+                    transform: translateY(100%) skew(-10deg, 10deg)
+                    transition-delay: 0.15s
+                &:nth-child(9)
+                    transform: translateY(100%) skew(-10deg, 10deg)
+                    transition-delay: 0.3s
+        &.anim-active svg path
+            transform: translateY(0) skew(0deg, 0deg)
     &__contacts
         width: 100%
         display: flex

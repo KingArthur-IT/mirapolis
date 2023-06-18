@@ -1,3 +1,7 @@
+const addTransform = (query, value) => {
+  document.querySelector(query).style.transform = `translateY(${ -value }px)`
+}
+
 document.addEventListener("DOMContentLoaded", () => {
   //cursor
   const follower = document.querySelector('#cursor');
@@ -20,6 +24,13 @@ document.addEventListener("DOMContentLoaded", () => {
   const radius = 100; // Здесь можно задать нужный радиус
   
   document.addEventListener('mousemove', function(event) {
+    if (document.querySelector('#cursor-shadow').classList.contains('hide')) {
+      setTimeout(() => {
+        document.querySelector('#cursor-shadow').classList.remove('hide')
+      }, 100);
+      followerShadow.style.transform = `translate3d(${event.clientX - 50}px, ${event.clientY - 35}px, 0)`;
+    }
+
     // Вычисление расстояния от исходной позиции до текущих координат курсора
     const dx = event.clientX - currentX;
     const dy = event.clientY - currentY;
@@ -79,7 +90,7 @@ document.addEventListener("DOMContentLoaded", () => {
   }
   animate()
 
-  const pointerArr = [...document.querySelectorAll('.btn'), ...document.querySelectorAll('a'), ...document.querySelectorAll('input')]
+  const pointerArr = [...document.querySelectorAll('.btn'), ...document.querySelectorAll('a'), ...document.querySelectorAll('input'), ...document.querySelectorAll('.video-modal'), ...document.querySelectorAll('.live-modal')]
 
   pointerArr.forEach(el => el.addEventListener('mouseenter', () => {
     isCursorChangeDisable = true
@@ -106,9 +117,11 @@ document.addEventListener("DOMContentLoaded", () => {
       addTransform('main', -window.innerHeight)
     }
     else {
-      addTransform('main', window.innerHeight)
+      addTransform('main', 0)
+      document.querySelector('.header').classList.add('menu-close')
       setTimeout(() => {
         document.querySelector('main').classList.remove('showMenu')
+        document.querySelector('.header').classList.remove('menu-close')
       }, 1000);
     }
   })

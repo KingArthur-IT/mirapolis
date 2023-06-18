@@ -7,7 +7,7 @@ if (window.innerWidth < 769)
 
 const baner = document.querySelector('.baner')
 
-const topOffset = (el) => { //?
+const topOffset = (el) => {
     const rect = el.getBoundingClientRect()
     return rect.top 
 }
@@ -100,10 +100,15 @@ function changeBgColor() {
 
     const advSection = document.querySelector('.advantages')
     const advOffset = topOffset(advSection)
+
+    const footerSection = document.querySelector('.footer')
+    const footerOffset = topOffset(footerSection)
+
     const animStartPoint = window.innerHeight / 2
 
     if ((maxOffset < animStartPoint && maxOffset > -maxSection.clientHeight + animStartPoint) || 
-        (advOffset < animStartPoint && advOffset > -advSection.clientHeight + animStartPoint)
+        (advOffset < animStartPoint && advOffset > -advSection.clientHeight + animStartPoint) ||
+        (footerOffset < animStartPoint && footerOffset > -footerSection.clientHeight + animStartPoint)
     ) {
         document.querySelector('main').classList.add('dark')
         document.querySelector('header').classList.add('dark')

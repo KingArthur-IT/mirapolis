@@ -39,30 +39,59 @@
     &__card-wrap
         padding: 0 10px
     &__card
+        position: relative
         min-width: 420px
         border-radius: 20px
         background: $primary-color
         padding: 20px
         color: #FFFFFF
         transition: color .3s ease-in-out, background .3s ease-in-out
-        &:hover
+        overflow: hidden
+        &.active
             background: $secondary-color
             color: $primary-color
             & svg path
                 fill: $primary-color
+        &::after
+            content: ''
+            position: absolute
+            background: linear-gradient(108.36deg, #7C84F3 15.1%, #949AE9 34.9%, #90BFE8 48.96%, #8CD9E7 66.67%, #88FBE6 77.6%)
+            top: 0
+            bottom: 0
+            left: 0
+            right: 0
+            z-index: 0
+            opacity: 0
+            transition: opacity .3s ease-in-out
+        &:hover
+            &::after
+                opacity: 1
+            & .services__icon svg path
+                fill: $primary-color
+            & .services__name
+                color: $primary-color
+            & .services__text
+                color: $primary-color
     &__icon
         margin-bottom: 80px
+        position: relative
+        z-index: 2
         & svg path
             transition: fill .3s ease-in-out
     &__name
         font-size: 40px
         line-height: 105%
         margin-bottom: 15px
+        position: relative
+        z-index: 2
     &__text
         font-family: 'GT Pressura Mono'
         font-weight: 400
         font-size: 20px
         line-height: 125%
+        position: relative
+        z-index: 2
+
         
 @media screen and (max-width: 1440px)
     .services
