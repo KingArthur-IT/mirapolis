@@ -42,6 +42,17 @@ if (window.innerWidth > 1024)
     markers: false, 
   });
 
+//news
+if (window.innerWidth > 1024)
+  ScrollTrigger.create({
+    trigger: '.news__container', 
+    start: 'top top', 
+    end: () => `bottom bottom`,
+    pin: '.news__left',
+    pinSpacing: false, 
+    markers: false, 
+  });
+
 //advantages
 // Задайте селекторы для ваших колонок с картинками
 const img1 = document.querySelector('.advantages__left-list .advantages__item');
