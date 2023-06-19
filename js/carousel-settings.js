@@ -259,4 +259,25 @@ $(document).ready(function(){
     items: 1.5,
     center: false,
   });
+
+  //gallery-modal
+  var galleryModal = $('.gallery-modal__carousel').owlCarousel({
+    loop: true,
+    autoplay: false,
+    slideTransition: 'ease-in-out',
+    smartSpeed: 1000,
+    autoplayTimeout: 2000,
+    autoplaySpeed: 2000,
+    nav: false,
+    dots: false,
+    items: 1,
+    center: false,
+  });
+
+  $('.gallery-modal .controls__item.left').click(function() {
+    galleryModal.trigger('next.owl.carousel');
+  })
+  $('.gallery-modal .controls__item.right').click(function() {
+    galleryModal.trigger('prev.owl.carousel');
+  })
 });
