@@ -7,11 +7,13 @@
     justify-content: center
     opacity: 0
     pointer-events: none
-    transition: opacity .3s ease-out
+    transition: opacity .3s ease-out, transform .3s ease-out
     z-index: 20
+    transform: scale(0.8)
     &.active
         opacity: 1 !important
         pointer-events: all
+        transform: scale(1)
     & .controls
         position: absolute
         top: 32px
@@ -113,11 +115,22 @@
             background: #fff
             border-radius: 5px
             transition: width .3s linear
+            &.no-animation
+                transition: none
     &__play
         position: absolute
         right: 20px
         top: 38px
         z-index: 2
+        & .play
+            display: block
+        & .pause
+            display: none
+        &.active
+            & .play
+                display: none
+            & .pause
+                display: block
 
 @media screen and (max-width: 1024px)
     .gallery-modal

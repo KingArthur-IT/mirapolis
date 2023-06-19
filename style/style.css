@@ -2803,7 +2803,7 @@ picture img {
 
 .video-modal__item {
   width: 100%;
-  padding: 20px;
+  padding: 20px 0;
 }
 
 .video-modal__item video {
@@ -2843,8 +2843,7 @@ picture img {
 
 @media screen and (max-width: 600px) {
   .video-modal__item {
-    padding: 10px;
-    padding-bottom: 8px;
+    padding: 10px 0 80px;
   }
   .video-modal__close {
     right: 20px;
@@ -2871,14 +2870,20 @@ picture img {
           justify-content: center;
   opacity: 0;
   pointer-events: none;
-  -webkit-transition: opacity .3s ease-out;
-  transition: opacity .3s ease-out;
+  -webkit-transition: opacity .3s ease-out, -webkit-transform .3s ease-out;
+  transition: opacity .3s ease-out, -webkit-transform .3s ease-out;
+  transition: opacity .3s ease-out, transform .3s ease-out;
+  transition: opacity .3s ease-out, transform .3s ease-out, -webkit-transform .3s ease-out;
   z-index: 20;
+  -webkit-transform: scale(0.8);
+          transform: scale(0.8);
 }
 
 .gallery-modal.active {
   opacity: 1 !important;
   pointer-events: all;
+  -webkit-transform: scale(1);
+          transform: scale(1);
 }
 
 .gallery-modal .controls {
@@ -3041,11 +3046,32 @@ picture img {
   transition: width .3s linear;
 }
 
+.gallery-modal__timeline .line.no-animation {
+  -webkit-transition: none;
+  transition: none;
+}
+
 .gallery-modal__play {
   position: absolute;
   right: 20px;
   top: 38px;
   z-index: 2;
+}
+
+.gallery-modal__play .play {
+  display: block;
+}
+
+.gallery-modal__play .pause {
+  display: none;
+}
+
+.gallery-modal__play.active .play {
+  display: none;
+}
+
+.gallery-modal__play.active .pause {
+  display: block;
 }
 
 @media screen and (max-width: 1024px) {
@@ -5220,6 +5246,13 @@ picture img {
         -ms-flex-direction: column;
             flex-direction: column;
     width: 100%;
+    height: 175px;
+  }
+  .contacts__form.sended {
+    -webkit-transition: height .5s ease-out, opacity .2s ease-out;
+    transition: height .5s ease-out, opacity .2s ease-out;
+    height: 0px;
+    width: 100%;
   }
   .contacts__form .input-wrapper {
     padding: 0;
@@ -5231,6 +5264,9 @@ picture img {
   .contacts__footer {
     padding: 0 70px 0 55px;
     text-align: left;
+  }
+  .contacts__success {
+    width: 100%;
   }
 }
 
@@ -5333,6 +5369,34 @@ picture img {
   font-size: 20px;
   letter-spacing: -0.025em;
   margin-left: 8px;
+  z-index: 2;
+  -webkit-transition: color .3s ease-out;
+  transition: color .3s ease-out;
+}
+
+.footer__load-prez svg {
+  z-index: 2;
+}
+
+.footer__load-prez svg path {
+  -webkit-transition: fill .3s ease-in-out;
+  transition: fill .3s ease-in-out;
+}
+
+.footer__load-prez:hover {
+  background: transparent;
+}
+
+.footer__load-prez:hover span {
+  color: #404040;
+}
+
+.footer__load-prez:hover svg path {
+  fill: #404040;
+}
+
+.footer__load-prez::before {
+  z-index: 0;
 }
 
 .footer__tel {
@@ -5359,6 +5423,27 @@ picture img {
   font-size: 20px;
   letter-spacing: -0.025em;
   border: none;
+  -webkit-transition: background .3s ease-out;
+  transition: background .3s ease-out;
+}
+
+.footer__call-btn span {
+  z-index: 2;
+  -webkit-transition: color .3s ease-out;
+  transition: color .3s ease-out;
+  font-weight: 500;
+}
+
+.footer__call-btn::before {
+  z-index: 0;
+}
+
+.footer__call-btn:hover {
+  background: transparent;
+}
+
+.footer__call-btn:hover span {
+  color: #404040;
 }
 
 .footer__title-wrapper {
@@ -5487,6 +5572,12 @@ picture img {
   right: 0;
   height: 1px;
   background: #fff;
+  -webkit-transition: opacity .3s ease;
+  transition: opacity .3s ease;
+}
+
+.footer__agency:hover::before {
+  opacity: 0;
 }
 
 .footer__socials {
@@ -5540,6 +5631,10 @@ picture img {
 .footer__terms a {
   color: #fff;
   text-decoration: underline;
+}
+
+.footer__terms a:hover {
+  text-decoration: none;
 }
 
 @media screen and (max-width: 1600px) {

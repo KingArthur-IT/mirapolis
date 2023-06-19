@@ -319,4 +319,74 @@ document.addEventListener("DOMContentLoaded", () => {
     document.querySelector('.contacts__form').classList.add('sended')
   })
 
+
+  //--- modal gallery ---
+  let galleryTimer = null
+  const maxGalleryTimer = 5000
+  const timerGalleryStep = 100
+  let timerGalleryIteration = 1
+  let timerGalleryProcess = 0
+  let isTimeLineRunning = false
+
+  //open
+  const galleryIntervalFunc = () => {
+    timerGalleryIteration ++
+    timerGalleryProcess = Math.round(100 * (timerGalleryIteration * timerGalleryStep) / maxGalleryTimer)
+    document.querySelector('.gallery-modal__timeline .line').style.width = `${timerGalleryProcess}%`
+    
+    if (timerGalleryProcess > 100) {
+      document.querySelector('.gallery-modal .controls__item.left').click()
+      timerGalleryIteration = 0
+      isTimeLineRunning = false
+    }
+  }
+
+  setTimeout(() => { //ждем загрузку карусели чтоб работал клик по клонам
+    document.querySelectorAll('.gallery__details').forEach((el, index) => el.addEventListener('click', () => {
+      const imgIndex = el.getAttribute('data-img-index')
+      // if (imgIndex > 0)
+      //   for (let index = 0; index < imgIndex; index++)
+      //     document.querySelector('.gallery-modal .controls__item.left').click()
+      
+
+      document.querySelector('.gallery-modal').classList.add('active')
+  
+      setTimeout(isTimeLineRunning = true, 300);  //start running after delay
+  
+      galleryTimer = setInterval(() => {
+        if (isTimeLineRunning) {
+          galleryIntervalFunc()
+        } else {
+          timerGalleryIteration = 0
+          timerGalleryProcess = 0
+          setTimeout(document.querySelector('.gallery-modal__timeline .line').style.width = 0, 200);
+          setTimeout(isTimeLineRunning = true, 500);
+        }
+      }, timerGalleryStep);
+    }))
+  }, 2000);
+
+
+  //play/pause btn
+  const galleryModalPlayBtn = document.querySelector('.gallery-modal__play')
+  galleryModalPlayBtn.addEventListener('click', () => {
+    isPlaying = galleryModalPlayBtn.classList.contains('active')
+    galleryModalPlayBtn.classList.toggle('active')
+    if (isPlaying)
+      clearInterval(galleryTimer)
+    else {
+      galleryTimer = setInterval(() => {
+        galleryIntervalFunc()
+      }, timerGalleryStep);
+    }
+  })
+
+  //close
+  document.querySelector('.gallery-modal__close').addEventListener('click', () => {
+    document.querySelector('.gallery-modal').classList.remove('active')
+    clearInterval(galleryTimer)
+    timerGalleryProcess = 0
+    timerGalleryIteration = 0
+    document.querySelector('.gallery-modal__timeline .line').style.width = 0
+  })
 });

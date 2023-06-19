@@ -161,7 +161,7 @@
     <div class="flat-select">
         
     </div>
-    <div class="gallery-modal active">
+    <div class="gallery-modal">
         <div class="owl-carousel gallery-modal__carousel">
             <div class="gallery-modal__img" style="--bg-image: url('../assets/gallery-modal/1.jpg');"></div>
             <div class="gallery-modal__img" style="--bg-image: url('../assets/gallery-modal/1.jpg');"></div>
@@ -191,12 +191,16 @@
             </div>
         </div>
         <div class="gallery-modal__timeline">
-            <div class="line"></div>
+            <div class="line no-animation"></div>
         </div>
-        <div class="btn gallery-modal__play">
-            <svg width="32" height="32" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <div class="btn gallery-modal__play active">
+            <svg class="play" width="32" height="32" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
                 <path d="M21.4563 17.6443C22.6051 16.849 22.6051 15.1509 21.4563 14.3556L13.9699 9.17271C12.6435 8.25439 10.8315 9.20377 10.8315 10.8171L10.8315 21.1828C10.8315 22.7961 12.6435 23.7455 13.9699 22.8272L21.4563 17.6443Z" fill="white"/>
-            </svg>                
+            </svg>
+            <svg class="pause" width="33" height="32" viewBox="0 0 33 32" fill="white" xmlns="http://www.w3.org/2000/svg">
+                <rect x="10" y="10" width="6" height="12" rx="2" fill="#white"/>
+                <rect x="17" y="10" width="6" height="12" rx="2" fill="#white"/>
+            </svg>                                
         </div>
     </div>
     <header class="header">
@@ -242,7 +246,7 @@
                             <div class="baner__text baner__second-text">Под открытым небом расположится Lounge-rooftop, где резиденты смогут возвыситься над городской суетой и насладиться видами на город</div>
                         </div>
                         <button class="btn parallax__video parallax__mobile-video">
-                            <div class="parallax__video-hero"> 
+                            <div class="show-video-btn parallax__video-hero"> 
                                 <svg width="125" height="125" viewBox="0 0 125 125" fill="none" xmlns="http://www.w3.org/2000/svg">
                                     <path d="M62.3188 8.4892L63.5976 11.7318L66.8402 13.0106L63.5976 14.2895L62.3188 17.532L61.0399 14.2895L57.7974 13.0106L61.0399 11.7318L62.3188 8.4892Z" fill="#404040"/>
                                     <path d="M61.3651 107.714L62.8266 110.725L66.5324 111.913L62.8266 113.1L61.3651 116.111L59.9035 113.1L56.1978 111.913L59.9035 110.725L61.3651 107.714Z" fill="#404040"/>
@@ -576,7 +580,7 @@
                                         <img src="./assets/gallery/1.jpg" alt="2">
                                     </div>
                                 </div>
-                                <button class="btn primary-btn gallery__details">
+                                <button data-img-index="0" class="btn primary-btn gallery__details">
                                     <span>Подробнее</span>
                                     <svg width="21" height="20" viewBox="0 0 21 20" fill="none" xmlns="http://www.w3.org/2000/svg">
                                         <path d="M0.831055 17.7778C0.831055 18.3671 1.06518 18.9324 1.48193 19.3491C1.89868 19.7659 2.46391 20 3.05328 20H18.6088C19.1982 20 19.7634 19.7659 20.1802 19.3491C20.5969 18.9324 20.8311 18.3671 20.8311 17.7778V2.22222C20.8311 1.63285 20.5969 1.06762 20.1802 0.650874C19.7634 0.234126 19.1982 0 18.6088 0H3.05328C2.46391 0 1.89868 0.234126 1.48193 0.650874C1.06518 1.06762 0.831055 1.63285 0.831055 2.22222V17.7778ZM10.8311 3.33333H17.4977V10H15.2755V5.55556H10.8311V3.33333ZM4.16439 10H6.38661V14.4444H10.8311V16.6667H4.16439V10Z" fill="white"/>
@@ -591,7 +595,7 @@
                                         <img src="./assets/gallery/2.jpg" alt="2">
                                     </div>
                                 </div>
-                                <button class="btn primary-btn gallery__details">
+                                <button data-img-index="1" class="btn primary-btn gallery__details">
                                     <span>Подробнее</span>
                                     <svg width="21" height="20" viewBox="0 0 21 20" fill="none" xmlns="http://www.w3.org/2000/svg">
                                         <path d="M0.831055 17.7778C0.831055 18.3671 1.06518 18.9324 1.48193 19.3491C1.89868 19.7659 2.46391 20 3.05328 20H18.6088C19.1982 20 19.7634 19.7659 20.1802 19.3491C20.5969 18.9324 20.8311 18.3671 20.8311 17.7778V2.22222C20.8311 1.63285 20.5969 1.06762 20.1802 0.650874C19.7634 0.234126 19.1982 0 18.6088 0H3.05328C2.46391 0 1.89868 0.234126 1.48193 0.650874C1.06518 1.06762 0.831055 1.63285 0.831055 2.22222V17.7778ZM10.8311 3.33333H17.4977V10H15.2755V5.55556H10.8311V3.33333ZM4.16439 10H6.38661V14.4444H10.8311V16.6667H4.16439V10Z" fill="white"/>
@@ -606,7 +610,7 @@
                                         <img src="./assets/gallery/3.jpg" alt="2">
                                     </div>
                                 </div>
-                                <button class="btn primary-btn gallery__details">
+                                <button data-img-index="2" class="btn primary-btn gallery__details">
                                     <span>Подробнее</span>
                                     <svg width="21" height="20" viewBox="0 0 21 20" fill="none" xmlns="http://www.w3.org/2000/svg">
                                         <path d="M0.831055 17.7778C0.831055 18.3671 1.06518 18.9324 1.48193 19.3491C1.89868 19.7659 2.46391 20 3.05328 20H18.6088C19.1982 20 19.7634 19.7659 20.1802 19.3491C20.5969 18.9324 20.8311 18.3671 20.8311 17.7778V2.22222C20.8311 1.63285 20.5969 1.06762 20.1802 0.650874C19.7634 0.234126 19.1982 0 18.6088 0H3.05328C2.46391 0 1.89868 0.234126 1.48193 0.650874C1.06518 1.06762 0.831055 1.63285 0.831055 2.22222V17.7778ZM10.8311 3.33333H17.4977V10H15.2755V5.55556H10.8311V3.33333ZM4.16439 10H6.38661V14.4444H10.8311V16.6667H4.16439V10Z" fill="white"/>
@@ -621,7 +625,7 @@
                                         <img src="./assets/gallery/4.jpg" alt="2">
                                     </div>
                                 </div>
-                                <button class="btn primary-btn gallery__details">
+                                <button data-img-index="3" class="btn primary-btn gallery__details">
                                     <span>Подробнее</span>
                                     <svg width="21" height="20" viewBox="0 0 21 20" fill="none" xmlns="http://www.w3.org/2000/svg">
                                         <path d="M0.831055 17.7778C0.831055 18.3671 1.06518 18.9324 1.48193 19.3491C1.89868 19.7659 2.46391 20 3.05328 20H18.6088C19.1982 20 19.7634 19.7659 20.1802 19.3491C20.5969 18.9324 20.8311 18.3671 20.8311 17.7778V2.22222C20.8311 1.63285 20.5969 1.06762 20.1802 0.650874C19.7634 0.234126 19.1982 0 18.6088 0H3.05328C2.46391 0 1.89868 0.234126 1.48193 0.650874C1.06518 1.06762 0.831055 1.63285 0.831055 2.22222V17.7778ZM10.8311 3.33333H17.4977V10H15.2755V5.55556H10.8311V3.33333ZM4.16439 10H6.38661V14.4444H10.8311V16.6667H4.16439V10Z" fill="white"/>
@@ -1435,7 +1439,7 @@
                         <div class="footer__project">
                             <div class="footer__title">Адрес проекта</div>
                             <div class="footer__adress">г. Москва, Проспект мира, 222</div>
-                            <a href="#" class="btn footer__load-prez">
+                            <a href="#" class="btn primary-btn footer__load-prez">
                                 <svg width="33" height="32" viewBox="0 0 33 32" fill="none" xmlns="http://www.w3.org/2000/svg">
                                     <path d="M25.0811 12.3333H20.0811V5H12.5811V12.3333H7.58105L16.3311 22.1111L25.0811 12.3333ZM6.33105 24.5556H26.3311V27H6.33105V24.5556Z" fill="white"/>
                                 </svg>
@@ -1445,7 +1449,7 @@
                         <div class="footer__call">
                             <div class="footer__title">Телефон для связи</div>
                             <a href="tel:+74954894149" class="footer__adress footer__tel">+7 (495) 489-41-49</a>
-                            <button class="btn primary-btn call-me-btn footer__call-btn">Перезвоните мне</button>
+                            <button class="btn primary-btn call-me-btn footer__call-btn"><span>Перезвоните мне</span></button>
                         </div>
                         <div class="footer__contacts">
                             <a href="#" class="footer__agency">Агентствам недвижимости по вопросам сотрудничества</a>
@@ -1530,11 +1534,11 @@
         </footer>
     </main>
     <!-- <script src="https://cdn.jsdelivr.net/npm/hls.js@latest"></script> -->
-    <script src="./js/main.js"></script>
-    <script src="./js/animations.js"></script>
     <script src="./js/jquery.slim.js"></script>
     <script src="./js/owl.carousel.min.js"></script>
     <script src="./js/carousel-settings.js"></script>
+    <script src="./js/main.js"></script>
+    <script src="./js/animations.js"></script>
 
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.9.1/gsap.min.js"></script>
     <script src="./js/gsap/ScrollTrigger.min.js"></script>

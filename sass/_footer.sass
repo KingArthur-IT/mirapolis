@@ -56,6 +56,20 @@
             font-size: 20px
             letter-spacing: -0.025em
             margin-left: 8px
+            z-index: 2
+            transition: color .3s ease-out
+        & svg
+            z-index: 2
+            & path
+                transition: fill .3s ease-in-out
+        &:hover
+            background: transparent
+            & span
+                color: $primary-color
+            & svg path
+                fill: $primary-color
+        &::before
+            z-index: 0
     &__tel
         position: relative
         color: #FFFFFF
@@ -76,6 +90,17 @@
         font-size: 20px
         letter-spacing: -0.025em
         border: none
+        transition: background .3s ease-out
+        & span
+            z-index: 2
+            transition: color .3s ease-out
+            font-weight: 500
+        &::before
+            z-index: 0
+        &:hover
+            background: transparent
+            & span
+                color: $primary-color
     &__title-wrapper
         overflow: hidden
     &__main-logo
@@ -138,6 +163,10 @@
             right: 0
             height: 1px
             background: #fff
+            transition: opacity .3s ease
+        &:hover
+            &::before
+                opacity: 0
     &__socials
         display: flex
         justify-content: space-between
@@ -162,6 +191,8 @@
         & a
             color: #fff
             text-decoration: underline
+            &:hover
+                text-decoration: none
 
 @media screen and (max-width: 1600px)
     .footer
