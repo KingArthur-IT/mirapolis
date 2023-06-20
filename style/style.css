@@ -1823,8 +1823,8 @@ picture img {
     background-size: cover;
     background-position-x: center;
     background-position-y: top;
-    -webkit-transition: height 1s ease-in-out .5s;
-    transition: height 1s ease-in-out .5s;
+    -webkit-transition: height 6s ease-in-out .5s;
+    transition: height 6s ease-in-out .5s;
   }
   .parallax__live {
     top: 60px;
