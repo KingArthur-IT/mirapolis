@@ -7076,6 +7076,11 @@ picture img {
     height: 40px;
     padding: 0 10px;
   }
+  .filters-small__hide {
+    height: 40px;
+    padding: 0 10px;
+    font-size: 18px;
+  }
 }
 
 @media screen and (max-width: 768px) {
@@ -7091,6 +7096,9 @@ picture img {
 }
 
 @media screen and (max-width: 425px) {
+  .filters-small__hide {
+    margin-top: 20px;
+  }
   .filters-small .filters__col.col-1 {
     -ms-flex-preferred-size: 100%;
         flex-basis: 100%;
@@ -7115,5 +7123,8 @@ picture img {
     border: none;
     margin-top: 0;
     color: rgba(255, 255, 255, 0.4);
+  }
+  .filters-small .filters__btn::before {
+    display: none;
   }
 }

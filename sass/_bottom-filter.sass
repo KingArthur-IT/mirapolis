@@ -88,6 +88,11 @@
         &__btn
             height: 40px
             padding: 0 10px
+    .filters-small
+        &__hide
+            height: 40px
+            padding: 0 10px
+            font-size: 18px
 
 @media screen and (max-width: 768px)
     .filters-small.filters
@@ -99,6 +104,8 @@
 
 @media screen and (max-width: 425px)
     .filters-small
+        &__hide
+            margin-top: 20px
         & .filters__col
             &.col-1
                 flex-basis: 100%
@@ -116,3 +123,5 @@
             border: none
             margin-top: 0
             color: rgba(255, 255, 255, 0.4)
+            &::before
+                display: none
