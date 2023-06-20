@@ -7108,6 +7108,12 @@ picture img {
         flex-basis: 100%;
   }
   .filters-small .filters__btn {
-    margin: 40px auto;
+    position: absolute;
+    top: 14px;
+    right: 0;
+    height: 40px;
+    border: none;
+    margin-top: 0;
+    color: rgba(255, 255, 255, 0.4);
   }
 }
