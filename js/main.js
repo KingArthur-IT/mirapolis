@@ -445,4 +445,20 @@ document.addEventListener("DOMContentLoaded", () => {
     selectedAppartModal.classList.remove('active')
     document.querySelector('body').classList.remove('overflow-hidden')
   })
+
+  //filters
+  document.querySelector('.bottom-filter__btn').addEventListener('click', () => {
+    document.querySelector('.filters-small').classList.add('active')
+  })
+  document.querySelector('.filters-small__hide').addEventListener('click', () => {
+    document.querySelector('.filters-small').classList.remove('active')
+  })
+
+  document.querySelector('.flat-select__hero').addEventListener('scroll', () => {
+    const scrollOffset = document.querySelector('.flat-select__table-wrapper').getBoundingClientRect().top
+    if (scrollOffset < 200) {
+      document.querySelector('.bottom-filter__btn').classList.add('shown')
+    } else 
+    document.querySelector('.bottom-filter__btn').classList.remove('shown')
+  })
 });

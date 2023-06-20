@@ -41,7 +41,6 @@ function scrollEvent() {
     changeBgColor()
     aboutAnimation()
     advantagesAnimation()
-    
 }
 
 function buildingParallaxEffect() {

@@ -1,0 +1,112 @@
+.bottom-filter
+    position: fixed
+    bottom: 40px
+    left: 50%
+    transform: translateX(-50%)
+    &__btn
+        min-width: 210px
+        height: 48px
+        padding: 0 16px
+        background: $secondary-color
+        border: none
+        font-weight: 500
+        font-size: 20px
+        transition: background .3s ease-out, opacity .3s ease
+        opacity: 0
+        pointer-events: none
+        &.shown
+            opacity: 1
+            pointer-events: all
+        & span
+            z-index: 2
+        & svg
+            z-index: 2
+            margin-left: 8px
+        &:hover
+            background: #fff
+        &::before
+            z-index: 0
+
+.filters-small
+    position: fixed
+    bottom: 40px
+    left: 50%
+    transform: translateX(-50%)
+    max-width: 800px
+    margin-bottom: 0
+    flex-wrap: wrap
+    align-items: flex-start
+    pointer-events: none
+    opacity: 0
+    transition: opacity .3s ease
+    z-index: 10
+    &.active
+        opacity: 1
+        pointer-events: all
+    & .filters__col
+        &.col-1
+            flex-basis: 50%
+        &.col-2
+            flex-basis: 50%
+        &.col-3
+            flex-basis: 50%
+        &.col-4
+            flex-basis: 50%
+            margin-top: 10px
+    & .filters__counts
+        &.corps
+            & .filters__count
+                &:nth-child(even)
+                    margin-right: 20px
+        &.rooms
+            & .filters__count
+                &:nth-child(3)
+                    margin-right: 20px
+    & .filters__square
+        margin-top: 10px
+    &__hide
+        height: 48px
+        padding: 0 16px
+        background: #fff
+        border: none
+        font-weight: 500
+        font-size: 20px
+        transition: background .3s ease-out
+        margin: 0 auto
+        & span
+            z-index: 2
+        & svg
+            z-index: 2
+            margin-left: 8px
+        &:hover
+            background: transparent
+        &::before
+            z-index: 0
+
+@media screen and (max-width: 1024px)
+    .bottom-filter
+        &__btn
+            height: 40px
+            padding: 0 10px
+
+@media screen and (max-width: 768px)
+    .filters-small.filters
+        display: flex
+    .bottom-filter
+        &__btn
+            opacity: 1
+            pointer-events: all
+
+@media screen and (max-width: 425px)
+    .filters-small
+        & .filters__col
+            &.col-1
+                flex-basis: 100%
+            &.col-2
+                flex-basis: 100%
+            &.col-3
+                flex-basis: 100%
+            &.col-4
+                flex-basis: 100%
+        & .filters__btn
+            margin: 40px auto
