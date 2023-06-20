@@ -267,7 +267,7 @@
                                 <th>Этаж</th>
                             </thead>
                             <tbody>
-                                <tr>
+                                <tr class="go-to-selected-appart">
                                     <td>
                                         <img src="./assets/appartments-modal/1.jpg" alt="1">
                                     </td>
@@ -280,7 +280,7 @@
                                     <td>3</td>
                                     <td>14</td>
                                 </tr>
-                                <tr>
+                                <tr class="go-to-selected-appart">
                                     <td>
                                         <img src="./assets/appartments-modal/1.jpg" alt="1">
                                     </td>
@@ -293,7 +293,7 @@
                                     <td>3</td>
                                     <td>14</td>
                                 </tr>
-                                <tr>
+                                <tr class="go-to-selected-appart">
                                     <td>
                                         <img src="./assets/appartments-modal/1.jpg" alt="1">
                                     </td>
@@ -306,7 +306,7 @@
                                     <td>3</td>
                                     <td>14</td>
                                 </tr>
-                                <tr>
+                                <tr class="go-to-selected-appart">
                                     <td>
                                         <img src="./assets/appartments-modal/1.jpg" alt="1">
                                     </td>
@@ -319,7 +319,7 @@
                                     <td>3</td>
                                     <td>14</td>
                                 </tr>
-                                <tr>
+                                <tr class="go-to-selected-appart">
                                     <td>
                                         <img src="./assets/appartments-modal/1.jpg" alt="1">
                                     </td>
@@ -339,7 +339,89 @@
             </div>
         </div>
     </div>
-    <div class="gallery-modal">
+    <div class="flat-selected" style="opacity: 0;">
+        <div class="container">
+            <div class="flat-selected__container">
+                <div class="flat-selected__hero">
+                    <div class="flat-selected__left">
+                        <div class="flat-selected__left-controls">
+                            <button class="btn primary-btn flat-selected__close">
+                                <svg width="32" height="32" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                    <path fill-rule="evenodd" clip-rule="evenodd" d="M19.7068 8.62639C20.0973 9.01691 20.0973 9.65008 19.7068 10.0406L13.7472 16.0002L19.7068 21.9597C20.0973 22.3502 20.0973 22.9834 19.7068 23.3739C19.3163 23.7645 18.6831 23.7645 18.2926 23.3739L11.6259 16.7073C11.2354 16.3167 11.2354 15.6836 11.6259 15.2931L18.2926 8.62639C18.6831 8.23587 19.3163 8.23587 19.7068 8.62639Z" fill="white"/>
+                                </svg>                                                                             
+                            </button>
+                            <button class="btn primary-btn give-me-consult-btn flat-selected__consult"><span>Получить консультацию</span></button>
+                        </div>
+                        <div class="flat-selected__label">
+                            <span>1 корпус</span>
+                            <span>14 этаж</span>
+                            <span>2 секция</span>
+                        </div>
+                        <div class="flat-selected__info">
+                            <div class="flat-selected__info-row">
+                                <div class="name">Площадь</div>
+                                <div class="value">96.2 м2</div>
+                            </div>
+                            <div class="flat-selected__info-row">
+                                <div class="name">Отделка</div>
+                                <div class="value">White box</div>
+                            </div>
+                            <div class="flat-selected__info-row">
+                                <div class="name">Комнат</div>
+                                <div class="value">3</div>
+                            </div>
+                        </div>
+                        <div class="flat-selected__controls">
+                            <button class="btn primary-btn active"><span>Дом</span></button>
+                            <button class="btn primary-btn"><span>План этажа</span></button>
+                        </div>
+                        <div class="flat-selected__towers">
+                            <img src="./assets/appartments-modal/towers.jpg" alt="">
+                        </div>
+                    </div>
+                    <div class="flat-selected__center">
+                        <div class="flat-selected__compas">
+                            <img src="./assets/appartments-modal/Compass.png" alt="">
+                        </div>
+                        <div class="flat-selected__full">
+                            <img src="./assets/appartments-modal/full.jpg" alt="">
+                        </div>
+                        <div class="flat-selected__rez-mobile">
+                            <div class="flat-selected__info-row">
+                                <div class="name">Квартира,N</div>
+                                <div class="value">722</div>
+                            </div>
+                            <div class="btns">
+                                <button class="btn primary-btn flat-selected__buy-btn"><span>Как купить?</span></button>
+                                <button class="btn primary-btn flat-selected__buy-btn mb-0"><span>Рассрочка</span></button>
+                            </div>
+                        </div>
+                        <button class="btn primary-btn give-me-consult-btn flat-selected__consult"><span>Получить консультацию</span></button>
+                    </div>
+                    <div class="flat-selected__right">
+                        <div class="flat-selected__info">
+                            <div class="flat-selected__info-row">
+                                <div class="name">Квартира,N</div>
+                                <div class="value">722</div>
+                            </div>
+                            <button class="btn primary-btn flat-selected__buy-btn"><span>Как купить?</span></button>
+                            <button class="btn primary-btn flat-selected__buy-btn"><span>Рассрочка</span></button>
+                        </div>
+                    </div>
+                    <div class="flat-selected__mobile-towers">
+                        <div class="flat-selected__controls">
+                            <button class="btn primary-btn active"><span>Дом</span></button>
+                            <button class="btn primary-btn"><span>План этажа</span></button>
+                        </div>
+                        <div class="flat-selected__towers">
+                            <img src="./assets/appartments-modal/towers.jpg" alt="">
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="gallery-modal" style="opacity: 0;">
         <div class="owl-carousel gallery-modal__carousel">
             <div class="gallery-modal__img" style="--bg-image: url('../assets/gallery-modal/1.jpg');"></div>
             <div class="gallery-modal__img" style="--bg-image: url('../assets/gallery-modal/1.jpg');"></div>

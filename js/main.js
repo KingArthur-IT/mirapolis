@@ -233,9 +233,9 @@ document.addEventListener("DOMContentLoaded", () => {
   document.querySelector('.give-me-booklet-btn').addEventListener('click', () => {
     openCallForm('Получить буклет')
   })
-  document.querySelector('.give-me-consult-btn').addEventListener('click', () => {
+  document.querySelectorAll('.give-me-consult-btn').forEach(el => el.addEventListener('click', () => {
     openCallForm('Получить консультацию')
-  })
+  }))
 
   document.querySelector('.call-modal__close').addEventListener('click', closeCallForm )
   callModal.addEventListener('click', closeCallForm)
@@ -432,6 +432,17 @@ document.addEventListener("DOMContentLoaded", () => {
 
   document.querySelector('.flat-select__close').addEventListener('click', () => {
     selectAppartModal.classList.remove('active')
+    document.querySelector('body').classList.remove('overflow-hidden')
+  })
+
+  //selected apart modal
+  const selectedAppartModal = document.querySelector('.flat-selected')
+  document.querySelectorAll('.go-to-selected-appart').forEach(el => el.addEventListener('click', () => {
+    selectedAppartModal.classList.add('active')
+    document.querySelector('body').classList.add('overflow-hidden')
+  }))
+  document.querySelector('.flat-selected__close').addEventListener('click', () => {
+    selectedAppartModal.classList.remove('active')
     document.querySelector('body').classList.remove('overflow-hidden')
   })
 });
