@@ -327,6 +327,7 @@ document.addEventListener("DOMContentLoaded", () => {
   let timerGalleryIteration = 1
   let timerGalleryProcess = 0
   let isTimeLineRunning = false
+  const galeryLine = document.querySelector('.gallery-modal__timeline .line')
 
   //open
   const galleryIntervalFunc = () => {
@@ -359,8 +360,12 @@ document.addEventListener("DOMContentLoaded", () => {
         } else {
           timerGalleryIteration = 0
           timerGalleryProcess = 0
+          galeryLine.classList.add('no-animation')
           setTimeout(document.querySelector('.gallery-modal__timeline .line').style.width = 0, 200);
-          setTimeout(isTimeLineRunning = true, 500);
+          setTimeout(() => {
+            galeryLine.classList.remove('no-animation')
+            isTimeLineRunning = true
+          }, 500);
         }
       }, timerGalleryStep);
     }))
@@ -461,4 +466,40 @@ document.addEventListener("DOMContentLoaded", () => {
     } else 
     document.querySelector('.bottom-filter__btn').classList.remove('shown')
   })
+
+  //tabs btns
+  document.querySelectorAll('.gallery__btn').forEach(el => el.addEventListener('click', () => {
+    document.querySelectorAll('.gallery__btn').forEach(el => el.classList.remove('active'))
+    el.classList.add('active')
+  }))
+
+  document.querySelectorAll('.news__btn').forEach(el => el.addEventListener('click', () => {
+    document.querySelectorAll('.news__btn').forEach(el => el.classList.remove('active'))
+    el.classList.add('active')
+  }))
+
+  document.querySelectorAll('.flat-selected__controls .btn').forEach(el => el.addEventListener('click', () => {
+    document.querySelectorAll('.flat-selected__controls .btn').forEach(el => el.classList.remove('active'))
+    el.classList.add('active')
+  }))
+
+  document.querySelectorAll('.filters__counts.corps.full .btn').forEach(el => el.addEventListener('click', () => {
+    document.querySelectorAll('.filters__counts.corps.full .btn').forEach(el => el.classList.remove('active'))
+    el.classList.add('active')
+  }))
+
+  document.querySelectorAll('.filters__counts.rooms.full .btn').forEach(el => el.addEventListener('click', () => {
+    document.querySelectorAll('.filters__counts.rooms.full .btn').forEach(el => el.classList.remove('active'))
+    el.classList.add('active')
+  }))
+
+  document.querySelectorAll('.filters__counts.corps.small .btn').forEach(el => el.addEventListener('click', () => {
+    document.querySelectorAll('.filters__counts.corps.small .btn').forEach(el => el.classList.remove('active'))
+    el.classList.add('active')
+  }))
+
+  document.querySelectorAll('.filters__counts.rooms.small .btn').forEach(el => el.addEventListener('click', () => {
+    document.querySelectorAll('.filters__counts.rooms.small .btn').forEach(el => el.classList.remove('active'))
+    el.classList.add('active')
+  }))
 });

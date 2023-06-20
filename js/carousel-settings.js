@@ -293,7 +293,8 @@ $(document).ready(function(){
     hideMinMax: true, // Hide min and max labels
     hideFromTo: true, // Hide "From" and "To" labels
     onChange: function (data) {
-      console.log(data.from, data.to);
+      document.querySelectorAll('.max-app-price').forEach(el => el.innerHTML = data.to)
+      document.querySelectorAll('.min-app-price').forEach(el => el.innerHTML = data.from)
     },
   });
   $(".square-range-slider").ionRangeSlider({
@@ -306,7 +307,8 @@ $(document).ready(function(){
     hideMinMax: true, // Hide min and max labels
     hideFromTo: true, // Hide "From" and "To" labels
     onChange: function (data) {
-      console.log(data.from, data.to);
+      document.querySelectorAll('.max-app-square').forEach(el => el.innerHTML = data.to)
+      document.querySelectorAll('.min-app-square').forEach(el => el.innerHTML = data.from)
     },
   });
   $(".stage-range-slider").ionRangeSlider({
@@ -319,7 +321,8 @@ $(document).ready(function(){
     hideMinMax: true, // Hide min and max labels
     hideFromTo: true, // Hide "From" and "To" labels
     onChange: function (data) {
-      console.log(data.from, data.to);
+      document.querySelectorAll('.max-app-stage').forEach(el => el.innerHTML = data.to)
+      document.querySelectorAll('.min-app-stage').forEach(el => el.innerHTML = data.from)
     },
   });
 });

@@ -105,7 +105,13 @@
         display: flex
         align-items: center
         cursor: pointer
-        transition: opacity .3s ease-in-out
+        transition: opacity .3s ease-in-out, color .3s ease
+        & svg path
+            transition: fill .3s ease
+        &:hover
+            color: #404040cf
+            & svg path
+                fill: #404040cf
     &__svg
         display: flex
         align-items: center

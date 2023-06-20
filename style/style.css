@@ -248,8 +248,8 @@ picture img {
 #cursor.pointer {
   background: url("../assets/cursor/pointer.svg") no-repeat !important;
   background-size: cover;
-  -webkit-transform: scale(0.8) translate(-50%, -50%);
-          transform: scale(0.8) translate(-50%, -50%);
+  -webkit-transform: scale(0.8) translate(-60%, -55%);
+          transform: scale(0.8) translate(-60%, -55%);
 }
 
 #cursor.pointer ~ #cursor-shadow {
@@ -520,8 +520,21 @@ picture img {
       -ms-flex-align: center;
           align-items: center;
   cursor: pointer;
-  -webkit-transition: opacity .3s ease-in-out;
-  transition: opacity .3s ease-in-out;
+  -webkit-transition: opacity .3s ease-in-out, color .3s ease;
+  transition: opacity .3s ease-in-out, color .3s ease;
+}
+
+.header__select svg path {
+  -webkit-transition: fill .3s ease;
+  transition: fill .3s ease;
+}
+
+.header__select:hover {
+  color: #404040cf;
+}
+
+.header__select:hover svg path {
+  fill: #404040cf;
 }
 
 .header__svg {
@@ -1500,10 +1513,10 @@ picture img {
 .parallax.shown.hide .parallax__building {
   opacity: 0 !important;
   margin-top: 200px !important;
-  -webkit-transition: opacity .2s ease-in-out .2s, margin .5s ease-out, -webkit-transform .5s ease-in-out;
-  transition: opacity .2s ease-in-out .2s, margin .5s ease-out, -webkit-transform .5s ease-in-out;
-  transition: opacity .2s ease-in-out .2s, transform .5s ease-in-out, margin .5s ease-out;
-  transition: opacity .2s ease-in-out .2s, transform .5s ease-in-out, margin .5s ease-out, -webkit-transform .5s ease-in-out;
+  -webkit-transition: opacity .1s ease-in-out, margin .5s ease-out, -webkit-transform .5s ease-in-out;
+  transition: opacity .1s ease-in-out, margin .5s ease-out, -webkit-transform .5s ease-in-out;
+  transition: opacity .1s ease-in-out, transform .5s ease-in-out, margin .5s ease-out;
+  transition: opacity .1s ease-in-out, transform .5s ease-in-out, margin .5s ease-out, -webkit-transform .5s ease-in-out;
 }
 
 .parallax.shown.hide .parallax__video {
@@ -6187,7 +6200,6 @@ picture img {
   font-size: 20px;
   line-height: 120%;
   margin-bottom: 15px;
-  text-align: center;
 }
 
 .footer__adress {
@@ -6290,6 +6302,12 @@ picture img {
   right: 0;
   height: 1px;
   background: #fff;
+  -webkit-transition: opacity .3s ease;
+  transition: opacity .3s ease;
+}
+
+.footer__tel:hover::before {
+  opacity: 0;
 }
 
 .footer__call-btn {

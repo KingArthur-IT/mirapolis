@@ -32,7 +32,7 @@
                         <div data-anchor="contacts" class="btn menu__item">Контакты</div>
                     </div>
                 </div>
-                <div class="menu__select">
+                <div class="select-apart-btn menu__select">
                     <div class="menu__svg">
                         <svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
                             <path d="M17.7778 0H2.22222C0.996667 0 0 0.996667 0 2.22222V17.7778C0 19.0033 0.996667 20 2.22222 20H17.7778C19.0033 20 20 19.0033 20 17.7778V2.22222C20 0.996667 19.0033 0 17.7778 0ZM17.7778 2.22222L17.7789 6.66667H2.22222V2.22222H17.7778ZM2.22222 8.88889H11.1111V17.7778H2.22222V8.88889ZM13.3333 17.7778V8.88889H17.7789L17.78 17.7778H13.3333Z" fill="#404040"/>
@@ -212,7 +212,7 @@
                     <div class="flat-select__filters filters">
                         <div class="filters__col">
                             <div class="filters__title">Корпус:</div>
-                            <div class="filters__counts corps">
+                            <div class="filters__counts corps full">
                                 <div class="btn filters__count active"><span>1</span></div>
                                 <div class="btn filters__count"><span>2</span></div>
                                 <div class="btn filters__count"><span>3</span></div>
@@ -222,14 +222,14 @@
                         <div class="filters__col">
                             <div class="filters__range">
                                 <div>Стоимость, млн</div>
-                                <div>5,2/96</div>
+                                <div><span class="min-app-price">5,2</span>/ <span class="max-app-price">96</span> </div>
                             </div>
                             <div class="btn filters__range-input">
                                 <input type="text" class="cost-range-slider" name="my_range" value="" />
                             </div>
                             <div class="filters__range filters__square">
                                 <div>Площадь, м2</div>
-                                <div>18,4/96</div>
+                                <div><span class="min-app-square">18,4</span>/ <span class="max-app-square">96</span> </div>
                             </div>
                             <div class="btn filters__range-input">
                                 <input type="text" class="square-range-slider" name="my_range" value="" />
@@ -237,7 +237,7 @@
                         </div>
                         <div class="filters__col">
                             <div class="filters__title">Количество комнат:</div>
-                            <div class="filters__counts rooms">
+                            <div class="filters__counts rooms full">
                                 <div class="btn filters__count"><span>1</span></div>
                                 <div class="btn filters__count"><span>2</span></div>
                                 <div class="btn filters__count active"><span>3</span></div>
@@ -248,9 +248,9 @@
                         <div class="filters__col">
                             <div class="filters__range">
                                 <div>Этаж</div>
-                                <div>1/14</div>
+                                <div> <span class="min-app-stage">1</span> / <span class="max-app-stage">14</span> </div>
                             </div>
-                            <div class="filters__range-input">
+                            <div class="btn filters__range-input">
                                 <input type="text" class="stage-range-slider" name="my_range" value="" />
                             </div>
                             <button class="btn primary-btn filters__btn"><span>Сбросить</span></button>
@@ -345,7 +345,7 @@
                         <div class="flat-select__filters filters filters-small">
                             <div class="filters__col col-1">
                                 <div class="filters__title">Корпус:</div>
-                                <div class="filters__counts corps">
+                                <div class="filters__counts corps small">
                                     <div class="btn filters__count active"><span>1</span></div>
                                     <div class="btn filters__count"><span>2</span></div>
                                     <div class="btn filters__count"><span>3</span></div>
@@ -355,14 +355,14 @@
                             <div class="filters__col col-2">
                                 <div class="filters__range">
                                     <div>Стоимость, млн</div>
-                                    <div>5,2/96</div>
+                                    <div><span class="min-app-price">5,2</span>/ <span class="max-app-price">96</span> </div>
                                 </div>
                                 <div class="btn filters__range-input">
                                     <input type="text" class="cost-range-slider" name="my_range" value="" />
                                 </div>
                                 <div class="filters__range filters__square">
                                     <div>Площадь, м2</div>
-                                    <div>18,4/96</div>
+                                    <div><span class="min-app-square">18,4</span>/ <span class="max-app-square">96</span> </div>
                                 </div>
                                 <div class="btn filters__range-input">
                                     <input type="text" class="square-range-slider" name="my_range" value="" />
@@ -370,7 +370,7 @@
                             </div>
                             <div class="filters__col col-3">
                                 <div class="filters__title">Количество комнат:</div>
-                                <div class="filters__counts rooms">
+                                <div class="filters__counts rooms small">
                                     <div class="btn filters__count"><span>1</span></div>
                                     <div class="btn filters__count"><span>2</span></div>
                                     <div class="btn filters__count active"><span>3</span></div>
@@ -381,9 +381,9 @@
                             <div class="filters__col col-4">
                                 <div class="filters__range">
                                     <div>Этаж</div>
-                                    <div>1/14</div>
+                                    <div> <span class="min-app-stage">1</span> / <span class="max-app-stage">14</span> </div>
                                 </div>
-                                <div class="filters__range-input">
+                                <div class="btn filters__range-input">
                                     <input type="text" class="stage-range-slider" name="my_range" value="" />
                                 </div>
                                 <button class="btn primary-btn filters__btn"><span>Сбросить</span></button>
@@ -512,7 +512,7 @@
             </div>
         </div>
         <div class="gallery-modal__timeline">
-            <div class="line no-animation"></div>
+            <div class="line"></div>
         </div>
         <div class="btn gallery-modal__play active">
             <svg class="play" width="32" height="32" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
