@@ -1786,7 +1786,6 @@ picture img {
     margin-top: -40px;
   }
   .parallax__building {
-    display: block;
     width: 35vw;
     opacity: 0;
     -webkit-transform: scale(1) translateX(-41%) translateY(100px);
@@ -1798,10 +1797,10 @@ picture img {
   }
   .parallax__img-wrapper {
     height: 76vw;
-    -webkit-transition: opacity .5s ease-out, -webkit-transform 1s ease-out;
-    transition: opacity .5s ease-out, -webkit-transform 1s ease-out;
-    transition: opacity .5s ease-out, transform 1s ease-out;
-    transition: opacity .5s ease-out, transform 1s ease-out, -webkit-transform 1s ease-out;
+    -webkit-transition: opacity .5s ease-out, height .6s ease-in-out, -webkit-transform 1s ease-out;
+    transition: opacity .5s ease-out, height .6s ease-in-out, -webkit-transform 1s ease-out;
+    transition: opacity .5s ease-out, transform 1s ease-out, height .6s ease-in-out;
+    transition: opacity .5s ease-out, transform 1s ease-out, height .6s ease-in-out, -webkit-transform 1s ease-out;
     opacity: 0;
     -webkit-transform: translateY(50px);
             transform: translateY(50px);
@@ -1824,6 +1823,8 @@ picture img {
     background-size: cover;
     background-position-x: center;
     background-position-y: top;
+    -webkit-transition: height 1s ease-in-out .5s;
+    transition: height 1s ease-in-out .5s;
   }
   .parallax__live {
     top: 60px;
@@ -4206,6 +4207,16 @@ picture img {
     font-size: 30px;
     line-height: 105%;
     letter-spacing: -0.025em;
+  }
+  .appartments__mobile-list .accordeon__shevron {
+    -webkit-transition: -webkit-transform .3s ease-in-out;
+    transition: -webkit-transform .3s ease-in-out;
+    transition: transform .3s ease-in-out;
+    transition: transform .3s ease-in-out, -webkit-transform .3s ease-in-out;
+  }
+  .appartments__mobile-list .accordeon__shevron.rotate {
+    -webkit-transform: rotate(180deg);
+            transform: rotate(180deg);
   }
   .appartments__mobile-list .accordeon__images-wrapper {
     width: 100%;

@@ -400,6 +400,7 @@ document.addEventListener("DOMContentLoaded", () => {
   document.querySelectorAll('.accordeon__head').forEach(el => el.addEventListener('click', () => {
     // this.isBodyShown = !this.isBodyShown
     const bodyWrapper = el.nextElementSibling;
+    el.querySelector('.accordeon__shevron').classList.toggle('rotate')
     if (!bodyWrapper.style.maxHeight) {
         bodyWrapper.style.maxHeight = bodyWrapper.scrollHeight + "px";
         setTimeout(() => {
