@@ -280,4 +280,46 @@ $(document).ready(function(){
   $('.gallery-modal .controls__item.right').click(function() {
     galleryModal.trigger('prev.owl.carousel');
   })
+
+
+  //range slider
+  $(".cost-range-slider").ionRangeSlider({
+    skin: 'round',
+    type: "double",
+    min: 5.2,
+    max: 300,
+    from: 5.2,
+    to: 96,
+    hideMinMax: true, // Hide min and max labels
+    hideFromTo: true, // Hide "From" and "To" labels
+    onChange: function (data) {
+      console.log(data.from, data.to);
+    },
+  });
+  $(".square-range-slider").ionRangeSlider({
+    skin: 'round',
+    type: "double",
+    min: 18.4,
+    max: 300,
+    from: 18.4,
+    to: 96,
+    hideMinMax: true, // Hide min and max labels
+    hideFromTo: true, // Hide "From" and "To" labels
+    onChange: function (data) {
+      console.log(data.from, data.to);
+    },
+  });
+  $(".stage-range-slider").ionRangeSlider({
+    skin: 'round',
+    type: "double",
+    min: 1,
+    max: 30,
+    from: 1,
+    to: 14,
+    hideMinMax: true, // Hide min and max labels
+    hideFromTo: true, // Hide "From" and "To" labels
+    onChange: function (data) {
+      console.log(data.from, data.to);
+    },
+  });
 });

@@ -11,6 +11,7 @@
     <link href="https://fonts.googleapis.com/css2?family=Roboto+Condensed:wght@400;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="./style/owl.carousel.min.css">
     <link rel="icon" type="image/png" href="/favicon.png">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/ion-rangeslider/2.3.1/css/ion.rangeSlider.min.css"/>
 </head>
 <body>
     <div id="cursor"></div><div id="cursor-shadow" class="hide"></div>
@@ -195,8 +196,148 @@
             </div>
         </div>
     </div>
-    <div class="flat-select">
-        
+    <div class="flat-select" style="opacity: 0;">
+        <div class="container">
+            <div class="flat-select__container">
+                <div class="flat-select__head">
+                    <button class="btn primary-btn flat-select__close">
+                        <svg width="32" height="32" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <path fill-rule="evenodd" clip-rule="evenodd" d="M19.7068 8.62639C20.0973 9.01691 20.0973 9.65008 19.7068 10.0406L13.7472 16.0002L19.7068 21.9597C20.0973 22.3502 20.0973 22.9834 19.7068 23.3739C19.3163 23.7645 18.6831 23.7645 18.2926 23.3739L11.6259 16.7073C11.2354 16.3167 11.2354 15.6836 11.6259 15.2931L18.2926 8.62639C18.6831 8.23587 19.3163 8.23587 19.7068 8.62639Z" fill="white"/>
+                        </svg>                                                                             
+                    </button>
+                    <h2 class="section__title flat-select__title">Планировки</h2>
+                    <div class="flat-select__label">Найдено 12 квартир</div>
+                </div>
+                <div class="flat-select__hero">
+                    <div class="flat-select__filters filters">
+                        <div class="filters__col">
+                            <div class="filters__title">Корпус:</div>
+                            <div class="filters__counts corps">
+                                <div class="btn filters__count active"><span>1</span></div>
+                                <div class="btn filters__count"><span>2</span></div>
+                                <div class="btn filters__count"><span>3</span></div>
+                                <div class="btn filters__count"><span>4</span></div>
+                            </div>
+                        </div>
+                        <div class="filters__col">
+                            <div class="filters__range">
+                                <div>Стоимость, млн</div>
+                                <div>5,2/96</div>
+                            </div>
+                            <div class="btn filters__range-input">
+                                <input type="text" class="cost-range-slider" name="my_range" value="" />
+                            </div>
+                            <div class="filters__range filters__square">
+                                <div>Площадь, м2</div>
+                                <div>18,4/96</div>
+                            </div>
+                            <div class="btn filters__range-input">
+                                <input type="text" class="square-range-slider" name="my_range" value="" />
+                            </div>
+                        </div>
+                        <div class="filters__col">
+                            <div class="filters__title">Количество комнат:</div>
+                            <div class="filters__counts rooms">
+                                <div class="btn filters__count"><span>1</span></div>
+                                <div class="btn filters__count"><span>2</span></div>
+                                <div class="btn filters__count active"><span>3</span></div>
+                                <div class="btn filters__count"><span>4</span></div>
+                                <div class="btn filters__count"><span>5</span></div>
+                            </div>
+                        </div>
+                        <div class="filters__col">
+                            <div class="filters__range">
+                                <div>Этаж</div>
+                                <div>1/14</div>
+                            </div>
+                            <div class="filters__range-input">
+                                <input type="text" class="stage-range-slider" name="my_range" value="" />
+                            </div>
+                            <button class="btn primary-btn filters__btn"><span>Сбросить</span></button>
+                        </div>
+                    </div>
+                    <div class="flat-select__table-wrapper">
+                        <table class="flat-select__table">
+                            <thead>
+                                <th></th>
+                                <th>Корпус</th>
+                                <th>Секция</th>
+                                <th>Площадь</th>
+                                <th>Кол-во <br> комнат</th>
+                                <th>Этаж</th>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>
+                                        <img src="./assets/appartments-modal/1.jpg" alt="1">
+                                    </td>
+                                    <td>1</td>
+                                    <td>2</td>
+                                    <td>
+                                        96.2 м2
+                                        <span>White box</span>
+                                    </td>
+                                    <td>3</td>
+                                    <td>14</td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        <img src="./assets/appartments-modal/1.jpg" alt="1">
+                                    </td>
+                                    <td>1</td>
+                                    <td>2</td>
+                                    <td>
+                                        96.2 м2
+                                        <span>White box</span>
+                                    </td>
+                                    <td>3</td>
+                                    <td>14</td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        <img src="./assets/appartments-modal/1.jpg" alt="1">
+                                    </td>
+                                    <td>1</td>
+                                    <td>2</td>
+                                    <td>
+                                        96.2 м2
+                                        <span>White box</span>
+                                    </td>
+                                    <td>3</td>
+                                    <td>14</td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        <img src="./assets/appartments-modal/1.jpg" alt="1">
+                                    </td>
+                                    <td>1</td>
+                                    <td>2</td>
+                                    <td>
+                                        96.2 м2
+                                        <span>White box</span>
+                                    </td>
+                                    <td>3</td>
+                                    <td>14</td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        <img src="./assets/appartments-modal/1.jpg" alt="1">
+                                    </td>
+                                    <td>1</td>
+                                    <td>2</td>
+                                    <td>
+                                        96.2 м2
+                                        <span>White box</span>
+                                    </td>
+                                    <td>3</td>
+                                    <td>14</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
     </div>
     <div class="gallery-modal">
         <div class="owl-carousel gallery-modal__carousel">
@@ -243,7 +384,7 @@
     <header class="header">
         <nav class="header__nav">
             <button class="btn header__burger"></button>
-            <div class="header__select">
+            <div class="select-apart-btn btn header__select">
                 <div class="header__svg">
                     <svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
                         <path d="M17.7778 0H2.22222C0.996667 0 0 0.996667 0 2.22222V17.7778C0 19.0033 0.996667 20 2.22222 20H17.7778C19.0033 20 20 19.0033 20 17.7778V2.22222C20 0.996667 19.0033 0 17.7778 0ZM17.7778 2.22222L17.7789 6.66667H2.22222V2.22222H17.7778ZM2.22222 8.88889H11.1111V17.7778H2.22222V8.88889ZM13.3333 17.7778V8.88889H17.7789L17.78 17.7778H13.3333Z" fill="#404040"/>
@@ -1109,7 +1250,7 @@
                     <h2 class="section__title section__anim-title planning__title anim-item">планировок для жизни</h2>
                 </div>
                 <div class="plannings__controls">
-                    <button class="btn primary-btn plannings__btn">
+                    <button class="select-apart-btn btn primary-btn plannings__btn">
                         <span>Выбрать по параметрам</span>
                         <svg width="33" height="32" viewBox="0 0 33 32" fill="none" xmlns="http://www.w3.org/2000/svg">
                             <path d="M10.0811 15H22.5811V17.5H10.0811V15ZM6.33105 10H26.3311V12.5H6.33105V10ZM13.8311 20H18.8311V22.5H13.8311V20Z" fill="#404040"/>
@@ -1584,5 +1725,6 @@
     <script src="./js/map.js"></script>
 
     <script src="./js/gsap.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/ion-rangeslider/2.3.1/js/ion.rangeSlider.min.js"></script>
 </body>
 </html>

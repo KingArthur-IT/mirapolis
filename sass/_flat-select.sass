@@ -1,1 +1,200 @@
 .flat-select
+    position: fixed
+    width: 100%
+    background: #fff
+    opacity: 0
+    pointer-events: none
+    transition: opacity .3s ease-out
+    z-index: 20
+    height: 100vh
+    &.active
+        opacity: 1 !important
+        pointer-events: all
+    &__container
+        padding-top: 80px
+        max-width: 1330px
+        margin: 0 auto
+    &__head
+        display: flex
+        justify-content: center
+        align-items: center
+        margin-bottom: 40px
+    &__close
+        margin: 0 auto
+        background: $primary-color
+        height: 48px
+        width: 64px
+        margin: 0
+        &:before
+            z-index: 0
+        & svg
+            z-index: 2
+        &:hover
+            & svg path
+                fill: $primary-color
+    &__title
+        padding: 0 40px
+    &__label
+        height: 44px
+        padding: 0 16px
+        font-weight: 500
+        font-size: 22px
+        letter-spacing: -0.025em
+        border: 2px dashed #404040
+        border-radius: 300px
+        display: flex
+        align-items: center
+        justify-content: center
+    &__hero
+        height: calc( 100vh - 210px )
+        overflow-y: scroll
+    &__filters
+        width: 100%
+        background: $primary-color
+        padding: 20px 0
+        border-radius: 20px
+        margin-bottom: 40px
+    &__table-wrapper
+        padding: 0 20px
+    &__table
+        padding: 0 40px
+        border-spacing: 0
+        // border-collapse: collapse
+        table-layout: fixed
+        width: 100%
+        & tbody tr
+            &:hover td
+                border-top: 1px solid $primary-color
+                border-bottom: 1px solid $primary-color
+        & th
+            font-family: 'GT Pressura Mono'
+            font-style: normal
+            font-weight: 400
+            font-size: 20px
+            letter-spacing: -0.025em
+            vertical-align: baseline
+            text-align: left
+            padding-bottom: 20px
+            &:nth-child(1)
+                width: 17%
+            &:nth-child(2)
+                width: 17%
+            &:nth-child(3)
+                width: 17%
+            &:nth-child(4)
+                width: 22%
+            &:nth-child(5)
+                width: 17%
+            &:nth-child(6)
+                width: 10%
+        & td
+            font-weight: 400
+            font-size: 30px
+            line-height: 105%
+            letter-spacing: -0.025em
+            padding: 30px 0
+            border-top: 1px solid transparent
+            border-bottom: 1px solid transparent
+            transition: border .3s ease
+            & span
+                display: block
+                font-size: 18px
+            & img
+                width: 100%
+                max-width: 100px
+            &:nth-child(1)
+                width: 17%
+            &:nth-child(2)
+                width: 17%
+            &:nth-child(3)
+                width: 17%
+            &:nth-child(4)
+                width: 22%
+            &:nth-child(5)
+                width: 17%
+            &:nth-child(6)
+                width: 10%
+                
+@media screen and (max-width: 1400px)
+    .flat-select
+        &__table
+            padding: 0
+        &__hero
+           padding: 0 80px
+
+@media screen and (max-width: 1024px)
+    .flat-select
+        &__hero
+            padding: 0
+        &__label
+            padding: 0 10px
+            font-size: 20px
+            height: 40px
+
+@media screen and (max-width: 768px)
+    .flat-select
+        &__head
+            flex-wrap: wrap
+            justify-content: flex-start
+        &__table-wrapper
+            padding: 0
+        &__table
+            & th
+                text-align: center
+                &:nth-child(1)
+                    display: none
+                    width: 0%
+                &:nth-child(2)
+                    width: 18%
+                &:nth-child(3)
+                    width: 18%
+                &:nth-child(4)
+                    width: 28%
+                &:nth-child(5)
+                    width: 18%
+                &:nth-child(6)
+                    width: 18%
+            & td
+                text-align: center
+                &:nth-child(1)
+                    display: none
+                    width: 0%
+                &:nth-child(2)
+                    width: 18%
+                &:nth-child(3)
+                    width: 18%
+                &:nth-child(4)
+                    width: 28%
+                &:nth-child(5)
+                    width: 18%
+                &:nth-child(6)
+                    width: 18%
+
+@media screen and (max-width: 680px)
+    .flat-select
+        &__hero
+            height: calc( 100vh - 270px )
+        &__title
+            flex-basis: 80%
+        &__label
+            margin-top: 40px
+
+@media screen and (max-width: 600px)
+    .flat-select
+        &__table
+            & th
+                font-size: 14px
+            & td
+                font-size: 18px
+                & span
+                    font-size: 14px
+
+@media screen and (max-width: 375px)
+    .flat-select
+        &__hero
+            height: calc( 100vh - 220px )
+        &__container
+            padding-top: 40px
+        &__table
+            & td
+                padding: 15px 0

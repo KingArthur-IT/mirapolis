@@ -90,7 +90,7 @@ document.addEventListener("DOMContentLoaded", () => {
   }
   animate()
 
-  const pointerArr = [...document.querySelectorAll('.btn'), ...document.querySelectorAll('a'), ...document.querySelectorAll('input'), ...document.querySelectorAll('.video-modal'), ...document.querySelectorAll('.live-modal')]
+  const pointerArr = [...document.querySelectorAll('.btn'), ...document.querySelectorAll('a'), ...document.querySelectorAll('input'), ...document.querySelectorAll('.video-modal'), ...document.querySelectorAll('.live-modal'), ...document.querySelectorAll('td')]
 
   pointerArr.forEach(el => el.addEventListener('mouseenter', () => {
     isCursorChangeDisable = true
@@ -420,6 +420,18 @@ document.addEventListener("DOMContentLoaded", () => {
   }))
   document.querySelector('.news-modal__close').addEventListener('click', () => {
     newsModal.classList.remove('active')
+    document.querySelector('body').classList.remove('overflow-hidden')
+  })
+
+  //select appart modal
+  const selectAppartModal = document.querySelector('.flat-select')
+  document.querySelectorAll('.select-apart-btn').forEach(el => el.addEventListener('click', () => {
+    selectAppartModal.classList.add('active')
+    document.querySelector('body').classList.add('overflow-hidden')
+  }))
+
+  document.querySelector('.flat-select__close').addEventListener('click', () => {
+    selectAppartModal.classList.remove('active')
     document.querySelector('body').classList.remove('overflow-hidden')
   })
 });

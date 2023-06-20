@@ -1,0 +1,151 @@
+.filters
+    display: flex
+    justify-content: space-between
+    align-items: center
+    color: #fff
+    &__col
+        flex-basis: 25%
+        padding: 0 20px
+    &__title
+        font-weight: 500
+        font-size: 20px
+        letter-spacing: -0.025em
+        margin-bottom: 15px
+    &__counts
+        display: flex
+    &__count
+        position: relative
+        width: 52px
+        height: 48px
+        border: 2px solid #FFFFFF
+        border-radius: 300px
+        margin-right: 20px
+        display: flex
+        align-items: center
+        justify-content: center
+        transition: background .3s ease, color .3s ease
+        font-weight: 500
+        font-size: 20px
+        &.active
+            background: #fff
+            color: $primary-color
+        & span
+            z-index: 1
+        &::before
+            position: absolute
+            content: ''
+            top: 0px
+            bottom: 0px
+            left: 0px
+            right: 0px
+            border-radius: 300px
+            z-index: 0
+            opacity: 0
+            transition: opacity .3s ease-out
+            background: linear-gradient(108.36deg, #7C84F3 15.1%, #949AE9 34.9%, #90BFE8 48.96%, #8CD9E7 66.67%, #88FBE6 77.6%)
+        &:hover
+            color: #404040
+            border-color: #404040
+            &:before
+                opacity: 1
+    &__range
+        display: flex
+        align-items: center
+        justify-content: space-between
+        font-weight: 500
+        font-size: 20px
+        line-height: 158%
+        letter-spacing: -0.025em
+        &-input
+            margin-top: -20px
+    &__square
+        margin-top: 20px
+    &__btn
+        margin-top: 40px
+        background: transparent
+        margin-left: auto
+        border: 2px solid #fff
+        height: 48px
+        padding: 0 16px
+        font-weight: 500
+        font-size: 20px
+        letter-spacing: -0.025em
+        color: #FFFFFF
+        border-radius: 300px
+        &::before
+            z-index: 0
+        & span
+            z-index: 2
+.irs-from
+    display: none !important
+.irs-to
+    display: none !important
+.irs-max
+    display: none !important
+.irs-min
+    display: none !important
+.irs-line
+    height: 2px !important
+    background: rgba(255, 255, 255, 0.3) !important
+    border-radius: 10px !important
+.irs-bar
+    height: 2px !important
+    background: #fff !important
+.irs-handle
+    border: none !important
+    width: 10px !important
+    height: 10px !important
+    top: 32px !important
+
+@media screen and (max-width: 1400px)
+    .filters
+        &__col
+            &:nth-child(1)
+                flex-basis: 16%
+            &:nth-child(2)
+                flex-basis: 30%
+            &:nth-child(3)
+                flex-basis: 24%
+            &:nth-child(4)
+                flex-basis: 30%
+        &__counts
+            flex-wrap: wrap
+            &.corps
+                & .filters__count
+                    &:nth-child(even)
+                        margin-right: 0
+            &.rooms
+                & .filters__count
+                    &:nth-child(3)
+                        margin-right: 0
+        &__count
+            margin-bottom: 20px
+
+@media screen and (max-width: 1240px)
+    .filters
+        flex-wrap: wrap
+        &__col
+            &:nth-child(1)
+                flex-basis: 50%
+            &:nth-child(2)
+                flex-basis: 50%
+            &:nth-child(3)
+                flex-basis: 50%
+            &:nth-child(4)
+                flex-basis: 50%
+                margin-top: 10px
+        &__counts
+            &.corps
+                & .filters__count
+                    &:nth-child(even)
+                        margin-right: 20px
+            &.rooms
+                & .filters__count
+                    &:nth-child(3)
+                        margin-right: 20px
+        &__square
+            margin-top: 10px
+
+@media screen and (max-width: 768px)
+    .filters
+        display: none
